@@ -2,6 +2,7 @@ import Link from "next/link";
 import playersRaw from "@/data/players.json";
 import rankingsRaw from "@/data/rankings.json";
 import PlayerMoreStats from "../../components/PlayerMoreStats";
+import LastUpdatedBadge from "../../components/LastUpdatedBadge";
 
 type AnyRow = Record<string, any>;
 
@@ -148,10 +149,14 @@ export default async function PlayerProfilePage({
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="min-w-0">
             <div className="text-3xl font-semibold text-gray-100">{name}</div>
-            <div className="mt-2 text-sm text-gray-300">
-              ID: <span className="text-gray-100">{id}</span> • Team:{" "}
-              <span className="text-gray-100">{team}</span>
-            </div>
+            <div className="mt-2 flex flex-wrap items-center gap-2 text-sm text-gray-300">
+  <span>
+    ID: <span className="text-gray-100">{id}</span> • Team:{" "}
+    <span className="text-gray-100">{team}</span>
+  </span>
+
+  <LastUpdatedBadge />
+</div>
             <div className="mt-3 flex flex-wrap items-center gap-2">{trendBadge(trend)}</div>
           </div>
 
