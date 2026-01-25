@@ -1,6 +1,7 @@
 import Link from "next/link";
 import playersRaw from "@/data/players.json";
 import rankingsRaw from "@/data/rankings.json";
+import PlayerMoreStats from "../../components/PlayerMoreStats";
 
 type AnyRow = Record<string, any>;
 
@@ -29,11 +30,6 @@ function fmtInt(v: any): string {
   if (n == null) return "—";
   return String(Math.round(n));
 }
-function fmtNum(v: any, digits = 2): string {
-  const n = toNum(v);
-  if (n == null) return "—";
-  return n.toFixed(digits);
-}
 function fmtPct(v: any, digits = 1): string {
   const n = toNum(v);
   if (n == null) return "—";
@@ -61,17 +57,14 @@ function trendBadge(trend: Trend) {
 function StatCard({
   label,
   value,
-  sub,
 }: {
   label: string;
   value: React.ReactNode;
-  sub?: React.ReactNode;
 }) {
   return (
     <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
       <div className="text-xs uppercase tracking-wide text-gray-400">{label}</div>
       <div className="mt-1 text-xl font-semibold text-gray-100">{value}</div>
-      {sub ? <div className="mt-1 text-xs text-gray-400">{sub}</div> : null}
     </div>
   );
 }
@@ -128,7 +121,7 @@ export default async function PlayerProfilePage({
   const tiebreakWinPct = player?.tiebreakWinPct ?? null;
 
   // Existing advanced stats already in players.json
-  const chokeRateWhenArrivedFirst = player?.choke ?? null; // this is how your script maps it
+  const chokeRateWhenArrivedFirst = player?.choke ?? null; // mapped in script
   const clutchRating = player?.clutch ?? null;
   const reliability = player?.reliability ?? null;
 
@@ -178,40 +171,18 @@ export default async function PlayerProfilePage({
         </div>
       </div>
 
-      {/* More stats (compact) */}
-      <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-        <div className="flex items-center justify-between gap-3">
-          <div className="text-sm font-semibold text-gray-100">More stats</div>
-          <div className="text-xs text-gray-400">From players.csv</div>
-        </div>
-
-        <div className="mt-4 grid gap-3 md:grid-cols-3">
-          {/* The 3 you already had */}
-          <StatCard label="Arrive first %" value={fmtPct(arriveFirstPct, 2)} />
-
-          <StatCard
-            label="Final points"
-            value={`${fmtInt(finalPtsWon)} / ${fmtInt(finalPtsPlayed)}`}
-            sub="Won / Played"
-          />
-
-          <StatCard
-            label="Tie breaks"
-            value={`${fmtInt(tiebreakWon)} / ${fmtInt(tiebreakPlayed)}`}
-            sub={`Win%: ${fmtPct(tiebreakWinPct, 2)}`}
-          />
-
-          {/* The 3 you want added */}
-          <StatCard
-            label="Choke rate (when arrived first)"
-            value={fmtPct(chokeRateWhenArrivedFirst, 2)}
-          />
-
-          <StatCard label="Clutch rating" value={fmtNum(clutchRating, 2)} />
-
-          <StatCard label="Reliability" value={fmtNum(reliability, 2)} />
-        </div>
-      </div>
+      {/* Advanced stats toggle */}
+      <PlayerMoreStats
+        arriveFirstPct={arriveFirstPct}
+        finalPtsPlayed={finalPtsPlayed}
+        finalPtsWon={finalPtsWon}
+        tiebreakPlayed={tiebreakPlayed}
+        tiebreakWon={tiebreakWon}
+        tiebreakWinPct={tiebreakWinPct}
+        chokeRateWhenArrivedFirst={chokeRateWhenArrivedFirst}
+        clutchRating={clutchRating}
+        reliability={reliability}
+      />
     </div>
   );
 }
