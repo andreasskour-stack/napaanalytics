@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+/* Theme tokens (defaults) */
+:root {
+  --background: #000000;
+  --foreground: #ededed;
+
+  /* Effect controls */
+  --top-gradient-opacity: 0.55;
+
+  /* Glows (RGBA-ish via hex + alpha-like control using opacity in gradients) */
+  --glow-a: 255, 59, 48;   /* red */
+  --glow-b: 0, 122, 255;   /* blue */
+  --glow-strength: 0.28;   /* 0..0.35 feels good */
+
+  /* Episode theme accent (can be changed per episode) */
+  --accent: 255, 255, 255; /* white */
+  --accent-strength: 0.10;
+}
+
+html,
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*
+  Theme layer: 3 stacked effects
+  1) top gradient (subtle)
+  2) team glow (left/right)
+  3) episode accent glow (top center)
+*/
+.theme-surface {
+  position: relative;
+  min-height: 100vh;
+  background: #000;
+  color: var(--foreground);
+}
+
+.theme-surface::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background:
+    /* Episode accent glow (top center) */
+    radial-gradient(
+      900px 420px at 50% -10%,
+      rgba(var(--accent), var(--accent-strength)),
+      transparent 60%
+    ),
+
+    /* Team glows (left + right) */
+    radial-gradient(
+      800px 500px at 8% 18%,
+      rgba(var(--glow-a), var(--glow-strength)),
+      transparent 55%
+    ),
+    radial-gradient(
+      800px 500px at 92% 18%,
+      rgba(var(--glow-b), var(--glow-strength)),
+      transparent 55%
+    ),
+
+    /* Top gradient wash */
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, var(--top-gradient-opacity)),
+      transparent 30%
+    );
+
+  opacity: 0.55; /* master dial for all effects */
+  mix-blend-mode: screen; /* makes glow feel premium on black */
+}
+/* =========================
+   Napa Analytics Theme
+   ========================= */
+
+:root {
+  --napa-navy: #030b16;
+  --napa-navy2: #0e2d4d;
+  --napa-teal: #b5babb;
+
+  --bg: var(--napa-navy);
+  --panel: rgba(8, 34, 59, 0.35);
+  --panel-strong: rgba(22, 58, 95, 0.55);
+
+  --border: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.72);
+  --muted2: rgba(255, 255, 255, 0.58);
+
+  --accent: var(--napa-teal);
+  --accent-soft: rgba(47, 185, 197, 0.18);
+}
+
+/* Your existing wrappers (already used in layout.tsx) */
+.theme-surface {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.theme-content {
+  color: var(--text);
+}
+
+/* Links / accents */
+a {
+  color: var(--accent);
+}
+a:hover {
+  filter: brightness(1.08);
+}
+
+/* Reusable branded components */
+.napa-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  backdrop-filter: blur(8px);
+}
+
+.napa-card-strong {
+  background: var(--panel-strong);
+  border: 1px solid var(--border-strong);
+  border-radius: 14px;
+  backdrop-filter: blur(8px);
+}
+
+/* Tables */
+.napa-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.napa-table th {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+  padding: 12px 12px;
+}
+
+.napa-table td {
+  border-bottom: 1px solid var(--border);
+  padding: 12px 12px;
+}
+
+.napa-table tr:hover td {
+  background: rgba(47, 185, 197, 0.06);
+}
+
+/* Tabs */
+.napa-tabs {
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.napa-tab {
+  padding: 10px 12px;
+  color: var(--muted);
+  border-bottom: 2px solid transparent;
+  border-radius: 10px 10px 0 0;
+}
+
+.napa-tab:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.napa-tab-active {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+/* Make sure your actual content sits above the theme layer */
+.theme-content {
+  position: relative;
+  z-index: 1;
+}

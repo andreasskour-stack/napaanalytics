@@ -1,0 +1,703 @@
+{
+  "meta": {
+    "generatedAtISO": "2026-01-25T08:49:58.179Z",
+    "scoreSource": "src\\data\\h2h_score.csv",
+    "dominanceSource": "src\\data\\h2h_dom.csv"
+  },
+  "players": {
+    "1": {
+      "id": "1",
+      "name": "Alexandros Kourtovik"
+    },
+    "2": {
+      "id": "2",
+      "name": "Dimitris Theodoropoulos"
+    },
+    "3": {
+      "id": "3",
+      "name": "Elisavet Sekertzi"
+    },
+    "4": {
+      "id": "4",
+      "name": "Evelina Lykoudi"
+    },
+    "5": {
+      "id": "5",
+      "name": "Giannis Stinis"
+    },
+    "6": {
+      "id": "6",
+      "name": "Gio Karantonis"
+    },
+    "7": {
+      "id": "7",
+      "name": "Giorgos Karaisalidis"
+    },
+    "8": {
+      "id": "8",
+      "name": "Giorgos Tsoukalas"
+    },
+    "9": {
+      "id": "9",
+      "name": "Kelly Bofiliou"
+    },
+    "10": {
+      "id": "10",
+      "name": "Mantisa Tsota"
+    },
+    "11": {
+      "id": "11",
+      "name": "Stauroula Potiri"
+    },
+    "12": {
+      "id": "12",
+      "name": "Vasiliki Mounti"
+    },
+    "13": {
+      "id": "13",
+      "name": "Anastasia Stergiou"
+    },
+    "14": {
+      "id": "14",
+      "name": "Christos Milonas"
+    },
+    "15": {
+      "id": "15",
+      "name": "Dimitra Liaga"
+    },
+    "16": {
+      "id": "16",
+      "name": "Eleni Zaraga"
+    },
+    "17": {
+      "id": "17",
+      "name": "Fani Pantelaki"
+    },
+    "18": {
+      "id": "18",
+      "name": "Foteini Kalevra"
+    },
+    "19": {
+      "id": "19",
+      "name": "Giorgos Polychros"
+    },
+    "20": {
+      "id": "20",
+      "name": "Ioanna Desylla"
+    },
+    "21": {
+      "id": "21",
+      "name": "Ioannis Revis"
+    },
+    "22": {
+      "id": "22",
+      "name": "Manos Malliaros"
+    },
+    "23": {
+      "id": "23",
+      "name": "Michalis Sifakis"
+    },
+    "24": {
+      "id": "24",
+      "name": "Stauros Floros"
+    }
+  },
+  "score": {
+    "1|14": {
+      "aWins": 2,
+      "bWins": 0,
+      "aPct": 100,
+      "bPct": 0,
+      "total": 2,
+      "raw": "2-0"
+    },
+    "1|21": {
+      "aWins": 3,
+      "bWins": 1,
+      "aPct": 75,
+      "bPct": 25,
+      "total": 4,
+      "raw": "3-1"
+    },
+    "1|22": {
+      "aWins": 0,
+      "bWins": 3,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 3,
+      "raw": "0-3"
+    },
+    "1|23": {
+      "aWins": 1,
+      "bWins": 1,
+      "aPct": 50,
+      "bPct": 50,
+      "total": 2,
+      "raw": "1-1"
+    },
+    "1|24": {
+      "aWins": 2,
+      "bWins": 0,
+      "aPct": 100,
+      "bPct": 0,
+      "total": 2,
+      "raw": "2-0"
+    },
+    "2|14": {
+      "aWins": 2,
+      "bWins": 1,
+      "aPct": 66.66666666666666,
+      "bPct": 33.33333333333333,
+      "total": 3,
+      "raw": "2-1"
+    },
+    "2|19": {
+      "aWins": 2,
+      "bWins": 3,
+      "aPct": 40,
+      "bPct": 60,
+      "total": 5,
+      "raw": "2-3"
+    },
+    "2|22": {
+      "aWins": 0,
+      "bWins": 1,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 1,
+      "raw": "0-1"
+    },
+    "2|23": {
+      "aWins": 0,
+      "bWins": 1,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 1,
+      "raw": "0-1"
+    },
+    "2|24": {
+      "aWins": 1,
+      "bWins": 1,
+      "aPct": 50,
+      "bPct": 50,
+      "total": 2,
+      "raw": "1-1"
+    },
+    "3|13": {
+      "aWins": 0,
+      "bWins": 1,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 1,
+      "raw": "0-1"
+    },
+    "3|15": {
+      "aWins": 1,
+      "bWins": 1,
+      "aPct": 50,
+      "bPct": 50,
+      "total": 2,
+      "raw": "1-1"
+    },
+    "3|16": {
+      "aWins": 0,
+      "bWins": 1,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 1,
+      "raw": "0-1"
+    },
+    "3|17": {
+      "aWins": 0,
+      "bWins": 1,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 1,
+      "raw": "0-1"
+    },
+    "3|18": {
+      "aWins": 1,
+      "bWins": 0,
+      "aPct": 100,
+      "bPct": 0,
+      "total": 1,
+      "raw": "1-0"
+    },
+    "3|20": {
+      "aWins": 0,
+      "bWins": 1,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 1,
+      "raw": "0-1"
+    },
+    "4|13": {
+      "aWins": 1,
+      "bWins": 1,
+      "aPct": 50,
+      "bPct": 50,
+      "total": 2,
+      "raw": "1-1"
+    },
+    "4|15": {
+      "aWins": 1,
+      "bWins": 0,
+      "aPct": 100,
+      "bPct": 0,
+      "total": 1,
+      "raw": "1-0"
+    },
+    "4|16": {
+      "aWins": 3,
+      "bWins": 1,
+      "aPct": 75,
+      "bPct": 25,
+      "total": 4,
+      "raw": "3-1"
+    },
+    "4|17": {
+      "aWins": 0,
+      "bWins": 2,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 2,
+      "raw": "0-2"
+    },
+    "4|18": {
+      "aWins": 0,
+      "bWins": 2,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 2,
+      "raw": "0-2"
+    },
+    "4|20": {
+      "aWins": 0,
+      "bWins": 3,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 3,
+      "raw": "0-3"
+    },
+    "5|14": {
+      "aWins": 2,
+      "bWins": 3,
+      "aPct": 40,
+      "bPct": 60,
+      "total": 5,
+      "raw": "2-3"
+    },
+    "5|19": {
+      "aWins": 2,
+      "bWins": 2,
+      "aPct": 50,
+      "bPct": 50,
+      "total": 4,
+      "raw": "2-2"
+    },
+    "5|21": {
+      "aWins": 1,
+      "bWins": 0,
+      "aPct": 100,
+      "bPct": 0,
+      "total": 1,
+      "raw": "1-0"
+    },
+    "5|22": {
+      "aWins": 1,
+      "bWins": 2,
+      "aPct": 33.33333333333333,
+      "bPct": 66.66666666666666,
+      "total": 3,
+      "raw": "1-2"
+    },
+    "5|23": {
+      "aWins": 1,
+      "bWins": 2,
+      "aPct": 33.33333333333333,
+      "bPct": 66.66666666666666,
+      "total": 3,
+      "raw": "1-2"
+    },
+    "5|24": {
+      "aWins": 0,
+      "bWins": 1,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 1,
+      "raw": "0-1"
+    },
+    "6|14": {
+      "aWins": 1,
+      "bWins": 0,
+      "aPct": 100,
+      "bPct": 0,
+      "total": 1,
+      "raw": "1-0"
+    },
+    "6|21": {
+      "aWins": 0,
+      "bWins": 1,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 1,
+      "raw": "0-1"
+    },
+    "6|23": {
+      "aWins": 1,
+      "bWins": 0,
+      "aPct": 100,
+      "bPct": 0,
+      "total": 1,
+      "raw": "1-0"
+    },
+    "6|24": {
+      "aWins": 0,
+      "bWins": 1,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 1,
+      "raw": "0-1"
+    },
+    "7|14": {
+      "aWins": 1,
+      "bWins": 0,
+      "aPct": 100,
+      "bPct": 0,
+      "total": 1,
+      "raw": "1-0"
+    },
+    "7|21": {
+      "aWins": 1,
+      "bWins": 2,
+      "aPct": 33.33333333333333,
+      "bPct": 66.66666666666666,
+      "total": 3,
+      "raw": "1-2"
+    },
+    "7|22": {
+      "aWins": 2,
+      "bWins": 2,
+      "aPct": 50,
+      "bPct": 50,
+      "total": 4,
+      "raw": "2-2"
+    },
+    "7|23": {
+      "aWins": 0,
+      "bWins": 2,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 2,
+      "raw": "0-2"
+    },
+    "7|24": {
+      "aWins": 1,
+      "bWins": 0,
+      "aPct": 100,
+      "bPct": 0,
+      "total": 1,
+      "raw": "1-0"
+    },
+    "8|14": {
+      "aWins": 0,
+      "bWins": 1,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 1,
+      "raw": "0-1"
+    },
+    "8|19": {
+      "aWins": 0,
+      "bWins": 2,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 2,
+      "raw": "0-2"
+    },
+    "8|21": {
+      "aWins": 2,
+      "bWins": 0,
+      "aPct": 100,
+      "bPct": 0,
+      "total": 2,
+      "raw": "2-0"
+    },
+    "8|22": {
+      "aWins": 0,
+      "bWins": 3,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 3,
+      "raw": "0-3"
+    },
+    "8|23": {
+      "aWins": 0,
+      "bWins": 1,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 1,
+      "raw": "0-1"
+    },
+    "8|24": {
+      "aWins": 1,
+      "bWins": 0,
+      "aPct": 100,
+      "bPct": 0,
+      "total": 1,
+      "raw": "1-0"
+    },
+    "9|13": {
+      "aWins": 0,
+      "bWins": 3,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 3,
+      "raw": "0-3"
+    },
+    "9|15": {
+      "aWins": 1,
+      "bWins": 1,
+      "aPct": 50,
+      "bPct": 50,
+      "total": 2,
+      "raw": "1-1"
+    },
+    "9|16": {
+      "aWins": 2,
+      "bWins": 1,
+      "aPct": 66.66666666666666,
+      "bPct": 33.33333333333333,
+      "total": 3,
+      "raw": "2-1"
+    },
+    "9|17": {
+      "aWins": 0,
+      "bWins": 1,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 1,
+      "raw": "0-1"
+    },
+    "9|18": {
+      "aWins": 3,
+      "bWins": 0,
+      "aPct": 100,
+      "bPct": 0,
+      "total": 3,
+      "raw": "3-0"
+    },
+    "9|20": {
+      "aWins": 0,
+      "bWins": 2,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 2,
+      "raw": "0-2"
+    },
+    "10|13": {
+      "aWins": 1,
+      "bWins": 2,
+      "aPct": 33.33333333333333,
+      "bPct": 66.66666666666666,
+      "total": 3,
+      "raw": "1-2"
+    },
+    "10|15": {
+      "aWins": 0,
+      "bWins": 1,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 1,
+      "raw": "0-1"
+    },
+    "10|16": {
+      "aWins": 5,
+      "bWins": 0,
+      "aPct": 100,
+      "bPct": 0,
+      "total": 5,
+      "raw": "5-0"
+    },
+    "10|17": {
+      "aWins": 2,
+      "bWins": 0,
+      "aPct": 100,
+      "bPct": 0,
+      "total": 2,
+      "raw": "2-0"
+    },
+    "10|18": {
+      "aWins": 1,
+      "bWins": 0,
+      "aPct": 100,
+      "bPct": 0,
+      "total": 1,
+      "raw": "1-0"
+    },
+    "10|20": {
+      "aWins": 1,
+      "bWins": 1,
+      "aPct": 50,
+      "bPct": 50,
+      "total": 2,
+      "raw": "1-1"
+    },
+    "11|15": {
+      "aWins": 1,
+      "bWins": 0,
+      "aPct": 100,
+      "bPct": 0,
+      "total": 1,
+      "raw": "1-0"
+    },
+    "11|16": {
+      "aWins": 0,
+      "bWins": 1,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 1,
+      "raw": "0-1"
+    },
+    "11|17": {
+      "aWins": 0,
+      "bWins": 1,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 1,
+      "raw": "0-1"
+    },
+    "11|18": {
+      "aWins": 0,
+      "bWins": 1,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 1,
+      "raw": "0-1"
+    },
+    "11|20": {
+      "aWins": 0,
+      "bWins": 1,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 1,
+      "raw": "0-1"
+    },
+    "12|13": {
+      "aWins": 0,
+      "bWins": 2,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 2,
+      "raw": "0-2"
+    },
+    "12|15": {
+      "aWins": 0,
+      "bWins": 1,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 1,
+      "raw": "0-1"
+    },
+    "12|16": {
+      "aWins": 3,
+      "bWins": 1,
+      "aPct": 75,
+      "bPct": 25,
+      "total": 4,
+      "raw": "3-1"
+    },
+    "12|17": {
+      "aWins": 0,
+      "bWins": 1,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 1,
+      "raw": "0-1"
+    },
+    "12|18": {
+      "aWins": 2,
+      "bWins": 0,
+      "aPct": 100,
+      "bPct": 0,
+      "total": 2,
+      "raw": "2-0"
+    },
+    "12|20": {
+      "aWins": 0,
+      "bWins": 1,
+      "aPct": 0,
+      "bPct": 100,
+      "total": 1,
+      "raw": "0-1"
+    }
+  },
+  "dominance": {
+    "1|14": 0.54,
+    "1|21": 0.21,
+    "1|22": -0.67,
+    "1|23": 0.08,
+    "1|24": 0.42,
+    "2|14": 0.23,
+    "2|19": 0.07,
+    "2|22": -0.14,
+    "2|23": -0.33,
+    "2|24": 0.25,
+    "3|13": -0.88,
+    "3|15": 0.2,
+    "3|16": -1,
+    "3|17": -0.5,
+    "3|18": 1,
+    "3|20": -1,
+    "4|13": -0.17,
+    "4|15": 0.14,
+    "4|16": 0.38,
+    "4|17": -0.52,
+    "4|18": -0.46,
+    "4|20": -0.5,
+    "5|14": -0.1,
+    "5|19": 0,
+    "5|21": 1,
+    "5|22": -0.46,
+    "5|23": -0.28,
+    "5|24": -0.38,
+    "6|14": 0.5,
+    "6|21": -0.25,
+    "6|23": 0.5,
+    "6|24": -0.1,
+    "7|14": 0.13,
+    "7|21": -0.5,
+    "7|22": -0.05,
+    "7|23": -0.05,
+    "7|24": 0.71,
+    "8|14": 0,
+    "8|19": -0.54,
+    "8|21": 0.29,
+    "8|22": -0.34,
+    "8|23": -0.5,
+    "8|24": 1,
+    "9|13": -0.51,
+    "9|15": 0.5,
+    "9|16": 0.44,
+    "9|17": -0.5,
+    "9|18": 0.72,
+    "9|20": -0.56,
+    "10|13": 0.22,
+    "10|15": -0.67,
+    "10|16": 0.75,
+    "10|17": 0.47,
+    "10|18": 0.43,
+    "10|20": -0.22,
+    "11|15": 1,
+    "11|16": -0.13,
+    "11|17": -0.5,
+    "11|18": -0.4,
+    "11|20": -0.5,
+    "12|13": -0.54,
+    "12|15": -0.33,
+    "12|16": 0.28,
+    "12|17": -1,
+    "12|18": 0.5,
+    "12|20": -0.5
+  }
+}
