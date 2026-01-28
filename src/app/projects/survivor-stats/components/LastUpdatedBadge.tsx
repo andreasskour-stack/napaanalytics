@@ -21,8 +21,8 @@ function formatDate(iso?: string) {
 export default function LastUpdatedBadge() {
   if (!EPISODES.length) return null;
 
-  // assume episodes.json is ordered oldest → newest
-  const latest = EPISODES[EPISODES.length - 1];
+  // build_episodes.mjs writes newest first
+  const latest = EPISODES[0];
 
   return (
     <span className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-300">

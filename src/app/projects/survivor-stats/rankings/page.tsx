@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import PageHeader from "@/app/projects/survivor-stats/components/PageHeader";
@@ -16,6 +16,9 @@ type Row = {
   team: string;
   power: number;
   trend: Trend;
+
+  eliminatedEpisode?: number | null;
+  isEliminated?: boolean;
 };
 
 const DATA: Row[] = rankingsRaw as Row[];
@@ -25,10 +28,9 @@ function applyTeamGlow(team: string) {
   const root = document.documentElement;
 
   const RED = "255, 59, 48";
-  const BLUE = "20, 80, 255"; // deeper blue (less white-looking)
+  const BLUE = "20, 80, 255";
   const NEUTRAL = "120, 120, 120";
 
-  // ALL: balanced red + blue (not red-dominant)
   if (t === "all") {
     root.style.setProperty("--glow-a", RED);
     root.style.setProperty("--glow-b", BLUE);
@@ -36,7 +38,6 @@ function applyTeamGlow(team: string) {
     return;
   }
 
-  // Athinaioi -> strong red, muted blue
   if (t === "athinaioi") {
     root.style.setProperty("--glow-a", RED);
     root.style.setProperty("--glow-b", NEUTRAL);
@@ -44,7 +45,6 @@ function applyTeamGlow(team: string) {
     return;
   }
 
-  // Eparxiotes -> strong blue, muted red
   if (t === "eparxiotes") {
     root.style.setProperty("--glow-a", NEUTRAL);
     root.style.setProperty("--glow-b", BLUE);
@@ -52,7 +52,6 @@ function applyTeamGlow(team: string) {
     return;
   }
 
-  // Other teams -> neutral
   root.style.setProperty("--glow-a", NEUTRAL);
   root.style.setProperty("--glow-b", NEUTRAL);
   root.style.setProperty("--glow-strength", "0.20");
@@ -74,23 +73,24 @@ function TrendIcon({ t }: { t: Trend }) {
 function teamStyle(team: string) {
   const t = (team ?? "").trim().toLowerCase();
 
-  if (t === "athinaioi") {
-    return "bg-red-500/20 border-red-400/40";
-  }
-  if (t === "eparxiotes") {
-    return "bg-blue-500/20 border-blue-400/40";
-  }
+  if (t === "athinaioi") return "bg-red-500/20 border-red-400/40";
+  if (t === "eparxiotes") return "bg-blue-500/20 border-blue-400/40";
   return "bg-white/5 border-white/10";
 }
 
 function powerBadgeStyle(trend: Trend) {
-  if (trend === "up") {
-    return "bg-green-500 text-gray-950 border-green-300/70";
-  }
-  if (trend === "down") {
-    return "bg-red-500 text-gray-950 border-red-300/70";
-  }
+  if (trend === "up") return "bg-green-500 text-gray-950 border-green-300/70";
+  if (trend === "down") return "bg-red-500 text-gray-950 border-red-300/70";
   return "bg-gray-950/30 text-gray-100 border-white/10";
+}
+
+function outBadge(elimEp?: number | null) {
+  if (elimEp == null) return null;
+  return (
+    <span className="ml-2 inline-flex items-center rounded-xl border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] font-semibold text-gray-200">
+      OUT · Ep {Math.round(elimEp)}
+    </span>
+  );
 }
 
 export default function RankingsPage() {
@@ -167,7 +167,9 @@ export default function RankingsPage() {
             {rows.map((r, i) => (
               <tr
                 key={r.id}
-                className="cursor-pointer border-b border-white/5 hover:bg-white/5"
+                className={`cursor-pointer border-b border-white/5 hover:bg-white/5 ${
+                  r.isEliminated ? "grayscale opacity-75" : ""
+                }`}
                 onClick={() => goPlayer(String(r.id))}
               >
                 <td className="px-4 py-3 text-gray-300">{i + 1}</td>
@@ -179,17 +181,26 @@ export default function RankingsPage() {
                     onClick={(e) => e.stopPropagation()}
                   >
                     {r.name}
+                    {outBadge(r.eliminatedEpisode ?? null)}
                   </Link>
                 </td>
 
                 <td className="px-4 py-3">
-                  <span className={`inline-flex items-center rounded-xl border px-3 py-1 text-xs font-semibold ${teamStyle(r.team)}`}>
+                  <span
+                    className={`inline-flex items-center rounded-xl border px-3 py-1 text-xs font-semibold ${teamStyle(
+                      r.team
+                    )}`}
+                  >
                     {r.team}
                   </span>
                 </td>
 
                 <td className="px-4 py-3">
-                  <span className={`inline-flex items-center rounded-xl border px-3 py-1 text-sm font-semibold ${powerBadgeStyle(r.trend)}`}>
+                  <span
+                    className={`inline-flex items-center rounded-xl border px-3 py-1 text-sm font-semibold ${powerBadgeStyle(
+                      r.trend
+                    )}`}
+                  >
                     {Math.round(r.power)}
                   </span>
                 </td>

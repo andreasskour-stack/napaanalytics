@@ -5,7 +5,13 @@ import PageHeader from "@/app/projects/survivor-stats/components/PageHeader";
 import playersRaw from "@/data/players.json";
 import h2hRaw from "@/data/h2h.json";
 
-type Player = { id: string; name: string; team: string };
+type Player = {
+  id: string;
+  name: string;
+  team: string;
+  isEliminated?: boolean;
+  eliminatedEpisode?: number | null;
+};
 
 type H2HScore = {
   aWins: number;
@@ -13,7 +19,7 @@ type H2HScore = {
   aPct: number | null;
   bPct: number | null;
   total: number;
-  raw: string; // "2-0"
+  raw: string;
 };
 
 type H2HData = {
@@ -51,13 +57,21 @@ function fmtDom(n: number | null | undefined) {
 
 function scoreColor(aPct: number | null, bPct: number | null) {
   if (aPct == null || bPct == null) return "text-gray-300";
-  if (Math.abs(aPct - bPct) < 1e-9) return "text-gray-300"; // draw
+  if (Math.abs(aPct - bPct) < 1e-9) return "text-gray-300";
   return aPct > bPct ? "text-red-300" : "text-blue-300";
 }
 
-// small helper: name lookup from h2h.json if needed
 function nameById(id: string) {
   return H2H.players?.[id]?.name ?? id;
+}
+
+function outBadge(elimEp?: number | null) {
+  if (elimEp == null) return null;
+  return (
+    <span className="ml-2 inline-flex items-center rounded-xl border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] font-semibold text-gray-200">
+      OUT · Ep {Math.round(elimEp)}
+    </span>
+  );
 }
 
 export default function H2HPage() {
@@ -66,17 +80,13 @@ export default function H2HPage() {
 
   const redPlayers = useMemo(
     () =>
-      PLAYERS.filter((p) => p.team === RED_TEAM).sort((a, b) =>
-        a.name.localeCompare(b.name)
-      ),
+      PLAYERS.filter((p) => p.team === RED_TEAM).sort((a, b) => a.name.localeCompare(b.name)),
     []
   );
 
   const bluePlayers = useMemo(
     () =>
-      PLAYERS.filter((p) => p.team === BLUE_TEAM).sort((a, b) =>
-        a.name.localeCompare(b.name)
-      ),
+      PLAYERS.filter((p) => p.team === BLUE_TEAM).sort((a, b) => a.name.localeCompare(b.name)),
     []
   );
 
@@ -85,11 +95,9 @@ export default function H2HPage() {
   const [redId, setRedId] = useState<string>(redPlayers[0]?.id ?? "");
   const [blueId, setBlueId] = useState<string>(bluePlayers[0]?.id ?? "");
 
-  // ✅ control list visibility (mobile-first behavior)
   const [redOpen, setRedOpen] = useState(false);
   const [blueOpen, setBlueOpen] = useState(false);
 
-  // close on ESC
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (e.key === "Escape") {
@@ -101,16 +109,12 @@ export default function H2HPage() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  // close lists when clicking outside any panel
   useEffect(() => {
     function onDocClick(e: MouseEvent) {
       const el = e.target as HTMLElement | null;
       if (!el) return;
-
-      // If click happened inside either picker panel, ignore
       if (el.closest?.("[data-h2h-picker='red']")) return;
       if (el.closest?.("[data-h2h-picker='blue']")) return;
-
       setRedOpen(false);
       setBlueOpen(false);
     }
@@ -120,16 +124,12 @@ export default function H2HPage() {
 
   const redOptions = useMemo(() => {
     const q = redQuery.trim().toLowerCase();
-    return q
-      ? redPlayers.filter((p) => p.name.toLowerCase().includes(q))
-      : redPlayers;
+    return q ? redPlayers.filter((p) => p.name.toLowerCase().includes(q)) : redPlayers;
   }, [redQuery, redPlayers]);
 
   const blueOptions = useMemo(() => {
     const q = blueQuery.trim().toLowerCase();
-    return q
-      ? bluePlayers.filter((p) => p.name.toLowerCase().includes(q))
-      : bluePlayers;
+    return q ? bluePlayers.filter((p) => p.name.toLowerCase().includes(q)) : bluePlayers;
   }, [blueQuery, bluePlayers]);
 
   const redP = useMemo(
@@ -158,30 +158,22 @@ export default function H2HPage() {
 
       <div className="grid gap-4 lg:grid-cols-2">
         {/* LEFT PICKER (RED) */}
-        <div
-          className="rounded-2xl border border-white/10 bg-white/5 p-4"
-          data-h2h-picker="red"
-        >
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-4" data-h2h-picker="red">
           <div className="flex items-center justify-between">
             <div className="text-sm font-semibold text-gray-100">Red (Athinaioi)</div>
-            <span
-              className={`inline-flex rounded-xl border px-3 py-1 text-xs font-semibold ${chip(
-                RED_TEAM
-              )}`}
-            >
+            <span className={`inline-flex rounded-xl border px-3 py-1 text-xs font-semibold ${chip(RED_TEAM)}`}>
               {RED_TEAM}
             </span>
           </div>
 
-          {/* Selected */}
-          <div className="mt-3 rounded-xl border border-white/10 bg-black/20 px-3 py-2">
+          <div className={`mt-3 rounded-xl border border-white/10 bg-black/20 px-3 py-2 ${redP?.isEliminated ? "grayscale opacity-75" : ""}`}>
             <div className="text-xs text-gray-400">Selected</div>
             <div className="text-sm font-semibold text-gray-100">
               {redP?.name ?? nameById(redId)}
+              {outBadge(redP?.eliminatedEpisode ?? null)}
             </div>
           </div>
 
-          {/* Search */}
           <input
             value={redQuery}
             onChange={(e) => setRedQuery(e.target.value)}
@@ -193,7 +185,6 @@ export default function H2HPage() {
             className="mt-3 w-full rounded-xl border border-white/10 bg-black/30 px-3 py-2 text-sm text-gray-100 outline-none placeholder:text-gray-400"
           />
 
-          {/* ✅ Only show list if open */}
           {redOpen ? (
             <div className="mt-3 max-h-64 space-y-2 overflow-auto pr-1">
               {redOptions.map((p) => (
@@ -208,9 +199,11 @@ export default function H2HPage() {
                     String(p.id) === String(redId)
                       ? "border-white/30 bg-white/10"
                       : "border-white/10 bg-black/20 hover:bg-white/5"
-                  }`}
+                  } ${p.isEliminated ? "grayscale opacity-75" : ""}`}
                 >
-                  <div className="font-medium text-gray-100">{p.name}</div>
+                  <div className="font-medium text-gray-100">
+                    {p.name} {outBadge(p.eliminatedEpisode ?? null)}
+                  </div>
                   <div className="text-xs text-gray-400">ID: {p.id}</div>
                 </button>
               ))}
@@ -225,32 +218,22 @@ export default function H2HPage() {
         </div>
 
         {/* RIGHT PICKER (BLUE) */}
-        <div
-          className="rounded-2xl border border-white/10 bg-white/5 p-4"
-          data-h2h-picker="blue"
-        >
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-4" data-h2h-picker="blue">
           <div className="flex items-center justify-between">
-            <div className="text-sm font-semibold text-gray-100">
-              Blue (Eparxiotes)
-            </div>
-            <span
-              className={`inline-flex rounded-xl border px-3 py-1 text-xs font-semibold ${chip(
-                BLUE_TEAM
-              )}`}
-            >
+            <div className="text-sm font-semibold text-gray-100">Blue (Eparxiotes)</div>
+            <span className={`inline-flex rounded-xl border px-3 py-1 text-xs font-semibold ${chip(BLUE_TEAM)}`}>
               {BLUE_TEAM}
             </span>
           </div>
 
-          {/* Selected */}
-          <div className="mt-3 rounded-xl border border-white/10 bg-black/20 px-3 py-2">
+          <div className={`mt-3 rounded-xl border border-white/10 bg-black/20 px-3 py-2 ${blueP?.isEliminated ? "grayscale opacity-75" : ""}`}>
             <div className="text-xs text-gray-400">Selected</div>
             <div className="text-sm font-semibold text-gray-100">
               {blueP?.name ?? nameById(blueId)}
+              {outBadge(blueP?.eliminatedEpisode ?? null)}
             </div>
           </div>
 
-          {/* Search */}
           <input
             value={blueQuery}
             onChange={(e) => setBlueQuery(e.target.value)}
@@ -262,7 +245,6 @@ export default function H2HPage() {
             className="mt-3 w-full rounded-xl border border-white/10 bg-black/30 px-3 py-2 text-sm text-gray-100 outline-none placeholder:text-gray-400"
           />
 
-          {/* ✅ Only show list if open */}
           {blueOpen ? (
             <div className="mt-3 max-h-64 space-y-2 overflow-auto pr-1">
               {blueOptions.map((p) => (
@@ -277,9 +259,11 @@ export default function H2HPage() {
                     String(p.id) === String(blueId)
                       ? "border-white/30 bg-white/10"
                       : "border-white/10 bg-black/20 hover:bg-white/5"
-                  }`}
+                  } ${p.isEliminated ? "grayscale opacity-75" : ""}`}
                 >
-                  <div className="font-medium text-gray-100">{p.name}</div>
+                  <div className="font-medium text-gray-100">
+                    {p.name} {outBadge(p.eliminatedEpisode ?? null)}
+                  </div>
                   <div className="text-xs text-gray-400">ID: {p.id}</div>
                 </button>
               ))}
@@ -296,36 +280,23 @@ export default function H2HPage() {
 
       {/* RESULT CARD */}
       <div className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-5">
-        <div className="text-xs uppercase tracking-wide text-gray-400">
-          Matchup result
-        </div>
+        <div className="text-xs uppercase tracking-wide text-gray-400">Matchup result</div>
 
         <div className="mt-4 grid gap-4 md:grid-cols-3 md:items-center">
-          {/* RED PLAYER */}
-          <div className={`rounded-2xl border p-4 ${teamStyle(RED_TEAM)}`}>
+          <div className={`rounded-2xl border p-4 ${teamStyle(RED_TEAM)} ${redP?.isEliminated ? "grayscale opacity-75" : ""}`}>
             <div className="text-lg font-semibold text-gray-100">
               {redP?.name ?? nameById(redId)}
+              {outBadge(redP?.eliminatedEpisode ?? null)}
             </div>
+            <div className="mt-1 text-sm text-gray-300">Win%: {fmtPct(score?.aPct ?? null)}</div>
             <div className="mt-1 text-sm text-gray-300">
-              Win%: {fmtPct(score?.aPct ?? null)}
-            </div>
-            <div className="mt-1 text-sm text-gray-300">
-              Dominance:{" "}
-              <span className="text-gray-100">
-                {domRed != null ? fmtDom(domRed) : "—"}
-              </span>
+              Dominance: <span className="text-gray-100">{domRed != null ? fmtDom(domRed) : "—"}</span>
             </div>
           </div>
 
-          {/* SCORE MIDDLE */}
           <div className="text-center">
             <div className="text-xs text-gray-400">Score</div>
-            <div
-              className={`mt-2 text-4xl font-extrabold ${scoreColor(
-                score?.aPct ?? null,
-                score?.bPct ?? null
-              )}`}
-            >
+            <div className={`mt-2 text-4xl font-extrabold ${scoreColor(score?.aPct ?? null, score?.bPct ?? null)}`}>
               {score ? score.raw : "—"}
             </div>
             <div className="mt-2 text-xs text-gray-400">
@@ -333,19 +304,14 @@ export default function H2HPage() {
             </div>
           </div>
 
-          {/* BLUE PLAYER */}
-          <div className={`rounded-2xl border p-4 ${teamStyle(BLUE_TEAM)}`}>
+          <div className={`rounded-2xl border p-4 ${teamStyle(BLUE_TEAM)} ${blueP?.isEliminated ? "grayscale opacity-75" : ""}`}>
             <div className="text-lg font-semibold text-gray-100">
               {blueP?.name ?? nameById(blueId)}
+              {outBadge(blueP?.eliminatedEpisode ?? null)}
             </div>
+            <div className="mt-1 text-sm text-gray-300">Win%: {fmtPct(score?.bPct ?? null)}</div>
             <div className="mt-1 text-sm text-gray-300">
-              Win%: {fmtPct(score?.bPct ?? null)}
-            </div>
-            <div className="mt-1 text-sm text-gray-300">
-              Dominance:{" "}
-              <span className="text-gray-100">
-                {domBlue != null ? fmtDom(domBlue) : "—"}
-              </span>
+              Dominance: <span className="text-gray-100">{domBlue != null ? fmtDom(domBlue) : "—"}</span>
             </div>
           </div>
         </div>

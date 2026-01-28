@@ -21,6 +21,9 @@ type PlayerRow = {
   choke?: number | null;
   reliability?: number | null;
   power?: number | null;
+
+  eliminatedEpisode?: number | null;
+  isEliminated?: boolean;
 };
 
 type RankingRow = {
@@ -29,6 +32,9 @@ type RankingRow = {
   team: string;
   power: number;
   trend: Trend;
+
+  eliminatedEpisode?: number | null;
+  isEliminated?: boolean;
 };
 
 const PLAYERS: PlayerRow[] = playersRaw as PlayerRow[];
@@ -53,19 +59,24 @@ function powerBadgeStyle(trend: Trend) {
   return "bg-gray-950/30 text-gray-100 border-white/10";
 }
 
-function fmtPct(x: number | null | undefined) {
-  if (x == null || !Number.isFinite(x)) return "—";
-  return `${x.toFixed(1)}%`;
-}
-
 function fmtNum(x: number | null | undefined, digits = 0) {
   if (x == null || !Number.isFinite(x)) return "—";
   return x.toFixed(digits);
 }
 
+function outBadge(elimEp?: number | null) {
+  if (elimEp == null) return null;
+  return (
+    <span className="inline-flex items-center rounded-xl border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] font-semibold text-gray-200">
+      OUT · Ep {Math.round(elimEp)}
+    </span>
+  );
+}
+
 export default function PlayersIndexPage() {
   const [teamFilter, setTeamFilter] = useState<string>("All");
   const [q, setQ] = useState("");
+  const [hideEliminated, setHideEliminated] = useState(false);
 
   const rankById = useMemo(() => {
     const m = new Map<string, RankingRow>();
@@ -88,21 +99,27 @@ export default function PlayersIndexPage() {
         const r = rankById.get(String(p.id));
         const power = r?.power ?? (typeof p.power === "number" ? p.power : null);
         const trend = (r?.trend ?? "flat") as Trend;
+        const isElim = Boolean(p.isEliminated ?? r?.isEliminated);
+        const elimEp = (p.eliminatedEpisode ?? r?.eliminatedEpisode) ?? null;
+
         return {
           ...p,
           _power: power,
           _trend: trend,
+          _isEliminated: isElim,
+          _eliminatedEpisode: elimEp,
         };
       })
       .filter((p) => (teamFilter === "All" ? true : (p.team ?? "") === teamFilter))
       .filter((p) => (qq ? (p.name ?? "").toLowerCase().includes(qq) : true))
+      .filter((p) => (hideEliminated ? !p._isEliminated : true))
       .slice()
       .sort((a, b) => {
         const ap = typeof a._power === "number" ? a._power : -Infinity;
         const bp = typeof b._power === "number" ? b._power : -Infinity;
         return bp - ap;
       });
-  }, [q, teamFilter, rankById]);
+  }, [q, teamFilter, hideEliminated, rankById]);
 
   return (
     <>
@@ -110,7 +127,7 @@ export default function PlayersIndexPage() {
         title="Players"
         subtitle="Browse all players. Tap a player to open their profile."
         right={
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <select
               value={teamFilter}
               onChange={(e) => setTeamFilter(e.target.value)}
@@ -129,6 +146,15 @@ export default function PlayersIndexPage() {
               placeholder="Search player…"
               className="w-44 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-gray-100 outline-none placeholder:text-gray-400"
             />
+
+            <label className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-gray-100">
+              <input
+                type="checkbox"
+                checked={hideEliminated}
+                onChange={(e) => setHideEliminated(e.target.checked)}
+              />
+              Hide OUT
+            </label>
           </div>
         }
       />
@@ -141,10 +167,16 @@ export default function PlayersIndexPage() {
             href={`${BASE}/players/${encodeURIComponent(String(p.id))}`}
             className="block"
           >
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:border-white/30">
+            <div
+              className={`rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:border-white/30 ${
+                p._isEliminated ? "grayscale opacity-75" : ""
+              }`}
+            >
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
-                  <div className="truncate text-base font-semibold text-gray-100">{p.name}</div>
+                  <div className="truncate text-base font-semibold text-gray-100">
+                    {p.name} {outBadge(p._eliminatedEpisode)}
+                  </div>
                   <div className="mt-1 flex flex-wrap items-center gap-2">
                     <span
                       className={`inline-flex items-center rounded-xl border px-3 py-1 text-xs font-semibold ${teamBadgeStyle(
@@ -199,13 +231,18 @@ export default function PlayersIndexPage() {
 
           <tbody>
             {rows.map((p) => (
-              <tr key={p.id} className="border-b border-white/5 hover:bg-white/5">
+              <tr
+                key={p.id}
+                className={`border-b border-white/5 hover:bg-white/5 ${
+                  p._isEliminated ? "grayscale opacity-75" : ""
+                }`}
+              >
                 <td className="px-4 py-3 font-medium">
                   <Link
                     href={`${BASE}/players/${encodeURIComponent(String(p.id))}`}
                     className="text-gray-100 hover:underline"
                   >
-                    {p.name}
+                    {p.name} {outBadge(p._eliminatedEpisode)}
                   </Link>
                 </td>
 
@@ -233,7 +270,9 @@ export default function PlayersIndexPage() {
                   <TrendIcon t={p._trend} />
                 </td>
 
-                <td className="px-4 py-3">{fmtPct(p.winPct ?? null)}</td>
+                <td className="px-4 py-3">
+                  {p.winPct == null ? "—" : `${Number(p.winPct).toFixed(1)}%`.replace(/\.0%$/, "%")}
+                </td>
                 <td className="px-4 py-3">{p.wins ?? 0}</td>
                 <td className="px-4 py-3">{p.duels ?? 0}</td>
               </tr>

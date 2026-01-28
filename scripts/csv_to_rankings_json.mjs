@@ -14,7 +14,20 @@ const archiveDir = path.join(root, "src", "data", "archive");
 // Trend sensitivity: smaller = more "up/down", larger = more "flat"
 const EPS = 0.5;
 
-// ---------------- CSV PARSER ----------------
+// ---------------- HELPERS ----------------
+function ensureDir(p) {
+  if (!fs.existsSync(p)) fs.mkdirSync(p, { recursive: true });
+}
+
+function safeReadJSON(p) {
+  try {
+    if (!fs.existsSync(p)) return null;
+    return JSON.parse(fs.readFileSync(p, "utf8"));
+  } catch {
+    return null;
+  }
+}
+
 function parseCSV(text) {
   const rows = [];
   let row = [];
@@ -25,29 +38,25 @@ function parseCSV(text) {
     const ch = text[i];
     const next = text[i + 1];
 
-    // Escaped quote
     if (ch === '"' && inQuotes && next === '"') {
       cur += '"';
       i++;
       continue;
     }
 
-    // Toggle quote mode
     if (ch === '"') {
       inQuotes = !inQuotes;
       continue;
     }
 
-    // Cell delimiter
     if (ch === "," && !inQuotes) {
       row.push(cur);
       cur = "";
       continue;
     }
 
-    // Row delimiter
     if ((ch === "\n" || ch === "\r") && !inQuotes) {
-      if (ch === "\r" && next === "\n") i++; // CRLF
+      if (ch === "\r" && next === "\n") i++;
       row.push(cur);
       cur = "";
       if (row.some((c) => c.trim() !== "")) rows.push(row);
@@ -60,7 +69,6 @@ function parseCSV(text) {
 
   row.push(cur);
   if (row.some((c) => c.trim() !== "")) rows.push(row);
-
   return rows;
 }
 
@@ -74,29 +82,42 @@ function normalizeHeader(h) {
     .replace(/^_+|_+$/g, "");
 }
 
+/**
+ * ✅ IMPORTANT FIX:
+ * After cleaning, if the string becomes empty, return null.
+ * Otherwise Number("") becomes 0 and breaks eliminatedEpisode logic.
+ */
 function toNumber(x) {
-  if (x == null) return null;
-  const s = String(x).trim();
-  if (!s) return null;
+  if (x === undefined || x === null) return null;
 
-  // handle "90.00%", "90,00%", "1,234.56"
-  const cleaned = s.replace("%", "").replace(/\s+/g, "").replace(/,/g, ".");
+  const cleaned = String(x)
+    .trim()
+    .replace(/\u00A0/g, " ")
+    .replace(/%/g, "")
+    .replace(/\s+/g, "")
+    .replace(/,/g, ".");
+
+  if (!cleaned) return null; // ✅ prevents "" -> 0
+
   const n = Number(cleaned);
   return Number.isFinite(n) ? n : null;
 }
 
-function safeReadJSON(filePath) {
-  try {
-    if (!fs.existsSync(filePath)) return null;
-    const txt = fs.readFileSync(filePath, "utf8");
-    return JSON.parse(txt);
-  } catch {
-    return null;
-  }
+function getDisplayPower(r) {
+  const a = toNumber(r?.power_adj);
+  if (a != null) return a;
+  const p = toNumber(r?.power);
+  if (p != null) return p;
+  const raw = toNumber(r?.power_raw);
+  if (raw != null) return raw;
+  return null;
 }
 
-function ensureDir(p) {
-  if (!fs.existsSync(p)) fs.mkdirSync(p, { recursive: true });
+function computeTrend(curr, prev) {
+  if (prev == null || curr == null) return "flat";
+  const d = curr - prev;
+  if (Math.abs(d) < EPS) return "flat";
+  return d > 0 ? "up" : "down";
 }
 
 function nowStamp() {
@@ -113,50 +134,30 @@ function nowStamp() {
   return `${yyyy}-${mm}-${dd}_${hh}-${mi}-${ss}-${ms}`;
 }
 
-function buildPrevMap(prevRows) {
-  const m = new Map();
-  for (const r of prevRows || []) {
-    if (!r || r.id == null) continue;
-    m.set(String(r.id), r);
-  }
-  return m;
+// Snapshot files used by build_episodes.mjs
+function listSnapshotFiles() {
+  if (!fs.existsSync(archiveDir)) return [];
+  return fs
+    .readdirSync(archiveDir)
+    .filter((f) => /^rankings_\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}-\d{3}\.json$/.test(f))
+    .sort();
 }
 
-function computeTrend(currPower, prevPower) {
-  if (prevPower == null || !Number.isFinite(prevPower)) return "flat";
-  const d = currPower - prevPower;
-  if (d > EPS) return "up";
-  if (d < -EPS) return "down";
-  return "flat";
+// When generating the next snapshot, currentEpisode = existingSnapshotsCount.
+function getCurrentEpisodeNumber() {
+  return listSnapshotFiles().length;
 }
 
-// ✅ Universal: prefer Adjusted PR
-function getDisplayPower(row) {
-  const adj = toNumber(row?.power_adj);
-  if (adj != null) return adj;
-  const p = toNumber(row?.power);
-  if (p != null) return p;
-  const raw = toNumber(row?.power_raw);
-  if (raw != null) return raw;
-  return 0;
-}
-
-// ---------------- MAPPING ----------------
-
-// Map a Player_Summary row -> rankings row
-function mapRow(obj) {
+// ---------------- ROW MAPPER ----------------
+function mapRow(obj, currentEpisode) {
   const id = obj.playerid ?? obj.player_id ?? obj.id ?? obj.pid;
   const name = obj.playername ?? obj.player_name ?? obj.name;
   const team = obj.team ?? obj.team_name ?? obj.teamname;
 
   // We want Adjusted PR to be the universal "power"
   const powerAdjRaw =
-    obj.adjusted_pr ??
-    obj.adjustedpr ??
-    obj.adjusted_power ??
-    obj.adjusted_rating;
+    obj.adjusted_pr ?? obj.adjustedpr ?? obj.adjusted_power ?? obj.adjusted_rating;
 
-  // Keep old metric around (optional)
   const powerRaw =
     obj.powerrating ??
     obj.power_rating ??
@@ -166,46 +167,49 @@ function mapRow(obj) {
     obj.score ??
     obj.rank_score;
 
-  const trendRaw = obj.trend ?? obj.momentum ?? obj.direction ?? obj.trend_direction;
+  const eliminatedEpisode =
+    toNumber(obj.eliminatedepisode ?? obj.eliminated_episode ?? obj.eliminated_ep) ?? null;
 
   if (!id || !name || !team) return null;
 
   const power_adj = toNumber(powerAdjRaw);
   const power_raw = toNumber(powerRaw);
 
-  // ✅ If adjusted is missing for some reason, fallback to raw
   const power = power_adj != null ? power_adj : power_raw;
-
   if (power == null) return null;
 
-  const trendFallback = String(trendRaw ?? "flat").toLowerCase();
-  const trendFixed =
-    trendFallback === "up" || trendFallback === "down" || trendFallback === "flat"
-      ? trendFallback
-      : "flat";
+  const isEliminated =
+    eliminatedEpisode != null && Number.isFinite(eliminatedEpisode)
+      ? currentEpisode >= eliminatedEpisode
+      : false;
 
   return {
     id: String(id).trim(),
     name: String(name).trim(),
     team: String(team).trim(),
 
-    // ✅ UNIVERSAL POWER
     power: Number(power.toFixed(2)),
 
-    // keep both for debugging / future
     power_adj: power_adj == null ? null : Number(power_adj.toFixed(2)),
     power_raw: power_raw == null ? null : Number(power_raw.toFixed(2)),
 
-    trend: trendFixed, // overwritten by compare if possible
+    eliminatedEpisode: eliminatedEpisode == null ? null : Math.round(eliminatedEpisode),
+    isEliminated,
+
+    trend: "flat", // computed below vs prev snapshot
   };
 }
 
 // ---------------- MAIN ----------------
-
 if (!fs.existsSync(inPath)) {
   console.error(`Missing file: ${inPath}`);
   process.exit(1);
 }
+
+ensureDir(archiveDir);
+
+const currentEpisode = getCurrentEpisodeNumber();
+console.log(`ℹ️ Current episode number (derived from snapshots): ${currentEpisode}`);
 
 const csvText = fs.readFileSync(inPath, "utf8");
 const rows = parseCSV(csvText);
@@ -217,9 +221,14 @@ if (rows.length < 2) {
 
 const headers = rows[0].map(normalizeHeader);
 
-// Read previous rankings.json so we can compute trend
+// Read previous rankings.json so we can compute trend + freezing
 const prevData = safeReadJSON(outPath);
-const prevMap = buildPrevMap(prevData);
+const prevMap = new Map();
+if (Array.isArray(prevData)) {
+  for (const r of prevData) {
+    if (r?.id != null) prevMap.set(String(r.id), r);
+  }
+}
 
 // Build current data
 let data = rows
@@ -227,11 +236,35 @@ let data = rows
   .map((r) => {
     const obj = {};
     headers.forEach((h, idx) => (obj[h] = (r[idx] ?? "").trim()));
-    return mapRow(obj);
+    return mapRow(obj, currentEpisode);
   })
   .filter(Boolean);
 
-// Trend compare based on UNIVERSAL power (Adjusted PR now)
+// ✅ Freeze eliminated players after their elimination episode
+data = data.map((r) => {
+  const elimEp = typeof r?.eliminatedEpisode === "number" ? r.eliminatedEpisode : null;
+  if (elimEp == null) return r;
+
+  // freeze from next episode onwards
+  if (currentEpisode > elimEp) {
+    const prev = prevMap.get(String(r.id));
+    if (prev) {
+      return {
+        ...prev,
+        eliminatedEpisode: Math.round(elimEp),
+        isEliminated: true,
+      };
+    }
+  }
+
+  return {
+    ...r,
+    eliminatedEpisode: Math.round(elimEp),
+    isEliminated: currentEpisode >= elimEp,
+  };
+});
+
+// Compute trend
 data = data.map((r) => {
   const prev = prevMap.get(String(r.id));
   const prevPower = prev ? getDisplayPower(prev) : null;
@@ -240,8 +273,8 @@ data = data.map((r) => {
   return { ...r, trend };
 });
 
-// Sort by universal power desc
-data.sort((a, b) => getDisplayPower(b) - getDisplayPower(a));
+// Sort by power desc
+data.sort((a, b) => (getDisplayPower(b) ?? -Infinity) - (getDisplayPower(a) ?? -Infinity));
 
 // Save previous snapshot BEFORE overwriting rankings.json
 if (prevData && Array.isArray(prevData)) {
@@ -257,7 +290,6 @@ fs.writeFileSync(outPath, JSON.stringify(data, null, 2), "utf8");
 console.log(`✅ Wrote ${data.length} rows to ${outPath}`);
 
 // Archive snapshot (Episodes reads these)
-ensureDir(archiveDir);
 const archiveName = `rankings_${nowStamp()}.json`;
 const archivePath = path.join(archiveDir, archiveName);
 fs.writeFileSync(archivePath, JSON.stringify(data, null, 2), "utf8");

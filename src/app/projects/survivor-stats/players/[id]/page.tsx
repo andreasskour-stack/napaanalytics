@@ -55,13 +55,16 @@ function trendBadge(trend: Trend) {
   );
 }
 
-function StatCard({
-  label,
-  value,
-}: {
-  label: string;
-  value: React.ReactNode;
-}) {
+function eliminatedBadge(elimEp: number | null) {
+  if (elimEp == null) return null;
+  return (
+    <span className="inline-flex items-center rounded-xl border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-gray-200">
+      Eliminated · Ep {Math.round(elimEp)}
+    </span>
+  );
+}
+
+function StatCard({ label, value }: { label: string; value: React.ReactNode }) {
   return (
     <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
       <div className="text-xs uppercase tracking-wide text-gray-400">{label}</div>
@@ -105,7 +108,6 @@ export default async function PlayerProfilePage({
   const name = getName(player);
   const team = getTeam(player);
 
-  // Prefer latest snapshot power from rankings.json when available
   const power = ranking?.power ?? player?.power ?? player?.power_adj ?? player?.power_raw ?? null;
   const trend = (ranking?.trend ?? "flat") as Trend;
 
@@ -113,7 +115,7 @@ export default async function PlayerProfilePage({
   const duels = player?.duels ?? 0;
   const winPct = player?.winPct ?? null;
 
-  // New stats from players.json (produced by csv_to_players_json.mjs)
+  // CSV stats
   const arriveFirstPct = player?.arriveFirstPct ?? null;
   const finalPtsPlayed = player?.finalPtsPlayed ?? null;
   const finalPtsWon = player?.finalPtsWon ?? null;
@@ -121,13 +123,24 @@ export default async function PlayerProfilePage({
   const tiebreakWon = player?.tiebreakWon ?? null;
   const tiebreakWinPct = player?.tiebreakWinPct ?? null;
 
-  // Existing advanced stats already in players.json
-  const chokeRateWhenArrivedFirst = player?.choke ?? null; // mapped in script
+  const chokeRateWhenArrivedFirst = player?.choke ?? null;
   const clutchRating = player?.clutch ?? null;
   const reliability = player?.reliability ?? null;
 
+  // NEW optional stats (if present in players.json)
+  const sos = player?.sos ?? null;
+  const pressureWeightedSos = player?.pressureWeightedSos ?? null;
+  const closeLossRate = player?.closeLossRate ?? null;
+  const pressureWinPct = player?.pressureWinPct ?? null;
+  const marginVolatility = player?.marginVolatility ?? null;
+  const rollingWinPct5 = player?.rollingWinPct5 ?? null;
+  const rollingWinPct8 = player?.rollingWinPct8 ?? null;
+
+  const eliminatedEpisode = toNum(player?.eliminatedEpisode) ?? null;
+  const isEliminated = Boolean(player?.isEliminated ?? ranking?.isEliminated);
+
   return (
-    <div className="space-y-6">
+    <div className={`space-y-6 ${isEliminated ? "grayscale opacity-80" : ""}`}>
       <div className="flex flex-wrap items-center justify-between gap-3">
         <Link
           href={`${BASE}/players`}
@@ -149,14 +162,17 @@ export default async function PlayerProfilePage({
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="min-w-0">
             <div className="text-3xl font-semibold text-gray-100">{name}</div>
-            <div className="mt-2 flex flex-wrap items-center gap-2 text-sm text-gray-300">
-  <span>
-    ID: <span className="text-gray-100">{id}</span> • Team:{" "}
-    <span className="text-gray-100">{team}</span>
-  </span>
 
-  <LastUpdatedBadge />
-</div>
+            <div className="mt-2 flex flex-wrap items-center gap-2 text-sm text-gray-300">
+              <span>
+                ID: <span className="text-gray-100">{id}</span> • Team:{" "}
+                <span className="text-gray-100">{team}</span>
+              </span>
+
+              <LastUpdatedBadge />
+              {eliminatedBadge(eliminatedEpisode)}
+            </div>
+
             <div className="mt-3 flex flex-wrap items-center gap-2">{trendBadge(trend)}</div>
           </div>
 
@@ -187,6 +203,13 @@ export default async function PlayerProfilePage({
         chokeRateWhenArrivedFirst={chokeRateWhenArrivedFirst}
         clutchRating={clutchRating}
         reliability={reliability}
+        sos={sos}
+        pressureWeightedSos={pressureWeightedSos}
+        closeLossRate={closeLossRate}
+        pressureWinPct={pressureWinPct}
+        marginVolatility={marginVolatility}
+        rollingWinPct5={rollingWinPct5}
+        rollingWinPct8={rollingWinPct8}
       />
     </div>
   );

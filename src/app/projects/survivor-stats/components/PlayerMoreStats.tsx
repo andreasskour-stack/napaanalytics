@@ -50,6 +50,15 @@ export default function PlayerMoreStats({
   chokeRateWhenArrivedFirst,
   clutchRating,
   reliability,
+
+  // New (optional)
+  sos,
+  pressureWeightedSos,
+  closeLossRate,
+  pressureWinPct,
+  marginVolatility,
+  rollingWinPct5,
+  rollingWinPct8,
 }: {
   arriveFirstPct: any;
   finalPtsPlayed: any;
@@ -60,6 +69,14 @@ export default function PlayerMoreStats({
   chokeRateWhenArrivedFirst: any;
   clutchRating: any;
   reliability: any;
+
+  sos?: any;
+  pressureWeightedSos?: any;
+  closeLossRate?: any;
+  pressureWinPct?: any;
+  marginVolatility?: any;
+  rollingWinPct5?: any;
+  rollingWinPct8?: any;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -105,6 +122,38 @@ export default function PlayerMoreStats({
           <StatCard label="Clutch rating" value={fmtNum(clutchRating, 2)} />
 
           <StatCard label="Reliability" value={fmtNum(reliability, 2)} />
+
+          {/* Optional new stats (only show if present) */}
+          {toNum(sos) != null ? (
+            <StatCard label="Opponent difficulty (SoS)" value={fmtNum(sos, 2)} />
+          ) : null}
+
+          {toNum(pressureWeightedSos) != null ? (
+            <StatCard
+              label="Pressure-weighted SoS"
+              value={fmtNum(pressureWeightedSos, 2)}
+            />
+          ) : null}
+
+          {toNum(closeLossRate) != null ? (
+            <StatCard label="Close-loss rate" value={fmtPct(closeLossRate, 2)} />
+          ) : null}
+
+          {toNum(pressureWinPct) != null ? (
+            <StatCard label="Pressure Win %" value={fmtPct(pressureWinPct, 2)} />
+          ) : null}
+
+          {toNum(marginVolatility) != null ? (
+            <StatCard label="Performance volatility" value={fmtNum(marginVolatility, 3)} />
+          ) : null}
+
+          {toNum(rollingWinPct5) != null ? (
+            <StatCard label="Rolling Win % (last 5)" value={fmtPct(rollingWinPct5, 2)} />
+          ) : null}
+
+          {toNum(rollingWinPct8) != null ? (
+            <StatCard label="Rolling Win % (last 8)" value={fmtPct(rollingWinPct8, 2)} />
+          ) : null}
         </div>
       ) : null}
     </div>
