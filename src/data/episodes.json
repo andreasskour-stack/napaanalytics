@@ -33,7 +33,7 @@
           },
           "Eparxiotes": {
             "sum": 9.41,
-            "avg": 0.78,
+            "avg": 0.7841666666666667,
             "n": 12
           }
         },
@@ -76,7 +76,14 @@
           "delta": -1.41
         }
       },
-      "teamResult": null
+      "teamResult": {
+        "score": {
+          "Athinaioi": 10,
+          "Eparxiotes": 6
+        },
+        "winner": "Athinaioi",
+        "method": "sum_redwon_bluewon"
+      }
     },
     "movers": {
       "up": [
@@ -496,7 +503,14 @@
           "delta": -4.1
         }
       },
-      "teamResult": null
+      "teamResult": {
+        "score": {
+          "Athinaioi": 10,
+          "Eparxiotes": 2
+        },
+        "winner": "Athinaioi",
+        "method": "sum_redwon_bluewon"
+      }
     },
     "movers": {
       "up": [
@@ -868,12 +882,12 @@
         "teams": {
           "Athinaioi": {
             "sum": 2.51,
-            "avg": 0.21,
+            "avg": 0.20916666666666664,
             "n": 12
           },
           "Eparxiotes": {
             "sum": -23.67,
-            "avg": -1.97,
+            "avg": -1.9725000000000001,
             "n": 12
           }
         },
@@ -916,7 +930,14 @@
           "delta": -8.21
         }
       },
-      "teamResult": null
+      "teamResult": {
+        "score": {
+          "Athinaioi": 10,
+          "Eparxiotes": 5
+        },
+        "winner": "Athinaioi",
+        "method": "sum_redwon_bluewon"
+      }
     },
     "movers": {
       "up": [
@@ -1288,12 +1309,12 @@
         "teams": {
           "Athinaioi": {
             "sum": 63.04,
-            "avg": 5.25,
+            "avg": 5.253333333333333,
             "n": 12
           },
           "Eparxiotes": {
             "sum": 55.35,
-            "avg": 4.61,
+            "avg": 4.6125,
             "n": 12
           }
         },
@@ -1336,7 +1357,14 @@
           "delta": -5.75
         }
       },
-      "teamResult": null
+      "teamResult": {
+        "score": {
+          "Athinaioi": 11,
+          "Eparxiotes": 5
+        },
+        "winner": "Athinaioi",
+        "method": "sum_redwon_bluewon"
+      }
     },
     "movers": {
       "up": [
@@ -1708,12 +1736,12 @@
         "teams": {
           "Athinaioi": {
             "sum": -23.95,
-            "avg": -2,
+            "avg": -1.9958333333333333,
             "n": 12
           },
           "Eparxiotes": {
             "sum": 16.83,
-            "avg": 1.4,
+            "avg": 1.4024999999999999,
             "n": 12
           }
         },
@@ -1756,7 +1784,14 @@
           "delta": -6.48
         }
       },
-      "teamResult": null
+      "teamResult": {
+        "score": {
+          "Athinaioi": 3,
+          "Eparxiotes": 7
+        },
+        "winner": "Eparxiotes",
+        "method": "sum_redwon_bluewon"
+      }
     },
     "movers": {
       "up": [
@@ -2134,7 +2169,14 @@
         "Athinaioi": null,
         "Eparxiotes": null
       },
-      "teamResult": null
+      "teamResult": {
+        "score": {
+          "Athinaioi": 56,
+          "Eparxiotes": 66
+        },
+        "winner": "Eparxiotes",
+        "method": "sum_redwon_bluewon"
+      }
     },
     "movers": {
       "up": [],

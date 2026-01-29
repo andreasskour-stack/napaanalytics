@@ -5,9 +5,12 @@ const root = process.cwd();
 const archiveDir = path.join(root, "src", "data", "archive");
 const outPath = path.join(root, "src", "data", "episodes.json");
 
-// ✅ duels source (CSV)
+// ✅ duels source (TSV/CSV)
 const duelsPath = path.join(root, "src", "data", "duels.csv");
 
+/* =========================
+   Helpers
+========================= */
 function safeNum(x, fallback = 0) {
   const n = typeof x === "number" ? x : Number(x);
   return Number.isFinite(n) ? n : fallback;
@@ -53,6 +56,9 @@ function makeIdFromFile(file) {
   return file.replace(/^rankings_/, "").replace(/\.json$/, "");
 }
 
+/* =========================
+   Movers / diffs
+========================= */
 function computeDiff(prevRows, currRows) {
   const prevMap = new Map();
   for (const p of prevRows || []) {
@@ -121,8 +127,8 @@ function computeTeamSwing(diffs) {
   const athN = athArr.length;
   const epaN = epaArr.length;
 
-  const athAvg = athN > 0 ? Number((athSum / athN).toFixed(2)) : 0;
-  const epaAvg = epaN > 0 ? Number((epaSum / epaN).toFixed(2)) : 0;
+  const athAvg = athN > 0 ? athSum / athN : 0;
+  const epaAvg = epaN > 0 ? epaSum / epaN : 0;
 
   let winner = "Draw";
   if (athSum > epaSum) winner = "Athinaioi";
@@ -138,8 +144,9 @@ function computeTeamSwing(diffs) {
   };
 }
 
-// ---------- EPISODE LABELING / SKIP RULES ----------
-
+/* =========================
+   Episode labeling / mapping
+========================= */
 const SKIP_EPISODES = new Set([2, 4, 5, 6]);
 
 const EPISODE_LABELS = {
@@ -148,7 +155,7 @@ const EPISODE_LABELS = {
   7: "Episode 9",
   8: "Episode 10",
   9: "Episode 11",
-  10: "Episode 12", // future entry (safe to keep)
+  10: "Episode 12",
 };
 
 function getEpisodeLabel(episodeNum) {
@@ -157,133 +164,111 @@ function getEpisodeLabel(episodeNum) {
 }
 
 /**
- * ✅ This is the IMPORTANT mapping:
  * episodes.json "episode" value (snapshot order) -> TV episode(s)
  */
 const TV_EPISODES_BY_ENTRY = {
-  1: [1, 2, 3, 4, 5, 6, 7], // opening phase bundle
+  1: [1, 2, 3, 4, 5, 6, 7],
   3: [8],
   7: [9],
   8: [10],
   9: [11],
-  10: [12], // future
+  10: [12],
 };
 
 function getTvEpisodesForEntry(entryEpisodeNum) {
   return TV_EPISODES_BY_ENTRY[entryEpisodeNum] ?? [entryEpisodeNum];
 }
 
-// ---------- CSV PARSING + TEAM SCORE ----------
+/* =========================
+   Delimited parsing (TSV/CSV/;), skip blank first row
+========================= */
+const norm = (s) =>
+  String(s ?? "")
+    .replace(/^\uFEFF/, "")
+    .trim()
+    .toLowerCase();
 
-function parseCSV(text) {
-  // Handles commas + quotes ("a,b"), CRLF, etc.
-  const rows = [];
-  let row = [];
-  let cur = "";
-  let inQuotes = false;
-
-  for (let i = 0; i < text.length; i++) {
-    const ch = text[i];
-    const next = text[i + 1];
-
-    if (inQuotes) {
-      if (ch === '"' && next === '"') {
-        cur += '"';
-        i++;
-      } else if (ch === '"') {
-        inQuotes = false;
-      } else {
-        cur += ch;
-      }
-    } else {
-      if (ch === '"') {
-        inQuotes = true;
-      } else if (ch === ",") {
-        row.push(cur);
-        cur = "";
-      } else if (ch === "\n") {
-        row.push(cur);
-        rows.push(row);
-        row = [];
-        cur = "";
-      } else if (ch === "\r") {
-        // ignore
-      } else {
-        cur += ch;
-      }
-    }
-  }
-
-  // last cell
-  row.push(cur);
-  rows.push(row);
-
-  // drop trailing empty line
-  if (rows.length && rows[rows.length - 1].every((c) => String(c ?? "").trim() === "")) {
-    rows.pop();
-  }
-
-  return rows;
+function decodeTextSmart(filePath) {
+  // keep it simple: read utf8 + strip BOM
+  return fs.readFileSync(filePath, "utf8").replace(/^\uFEFF/, "");
 }
 
-function buildTeamScoresFromDuelsCSV(csvPath) {
-  if (!fs.existsSync(csvPath)) {
-    console.log(`ℹ️ duels.csv not found at: ${csvPath}`);
-    return new Map(); // EpisodeID -> { Athinaioi, Eparxiotes }
-  }
+function pickDelimiterFromHeaderLine(line) {
+  // prefer tab if present
+  if (line.includes("\t")) return "\t";
+  if (line.includes(";")) return ";";
+  return ",";
+}
 
-  const text = fs.readFileSync(csvPath, "utf8");
-  const rows = parseCSV(text);
-  if (rows.length < 2) return new Map();
+function parseSimpleDelimited(text, delim) {
+  return text.split(/\r?\n/).map((l) => l.split(delim));
+}
 
-  const header = rows[0].map((h) => String(h ?? "").trim());
-  const idx = (name) => header.findIndex((h) => h === name);
+function rowIsEffectivelyEmpty(row) {
+  return (row || []).every((c) => norm(c) === "");
+}
 
-  const epIdx = idx("EpisodeID");
-  const tmIdx = idx("TeamMatchID");
-  const redIdx = idx("RedTeamWin");
-  const blueIdx = idx("BlueTeamWin");
-
-  if (epIdx === -1 || tmIdx === -1 || redIdx === -1 || blueIdx === -1) {
-    console.log("⚠️ duels.csv is missing one of: EpisodeID, TeamMatchID, RedTeamWin, BlueTeamWin");
+/* =========================
+   TEAM SCORE (SUM RedWon/BlueWon)
+   EpisodeID -> { Athinaioi, Eparxiotes }
+========================= */
+function buildTeamScoresFromDuels_SUM(filePath) {
+  if (!fs.existsSync(filePath)) {
+    console.log(`ℹ️ duels.csv not found at: ${filePath}`);
     return new Map();
   }
 
-  // EpisodeID -> TeamMatchID -> winner ("Athinaioi"|"Eparxiotes"|null)
-  const perEpisode = new Map();
+  const text = decodeTextSmart(filePath);
+  const lines = text.split(/\r?\n/);
+
+  // IMPORTANT: choose delimiter from the first meaningful header line,
+  // not the weird first blank comma-only line.
+  const headerLine =
+    lines.find((l) => /DuelID|ChallengeID|EpisodeID/i.test(l)) ??
+    lines.find((l) => /episodeid/i.test(l)) ??
+    (lines[0] ?? "");
+
+  const delim = pickDelimiterFromHeaderLine(headerLine);
+
+  let rows = parseSimpleDelimited(text, delim);
+
+  // Skip leading empty rows like: ﻿,,,,,,,,
+  while (rows.length && rowIsEffectivelyEmpty(rows[0])) rows.shift();
+  if (rows.length < 2) return new Map();
+
+  const header = rows[0].map(norm);
+  const idx = (name) => header.findIndex((h) => h === norm(name));
+
+  const epIdx = idx("episodeid");
+  const redWonIdx = idx("redwon");
+  const blueWonIdx = idx("bluewon");
+
+  if (epIdx === -1 || redWonIdx === -1 || blueWonIdx === -1) {
+    console.log("⚠️ Missing required columns for score SUM(RedWon/BlueWon).");
+    console.log("   Delimiter detected:", JSON.stringify(delim));
+    console.log("   Header columns:", header.slice(0, 40));
+    return new Map();
+  }
+
+  const scores = new Map(); // EpisodeID -> { Athinaioi, Eparxiotes }
 
   for (let r = 1; r < rows.length; r++) {
     const line = rows[r];
-    const episodeId = String(line[epIdx] ?? "").trim();
-    const teamMatchId = String(line[tmIdx] ?? "").trim();
-    if (!episodeId || !teamMatchId) continue;
+    if (!line || rowIsEffectivelyEmpty(line)) continue;
 
-    const redWin = Number(line[redIdx] ?? 0);
-    const blueWin = Number(line[blueIdx] ?? 0);
+    const rawEpisode = String(line[epIdx] ?? "").trim();
+    const episodeId = (rawEpisode.match(/\d+/)?.[0] ?? "").trim();
+    if (!episodeId) continue;
 
-    let winner = null;
-    if (redWin === 1 && blueWin !== 1) winner = "Athinaioi"; // Red = Athinaioi
-    else if (blueWin === 1 && redWin !== 1) winner = "Eparxiotes"; // Blue = Eparxiotes
+    const red = Number(String(line[redWonIdx] ?? "0").trim() || "0");
+    const blue = Number(String(line[blueWonIdx] ?? "0").trim() || "0");
 
-    if (!perEpisode.has(episodeId)) perEpisode.set(episodeId, new Map());
-    const tmMap = perEpisode.get(episodeId);
+    if (!scores.has(episodeId)) scores.set(episodeId, { Athinaioi: 0, Eparxiotes: 0 });
 
-    // TeamMatchID is unique per challenge; set once (or overwrite same value)
-    tmMap.set(teamMatchId, winner);
-  }
-
-  // Convert to EpisodeID -> score
-  const scores = new Map();
-  for (const [episodeId, tmMap] of perEpisode.entries()) {
-    let ath = 0;
-    let epa = 0;
-
-    for (const w of tmMap.values()) {
-      if (w === "Athinaioi") ath++;
-      else if (w === "Eparxiotes") epa++;
-    }
-
-    scores.set(episodeId, { Athinaioi: ath, Eparxiotes: epa });
+    const agg = scores.get(episodeId);
+    // Red = Athinaioi, Blue = Eparxiotes
+    agg.Athinaioi += Number.isFinite(red) ? red : 0;
+    agg.Eparxiotes += Number.isFinite(blue) ? blue : 0;
   }
 
   return scores;
@@ -294,21 +279,17 @@ function computeTeamResultForEntry(teamScoresByTvEpisode, entryEpisodeNum) {
 
   let ath = 0;
   let epa = 0;
+  let foundAny = false;
 
   for (const tv of tvEps) {
-    const key = String(tv);
-    const sc = teamScoresByTvEpisode.get(key);
+    const sc = teamScoresByTvEpisode.get(String(tv));
     if (!sc) continue;
+    foundAny = true;
     ath += Number(sc.Athinaioi ?? 0);
     epa += Number(sc.Eparxiotes ?? 0);
   }
 
-  // If we have no data at all for this entry, return null
-  if (ath === 0 && epa === 0) {
-    // could still be a real 0-0, but in Survivor it’s unlikely.
-    // This is mostly: “duels not available yet”.
-    return null;
-  }
+  if (!foundAny) return null;
 
   let winner = "Draw";
   if (ath > epa) winner = "Athinaioi";
@@ -317,17 +298,23 @@ function computeTeamResultForEntry(teamScoresByTvEpisode, entryEpisodeNum) {
   return {
     score: { Athinaioi: ath, Eparxiotes: epa },
     winner,
+    method: "sum_redwon_bluewon",
   };
 }
 
-// ---------- MAIN ----------
-
+/* =========================
+   MAIN
+========================= */
 if (!fs.existsSync(archiveDir)) {
   console.error(`Missing archive folder: ${archiveDir}`);
   process.exit(1);
 }
 
-const teamScoresByTvEpisode = buildTeamScoresFromDuelsCSV(duelsPath);
+const teamScoresByTvEpisode = buildTeamScoresFromDuels_SUM(duelsPath);
+console.log(
+  "ℹ️ Duel-score EpisodeIDs found:",
+  Array.from(teamScoresByTvEpisode.keys()).slice(0, 30).join(", ")
+);
 
 const files = fs
   .readdirSync(archiveDir)
@@ -350,11 +337,11 @@ for (let i = 1; i < files.length; i++) {
   const prev = files[i - 1];
   const curr = files[i];
 
-  const prevPath = path.join(archiveDir, prev.f);
-  const currPath = path.join(archiveDir, curr.f);
+  const episodeNum = i;
+  if (SKIP_EPISODES.has(episodeNum)) continue;
 
-  const prevRows = safeReadJSON(prevPath) || [];
-  const currRows = safeReadJSON(currPath) || [];
+  const prevRows = safeReadJSON(path.join(archiveDir, prev.f)) || [];
+  const currRows = safeReadJSON(path.join(archiveDir, curr.f)) || [];
 
   const diffs = computeDiff(prevRows, currRows);
 
@@ -371,13 +358,6 @@ for (let i = 1; i < files.length; i++) {
   const epaUp = topMovers(epaDiffs, "up", 5);
   const epaDown = topMovers(epaDiffs, "down", 5);
 
-  const currDate = curr.date;
-  const episodeNum = i;
-
-  if (SKIP_EPISODES.has(episodeNum)) continue;
-
-  const label = getEpisodeLabel(episodeNum);
-
   const biggestRiseByTeam = {
     Athinaioi: athUp[0] || null,
     Eparxiotes: epaUp[0] || null,
@@ -388,24 +368,24 @@ for (let i = 1; i < files.length; i++) {
     Eparxiotes: epaDown[0] || null,
   };
 
-  // ✅ REAL episode score from duels.csv (using your mapping)
+  // ✅ REAL score from duels.csv sums
   const teamResult = computeTeamResultForEntry(teamScoresByTvEpisode, episodeNum);
 
   episodes.push({
     id: makeIdFromFile(curr.f),
     episode: episodeNum,
-    label,
-    dateISO: currDate.toISOString(),
+    label: getEpisodeLabel(episodeNum),
+    dateISO: curr.date.toISOString(),
     prevSnapshot: prev.f,
     currSnapshot: curr.f,
     summary: {
       comparedPlayers: diffs.length,
       biggestRise: up[0] || null,
       biggestFall: down[0] || null,
-      teamSwing, // analytics metric
+      teamSwing,
       biggestRiseByTeam,
       biggestFallByTeam,
-      teamResult, // ✅ real score + winner (or null if duels not available yet)
+      teamResult,
     },
     movers: {
       up,
@@ -422,12 +402,9 @@ episodes.reverse();
 
 fs.writeFileSync(outPath, JSON.stringify(episodes, null, 2), "utf8");
 console.log(`✅ Built ${episodes.length} episodes → ${outPath}`);
-console.log(`ℹ️ Labels are clean display text`);
 console.log(
   `ℹ️ Skipped dev/test episodes: ${Array.from(SKIP_EPISODES)
     .sort((a, b) => a - b)
     .join(", ")}`
 );
-console.log(
-  `ℹ️ Team scores loaded from duels.csv: ${fs.existsSync(duelsPath) ? "YES" : "NO"}`
-);
+console.log(`ℹ️ Team scores loaded from duels.csv: ${fs.existsSync(duelsPath) ? "YES" : "NO"}`);
