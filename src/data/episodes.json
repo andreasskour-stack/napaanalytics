@@ -1359,8 +1359,8 @@
       },
       "teamResult": {
         "score": {
-          "Athinaioi": 11,
-          "Eparxiotes": 5
+          "Athinaioi": 10,
+          "Eparxiotes": 6
         },
         "winner": "Athinaioi",
         "method": "sum_redwon_bluewon"
