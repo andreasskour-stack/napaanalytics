@@ -98,7 +98,8 @@ function topMovers(diffs, dir, n = 5) {
 
 function byTeam(diffs, team) {
   return diffs.filter(
-    (d) => String(d.team).trim().toLowerCase() === String(team).trim().toLowerCase()
+    (d) =>
+      String(d.team).trim().toLowerCase() === String(team).trim().toLowerCase()
   );
 }
 
@@ -115,7 +116,11 @@ function byTeam(diffs, team) {
  */
 function computeTeamSwing(diffs) {
   const sum = (arr) =>
-    arr.reduce((acc, d) => acc + (d.delta != null && Number.isFinite(d.delta) ? d.delta : 0), 0);
+    arr.reduce(
+      (acc, d) =>
+        acc + (d.delta != null && Number.isFinite(d.delta) ? d.delta : 0),
+      0
+    );
 
   const athArr = byTeam(diffs, "Athinaioi");
   const epaArr = byTeam(diffs, "Eparxiotes");
@@ -143,6 +148,25 @@ function computeTeamSwing(diffs) {
   };
 }
 
+// ---------- EPISODE LABELING / SKIP RULES ----------
+
+// Skip these “episode numbers” entirely (dev/test snapshots)
+const SKIP_EPISODES = new Set([2, 4, 5, 6]);
+
+// Your custom display labels.
+const EPISODE_LABELS = {
+  1: "Opening Phase (Ep 1–7)",
+  3: "Episode 8",
+  7: "Episode 9",
+  8: "Episode 10",
+  9: "Episode 11",
+};
+
+function getEpisodeLabel(episodeNum) {
+  if (EPISODE_LABELS[episodeNum]) return EPISODE_LABELS[episodeNum];
+  return `Episode ${episodeNum}`;
+}
+
 // ---------- MAIN ----------
 
 if (!fs.existsSync(archiveDir)) {
@@ -152,7 +176,9 @@ if (!fs.existsSync(archiveDir)) {
 
 const files = fs
   .readdirSync(archiveDir)
-  .filter((f) => /^rankings_\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}-\d{3}\.json$/.test(f))
+  .filter((f) =>
+    /^rankings_\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}-\d{3}\.json$/.test(f)
+  )
   .map((f) => ({ f, date: parseStampFromFilename(f) }))
   .filter((x) => x.date != null)
   .sort((a, b) => a.date.getTime() - b.date.getTime()); // oldest -> newest
@@ -182,18 +208,36 @@ for (let i = 1; i < files.length; i++) {
 
   const teamSwing = computeTeamSwing(diffs);
 
-  const athUp = topMovers(byTeam(diffs, "Athinaioi"), "up", 5);
-  const athDown = topMovers(byTeam(diffs, "Athinaioi"), "down", 5);
-  const epaUp = topMovers(byTeam(diffs, "Eparxiotes"), "up", 5);
-  const epaDown = topMovers(byTeam(diffs, "Eparxiotes"), "down", 5);
+  const athDiffs = byTeam(diffs, "Athinaioi");
+  const epaDiffs = byTeam(diffs, "Eparxiotes");
+
+  const athUp = topMovers(athDiffs, "up", 5);
+  const athDown = topMovers(athDiffs, "down", 5);
+  const epaUp = topMovers(epaDiffs, "up", 5);
+  const epaDown = topMovers(epaDiffs, "down", 5);
 
   const currDate = curr.date;
-  const episodeNum = i; // ✅ safe (based on snapshot order)
-  const label = `Episode ${episodeNum} — ${currDate.toISOString().slice(0, 10)}`;
+  const episodeNum = i;
+
+  // ✅ Skip dev/test entries completely
+  if (SKIP_EPISODES.has(episodeNum)) continue;
+
+  const label = getEpisodeLabel(episodeNum);
+
+  // ✅ per-team biggest rise/fall (top-1 of the team lists)
+  const biggestRiseByTeam = {
+    Athinaioi: athUp[0] || null,
+    Eparxiotes: epaUp[0] || null,
+  };
+
+  const biggestFallByTeam = {
+    Athinaioi: athDown[0] || null,
+    Eparxiotes: epaDown[0] || null,
+  };
 
   episodes.push({
     id: makeIdFromFile(curr.f),
-    episode: episodeNum, // ✅ numeric episode for UI later
+    episode: episodeNum,
     label,
     dateISO: currDate.toISOString(),
     prevSnapshot: prev.f,
@@ -202,7 +246,9 @@ for (let i = 1; i < files.length; i++) {
       comparedPlayers: diffs.length,
       biggestRise: up[0] || null,
       biggestFall: down[0] || null,
-      teamSwing, // ✅ has .teams.Athinaioi.avg etc.
+      teamSwing,
+      biggestRiseByTeam,
+      biggestFallByTeam,
     },
     movers: {
       up,
@@ -220,5 +266,9 @@ episodes.reverse();
 
 fs.writeFileSync(outPath, JSON.stringify(episodes, null, 2), "utf8");
 console.log(`✅ Built ${episodes.length} episodes → ${outPath}`);
-console.log(`ℹ️ Episode labels are now "Episode X — YYYY-MM-DD"`);
-console.log(`ℹ️ teamSwing shape matches homepage: summary.teamSwing.teams.Athinaioi.avg`);
+console.log(`ℹ️ Labels are now clean display text (no "Episode X — ...")`);
+console.log(
+  `ℹ️ Skipped dev/test episodes: ${Array.from(SKIP_EPISODES)
+    .sort((a, b) => a - b)
+    .join(", ")}`
+);

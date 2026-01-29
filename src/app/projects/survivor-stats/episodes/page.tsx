@@ -16,6 +16,28 @@ function fmtDelta(n: number | null | undefined) {
   return `${sign}${n.toFixed(1)}`;
 }
 
+/**
+ * Safety net:
+ * If label accidentally contains "Episode X — Something", show only "Something".
+ * If it contains "Episode X - Something" (dash variant), also handle it.
+ */
+function cleanLabel(label: any): string {
+  const s = String(label ?? "").trim();
+  if (!s) return "";
+  return s
+    .replace(/^Episode\s*\d+\s*[—-]\s*/i, "") // "Episode 9 — " or "Episode 9 - "
+    .trim();
+}
+
+function fmtDateISO(v: any): string {
+  if (!v) return "—";
+  try {
+    return new Date(String(v)).toISOString().slice(0, 10);
+  } catch {
+    return String(v);
+  }
+}
+
 export default function EpisodesIndexPage() {
   const [query, setQuery] = useState("");
 
@@ -48,23 +70,26 @@ export default function EpisodesIndexPage() {
 
       <div className="space-y-3">
         {rows.map((e) => {
-          const date = new Date(e.dateISO).toISOString().slice(0, 10);
-          const rise = e.summary.biggestRise;
-          const fall = e.summary.biggestFall;
+          const date = fmtDateISO(e.dateISO);
+          const rise = e?.summary?.biggestRise ?? null;
+          const fall = e?.summary?.biggestFall ?? null;
+
+          // Prefer clean label; fallback to something safe
+          const label = cleanLabel(e?.label) || `Episode ${e?.episode ?? e?.id ?? "?"}`;
 
           return (
             <Link
               key={e.id}
-              href={`${BASE}/episodes/${encodeURIComponent(e.id)}`}
+              href={`${BASE}/episodes/${encodeURIComponent(String(e.id))}`}
               className="block"
             >
               <div className="rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:border-white/30">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div className="min-w-0">
-                    <div className="text-lg font-semibold text-gray-100">{e.label}</div>
+                    <div className="text-lg font-semibold text-gray-100">{label}</div>
                     <div className="mt-1 text-sm text-gray-400">
                       Date: <span className="text-gray-200">{date}</span> • Compared players:{" "}
-                      <span className="text-gray-200">{e.summary.comparedPlayers}</span>
+                      <span className="text-gray-200">{e?.summary?.comparedPlayers ?? "—"}</span>
                     </div>
                   </div>
 
