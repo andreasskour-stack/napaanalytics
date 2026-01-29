@@ -10,23 +10,21 @@ const BASE = "/projects/survivor-stats";
 type AnyRow = Record<string, any>;
 const EPISODES = episodesRaw as AnyRow[];
 
+function asNum(v: any): number | null {
+  const n = typeof v === "number" ? v : Number(v);
+  return Number.isFinite(n) ? n : null;
+}
+
 function fmtDelta(n: number | null | undefined) {
   if (n == null || !Number.isFinite(n)) return "";
   const sign = n > 0 ? "+" : "";
   return `${sign}${n.toFixed(1)}`;
 }
 
-/**
- * Safety net:
- * If label accidentally contains "Episode X — Something", show only "Something".
- * If it contains "Episode X - Something" (dash variant), also handle it.
- */
 function cleanLabel(label: any): string {
   const s = String(label ?? "").trim();
   if (!s) return "";
-  return s
-    .replace(/^Episode\s*\d+\s*[—-]\s*/i, "") // "Episode 9 — " or "Episode 9 - "
-    .trim();
+  return s.replace(/^Episode\s*\d+\s*[—-]\s*/i, "").trim();
 }
 
 function fmtDateISO(v: any): string {
@@ -36,6 +34,24 @@ function fmtDateISO(v: any): string {
   } catch {
     return String(v);
   }
+}
+
+function TeamChip({ team }: { team: string }) {
+  const t = String(team || "").toLowerCase();
+
+  // Athinaioi = red, Eparxiotes = blue
+  const cls =
+    t.includes("ath")
+      ? "border-white/10 bg-red-500/10 text-red-200"
+      : t.includes("epa")
+      ? "border-white/10 bg-blue-500/10 text-blue-200"
+      : "border-white/10 bg-white/5 text-gray-200";
+
+  return (
+    <span className={`inline-flex items-center rounded-full border px-3 py-1 text-xs ${cls}`}>
+      {team}
+    </span>
+  );
 }
 
 export default function EpisodesIndexPage() {
@@ -74,8 +90,12 @@ export default function EpisodesIndexPage() {
           const rise = e?.summary?.biggestRise ?? null;
           const fall = e?.summary?.biggestFall ?? null;
 
-          // Prefer clean label; fallback to something safe
           const label = cleanLabel(e?.label) || `Episode ${e?.episode ?? e?.id ?? "?"}`;
+
+          const teamResult = e?.summary?.teamResult ?? null;
+          const winner = teamResult?.winner ?? "—";
+          const athScore = asNum(teamResult?.score?.Athinaioi);
+          const epaScore = asNum(teamResult?.score?.Eparxiotes);
 
           return (
             <Link
@@ -94,6 +114,17 @@ export default function EpisodesIndexPage() {
                   </div>
 
                   <div className="flex flex-wrap gap-2 text-sm">
+                    {/* ✅ Team Result box (score + winner) */}
+                    <div className="rounded-xl border border-white/10 bg-black/30 px-3 py-2">
+                      <div className="text-xs text-gray-400">Team result</div>
+                      <div className="mt-1 flex items-center gap-2">
+                        <TeamChip team={winner} />
+                        <div className="font-semibold text-gray-100">
+                          {athScore == null || epaScore == null ? "—" : `${athScore} – ${epaScore}`}
+                        </div>
+                      </div>
+                    </div>
+
                     <div className="rounded-xl border border-white/10 bg-black/30 px-3 py-2">
                       <div className="text-xs text-gray-400">Biggest rise</div>
                       <div className="font-semibold text-gray-100">
@@ -112,7 +143,7 @@ export default function EpisodesIndexPage() {
                   </div>
                 </div>
 
-                <div className="mt-3 text-sm text-gray-300">Open movers →</div>
+                <div className="mt-3 text-sm text-gray-300">Open episode →</div>
               </div>
             </Link>
           );
