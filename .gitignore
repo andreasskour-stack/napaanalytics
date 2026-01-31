@@ -1,5 +1,11 @@
-﻿node_modules
-.next
+﻿# Node / Next.js
+node_modules/
+.next/
 .env
 .env.local
 .DS_Store
+
+# Android signing (DO NOT COMMIT)
+**/*.jks
+**/keystore.properties
+**/*release*.aab
