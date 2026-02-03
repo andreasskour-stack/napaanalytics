@@ -31,7 +31,7 @@ function listSnapshotFiles() {
 //   currentEpisode = existingSnapshotsCount
 function getCurrentEpisodeNumber() {
   const snaps = listSnapshotFiles();
-  return snaps.length; // ✅
+  return snaps.length + 1; // ✅
 }
 
 function safeReadJSON(p) {

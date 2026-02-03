@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Survivor Greece Stats</string>
+    <string name="title_activity_main">Survivor Greece Stats</string>
+    <string name="package_name">com.napaanalytics.survivorgreece</string>
+    <string name="custom_url_scheme">com.napaanalytics.survivorgreece</string>
+</resources>

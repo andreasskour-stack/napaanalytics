@@ -147,8 +147,11 @@ function computeTeamSwing(diffs) {
 /* =========================
    Episode labeling / mapping
 ========================= */
+
+// Keep your skip set exactly as you had it (dev/test snapshots)
 const SKIP_EPISODES = new Set([2, 4, 5, 6]);
 
+// ✅ EXTENDED: add 13 + 14
 const EPISODE_LABELS = {
   1: "Opening Phase (Ep 1–7)",
   3: "Episode 8",
@@ -156,6 +159,8 @@ const EPISODE_LABELS = {
   8: "Episode 10",
   9: "Episode 11",
   10: "Episode 12",
+  11: "Episode 13",
+  12: "Episode 14",
 };
 
 function getEpisodeLabel(episodeNum) {
@@ -165,6 +170,7 @@ function getEpisodeLabel(episodeNum) {
 
 /**
  * episodes.json "episode" value (snapshot order) -> TV episode(s)
+ * ✅ EXTENDED: add entry 11 -> TV 13 and entry 12 -> TV 14
  */
 const TV_EPISODES_BY_ENTRY = {
   1: [1, 2, 3, 4, 5, 6, 7],
@@ -173,6 +179,8 @@ const TV_EPISODES_BY_ENTRY = {
   8: [10],
   9: [11],
   10: [12],
+  11: [13],
+  12: [14],
 };
 
 function getTvEpisodesForEntry(entryEpisodeNum) {
@@ -221,8 +229,6 @@ function buildTeamScoresFromDuels_SUM(filePath) {
   const text = decodeTextSmart(filePath);
   const lines = text.split(/\r?\n/);
 
-  // IMPORTANT: choose delimiter from the first meaningful header line,
-  // not the weird first blank comma-only line.
   const headerLine =
     lines.find((l) => /DuelID|ChallengeID|EpisodeID/i.test(l)) ??
     lines.find((l) => /episodeid/i.test(l)) ??
@@ -232,7 +238,6 @@ function buildTeamScoresFromDuels_SUM(filePath) {
 
   let rows = parseSimpleDelimited(text, delim);
 
-  // Skip leading empty rows like: ﻿,,,,,,,,
   while (rows.length && rowIsEffectivelyEmpty(rows[0])) rows.shift();
   if (rows.length < 2) return new Map();
 
@@ -266,7 +271,6 @@ function buildTeamScoresFromDuels_SUM(filePath) {
     if (!scores.has(episodeId)) scores.set(episodeId, { Athinaioi: 0, Eparxiotes: 0 });
 
     const agg = scores.get(episodeId);
-    // Red = Athinaioi, Blue = Eparxiotes
     agg.Athinaioi += Number.isFinite(red) ? red : 0;
     agg.Eparxiotes += Number.isFinite(blue) ? blue : 0;
   }
@@ -368,7 +372,6 @@ for (let i = 1; i < files.length; i++) {
     Eparxiotes: epaDown[0] || null,
   };
 
-  // ✅ REAL score from duels.csv sums
   const teamResult = computeTeamResultForEntry(teamScoresByTvEpisode, episodeNum);
 
   episodes.push({

@@ -21,6 +21,10 @@ type PlayerRow = {
   choke: number | null;
   reliability: number | null;
   power: number | null;
+
+  // ✅ from players.json (generated)
+  eliminatedEpisode?: number | null;
+  isEliminated?: boolean;
 };
 
 type RankingRow = {
@@ -29,24 +33,36 @@ type RankingRow = {
   team: string;
   power: number;
   trend: Trend;
+
+  // (optional) some of your ranking jsons include these too
+  eliminatedEpisode?: number | null;
+  isEliminated?: boolean;
 };
 
 type EnrichedPlayer = PlayerRow & {
   _power: number;
   _trend: Trend;
+  _isOut: boolean;
 };
 
 type TeamRow = {
   team: string;
-  players: EnrichedPlayer[];
-  powerSum: number;
-  powerAvg: number;
-  reliabilityAvg: number | null;
-  winPctWeighted: number | null;
+  players: EnrichedPlayer[]; // all players (for roster display / counts)
+  activePlayers: EnrichedPlayer[];
+
+  // ✅ NEW DEFINITIONS
+  teamPower: number; // avg active power
+  depth: number; // sum active power
+
+  reliabilityAvg: number | null; // avg active reliability (display-only)
+  winPctWeighted: number | null; // keep as season performance (all players)
   mvp: EnrichedPlayer | null;
   riser: EnrichedPlayer | null;
   faller: EnrichedPlayer | null;
   teamTrend: Trend;
+
+  totalCount: number;
+  activeCount: number;
 };
 
 const PLAYERS: PlayerRow[] = playersRaw as PlayerRow[];
@@ -129,6 +145,11 @@ function Bar({ value, max }: { value: number; max: number }) {
   );
 }
 
+function isOut(p: { isEliminated?: boolean; eliminatedEpisode?: number | null }) {
+  const elimEp = p.eliminatedEpisode;
+  return Boolean(p.isEliminated) || (elimEp != null && Number(elimEp) > 0);
+}
+
 export default function TeamsPage() {
   const [query, setQuery] = useState("");
 
@@ -155,26 +176,43 @@ export default function TeamsPage() {
       const enriched: EnrichedPlayer[] = ps.map((p) => {
         const r = rankById.get(String(p.id));
         const power = r?.power ?? p.power ?? 0;
-        const trend = r?.trend ?? "flat";
-        return { ...p, _power: power, _trend: trend as Trend };
+        const trend = (r?.trend ?? "flat") as Trend;
+
+        // Use player-file elimination fields primarily (most reliable)
+        const out =
+          isOut(p) ||
+          isOut({ isEliminated: r?.isEliminated, eliminatedEpisode: r?.eliminatedEpisode });
+
+        return { ...p, _power: power, _trend: trend, _isOut: out };
       });
 
-      const n = enriched.length || 1;
-      const powerSum = enriched.reduce((s, p) => s + (p._power ?? 0), 0);
-      const powerAvg = powerSum / n;
+      const activePlayers = enriched.filter((p) => !p._isOut);
 
+      const totalCount = enriched.length;
+      const activeCount = activePlayers.length;
+
+      // ✅ DEPTH = sum(active power)
+      const depth = activePlayers.reduce((s, p) => s + (p._power ?? 0), 0);
+
+      // ✅ TEAM POWER = avg(active power)
+      const teamPower = activeCount > 0 ? depth / activeCount : 0;
+
+      // Win% weighted: keep season performance (all players)
       const duelSum = enriched.reduce((s, p) => s + (p.duels ?? 0), 0);
       const winSum = enriched.reduce((s, p) => s + (p.wins ?? 0), 0);
       const winPctWeighted = duelSum > 0 ? (winSum / duelSum) * 100 : null;
 
-      const relVals = enriched
+      // Reliability avg: active only (display-only, not used as a multiplier)
+      const relVals = activePlayers
         .map((p) => p.reliability)
         .filter((x): x is number => typeof x === "number" && Number.isFinite(x));
       const reliabilityAvg =
         relVals.length ? relVals.reduce((a, b) => a + b, 0) / relVals.length : null;
 
-      const counts = { up: 0, down: 0, flat: 0 };
-      for (const p of enriched) counts[p._trend] += 1;
+      // Team trend: active only if possible (fallback to all)
+      const trendPool = activePlayers.length ? activePlayers : enriched;
+      const counts = { up: 0, down: 0, flat: 0 } as Record<Trend, number>;
+      for (const p of trendPool) counts[p._trend] += 1;
       const teamTrend: Trend =
         counts.up >= counts.down && counts.up >= counts.flat
           ? "up"
@@ -182,55 +220,63 @@ export default function TeamsPage() {
           ? "down"
           : "flat";
 
-      const topByPower = enriched.slice().sort((a, b) => (b._power ?? 0) - (a._power ?? 0));
+      // MVP / movers: use active if possible (fallback to all)
+      const pool = activePlayers.length ? activePlayers : enriched;
+
+      const topByPower = pool.slice().sort((a, b) => (b._power ?? 0) - (a._power ?? 0));
       const mvp = topByPower[0] ?? null;
 
-      const riser = enriched
-        .filter((p) => p._trend === "up")
-        .slice()
-        .sort((a, b) => (b._power ?? 0) - (a._power ?? 0))[0] ?? null;
+      const riser =
+        pool
+          .filter((p) => p._trend === "up")
+          .slice()
+          .sort((a, b) => (b._power ?? 0) - (a._power ?? 0))[0] ?? null;
 
-      const faller = enriched
-        .filter((p) => p._trend === "down")
-        .slice()
-        .sort((a, b) => (b._power ?? 0) - (a._power ?? 0))[0] ?? null;
+      const faller =
+        pool
+          .filter((p) => p._trend === "down")
+          .slice()
+          .sort((a, b) => (b._power ?? 0) - (a._power ?? 0))[0] ?? null;
 
       return {
         team,
         players: enriched,
-        powerSum,
-        powerAvg,
+        activePlayers,
+        teamPower,
+        depth,
         reliabilityAvg,
         winPctWeighted,
         mvp,
         riser,
         faller,
         teamTrend,
+        totalCount,
+        activeCount,
       };
     });
 
     const q = query.trim().toLowerCase();
     return rows
       .filter((r) => (q ? r.team.toLowerCase().includes(q) : true))
-      .sort((a, b) => b.powerAvg - a.powerAvg);
+      .sort((a, b) => b.teamPower - a.teamPower);
   }, [query, rankById]);
 
-  // Head-to-head only for the two known teams (safe because you said names are simple)
+  // Head-to-head only for the two known teams
   const h2h = useMemo(() => {
     const a = teamRows.find((t) => t.team.toLowerCase() === "athinaioi");
     const e = teamRows.find((t) => t.team.toLowerCase() === "eparxiotes");
     if (!a || !e) return null;
 
-    const maxPowerAvg = Math.max(a.powerAvg, e.powerAvg, 1);
-    const maxPowerSum = Math.max(a.powerSum, e.powerSum, 1);
+    const maxTeamPower = Math.max(a.teamPower, e.teamPower, 1);
+    const maxDepth = Math.max(a.depth, e.depth, 1);
     const maxRel = Math.max(a.reliabilityAvg ?? 0, e.reliabilityAvg ?? 0, 1);
     const maxWin = Math.max(a.winPctWeighted ?? 0, e.winPctWeighted ?? 0, 1);
 
     return {
       a,
       e,
-      maxPowerAvg,
-      maxPowerSum,
+      maxTeamPower,
+      maxDepth,
       maxRel,
       maxWin,
     };
@@ -281,20 +327,29 @@ export default function TeamsPage() {
                   </div>
 
                   <div className="mt-2 text-sm text-gray-300">
-                    Players: <span className="text-gray-100">{t.players.length}</span>
+                    Active players:{" "}
+                    <span className="text-gray-100">
+                      {t.activeCount}/{t.totalCount}
+                    </span>
                   </div>
                 </div>
 
+                {/* ✅ You asked to show DEPTH where Avg Power was */}
                 <div className="text-right">
-                  <div className="text-xs uppercase tracking-wide text-gray-400">Avg Power</div>
-                  <div className="mt-1 text-2xl font-semibold text-gray-100">{fmtNum(t.powerAvg, 1)}</div>
+                  <div className="text-xs uppercase tracking-wide text-gray-400">Depth</div>
+                  <div className="mt-1 text-2xl font-semibold text-gray-100">
+                    {fmtNum(t.depth, 0)}
+                  </div>
                 </div>
               </div>
 
               <div className="mt-4 grid grid-cols-3 gap-3">
+                {/* ✅ You asked to show TEAM POWER (avg active) here */}
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
                   <div className="text-xs uppercase tracking-wide text-gray-400">Team Power</div>
-                  <div className="mt-1 text-lg font-semibold text-gray-100">{fmtNum(t.powerSum, 0)}</div>
+                  <div className="mt-1 text-lg font-semibold text-gray-100">
+                    {fmtNum(t.teamPower, 1)}
+                  </div>
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
@@ -340,7 +395,7 @@ export default function TeamsPage() {
         ))}
       </div>
 
-      {/* Head-to-head (moved below the two team cards, stays as you had it) */}
+      {/* Head-to-head */}
       {h2h ? (
         <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-6">
           <div className="text-sm font-semibold text-gray-200">Head-to-head</div>
@@ -349,13 +404,20 @@ export default function TeamsPage() {
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <div className="text-lg font-semibold text-gray-100">{h2h.a.team}</div>
-                  <div className="mt-2 text-sm text-gray-300">Avg Power</div>
-                  <div className="mt-1 text-2xl font-semibold text-gray-100">{fmtNum(h2h.a.powerAvg, 1)}</div>
+                  <div className="mt-2 text-sm text-gray-300">Team Power</div>
+                  <div className="mt-1 text-2xl font-semibold text-gray-100">
+                    {fmtNum(h2h.a.teamPower, 1)}
+                  </div>
                 </div>
                 <div className="text-right">
                   <div className="text-sm text-gray-300">Trend</div>
-                  <span className={`mt-2 inline-flex items-center rounded-xl border px-3 py-1 text-sm font-semibold ${powerBadgeStyle(h2h.a.teamTrend)}`}>
-                    <TrendIcon t={h2h.a.teamTrend} /> <span className="ml-2 capitalize">{h2h.a.teamTrend}</span>
+                  <span
+                    className={`mt-2 inline-flex items-center rounded-xl border px-3 py-1 text-sm font-semibold ${powerBadgeStyle(
+                      h2h.a.teamTrend
+                    )}`}
+                  >
+                    <TrendIcon t={h2h.a.teamTrend} />{" "}
+                    <span className="ml-2 capitalize">{h2h.a.teamTrend}</span>
                   </span>
                 </div>
               </div>
@@ -363,18 +425,18 @@ export default function TeamsPage() {
               <div className="mt-4 space-y-3 text-sm text-gray-200">
                 <div>
                   <div className="flex items-center justify-between">
-                    <span>Avg Power</span>
-                    <span className="font-semibold">{fmtNum(h2h.a.powerAvg, 1)}</span>
+                    <span>Team Power (Avg Active)</span>
+                    <span className="font-semibold">{fmtNum(h2h.a.teamPower, 1)}</span>
                   </div>
-                  <Bar value={h2h.a.powerAvg} max={h2h.maxPowerAvg} />
+                  <Bar value={h2h.a.teamPower} max={h2h.maxTeamPower} />
                 </div>
 
                 <div>
                   <div className="flex items-center justify-between">
-                    <span>Team Power (Sum)</span>
-                    <span className="font-semibold">{fmtNum(h2h.a.powerSum, 0)}</span>
+                    <span>Depth (Sum Active)</span>
+                    <span className="font-semibold">{fmtNum(h2h.a.depth, 0)}</span>
                   </div>
-                  <Bar value={h2h.a.powerSum} max={h2h.maxPowerSum} />
+                  <Bar value={h2h.a.depth} max={h2h.maxDepth} />
                 </div>
 
                 <div>
@@ -406,13 +468,20 @@ export default function TeamsPage() {
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <div className="text-lg font-semibold text-gray-100">{h2h.e.team}</div>
-                  <div className="mt-2 text-sm text-gray-300">Avg Power</div>
-                  <div className="mt-1 text-2xl font-semibold text-gray-100">{fmtNum(h2h.e.powerAvg, 1)}</div>
+                  <div className="mt-2 text-sm text-gray-300">Team Power</div>
+                  <div className="mt-1 text-2xl font-semibold text-gray-100">
+                    {fmtNum(h2h.e.teamPower, 1)}
+                  </div>
                 </div>
                 <div className="text-right">
                   <div className="text-sm text-gray-300">Trend</div>
-                  <span className={`mt-2 inline-flex items-center rounded-xl border px-3 py-1 text-sm font-semibold ${powerBadgeStyle(h2h.e.teamTrend)}`}>
-                    <TrendIcon t={h2h.e.teamTrend} /> <span className="ml-2 capitalize">{h2h.e.teamTrend}</span>
+                  <span
+                    className={`mt-2 inline-flex items-center rounded-xl border px-3 py-1 text-sm font-semibold ${powerBadgeStyle(
+                      h2h.e.teamTrend
+                    )}`}
+                  >
+                    <TrendIcon t={h2h.e.teamTrend} />{" "}
+                    <span className="ml-2 capitalize">{h2h.e.teamTrend}</span>
                   </span>
                 </div>
               </div>
@@ -420,18 +489,18 @@ export default function TeamsPage() {
               <div className="mt-4 space-y-3 text-sm text-gray-200">
                 <div>
                   <div className="flex items-center justify-between">
-                    <span>Avg Power</span>
-                    <span className="font-semibold">{fmtNum(h2h.e.powerAvg, 1)}</span>
+                    <span>Team Power (Avg Active)</span>
+                    <span className="font-semibold">{fmtNum(h2h.e.teamPower, 1)}</span>
                   </div>
-                  <Bar value={h2h.e.powerAvg} max={h2h.maxPowerAvg} />
+                  <Bar value={h2h.e.teamPower} max={h2h.maxTeamPower} />
                 </div>
 
                 <div>
                   <div className="flex items-center justify-between">
-                    <span>Team Power (Sum)</span>
-                    <span className="font-semibold">{fmtNum(h2h.e.powerSum, 0)}</span>
+                    <span>Depth (Sum Active)</span>
+                    <span className="font-semibold">{fmtNum(h2h.e.depth, 0)}</span>
                   </div>
-                  <Bar value={h2h.e.powerSum} max={h2h.maxPowerSum} />
+                  <Bar value={h2h.e.depth} max={h2h.maxDepth} />
                 </div>
 
                 <div>

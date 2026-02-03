@@ -21,7 +21,19 @@ type Row = {
   isEliminated?: boolean;
 };
 
-const DATA: Row[] = rankingsRaw as Row[];
+// ✅ Normalize incoming trend strings from JSON (e.g. "Up" -> "up")
+function normalizeTrend(x: unknown): Trend {
+  const t = String(x ?? "").trim().toLowerCase();
+  if (t === "up") return "up";
+  if (t === "down") return "down";
+  return "flat";
+}
+
+// ✅ Normalize dataset once (so the rest of the UI can trust r.trend)
+const DATA: Row[] = (rankingsRaw as any[]).map((r) => ({
+  ...r,
+  trend: normalizeTrend(r?.trend),
+}));
 
 function applyTeamGlow(team: string) {
   const t = (team ?? "").trim().toLowerCase();

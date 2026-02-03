@@ -22,6 +22,10 @@ type PlayerRow = {
   choke: number | null;
   reliability: number | null;
   power: number | null;
+
+  // ✅ elimination fields exist in players.json
+  eliminatedEpisode?: number | null;
+  isEliminated?: boolean;
 };
 
 type RankingRow = {
@@ -30,11 +34,16 @@ type RankingRow = {
   team: string;
   power: number;
   trend: Trend;
+
+  // (optional) some builds may include these too
+  eliminatedEpisode?: number | null;
+  isEliminated?: boolean;
 };
 
 type EnrichedPlayer = PlayerRow & {
   _power: number;
   _trend: Trend;
+  _isOut: boolean;
 };
 
 const PLAYERS: PlayerRow[] = playersRaw as PlayerRow[];
@@ -96,23 +105,18 @@ function applyTeamGlow(team: string) {
   const BLUE = "20, 80, 255";
   const NEUTRAL = "120, 120, 120";
 
-  // ALL: balanced red + blue (not red-dominant)
   if (t === "all") {
     root.style.setProperty("--glow-a", RED);
     root.style.setProperty("--glow-b", BLUE);
     root.style.setProperty("--glow-strength", "0.28");
     return;
   }
-
-  // Athinaioi -> strong red, muted blue
   if (t === "athinaioi") {
     root.style.setProperty("--glow-a", RED);
     root.style.setProperty("--glow-b", NEUTRAL);
     root.style.setProperty("--glow-strength", "0.34");
     return;
   }
-
-  // Eparxiotes -> strong blue, muted red
   if (t === "eparxiotes") {
     root.style.setProperty("--glow-a", NEUTRAL);
     root.style.setProperty("--glow-b", BLUE);
@@ -120,7 +124,6 @@ function applyTeamGlow(team: string) {
     return;
   }
 
-  // Other teams -> neutral
   root.style.setProperty("--glow-a", NEUTRAL);
   root.style.setProperty("--glow-b", NEUTRAL);
   root.style.setProperty("--glow-strength", "0.20");
@@ -162,6 +165,11 @@ function trendRank(t: Trend) {
   return 0;
 }
 
+function isOut(p: { isEliminated?: boolean; eliminatedEpisode?: number | null }) {
+  const elimEp = p.eliminatedEpisode;
+  return Boolean(p.isEliminated) || (elimEp != null && Number(elimEp) > 0);
+}
+
 export default function TeamPage() {
   const params = useParams<{ team: string }>();
   const teamParam = params?.team ? decodeURIComponent(params.team) : "";
@@ -175,7 +183,6 @@ export default function TeamPage() {
   const [sortDir, setSortDir] = useState<SortDir>("desc");
   const [rosterQuery, setRosterQuery] = useState("");
 
-  // Load remembered sort per team
   useEffect(() => {
     if (!teamParam) return;
     try {
@@ -188,7 +195,6 @@ export default function TeamPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [teamParam]);
 
-  // Persist sort per team
   useEffect(() => {
     if (!teamParam) return;
     try {
@@ -202,7 +208,7 @@ export default function TeamPage() {
     return map;
   }, []);
 
-  const baseRoster: EnrichedPlayer[] = useMemo(() => {
+  const baseRosterAll: EnrichedPlayer[] = useMemo(() => {
     const t = teamParam.trim().toLowerCase();
     const roster = PLAYERS.filter((p) => (p.team ?? "").trim().toLowerCase() === t);
 
@@ -210,18 +216,27 @@ export default function TeamPage() {
       const r = rankById.get(String(p.id));
       const power = r?.power ?? p.power ?? 0;
       const trend = (r?.trend ?? "flat") as Trend;
-      return { ...p, _power: power, _trend: trend };
+
+      // Use player-file elimination fields primarily, fallback to ranking row if present
+      const out =
+        isOut(p) ||
+        isOut({ isEliminated: r?.isEliminated, eliminatedEpisode: r?.eliminatedEpisode });
+
+      return { ...p, _power: power, _trend: trend, _isOut: out };
     });
   }, [teamParam, rankById]);
 
-  const teamExists = baseRoster.length > 0;
+  const teamExists = baseRosterAll.length > 0;
+
+  const baseRosterActive = useMemo(() => baseRosterAll.filter((p) => !p._isOut), [baseRosterAll]);
 
   const filteredRoster = useMemo(() => {
     const q = rosterQuery.trim().toLowerCase();
-    return q
-      ? baseRoster.filter((p) => (p.name ?? "").toLowerCase().includes(q))
-      : baseRoster;
-  }, [baseRoster, rosterQuery]);
+    const src = q
+      ? baseRosterAll.filter((p) => (p.name ?? "").toLowerCase().includes(q))
+      : baseRosterAll;
+    return src;
+  }, [baseRosterAll, rosterQuery]);
 
   const roster = useMemo(() => {
     const arr = filteredRoster.slice();
@@ -311,21 +326,29 @@ export default function TeamPage() {
   }, [teamParam]);
 
   const kpis = useMemo(() => {
-    const n = baseRoster.length || 1;
-    const powerSum = baseRoster.reduce((s, p) => s + (p._power ?? 0), 0);
-    const powerAvg = powerSum / n;
+    // ✅ ACTIVE definitions
+    const active = baseRosterActive;
+    const activeCount = active.length;
 
-    const duelSum = baseRoster.reduce((s, p) => s + (p.duels ?? 0), 0);
-    const winSum = baseRoster.reduce((s, p) => s + (p.wins ?? 0), 0);
+    const depth = active.reduce((s, p) => s + (p._power ?? 0), 0); // sum active
+    const teamPower = activeCount > 0 ? depth / activeCount : 0; // avg active
+
+    // Win % weighted: keep as season performance (all players)
+    const duelSum = baseRosterAll.reduce((s, p) => s + (p.duels ?? 0), 0);
+    const winSum = baseRosterAll.reduce((s, p) => s + (p.wins ?? 0), 0);
     const winPctWeighted = duelSum > 0 ? (winSum / duelSum) * 100 : null;
 
-    const relVals = baseRoster
+    // Reliability avg: active only (display-only)
+    const relVals = active
       .map((p) => p.reliability)
       .filter((x): x is number => typeof x === "number" && Number.isFinite(x));
     const reliabilityAvg = relVals.length ? relVals.reduce((a, b) => a + b, 0) / relVals.length : null;
 
-    const counts = { up: 0, down: 0, flat: 0 };
-    for (const p of baseRoster) counts[p._trend] += 1;
+    // Trend / MVP / movers: active if possible, fallback to all
+    const pool = active.length ? active : baseRosterAll;
+
+    const counts = { up: 0, down: 0, flat: 0 } as Record<Trend, number>;
+    for (const p of pool) counts[p._trend] += 1;
     const teamTrend: Trend =
       counts.up >= counts.down && counts.up >= counts.flat
         ? "up"
@@ -333,23 +356,34 @@ export default function TeamPage() {
         ? "down"
         : "flat";
 
-    const topByPower = baseRoster.slice().sort((a, b) => (b._power ?? 0) - (a._power ?? 0));
+    const topByPower = pool.slice().sort((a, b) => (b._power ?? 0) - (a._power ?? 0));
     const mvp = topByPower[0] ?? null;
 
     const riser =
-      baseRoster
+      pool
         .filter((p) => p._trend === "up")
         .slice()
         .sort((a, b) => (b._power ?? 0) - (a._power ?? 0))[0] ?? null;
 
     const faller =
-      baseRoster
+      pool
         .filter((p) => p._trend === "down")
         .slice()
         .sort((a, b) => (b._power ?? 0) - (a._power ?? 0))[0] ?? null;
 
-    return { powerSum, powerAvg, winPctWeighted, reliabilityAvg, teamTrend, mvp, riser, faller };
-  }, [baseRoster]);
+    return {
+      teamPower,
+      depth,
+      winPctWeighted,
+      reliabilityAvg,
+      teamTrend,
+      mvp,
+      riser,
+      faller,
+      activeCount,
+      totalCount: baseRosterAll.length,
+    };
+  }, [baseRosterAll, baseRosterActive]);
 
   if (!teamExists) {
     return (
@@ -414,8 +448,12 @@ export default function TeamPage() {
               <TrendIcon t={kpis.teamTrend} />
               <span className="capitalize">{kpis.teamTrend}</span>
             </span>
+
             <div className="mt-2 text-sm text-gray-300">
-              Players: <span className="text-gray-100">{baseRoster.length}</span>
+              Active players:{" "}
+              <span className="text-gray-100">
+                {kpis.activeCount}/{kpis.totalCount}
+              </span>
               {rosterQuery.trim() ? (
                 <>
                   {" "}
@@ -425,17 +463,19 @@ export default function TeamPage() {
             </div>
           </div>
 
+          {/* ✅ top-right now shows DEPTH */}
           <div className="text-right">
-            <div className="text-xs uppercase tracking-wide text-gray-400">Avg Power</div>
-            <div className="mt-1 text-3xl font-semibold text-gray-100">{fmtNum(kpis.powerAvg, 1)}</div>
+            <div className="text-xs uppercase tracking-wide text-gray-400">Depth</div>
+            <div className="mt-1 text-3xl font-semibold text-gray-100">{fmtNum(kpis.depth, 0)}</div>
           </div>
         </div>
 
         <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
-          <StatCard label="Team Power (Sum)" value={fmtNum(kpis.powerSum, 0)} />
+          {/* ✅ Team Power now = avg active */}
+          <StatCard label="Team Power" value={fmtNum(kpis.teamPower, 1)} />
           <StatCard label="Win % (Weighted)" value={fmtPct(kpis.winPctWeighted)} />
           <StatCard label="Reliability (Avg)" value={fmtNum(kpis.reliabilityAvg, 2)} />
-          <StatCard label="Roster Size" value={baseRoster.length} />
+          <StatCard label="Roster (Active/Total)" value={`${kpis.activeCount}/${kpis.totalCount}`} />
         </div>
 
         <div className="mt-4 grid gap-3 md:grid-cols-3">
@@ -534,7 +574,12 @@ export default function TeamPage() {
 
             <tbody>
               {roster.map((p) => (
-                <tr key={p.id} className="border-b border-white/5 hover:bg-white/5">
+                <tr
+                  key={p.id}
+                  className={`border-b border-white/5 hover:bg-white/5 ${
+                    p._isOut ? "grayscale opacity-70" : ""
+                  }`}
+                >
                   <td className="px-4 py-3 font-medium">
                     <Link
                       href={`${BASE}/players/${encodeURIComponent(String(p.id))}`}
@@ -544,7 +589,11 @@ export default function TeamPage() {
                     </Link>
                   </td>
                   <td className="px-4 py-3">
-                    <span className={`inline-flex items-center rounded-xl border px-3 py-1 text-sm font-semibold ${powerBadgeStyle(p._trend)}`}>
+                    <span
+                      className={`inline-flex items-center rounded-xl border px-3 py-1 text-sm font-semibold ${powerBadgeStyle(
+                        p._trend
+                      )}`}
+                    >
                       {fmtNum(p._power, 0)}
                     </span>
                   </td>

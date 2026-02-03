@@ -11,8 +11,9 @@ const outPath = path.join(root, "src", "data", "rankings.json");
 const prevOutPath = path.join(root, "src", "data", "rankings.prev.json");
 const archiveDir = path.join(root, "src", "data", "archive");
 
-// Trend sensitivity: smaller = more "up/down", larger = more "flat"
-const EPS = 0.5;
+// Trend sensitivity for POWER delta:
+// If power barely moves, we fall back to rank movement (so you still get up/down).
+const EPS_POWER = 0.05; // power delta threshold
 
 // ---------------- HELPERS ----------------
 function ensureDir(p) {
@@ -43,18 +44,15 @@ function parseCSV(text) {
       i++;
       continue;
     }
-
     if (ch === '"') {
       inQuotes = !inQuotes;
       continue;
     }
-
-    if (ch === "," && !inQuotes) {
+    if ((ch === "," || ch === ";") && !inQuotes) {
       row.push(cur);
       cur = "";
       continue;
     }
-
     if ((ch === "\n" || ch === "\r") && !inQuotes) {
       if (ch === "\r" && next === "\n") i++;
       row.push(cur);
@@ -63,10 +61,8 @@ function parseCSV(text) {
       row = [];
       continue;
     }
-
     cur += ch;
   }
-
   row.push(cur);
   if (row.some((c) => c.trim() !== "")) rows.push(row);
   return rows;
@@ -82,55 +78,38 @@ function normalizeHeader(h) {
     .replace(/^_+|_+$/g, "");
 }
 
-/**
- * ✅ IMPORTANT FIX:
- * After cleaning, if the string becomes empty, return null.
- * Otherwise Number("") becomes 0 and breaks eliminatedEpisode logic.
- */
 function toNumber(x) {
   if (x === undefined || x === null) return null;
-
-  const cleaned = String(x)
+  const s = String(x)
     .trim()
     .replace(/\u00A0/g, " ")
     .replace(/%/g, "")
     .replace(/\s+/g, "")
     .replace(/,/g, ".");
-
-  if (!cleaned) return null; // ✅ prevents "" -> 0
-
-  const n = Number(cleaned);
+  const n = Number(s);
   return Number.isFinite(n) ? n : null;
 }
 
-function getDisplayPower(r) {
-  const a = toNumber(r?.power_adj);
-  if (a != null) return a;
-  const p = toNumber(r?.power);
-  if (p != null) return p;
-  const raw = toNumber(r?.power_raw);
-  if (raw != null) return raw;
-  return null;
+function pick(obj, keys) {
+  for (const k of keys) {
+    if (obj[k] !== undefined && obj[k] !== "") return obj[k];
+  }
+  return undefined;
 }
 
-function computeTrend(curr, prev) {
-  if (prev == null || curr == null) return "flat";
-  const d = curr - prev;
-  if (Math.abs(d) < EPS) return "flat";
-  return d > 0 ? "up" : "down";
+function round2(n) {
+  return n == null ? null : Number(n.toFixed(2));
 }
 
-function nowStamp() {
-  // rankings_2026-01-23_09-15-01-123.json
+function tsNow() {
   const d = new Date();
-  const pad = (n, w = 2) => String(n).padStart(w, "0");
   const yyyy = d.getFullYear();
-  const mm = pad(d.getMonth() + 1);
-  const dd = pad(d.getDate());
-  const hh = pad(d.getHours());
-  const mi = pad(d.getMinutes());
-  const ss = pad(d.getSeconds());
-  const ms = pad(d.getMilliseconds(), 3);
+  const mm = String(d.getMonth() + 1).padStart(2, "0");
+  const dd = String(d.getDate()).padStart(2, "0");
+  const hh = String(d.getHours()).padStart(2, "0");
+  const mi = String(d.getMinutes()).padStart(2, "0");
+  const ss = String(d.getSeconds()).padStart(2, "0");
+  const ms = String(d.getMilliseconds()).padStart(3, "0");
   return `${yyyy}-${mm}-${dd}_${hh}-${mi}-${ss}-${ms}`;
 }
 
@@ -148,35 +127,72 @@ function getCurrentEpisodeNumber() {
   return listSnapshotFiles().length;
 }
 
+// Build a stable “signature” to decide if two snapshots are identical
+function snapshotSignature(rows) {
+  // sort by id to be stable, compare key fields that matter
+  const parts = (rows || [])
+    .slice()
+    .map((r) => ({
+      id: String(r?.id ?? "").trim(),
+      power: Number(r?.power ?? 0),
+      eliminatedEpisode:
+        r?.eliminatedEpisode == null ? null : Math.round(Number(r.eliminatedEpisode)),
+      isEliminated: !!r?.isEliminated,
+    }))
+    .filter((r) => r.id)
+    .sort((a, b) => a.id.localeCompare(b.id))
+    .map(
+      (r) =>
+        `${r.id}|${Number.isFinite(r.power) ? r.power.toFixed(4) : "NaN"}|${r.eliminatedEpisode ?? ""}|${
+          r.isEliminated ? 1 : 0
+        }`
+    );
+
+  return parts.join("\n");
+}
+
+// Find the most recent snapshot in /archive that is NOT identical to current data
+function findMostRecentNonIdenticalSnapshot(currentData) {
+  const files = listSnapshotFiles();
+  if (!files.length) return null;
+
+  const currSig = snapshotSignature(currentData);
+
+  // scan from newest to oldest
+  for (let i = files.length - 1; i >= 0; i--) {
+    const f = files[i];
+    const p = path.join(archiveDir, f);
+    const cand = safeReadJSON(p);
+    if (!Array.isArray(cand)) continue;
+
+    const sig = snapshotSignature(cand);
+    if (sig !== currSig) {
+      return { file: f, data: cand };
+    }
+  }
+
+  return null;
+}
+
 // ---------------- ROW MAPPER ----------------
 function mapRow(obj, currentEpisode) {
-  const id = obj.playerid ?? obj.player_id ?? obj.id ?? obj.pid;
-  const name = obj.playername ?? obj.player_name ?? obj.name;
-  const team = obj.team ?? obj.team_name ?? obj.teamname;
-
-  // We want Adjusted PR to be the universal "power"
-  const powerAdjRaw =
-    obj.adjusted_pr ?? obj.adjustedpr ?? obj.adjusted_power ?? obj.adjusted_rating;
-
-  const powerRaw =
-    obj.powerrating ??
-    obj.power_rating ??
-    obj.power ??
-    obj.power_score ??
-    obj.powerscore ??
-    obj.score ??
-    obj.rank_score;
-
-  const eliminatedEpisode =
-    toNumber(obj.eliminatedepisode ?? obj.eliminated_episode ?? obj.eliminated_ep) ?? null;
+  const id = pick(obj, ["playerid", "player_id", "id", "pid"]);
+  const name = pick(obj, ["playername", "player_name", "name"]);
+  const team = pick(obj, ["team", "team_name"]);
 
   if (!id || !name || !team) return null;
 
-  const power_adj = toNumber(powerAdjRaw);
-  const power_raw = toNumber(powerRaw);
+  // Universal power = Adjusted PR, fallback to raw if needed
+  const powerAdj =
+    toNumber(pick(obj, ["adjusted_pr", "adjustedpr", "adjusted_power", "adjusted_rating"])) ??
+    null;
+  const powerRaw = toNumber(pick(obj, ["powerrating", "power_rating", "power"])) ?? null;
 
-  const power = power_adj != null ? power_adj : power_raw;
-  if (power == null) return null;
+  const power = powerAdj != null ? powerAdj : powerRaw;
+
+  // Elimination signal
+  const eliminatedEpisode =
+    toNumber(pick(obj, ["eliminatedepisode", "eliminated_episode", "eliminated_ep"])) ?? null;
 
   const isEliminated =
     eliminatedEpisode != null && Number.isFinite(eliminatedEpisode)
@@ -188,16 +204,69 @@ function mapRow(obj, currentEpisode) {
     name: String(name).trim(),
     team: String(team).trim(),
 
-    power: Number(power.toFixed(2)),
+    power: power == null ? 0 : Number(power),
 
-    power_adj: power_adj == null ? null : Number(power_adj.toFixed(2)),
-    power_raw: power_raw == null ? null : Number(power_raw.toFixed(2)),
+    power_adj: powerAdj == null ? null : round2(powerAdj),
+    power_raw: powerRaw == null ? null : round2(powerRaw),
 
     eliminatedEpisode: eliminatedEpisode == null ? null : Math.round(eliminatedEpisode),
     isEliminated,
 
     trend: "flat", // computed below vs prev snapshot
   };
+}
+
+// Compute trend against prev snapshot rows
+// Hybrid logic:
+//   1) If power moved by more than EPS_POWER => up/down by power delta
+//   2) Otherwise, use rank movement (position in sorted list) as a tie-breaker
+function computeTrend(currRows, prevRows) {
+  const prevMap = new Map();
+  for (const r of prevRows || []) {
+    if (r?.id != null) prevMap.set(String(r.id).trim(), r);
+  }
+
+  // Rank maps (1 = best)
+  const prevRank = new Map();
+  (prevRows || [])
+    .slice()
+    .sort((a, b) => Number(b?.power ?? 0) - Number(a?.power ?? 0))
+    .forEach((r, idx) => {
+      if (r?.id != null) prevRank.set(String(r.id).trim(), idx + 1);
+    });
+
+  const currRank = new Map();
+  (currRows || []).forEach((r, idx) => {
+    if (r?.id != null) currRank.set(String(r.id).trim(), idx + 1);
+  });
+
+  return (currRows || []).map((r) => {
+    const id = String(r.id).trim();
+    const prev = prevMap.get(id);
+
+    const prevPower = prev ? Number(prev.power ?? 0) : null;
+    const currPower = Number(r.power ?? 0);
+
+    let trend = "flat";
+
+    if (prevPower != null && Number.isFinite(prevPower) && Number.isFinite(currPower)) {
+      const d = currPower - prevPower;
+
+      if (d > EPS_POWER) trend = "up";
+      else if (d < -EPS_POWER) trend = "down";
+      else {
+        // Power basically unchanged — use rank movement (if available)
+        const pr = prevRank.get(id);
+        const cr = currRank.get(id);
+        if (pr != null && cr != null) {
+          if (cr < pr) trend = "up";
+          else if (cr > pr) trend = "down";
+        }
+      }
+    }
+
+    return { ...r, trend };
+  });
 }
 
 // ---------------- MAIN ----------------
@@ -221,16 +290,16 @@ if (rows.length < 2) {
 
 const headers = rows[0].map(normalizeHeader);
 
-// Read previous rankings.json so we can compute trend + freezing
-const prevData = safeReadJSON(outPath);
-const prevMap = new Map();
-if (Array.isArray(prevData)) {
-  for (const r of prevData) {
-    if (r?.id != null) prevMap.set(String(r.id), r);
+// Read previous rankings.json (for freezing / continuity)
+const prevLive = safeReadJSON(outPath);
+const prevLiveMap = new Map();
+if (Array.isArray(prevLive)) {
+  for (const r of prevLive) {
+    if (r?.id != null) prevLiveMap.set(String(r.id).trim(), r);
   }
 }
 
-// Build current data
+// Build current data from CSV
 let data = rows
   .slice(1)
   .map((r) => {
@@ -241,57 +310,88 @@ let data = rows
   .filter(Boolean);
 
 // ✅ Freeze eliminated players after their elimination episode
+// If eliminatedEpisode = 5, they still appear normally on episode 5,
+// and freeze from episode 6+ (currentEpisode > 5).
 data = data.map((r) => {
-  const elimEp = typeof r?.eliminatedEpisode === "number" ? r.eliminatedEpisode : null;
+  const elimEp =
+    r?.eliminatedEpisode != null && Number.isFinite(Number(r.eliminatedEpisode))
+      ? Math.round(Number(r.eliminatedEpisode))
+      : null;
+
   if (elimEp == null) return r;
 
-  // freeze from next episode onwards
   if (currentEpisode > elimEp) {
-    const prev = prevMap.get(String(r.id));
+    const prev = prevLiveMap.get(String(r.id).trim());
     if (prev) {
       return {
         ...prev,
-        eliminatedEpisode: Math.round(elimEp),
+        eliminatedEpisode: elimEp,
         isEliminated: true,
+        // trend will be recomputed below
+        trend: "flat",
       };
     }
   }
 
   return {
     ...r,
-    eliminatedEpisode: Math.round(elimEp),
+    eliminatedEpisode: elimEp,
     isEliminated: currentEpisode >= elimEp,
   };
 });
 
-// Compute trend
-data = data.map((r) => {
-  const prev = prevMap.get(String(r.id));
-  const prevPower = prev ? getDisplayPower(prev) : null;
-  const currPower = getDisplayPower(r);
-  const trend = computeTrend(currPower, prevPower);
-  return { ...r, trend };
-});
+// Sort by power (desc) for display
+data = data
+  .slice()
+  .sort((a, b) => Number(b.power ?? 0) - Number(a.power ?? 0));
 
-// Sort by power desc
-data.sort((a, b) => (getDisplayPower(b) ?? -Infinity) - (getDisplayPower(a) ?? -Infinity));
+// ✅ Pick previous snapshot intelligently:
+//    - use the most recent archive snapshot that is NOT identical to current data.
+//    - fallback: previous live rankings.json if no non-identical archive exists.
+const prevSnap = findMostRecentNonIdenticalSnapshot(data);
+const prevForTrend = prevSnap?.data ?? (Array.isArray(prevLive) ? prevLive : null);
 
-// Save previous snapshot BEFORE overwriting rankings.json
-if (prevData && Array.isArray(prevData)) {
-  fs.writeFileSync(prevOutPath, JSON.stringify(prevData, null, 2), "utf8");
-  console.log(`ℹ️ Trend compare: ${prevData.length} previous rows loaded; EPS=${EPS}`);
-  console.log(`ℹ️ Previous snapshot saved to: ${prevOutPath}`);
+if (prevSnap?.file) {
+  console.log(`ℹ️ Trend baseline: ${prevSnap.file} (non-identical snapshot)`);
+} else if (Array.isArray(prevLive)) {
+  console.log("ℹ️ Trend baseline: previous rankings.json (no non-identical archive found)");
 } else {
-  console.log("ℹ️ Trend compare: no previous rankings.json found (first run or missing).");
+  console.log("ℹ️ Trend baseline: none found (all trends may be flat)");
 }
 
-// Write rankings.json
+// ✅ Compute trend
+if (Array.isArray(prevForTrend)) {
+  data = computeTrend(data, prevForTrend);
+}
+
+// Write rankings.prev.json (debuggable baseline)
+try {
+  fs.writeFileSync(prevOutPath, JSON.stringify(prevForTrend ?? null, null, 2), "utf8");
+} catch {}
+
+// ✅ IMPORTANT: avoid creating fake episodes / snapshots
+// Only archive if current data differs from the latest archived snapshot.
+// (Signature ignores trend, so identical data won't create new snapshot.)
+const files = listSnapshotFiles();
+const lastFile = files.length ? files[files.length - 1] : null;
+const lastPath = lastFile ? path.join(archiveDir, lastFile) : null;
+const lastData = lastPath ? safeReadJSON(lastPath) : null;
+
+const currSig = snapshotSignature(data);
+const lastSig = Array.isArray(lastData) ? snapshotSignature(lastData) : null;
+
+const shouldArchive = !(lastSig && lastSig === currSig);
+
+if (shouldArchive) {
+  const stamp = tsNow();
+  const snapName = `rankings_${stamp}.json`;
+  const snapPath = path.join(archiveDir, snapName);
+  fs.writeFileSync(snapPath, JSON.stringify(data, null, 2), "utf8");
+  console.log(`✅ Archived snapshot: ${snapName}`);
+} else {
+  console.log("ℹ️ Snapshot NOT archived (identical to latest snapshot) — no fake episode created.");
+}
+
+// Write live rankings.json
 fs.writeFileSync(outPath, JSON.stringify(data, null, 2), "utf8");
 console.log(`✅ Wrote ${data.length} rows to ${outPath}`);
-
-// Archive snapshot (Episodes reads these)
-const archiveName = `rankings_${nowStamp()}.json`;
-const archivePath = path.join(archiveDir, archiveName);
-fs.writeFileSync(archivePath, JSON.stringify(data, null, 2), "utf8");
-console.log(`ℹ️ Archive folder: ${archiveDir}`);
-console.log(`ℹ️ Snapshot archived: ${archivePath}`);

@@ -93,9 +93,15 @@ export default function EpisodesIndexPage() {
           const label = cleanLabel(e?.label) || `Episode ${e?.episode ?? e?.id ?? "?"}`;
 
           const teamResult = e?.summary?.teamResult ?? null;
-          const winner = teamResult?.winner ?? "—";
+          const winner = teamResult?.winner ?? null;
+
           const athScore = asNum(teamResult?.score?.Athinaioi);
           const epaScore = asNum(teamResult?.score?.Eparxiotes);
+
+          const scoreText =
+            athScore == null || epaScore == null ? "—" : `${athScore} – ${epaScore}`;
+
+          const showWinner = !!winner && winner !== "Draw";
 
           return (
             <Link
@@ -114,14 +120,26 @@ export default function EpisodesIndexPage() {
                   </div>
 
                   <div className="flex flex-wrap gap-2 text-sm">
-                    {/* ✅ Team Result box (score + winner) */}
+                    {/* ✅ Team Result box (always show team names) */}
                     <div className="rounded-xl border border-white/10 bg-black/30 px-3 py-2">
                       <div className="text-xs text-gray-400">Team result</div>
-                      <div className="mt-1 flex items-center gap-2">
-                        <TeamChip team={winner} />
-                        <div className="font-semibold text-gray-100">
-                          {athScore == null || epaScore == null ? "—" : `${athScore} – ${epaScore}`}
-                        </div>
+
+                      <div className="mt-1 flex items-center justify-between gap-3">
+                        <span className="font-semibold text-gray-100">Athinaioi</span>
+                        <span className="font-semibold text-gray-100">{scoreText}</span>
+                        <span className="font-semibold text-gray-100">Eparxiotes</span>
+                      </div>
+
+                      <div className="mt-1 text-xs text-gray-400">
+                        {showWinner ? (
+                          <>
+                            Winner: <span className="text-gray-100">{winner}</span>
+                          </>
+                        ) : (
+                          <>
+                            Winner: <span className="text-gray-500">Pending</span>
+                          </>
+                        )}
                       </div>
                     </div>
 
