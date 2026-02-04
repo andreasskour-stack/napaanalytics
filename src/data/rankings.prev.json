@@ -5,7 +5,7 @@
     "team": "Eparxiotes",
     "power": 100,
     "power_adj": 100,
-    "power_raw": 74.08,
+    "power_raw": 75.49,
     "eliminatedEpisode": null,
     "isEliminated": false,
     "trend": "flat"
@@ -14,53 +14,9 @@
     "id": "13",
     "name": "Anastasia Stergiou",
     "team": "Eparxiotes",
-    "power": 91.95,
-    "power_adj": 91.95,
-    "power_raw": 68.11,
-    "eliminatedEpisode": null,
-    "isEliminated": false,
-    "trend": "down"
-  },
-  {
-    "id": "17",
-    "name": "Fani Pantelaki",
-    "team": "Eparxiotes",
-    "power": 87.39,
-    "power_adj": 87.39,
-    "power_raw": 64.74,
-    "eliminatedEpisode": null,
-    "isEliminated": false,
-    "trend": "up"
-  },
-  {
-    "id": "1",
-    "name": "Alexandros Kourtovik",
-    "team": "Athinaioi",
-    "power": 84.63,
-    "power_adj": 84.63,
-    "power_raw": 62.69,
-    "eliminatedEpisode": null,
-    "isEliminated": false,
-    "trend": "up"
-  },
-  {
-    "id": "22",
-    "name": "Manos Malliaros",
-    "team": "Eparxiotes",
-    "power": 83.8,
-    "power_adj": 83.8,
-    "power_raw": 62.08,
-    "eliminatedEpisode": null,
-    "isEliminated": false,
-    "trend": "down"
-  },
-  {
-    "id": "10",
-    "name": "Mantisa Tsota",
-    "team": "Athinaioi",
-    "power": 82.6,
-    "power_adj": 82.6,
-    "power_raw": 61.19,
+    "power": 87.7,
+    "power_adj": 87.7,
+    "power_raw": 66.2,
     "eliminatedEpisode": null,
     "isEliminated": false,
     "trend": "down"
@@ -69,21 +25,76 @@
     "id": "2",
     "name": "Dimitris Theodoropoulos",
     "team": "Athinaioi",
-    "power": 80.05,
-    "power_adj": 80.05,
-    "power_raw": 59.3,
+    "power": 84.85,
+    "power_adj": 84.85,
+    "power_raw": 64.05,
     "eliminatedEpisode": null,
     "isEliminated": false,
     "trend": "up"
   },
   {
+    "id": "10",
+    "name": "Mantisa Tsota",
+    "team": "Athinaioi",
+    "power": 82.68,
+    "power_adj": 82.68,
+    "power_raw": 62.41,
+    "eliminatedEpisode": null,
+    "isEliminated": false,
+    "trend": "up"
+  },
+  {
+    "id": "1",
+    "name": "Alexandros Kourtovik",
+    "team": "Athinaioi",
+    "power": 81.53,
+    "power_adj": 81.53,
+    "power_raw": 61.55,
+    "eliminatedEpisode": null,
+    "isEliminated": false,
+    "trend": "down"
+  },
+  {
+    "id": "17",
+    "name": "Fani Pantelaki",
+    "team": "Eparxiotes",
+    "power": 80.1,
+    "power_adj": 80.1,
+    "power_raw": 60.46,
+    "eliminatedEpisode": null,
+    "isEliminated": false,
+    "trend": "down"
+  },
+  {
+    "id": "22",
+    "name": "Manos Malliaros",
+    "team": "Eparxiotes",
+    "power": 79.82,
+    "power_adj": 79.82,
+    "power_raw": 60.26,
+    "eliminatedEpisode": null,
+    "isEliminated": false,
+    "trend": "down"
+  },
+  {
     "id": "7",
     "name": "Giorgos Karaisalidis",
     "team": "Athinaioi",
-    "power": 72.22,
-    "power_adj": 72.22,
-    "power_raw": 53.5,
+    "power": 70.27,
+    "power_adj": 70.27,
+    "power_raw": 53.05,
     "eliminatedEpisode": null,
+    "isEliminated": false,
+    "trend": "down"
+  },
+  {
+    "id": "4",
+    "name": "Evelina Lykoudi",
+    "team": "Athinaioi",
+    "power": 69.2,
+    "power_adj": 69.2,
+    "power_raw": 52.24,
+    "eliminatedEpisode": 14,
     "isEliminated": false,
     "trend": "down"
   },
@@ -91,20 +102,9 @@
     "id": "19",
     "name": "Giorgos Polychros",
     "team": "Eparxiotes",
-    "power": 72.01,
-    "power_adj": 72.01,
-    "power_raw": 53.34,
-    "eliminatedEpisode": null,
-    "isEliminated": false,
-    "trend": "up"
-  },
-  {
-    "id": "4",
-    "name": "Evelina Lykoudi",
-    "team": "Athinaioi",
-    "power": 70.52,
-    "power_adj": 70.52,
-    "power_raw": 52.24,
+    "power": 68.31,
+    "power_adj": 68.31,
+    "power_raw": 51.56,
     "eliminatedEpisode": null,
     "isEliminated": false,
     "trend": "down"
@@ -113,20 +113,20 @@
     "id": "8",
     "name": "Giorgos Tsoukalas",
     "team": "Athinaioi",
-    "power": 67.24,
-    "power_adj": 67.24,
-    "power_raw": 49.81,
+    "power": 68.06,
+    "power_adj": 68.06,
+    "power_raw": 51.38,
     "eliminatedEpisode": null,
     "isEliminated": false,
-    "trend": "down"
+    "trend": "up"
   },
   {
     "id": "23",
     "name": "Michalis Sifakis",
     "team": "Eparxiotes",
-    "power": 64.53,
-    "power_adj": 64.53,
-    "power_raw": 47.81,
+    "power": 63.37,
+    "power_adj": 63.37,
+    "power_raw": 47.84,
     "eliminatedEpisode": null,
     "isEliminated": false,
     "trend": "down"
@@ -135,12 +135,12 @@
     "id": "12",
     "name": "Vasiliki Mounti",
     "team": "Athinaioi",
-    "power": 60.85,
-    "power_adj": 60.85,
-    "power_raw": 45.08,
+    "power": 55.52,
+    "power_adj": 55.52,
+    "power_raw": 41.91,
     "eliminatedEpisode": null,
     "isEliminated": false,
-    "trend": "up"
+    "trend": "down"
   },
   {
     "id": "5",
@@ -151,25 +151,25 @@
     "power_raw": 37.37,
     "eliminatedEpisode": 11,
     "isEliminated": true,
-    "trend": "up"
+    "trend": "flat"
   },
   {
     "id": "24",
     "name": "Stauros Floros",
     "team": "Eparxiotes",
-    "power": 51.09,
-    "power_adj": 51.09,
-    "power_raw": 37.85,
+    "power": 51.15,
+    "power_adj": 51.15,
+    "power_raw": 38.62,
     "eliminatedEpisode": null,
     "isEliminated": false,
-    "trend": "down"
+    "trend": "up"
   },
   {
     "id": "15",
     "name": "Dimitra Liaga",
     "team": "Eparxiotes",
-    "power": 51.04,
-    "power_adj": 51.04,
+    "power": 50.09,
+    "power_adj": 50.09,
     "power_raw": 37.81,
     "eliminatedEpisode": null,
     "isEliminated": false,
@@ -179,12 +179,12 @@
     "id": "9",
     "name": "Kelly Bofiliou",
     "team": "Athinaioi",
-    "power": 46.2,
-    "power_adj": 46.2,
-    "power_raw": 34.23,
+    "power": 46.57,
+    "power_adj": 46.57,
+    "power_raw": 35.16,
     "eliminatedEpisode": null,
     "isEliminated": false,
-    "trend": "down"
+    "trend": "up"
   },
   {
     "id": "16",
@@ -195,29 +195,18 @@
     "power_raw": 30.61,
     "eliminatedEpisode": 8,
     "isEliminated": true,
-    "trend": "up"
-  },
-  {
-    "id": "14",
-    "name": "Christos Milonas",
-    "team": "Eparxiotes",
-    "power": 39.04,
-    "power_adj": 39.04,
-    "power_raw": 28.92,
-    "eliminatedEpisode": null,
-    "isEliminated": false,
-    "trend": "down"
+    "trend": "flat"
   },
   {
     "id": "21",
     "name": "Ioannis Revis",
     "team": "Eparxiotes",
-    "power": 38.1,
-    "power_adj": 38.1,
-    "power_raw": 28.22,
+    "power": 41.36,
+    "power_adj": 41.36,
+    "power_raw": 31.22,
     "eliminatedEpisode": null,
     "isEliminated": false,
-    "trend": "down"
+    "trend": "up"
   },
   {
     "id": "18",
@@ -228,6 +217,17 @@
     "power_raw": 28.21,
     "eliminatedEpisode": 12,
     "isEliminated": true,
+    "trend": "up"
+  },
+  {
+    "id": "14",
+    "name": "Christos Milonas",
+    "team": "Eparxiotes",
+    "power": 34.44,
+    "power_adj": 34.44,
+    "power_raw": 26,
+    "eliminatedEpisode": null,
+    "isEliminated": false,
     "trend": "down"
   },
   {
@@ -245,11 +245,11 @@
     "id": "6",
     "name": "Gio Karantonis",
     "team": "Athinaioi",
-    "power": 27.59,
-    "power_adj": 27.59,
+    "power": 27.07,
+    "power_adj": 27.07,
     "power_raw": 20.44,
-    "eliminatedEpisode": null,
-    "isEliminated": false,
+    "eliminatedEpisode": 13,
+    "isEliminated": true,
     "trend": "down"
   },
   {

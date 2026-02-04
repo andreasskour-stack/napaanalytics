@@ -46,6 +46,8 @@ function parseStampFromFilename(file) {
   if (!m) return null;
 
   const [_, ymd, hh, mm, ss, ms] = m;
+  // Filename is local-time-ish, but we only need ordering.
+  // Treat as UTC for stable parsing.
   const iso = `${ymd}T${hh}:${mm}:${ss}.${ms}Z`;
   const d = new Date(iso);
 
@@ -145,46 +147,17 @@ function computeTeamSwing(diffs) {
 }
 
 /* =========================
-   Episode labeling / mapping
+   Episode labeling / mapping (STRAIGHTFORWARD)
+   - One episodes.json entry per snapshot transition (i = 1..N-1)
+   - Episode number == TV EpisodeID in duels.csv
 ========================= */
-
-// Keep your skip set exactly as you had it (dev/test snapshots)
-const SKIP_EPISODES = new Set([2, 4, 5, 6]);
-
-// ✅ EXTENDED: add 13 + 14
-const EPISODE_LABELS = {
-  1: "Opening Phase (Ep 1–7)",
-  3: "Episode 8",
-  7: "Episode 9",
-  8: "Episode 10",
-  9: "Episode 11",
-  10: "Episode 12",
-  11: "Episode 13",
-  12: "Episode 14",
-};
-
 function getEpisodeLabel(episodeNum) {
-  if (EPISODE_LABELS[episodeNum]) return EPISODE_LABELS[episodeNum];
   return `Episode ${episodeNum}`;
 }
 
-/**
- * episodes.json "episode" value (snapshot order) -> TV episode(s)
- * ✅ EXTENDED: add entry 11 -> TV 13 and entry 12 -> TV 14
- */
-const TV_EPISODES_BY_ENTRY = {
-  1: [1, 2, 3, 4, 5, 6, 7],
-  3: [8],
-  7: [9],
-  8: [10],
-  9: [11],
-  10: [12],
-  11: [13],
-  12: [14],
-};
-
 function getTvEpisodesForEntry(entryEpisodeNum) {
-  return TV_EPISODES_BY_ENTRY[entryEpisodeNum] ?? [entryEpisodeNum];
+  // 1:1 mapping
+  return [entryEpisodeNum];
 }
 
 /* =========================
@@ -229,6 +202,8 @@ function buildTeamScoresFromDuels_SUM(filePath) {
   const text = decodeTextSmart(filePath);
   const lines = text.split(/\r?\n/);
 
+  // IMPORTANT: choose delimiter from the first meaningful header line,
+  // not the weird first blank comma-only line.
   const headerLine =
     lines.find((l) => /DuelID|ChallengeID|EpisodeID/i.test(l)) ??
     lines.find((l) => /episodeid/i.test(l)) ??
@@ -238,6 +213,7 @@ function buildTeamScoresFromDuels_SUM(filePath) {
 
   let rows = parseSimpleDelimited(text, delim);
 
+  // Skip leading empty rows like: ﻿,,,,,,,,
   while (rows.length && rowIsEffectivelyEmpty(rows[0])) rows.shift();
   if (rows.length < 2) return new Map();
 
@@ -271,6 +247,7 @@ function buildTeamScoresFromDuels_SUM(filePath) {
     if (!scores.has(episodeId)) scores.set(episodeId, { Athinaioi: 0, Eparxiotes: 0 });
 
     const agg = scores.get(episodeId);
+    // Red = Athinaioi, Blue = Eparxiotes
     agg.Athinaioi += Number.isFinite(red) ? red : 0;
     agg.Eparxiotes += Number.isFinite(blue) ? blue : 0;
   }
@@ -341,8 +318,8 @@ for (let i = 1; i < files.length; i++) {
   const prev = files[i - 1];
   const curr = files[i];
 
+  // 1 entry per snapshot transition
   const episodeNum = i;
-  if (SKIP_EPISODES.has(episodeNum)) continue;
 
   const prevRows = safeReadJSON(path.join(archiveDir, prev.f)) || [];
   const currRows = safeReadJSON(path.join(archiveDir, curr.f)) || [];
@@ -372,6 +349,7 @@ for (let i = 1; i < files.length; i++) {
     Eparxiotes: epaDown[0] || null,
   };
 
+  // ✅ REAL score from duels.csv sums (EpisodeID == episodeNum)
   const teamResult = computeTeamResultForEntry(teamScoresByTvEpisode, episodeNum);
 
   episodes.push({
@@ -401,13 +379,9 @@ for (let i = 1; i < files.length; i++) {
   });
 }
 
+// newest first (your UI expects this)
 episodes.reverse();
 
 fs.writeFileSync(outPath, JSON.stringify(episodes, null, 2), "utf8");
 console.log(`✅ Built ${episodes.length} episodes → ${outPath}`);
-console.log(
-  `ℹ️ Skipped dev/test episodes: ${Array.from(SKIP_EPISODES)
-    .sort((a, b) => a - b)
-    .join(", ")}`
-);
 console.log(`ℹ️ Team scores loaded from duels.csv: ${fs.existsSync(duelsPath) ? "YES" : "NO"}`);
