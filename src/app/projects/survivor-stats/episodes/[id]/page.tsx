@@ -55,9 +55,6 @@ function deltaClass(v: any): string {
 function TeamChip({ team }: { team: string }) {
   const t = String(team || "").toLowerCase();
 
-  // ✅ FIXED COLORS:
-  // Athinaioi = red
-  // Eparxiotes = blue
   const cls =
     t.includes("ath")
       ? "border-white/10 bg-red-500/10 text-red-200"
@@ -126,9 +123,16 @@ export default async function EpisodePage({
   const label = getEpisodeLabel(ep);
   const date = getEpisodeDate(ep);
 
-  const teamSwing = ep?.summary?.teamSwing ?? null;
-  const winner = teamSwing?.winner ?? "—";
-  const margin = teamSwing?.margin ?? null;
+  // ✅ NEW: read real score from summary.teamResult (or ep.teamResult if you ever store it there)
+  const teamResult = ep?.summary?.teamResult ?? ep?.teamResult ?? null;
+  const winner = teamResult?.winner ?? "Pending";
+
+  const ath = asNum(teamResult?.score?.Athinaioi);
+  const epa = asNum(teamResult?.score?.Eparxiotes);
+  const scoreText = ath != null && epa != null ? `${ath} - ${epa}` : "—";
+
+  const margin =
+    teamResult?.margin != null ? teamResult.margin : ath != null && epa != null ? Math.abs(ath - epa) : null;
 
   const rise = ep?.summary?.biggestRise ?? null;
   const fall = ep?.summary?.biggestFall ?? null;
@@ -164,13 +168,14 @@ export default async function EpisodePage({
             </div>
           </div>
 
-          {/* Team result (currently power-swing-based, not real score) */}
+          {/* Team result (REAL score from duels.csv) */}
           <div className="rounded-2xl border border-white/10 bg-black/30 px-4 py-3">
             <div className="text-xs uppercase tracking-wide text-gray-400">Team result</div>
             <div className="mt-1 flex items-center gap-2">
               <TeamChip team={winner} />
               <div className="text-sm text-gray-300">
-                Margin: <span className="font-semibold text-gray-100">{margin ?? "—"}</span>
+                Score: <span className="font-semibold text-gray-100">{scoreText}</span>
+                {" "}• Margin: <span className="font-semibold text-gray-100">{margin ?? "—"}</span>
               </div>
             </div>
           </div>
@@ -251,10 +256,9 @@ export default async function EpisodePage({
           </div>
         </div>
 
-        {/* Note (optional): clarify winner logic */}
         <div className="mt-6 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm text-gray-300">
-          <span className="font-semibold text-gray-100">Note:</span> “Team result” is currently based
-          on net power change between snapshots (teamSwing). Real episode score will be computed from duel-level data.
+          <span className="font-semibold text-gray-100">Note:</span> “Team result” is computed from duel-level
+          data (RedWon / BlueWon) in duels.csv.
         </div>
       </div>
     </div>

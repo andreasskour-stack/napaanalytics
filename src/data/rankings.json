@@ -19,7 +19,7 @@
     "power_raw": 66.2,
     "eliminatedEpisode": null,
     "isEliminated": false,
-    "trend": "flat"
+    "trend": "down"
   },
   {
     "id": "2",
@@ -30,7 +30,7 @@
     "power_raw": 64.05,
     "eliminatedEpisode": null,
     "isEliminated": false,
-    "trend": "flat"
+    "trend": "up"
   },
   {
     "id": "10",
@@ -41,7 +41,7 @@
     "power_raw": 62.41,
     "eliminatedEpisode": null,
     "isEliminated": false,
-    "trend": "flat"
+    "trend": "up"
   },
   {
     "id": "1",
@@ -52,7 +52,7 @@
     "power_raw": 61.55,
     "eliminatedEpisode": null,
     "isEliminated": false,
-    "trend": "flat"
+    "trend": "down"
   },
   {
     "id": "17",
@@ -63,7 +63,7 @@
     "power_raw": 60.46,
     "eliminatedEpisode": null,
     "isEliminated": false,
-    "trend": "flat"
+    "trend": "down"
   },
   {
     "id": "22",
@@ -74,7 +74,7 @@
     "power_raw": 60.26,
     "eliminatedEpisode": null,
     "isEliminated": false,
-    "trend": "flat"
+    "trend": "down"
   },
   {
     "id": "7",
@@ -85,7 +85,7 @@
     "power_raw": 53.05,
     "eliminatedEpisode": null,
     "isEliminated": false,
-    "trend": "flat"
+    "trend": "down"
   },
   {
     "id": "4",
@@ -95,8 +95,8 @@
     "power_adj": 69.2,
     "power_raw": 52.24,
     "eliminatedEpisode": 14,
-    "isEliminated": true,
-    "trend": "flat"
+    "isEliminated": false,
+    "trend": "down"
   },
   {
     "id": "19",
@@ -107,7 +107,7 @@
     "power_raw": 51.56,
     "eliminatedEpisode": null,
     "isEliminated": false,
-    "trend": "flat"
+    "trend": "down"
   },
   {
     "id": "8",
@@ -118,7 +118,7 @@
     "power_raw": 51.38,
     "eliminatedEpisode": null,
     "isEliminated": false,
-    "trend": "flat"
+    "trend": "up"
   },
   {
     "id": "23",
@@ -129,7 +129,7 @@
     "power_raw": 47.84,
     "eliminatedEpisode": null,
     "isEliminated": false,
-    "trend": "flat"
+    "trend": "down"
   },
   {
     "id": "12",
@@ -140,7 +140,7 @@
     "power_raw": 41.91,
     "eliminatedEpisode": null,
     "isEliminated": false,
-    "trend": "flat"
+    "trend": "down"
   },
   {
     "id": "5",
@@ -162,7 +162,7 @@
     "power_raw": 38.62,
     "eliminatedEpisode": null,
     "isEliminated": false,
-    "trend": "flat"
+    "trend": "up"
   },
   {
     "id": "15",
@@ -173,7 +173,7 @@
     "power_raw": 37.81,
     "eliminatedEpisode": null,
     "isEliminated": false,
-    "trend": "flat"
+    "trend": "down"
   },
   {
     "id": "9",
@@ -184,7 +184,7 @@
     "power_raw": 35.16,
     "eliminatedEpisode": null,
     "isEliminated": false,
-    "trend": "flat"
+    "trend": "up"
   },
   {
     "id": "16",
@@ -206,7 +206,7 @@
     "power_raw": 31.22,
     "eliminatedEpisode": null,
     "isEliminated": false,
-    "trend": "flat"
+    "trend": "up"
   },
   {
     "id": "18",
@@ -217,7 +217,7 @@
     "power_raw": 28.21,
     "eliminatedEpisode": 12,
     "isEliminated": true,
-    "trend": "flat"
+    "trend": "up"
   },
   {
     "id": "14",
@@ -228,7 +228,7 @@
     "power_raw": 26,
     "eliminatedEpisode": null,
     "isEliminated": false,
-    "trend": "flat"
+    "trend": "down"
   },
   {
     "id": "3",
@@ -250,7 +250,7 @@
     "power_raw": 20.44,
     "eliminatedEpisode": 13,
     "isEliminated": true,
-    "trend": "flat"
+    "trend": "down"
   },
   {
     "id": "11",

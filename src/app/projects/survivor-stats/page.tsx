@@ -1,287 +1,588 @@
+import fs from "fs";
+import path from "path";
 import Link from "next/link";
-import episodesRaw from "@/data/episodes.json";
+import PageHeader from "@/app/projects/survivor-stats/components/PageHeader";
 
 const BASE = "/projects/survivor-stats";
 
-type Mover = {
+// ---------- Types ----------
+type AnyRow = Record<string, any>;
+
+type RankRow = {
   id: string;
   name: string;
   team: string;
-  currPower: number;
-  prevPower: number | null;
-  delta: number | null;
+  power: number;
+  active?: boolean;
+  isEliminated?: boolean;
 };
 
-type TeamSwingTeam = { sum: number; avg: number; n: number };
-
-type TeamSwing = {
-  teams: {
-    Athinaioi: TeamSwingTeam;
-    Eparxiotes: TeamSwingTeam;
-    [key: string]: TeamSwingTeam;
-  };
-  winner: string;
-  margin: number;
+type Snapshot = {
+  meta?: { builtAtISO?: string; episode?: number };
+  rankings?: RankRow[];
 };
 
-type Episode = {
-  id: string;
-  episode?: number; // ✅ optional
-  label: string;
-  dateISO: string;
-  prevSnapshot: string;
-  currSnapshot: string;
-  summary: {
-    comparedPlayers: number;
-    biggestRise: Mover | null;
-    biggestFall: Mover | null;
-    teamSwing?: TeamSwing; // ✅ NEW SHAPE
-  };
-  movers: {
-    up: Mover[];
-    down: Mover[];
-    byTeam: {
-      Athinaioi?: { up: Mover[]; down: Mover[] };
-      Eparxiotes?: { up: Mover[]; down: Mover[] };
-      [key: string]: any;
-    };
-  };
-};
-
-const EPISODES = episodesRaw as Episode[];
-
-function teamChipStyle(team: string) {
-  const t = (team ?? "").trim().toLowerCase();
-  if (t === "athinaioi") return "bg-red-500/20 border-red-400/40 text-red-100";
-  if (t === "eparxiotes") return "bg-blue-500/20 border-blue-400/40 text-blue-100";
-  return "bg-white/5 border-white/10 text-gray-200";
+// ---------- Helpers ----------
+function pad3(n: number) {
+  return String(n).padStart(3, "0");
 }
 
-function fmtDelta(d: number | null) {
-  if (d == null || !Number.isFinite(d)) return "—";
-  const sign = d > 0 ? "+" : "";
-  return `${sign}${d.toFixed(2)}`;
+function asNum(v: any): number | null {
+  const n = typeof v === "number" ? v : Number(v);
+  return Number.isFinite(n) ? n : null;
 }
 
-function fmtPower(p: number | null) {
-  if (p == null || !Number.isFinite(p)) return "—";
-  return p.toFixed(2);
-}
-
-function fmtSigned(n: number | null | undefined) {
+function fmtDelta(n: number | null | undefined) {
   if (n == null || !Number.isFinite(n)) return "—";
-  return `${n > 0 ? "+" : ""}${n.toFixed(2)}`;
+  const sign = n > 0 ? "+" : "";
+  return `${sign}${n.toFixed(2)}`;
 }
 
-function HeadlineCard({
+function fmtPower(n: number | null | undefined) {
+  if (n == null || !Number.isFinite(n)) return "—";
+  return n.toFixed(2);
+}
+
+function fmtNum2(n: number | null | undefined) {
+  if (n == null || !Number.isFinite(n)) return "—";
+  return n.toFixed(2);
+}
+
+function cleanLabel(label: any): string {
+  const s = String(label ?? "").trim();
+  if (!s) return "";
+  return s.replace(/^Episode\s*\d+\s*[—-]\s*/i, "").trim();
+}
+
+function stdevSample(values: number[]) {
+  const n = values.length;
+  if (n < 2) return 0;
+  const mean = values.reduce((a, b) => a + b, 0) / n;
+  const varSum = values.reduce((acc, x) => acc + (x - mean) ** 2, 0);
+  return Math.sqrt(varSum / (n - 1));
+}
+
+function readJSON(p: string) {
+  return JSON.parse(fs.readFileSync(p, "utf8"));
+}
+
+function safeReadJSON(p: string): any | null {
+  try {
+    if (!fs.existsSync(p)) return null;
+    return readJSON(p);
+  } catch {
+    return null;
+  }
+}
+
+function TeamChip({ team }: { team: string }) {
+  const t = String(team || "").toLowerCase();
+  const cls =
+    t.includes("ath")
+      ? "border-white/10 bg-red-500/10 text-red-200"
+      : t.includes("epa")
+      ? "border-white/10 bg-blue-500/10 text-blue-200"
+      : "border-white/10 bg-white/5 text-gray-200";
+
+  return (
+    <span className={`inline-flex items-center rounded-full border px-3 py-1 text-xs ${cls}`}>
+      {team}
+    </span>
+  );
+}
+
+function StatCard({
   title,
-  mover,
-  variant,
+  value,
+  sub,
 }: {
   title: string;
-  mover: Mover | null;
-  variant: "up" | "down";
+  value: React.ReactNode;
+  sub?: React.ReactNode;
 }) {
-  const isUp = variant === "up";
-  const delta = mover?.delta ?? null;
-
-  const badge =
-    isUp
-      ? "bg-green-500 text-gray-950 border-green-300/70"
-      : "bg-red-500 text-gray-950 border-red-300/70";
-
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+    <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
       <div className="text-xs uppercase tracking-wide text-gray-400">{title}</div>
-
-      {!mover ? (
-        <div className="mt-3 text-sm text-gray-300">No data yet.</div>
-      ) : (
-        <div className="mt-3 flex items-start justify-between gap-3">
-          <div className="min-w-0">
-            <Link
-              href={`${BASE}/players/${encodeURIComponent(mover.id)}`}
-              className="block truncate text-lg font-semibold text-gray-100 hover:underline"
-            >
-              {mover.name}
-            </Link>
-
-            <div className="mt-2 flex flex-wrap items-center gap-2">
-              <span
-                className={`inline-flex items-center rounded-xl border px-3 py-1 text-xs font-semibold ${teamChipStyle(
-                  mover.team
-                )}`}
-              >
-                {mover.team}
-              </span>
-
-              <span className="text-sm text-gray-300">
-                Power: <span className="text-gray-100">{fmtPower(mover.currPower)}</span>
-              </span>
-            </div>
-          </div>
-
-          <div className="flex flex-col items-end gap-2">
-            <div className={`rounded-2xl border px-4 py-2 text-lg font-semibold ${badge}`}>
-              {fmtDelta(delta)}
-            </div>
-            <div className="text-xs text-gray-400">vs last update</div>
-          </div>
-        </div>
-      )}
+      <div className="mt-1 text-xl font-semibold text-gray-100">{value}</div>
+      {sub ? <div className="mt-1 text-sm text-gray-300">{sub}</div> : null}
     </div>
   );
 }
 
-function MoversList({ title, movers }: { title: string; movers: Mover[] }) {
+function MiniRow({
+  name,
+  team,
+  right,
+  rightClass,
+}: {
+  name: string;
+  team?: string;
+  right: React.ReactNode;
+  rightClass?: string;
+}) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-      <div className="flex items-center justify-between">
-        <div className="text-sm font-semibold text-gray-100">{title}</div>
-        <div className="text-xs text-gray-400">Top 5</div>
+    <div className="flex items-center justify-between gap-3 text-sm">
+      <div className="min-w-0">
+        <div className="truncate font-semibold text-gray-100">{name}</div>
+        {team ? <div className="text-xs text-gray-400">{team}</div> : null}
       </div>
-
-      <div className="mt-3 space-y-2">
-        {movers.slice(0, 5).map((m) => (
-          <Link
-            key={m.id}
-            href={`${BASE}/players/${encodeURIComponent(m.id)}`}
-            className="flex items-center justify-between rounded-xl border border-white/10 bg-black/20 px-3 py-2 hover:bg-white/5"
-          >
-            <div className="min-w-0">
-              <div className="truncate text-sm font-medium text-gray-100">{m.name}</div>
-              <div className="truncate text-xs text-gray-400">{m.team}</div>
-            </div>
-            <div className="text-sm font-semibold text-gray-100">{fmtDelta(m.delta)}</div>
-          </Link>
-        ))}
-
-        {movers.length === 0 ? <div className="text-sm text-gray-300">No movers yet.</div> : null}
-      </div>
+      <div className={`shrink-0 font-semibold ${rightClass ?? "text-gray-100"}`}>{right}</div>
     </div>
   );
 }
 
-function TeamSwingCard({ latest }: { latest: Episode }) {
-  const swing = latest.summary.teamSwing;
-
-  const ath = swing?.teams?.Athinaioi?.sum ?? null;
-  const epa = swing?.teams?.Eparxiotes?.sum ?? null;
-
-  const winner =
-    swing?.winner ??
-    (ath == null || epa == null ? "—" : ath === epa ? "Tie" : ath > epa ? "Athinaioi" : "Eparxiotes");
-
-  return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-      <div className="text-xs uppercase tracking-wide text-gray-400">Team swing (net power change)</div>
-
-      {!swing ? (
-        <div className="mt-3 text-sm text-gray-300">
-          Team swing not available yet — run <b>npm run episodes:build</b>.
-        </div>
-      ) : (
-        <div className="mt-4 grid gap-3 md:grid-cols-3">
-          <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-            <div className="text-xs text-gray-400">Athinaioi</div>
-            <div className="mt-1 text-2xl font-semibold text-gray-100">{fmtSigned(ath)}</div>
-            <div className="mt-1 text-xs text-gray-400">Avg/player: {fmtSigned(swing.teams.Athinaioi?.avg)}</div>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-            <div className="text-xs text-gray-400">Eparxiotes</div>
-            <div className="mt-1 text-2xl font-semibold text-gray-100">{fmtSigned(epa)}</div>
-            <div className="mt-1 text-xs text-gray-400">Avg/player: {fmtSigned(swing.teams.Eparxiotes?.avg)}</div>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-            <div className="text-xs text-gray-400">Winner</div>
-            <div className="mt-1 text-2xl font-semibold text-gray-100">{winner}</div>
-            <div className="mt-1 text-xs text-gray-400">Margin: {fmtSigned(swing.margin)}</div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
+function sortByEpisodeDesc(eps: AnyRow[]) {
+  return eps
+    .slice()
+    .sort((a, b) => Number(b?.id ?? -1) - Number(a?.id ?? -1))
+    .filter((e) => Number.isFinite(Number(e?.id)));
 }
 
-export default function HomePage() {
-  const latest = EPISODES?.[0] ?? null;
+function percentile(values: number[], p: number) {
+  if (!values.length) return null;
+  const arr = values.slice().sort((a, b) => a - b);
+  const idx = (arr.length - 1) * p;
+  const lo = Math.floor(idx);
+  const hi = Math.ceil(idx);
+  if (lo === hi) return arr[lo];
+  const w = idx - lo;
+  return arr[lo] * (1 - w) + arr[hi] * w;
+}
 
-  if (!latest) {
+// ---------- Main ----------
+export default function SurvivorStatsHome() {
+  const root = process.cwd();
+  const episodesPath = path.join(root, "src", "data", "episodes.json");
+  const archiveDir = path.join(root, "src", "data", "archive");
+
+  const EPISODES: AnyRow[] = safeReadJSON(episodesPath) ?? [];
+  const episodesSorted = sortByEpisodeDesc(EPISODES);
+
+  const latestEpisode = episodesSorted[0] ?? null;
+  const maxEp = latestEpisode ? Number(latestEpisode.id) : 0;
+
+  if (!latestEpisode || !Number.isFinite(maxEp) || maxEp <= 0) {
     return (
-      <div className="space-y-6">
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-          <div className="text-2xl font-semibold text-gray-100">Survivor Greece Stats</div>
-          <div className="mt-2 text-sm text-gray-300">
-            No updates yet. Run your first publish (rankings + episodes) to populate the homepage.
-          </div>
-          <div className="mt-4 flex gap-2">
-            <Link
-              href={`${BASE}/rankings`}
-              className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-100 hover:bg-white/10"
-            >
-              View Rankings
-            </Link>
-          </div>
+      <>
+        <PageHeader title="Survivor Greece Stats" subtitle="No episodes found yet." />
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm text-gray-300">
+          episodes.json is empty. Run <span className="text-gray-100">npm run episodes:build</span>.
         </div>
-      </div>
+      </>
     );
   }
 
-  const dateLabel = latest.dateISO.slice(0, 10);
+  // Load snapshots
+  const snap = (ep: number): Snapshot | null =>
+    safeReadJSON(path.join(archiveDir, `rankings_ep_${pad3(ep)}.json`));
+
+  const s1 = snap(1);
+  const sPrev = snap(maxEp - 1);
+  const sNow = snap(maxEp);
+  const s3 = snap(Math.max(0, maxEp - 3));
+
+  const nowRows: RankRow[] = (sNow?.rankings ?? []).map((r: any) => ({
+    id: String(r.id),
+    name: String(r.name ?? ""),
+    team: String(r.team ?? ""),
+    power: Number(r.power ?? 0),
+    active: r.active ?? (r.isEliminated != null ? !r.isEliminated : undefined),
+    isEliminated: r.isEliminated,
+  }));
+
+  const prevRows: RankRow[] = (sPrev?.rankings ?? []).map((r: any) => ({
+    id: String(r.id),
+    name: String(r.name ?? ""),
+    team: String(r.team ?? ""),
+    power: Number(r.power ?? 0),
+  }));
+
+  const mapById = (rows: RankRow[]) => {
+    const m = new Map<string, RankRow>();
+    for (const r of rows) m.set(r.id, r);
+    return m;
+  };
+
+  const prevMap = mapById(prevRows);
+
+  // Active logic
+  const activeRows = nowRows.filter((r) => {
+    if (typeof r.active === "boolean") return r.active;
+    if (typeof r.isEliminated === "boolean") return !r.isEliminated;
+    return true;
+  });
+
+  // Season at a glance
+  const episodesPlayed = maxEp;
+  const playersRemaining = activeRows.length;
+
+  // 🥇 Current #1 Power
+  const topCurrent = [...activeRows].sort((a, b) => b.power - a.power)[0] ?? null;
+
+  // ⚠️ Danger zone bottom 3 + last ep delta
+  const danger = [...activeRows]
+    .sort((a, b) => a.power - b.power)
+    .slice(0, 3)
+    .map((r) => {
+      const prev = prevMap.get(r.id);
+      const d = prev ? r.power - prev.power : null;
+      return { ...r, deltaLast: d };
+    });
+
+  // 📈/📉 Gain/loss since Episode 1
+  const ep1Rows: RankRow[] = (s1?.rankings ?? []).map((r: any) => ({
+    id: String(r.id),
+    name: String(r.name ?? ""),
+    team: String(r.team ?? ""),
+    power: Number(r.power ?? 0),
+  }));
+  const ep1Map = mapById(ep1Rows);
+
+  const gains = activeRows
+    .map((r) => {
+      const base = ep1Map.get(r.id);
+      const delta = base ? r.power - base.power : null;
+      return { ...r, deltaSince1: delta };
+    })
+    .filter((r) => r.deltaSince1 != null);
+
+  const biggestGain =
+    [...gains].sort((a, b) => (b.deltaSince1 ?? 0) - (a.deltaSince1 ?? 0))[0] ?? null;
+  const biggestLoss =
+    [...gains].sort((a, b) => (a.deltaSince1 ?? 0) - (b.deltaSince1 ?? 0))[0] ?? null;
+
+  // 🔥/❄️ Momentum last 3 (net change ep_(max-3) -> ep_max)
+  const s3Rows: RankRow[] = (s3?.rankings ?? []).map((r: any) => ({
+    id: String(r.id),
+    name: String(r.name ?? ""),
+    team: String(r.team ?? ""),
+    power: Number(r.power ?? 0),
+  }));
+  const s3Map = mapById(s3Rows);
+
+  const momentum = activeRows
+    .map((r) => {
+      const base = s3Map.get(r.id);
+      const delta3 = base ? r.power - base.power : null;
+      return { ...r, delta3 };
+    })
+    .filter((r) => r.delta3 != null);
+
+  const hottest3 = [...momentum].sort((a, b) => (b.delta3 ?? 0) - (a.delta3 ?? 0)).slice(0, 3);
+  const coldest3 = [...momentum].sort((a, b) => (a.delta3 ?? 0) - (b.delta3 ?? 0)).slice(0, 3);
+
+  // 🎯 Reliability (lowest stdev across ep_1..ep_max)
+  const powerSeries = new Map<string, { name: string; team: string; values: number[] }>();
+
+  for (let ep = 1; ep <= maxEp; ep++) {
+    const s = snap(ep);
+    const rows: any[] = s?.rankings ?? [];
+    for (const rr of rows) {
+      const id = String(rr.id);
+      const name = String(rr.name ?? "");
+      const team = String(rr.team ?? "");
+      const power = Number(rr.power ?? 0);
+
+      if (!powerSeries.has(id)) powerSeries.set(id, { name, team, values: [] });
+      powerSeries.get(id)!.values.push(power);
+    }
+  }
+
+  const reliableCandidates = activeRows
+    .map((r) => {
+      const series = powerSeries.get(r.id);
+      const values = series?.values ?? [];
+      const sd = values.length >= 2 ? stdevSample(values) : null;
+      return { ...r, stdev: sd, n: values.length };
+    })
+    .filter((r) => r.stdev != null && (r.n ?? 0) >= Math.min(5, maxEp));
+
+  const mostReliable =
+    [...reliableCandidates].sort((a, b) => (a.stdev ?? 0) - (b.stdev ?? 0))[0] ?? null;
+
+  // 🌪️ Chaos
+  // Define: Chaos(ep) = avg over players of |power(ep) - power(ep-1)|
+  function meanAbsDelta(epA: number, epB: number) {
+    const A = snap(epA)?.rankings ?? [];
+    const B = snap(epB)?.rankings ?? [];
+    const aMap = new Map<string, number>();
+    for (const r of A) aMap.set(String(r.id), Number(r.power ?? 0));
+
+    const diffs: number[] = [];
+    for (const r of B) {
+      const id = String(r.id);
+      const pB = Number(r.power ?? 0);
+      const pA = aMap.get(id);
+      if (pA == null) continue;
+      diffs.push(Math.abs(pB - pA));
+    }
+    if (!diffs.length) return null;
+    return diffs.reduce((x, y) => x + y, 0) / diffs.length;
+  }
+
+  // Build chaos series for episodes 2..maxEp (exclude EP0→EP1 baseline jump)
+  const chaosSeries: { ep: number; val: number }[] = [];
+  for (let ep = 2; ep <= maxEp; ep++) {
+    const v = meanAbsDelta(ep - 1, ep);
+    if (v != null && Number.isFinite(v)) chaosSeries.push({ ep, val: v });
+  }
+
+  const chaosSeasonMin = chaosSeries.length ? Math.min(...chaosSeries.map((x) => x.val)) : null;
+  const chaosSeasonMax = chaosSeries.length ? Math.max(...chaosSeries.map((x) => x.val)) : null;
+
+  // Latest single-episode chaos (recommended)
+  const chaosLatest = chaosSeries.find((x) => x.ep === maxEp)?.val ?? null;
+
+  // Last 3 transitions average (context only)
+  const last3 = chaosSeries
+    .filter((x) => x.ep >= Math.max(2, maxEp - 2))
+    .map((x) => x.val);
+  const chaosLast3Avg = last3.length ? last3.reduce((a, b) => a + b, 0) / last3.length : null;
+
+  // Rank latest episode (1 = most chaotic)
+  const chaosRank =
+    chaosLatest != null
+      ? 1 +
+        chaosSeries
+          .slice()
+          .sort((a, b) => b.val - a.val)
+          .findIndex((x) => x.ep === maxEp)
+      : null;
+
+  // LOW / MED / HIGH label based on season distribution (terciles)
+  const chaosVals = chaosSeries.map((x) => x.val);
+  const p33 = percentile(chaosVals, 0.33);
+  const p66 = percentile(chaosVals, 0.66);
+
+  let chaosLabel: "LOW" | "MED" | "HIGH" | "—" = "—";
+  if (chaosLatest != null && p33 != null && p66 != null) {
+    chaosLabel = chaosLatest <= p33 ? "LOW" : chaosLatest >= p66 ? "HIGH" : "MED";
+  }
+
+  // UI label
+  const latestLabel = cleanLabel(latestEpisode?.label) || `Episode ${maxEp}`;
 
   return (
-    <div className="space-y-6">
-      {/* HERO */}
-      <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          <div>
-            <div className="text-sm text-gray-300">Survivor Greece</div>
-            <div className="mt-1 text-3xl font-semibold text-gray-100">Stats Hub</div>
-            <div className="mt-2 text-sm text-gray-300">
-              Latest update: <span className="text-gray-100">{dateLabel}</span> •{" "}
-              <span className="text-gray-100">{latest.label}</span>
+    <>
+      <PageHeader
+        title="Survivor Greece Stats"
+        subtitle="Season dashboard: momentum, leaders, reliability, danger, chaos."
+        right={
+          <div className="flex flex-wrap gap-2">
+            <Link
+              href={`${BASE}/episodes`}
+              className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-100 hover:bg-white/10"
+            >
+              Episodes →
+            </Link>
+            <Link
+              href={`${BASE}/episodes/${encodeURIComponent(String(maxEp))}`}
+              className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-100 hover:bg-white/10"
+            >
+              Open latest →
+            </Link>
+          </div>
+        }
+      />
+
+      <div className="space-y-6">
+        <div className="grid gap-3 md:grid-cols-4">
+          <StatCard title="Episodes played" value={episodesPlayed} sub={`Latest: ${latestLabel}`} />
+          <StatCard title="Players remaining" value={playersRemaining} />
+
+          <StatCard
+            title={`Chaos (Episode ${maxEp})`}
+            value={
+              <div className="flex items-baseline gap-3">
+                <span>{chaosLatest == null ? "—" : chaosLatest.toFixed(2)}</span>
+
+                <span
+                  className={`rounded-full border border-white/10 px-2 py-0.5 text-xs ${
+                    chaosLabel === "HIGH"
+                      ? "bg-red-500/10 text-red-200"
+                      : chaosLabel === "LOW"
+                      ? "bg-blue-500/10 text-blue-200"
+                      : chaosLabel === "MED"
+                      ? "bg-white/5 text-gray-200"
+                      : "bg-white/5 text-gray-400"
+                  }`}
+                >
+                  {chaosLabel}
+                </span>
+              </div>
+            }
+            sub={
+              <div className="text-sm text-gray-300">
+                <div className="text-xs text-gray-400">Avg |Δ power| from EP {maxEp - 1} → EP {maxEp}</div>
+                <div>
+                  Season range:{" "}
+                  <span className="text-gray-100">{fmtNum2(chaosSeasonMin)}</span> –{" "}
+                  <span className="text-gray-100">{fmtNum2(chaosSeasonMax)}</span>
+                </div>
+                <div className="text-xs text-gray-400">
+                  Last 3 avg: {fmtNum2(chaosLast3Avg)}
+                  {chaosRank != null ? ` • Rank: ${chaosRank}/${chaosSeries.length}` : ""}
+                </div>
+              </div>
+            }
+          />
+
+          <StatCard
+            title="🥇 Current #1 Power"
+            value={topCurrent ? topCurrent.name : "—"}
+            sub={
+              topCurrent ? (
+                <>
+                  <span className="text-gray-100">{fmtPower(topCurrent.power)}</span>{" "}
+                  <span className="text-gray-400">•</span>{" "}
+                  <span className="inline-flex align-middle">
+                    <TeamChip team={topCurrent.team} />
+                  </span>
+                </>
+              ) : null
+            }
+          />
+        </div>
+
+        <div className="grid gap-3 md:grid-cols-2">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+            <div className="flex items-center justify-between">
+              <div className="text-lg font-semibold text-gray-100">🔥 Momentum up (last 3)</div>
+              <div className="text-xs text-gray-400">Net Δ → EP {maxEp}</div>
+            </div>
+            <div className="mt-4 space-y-3">
+              {hottest3.length ? (
+                hottest3.map((p) => (
+                  <MiniRow
+                    key={p.id}
+                    name={p.name}
+                    team={p.team}
+                    right={fmtDelta(asNum(p.delta3))}
+                    rightClass="text-green-300"
+                  />
+                ))
+              ) : (
+                <div className="text-sm text-gray-400">—</div>
+              )}
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-2">
-            <Link
-              href={`${BASE}/episodes/${encodeURIComponent(latest.id)}`}
-              className="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-gray-950 hover:bg-gray-200"
-            >
-              View Update →
-            </Link>
-            <Link
-              href={`${BASE}/rankings`}
-              className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-100 hover:bg-white/10"
-            >
-              Rankings
-            </Link>
-            <Link
-              href={`${BASE}/players`}
-              className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-100 hover:bg-white/10"
-            >
-              Players
-            </Link>
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+            <div className="flex items-center justify-between">
+              <div className="text-lg font-semibold text-gray-100">❄️ Momentum down (last 3)</div>
+              <div className="text-xs text-gray-400">Net Δ → EP {maxEp}</div>
+            </div>
+            <div className="mt-4 space-y-3">
+              {coldest3.length ? (
+                coldest3.map((p) => (
+                  <MiniRow
+                    key={p.id}
+                    name={p.name}
+                    team={p.team}
+                    right={fmtDelta(asNum(p.delta3))}
+                    rightClass="text-red-300"
+                  />
+                ))
+              ) : (
+                <div className="text-sm text-gray-400">—</div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        <div className="grid gap-3 md:grid-cols-3">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+            <div className="text-lg font-semibold text-gray-100">📈 Biggest gain since EP1</div>
+            <div className="mt-4">
+              {biggestGain ? (
+                <MiniRow
+                  name={biggestGain.name}
+                  team={biggestGain.team}
+                  right={fmtDelta(asNum(biggestGain.deltaSince1))}
+                  rightClass="text-green-300"
+                />
+              ) : (
+                <div className="text-sm text-gray-400">—</div>
+              )}
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+            <div className="text-lg font-semibold text-gray-100">📉 Biggest loss since EP1</div>
+            <div className="mt-4">
+              {biggestLoss ? (
+                <MiniRow
+                  name={biggestLoss.name}
+                  team={biggestLoss.team}
+                  right={fmtDelta(asNum(biggestLoss.deltaSince1))}
+                  rightClass="text-red-300"
+                />
+              ) : (
+                <div className="text-sm text-gray-400">—</div>
+              )}
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+            <div className="text-lg font-semibold text-gray-100">🎯 Most reliable</div>
+            <div className="mt-1 text-xs text-gray-400">Lowest stdev of power</div>
+            <div className="mt-4">
+              {mostReliable ? (
+                <MiniRow
+                  name={mostReliable.name}
+                  team={mostReliable.team}
+                  right={(mostReliable.stdev ?? 0).toFixed(2)}
+                />
+              ) : (
+                <div className="text-sm text-gray-400">—</div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+          <div className="flex items-center justify-between gap-3">
+            <div className="text-lg font-semibold text-gray-100">⚠️ Danger zone</div>
+            <div className="text-xs text-gray-400">Bottom 3 active by current power</div>
+          </div>
+
+          <div className="mt-4 grid gap-3 md:grid-cols-3">
+            {danger.length ? (
+              danger.map((p) => (
+                <div key={p.id} className="rounded-2xl border border-white/10 bg-black/30 p-4">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="min-w-0">
+                      <div className="truncate font-semibold text-gray-100">{p.name}</div>
+                      <div className="mt-1 text-xs text-gray-400">{p.team}</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-xs text-gray-400">Power</div>
+                      <div className="font-semibold text-gray-100">{fmtPower(p.power)}</div>
+                    </div>
+                  </div>
+
+                  <div className="mt-3 text-sm text-gray-300">
+                    Last ep Δ:{" "}
+                    <span
+                      className={`font-semibold ${
+                        (p.deltaLast ?? 0) > 0
+                          ? "text-green-300"
+                          : (p.deltaLast ?? 0) < 0
+                          ? "text-red-300"
+                          : "text-gray-200"
+                      }`}
+                    >
+                      {fmtDelta(p.deltaLast)}
+                    </span>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="text-sm text-gray-400">—</div>
+            )}
           </div>
         </div>
       </div>
-
-      {/* HEADLINES */}
-      <div className="grid gap-4 md:grid-cols-2">
-        <HeadlineCard title="This week’s biggest riser" mover={latest.summary.biggestRise} variant="up" />
-        <HeadlineCard title="This week’s biggest faller" mover={latest.summary.biggestFall} variant="down" />
-      </div>
-
-      {/* TEAM SWING */}
-      <TeamSwingCard latest={latest} />
-
-      {/* EXTRA: top 5 lists */}
-      <div className="grid gap-4 md:grid-cols-2">
-        <MoversList title="Top risers" movers={latest.movers.up} />
-        <MoversList title="Top fallers" movers={latest.movers.down} />
-      </div>
-    </div>
+    </>
   );
 }

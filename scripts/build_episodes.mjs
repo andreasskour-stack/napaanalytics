@@ -4,58 +4,109 @@ import path from "path";
 const root = process.cwd();
 const archiveDir = path.join(root, "src", "data", "archive");
 const outPath = path.join(root, "src", "data", "episodes.json");
-
-// ✅ duels source (TSV/CSV)
 const duelsPath = path.join(root, "src", "data", "duels.csv");
 
-/* =========================
-   Helpers
-========================= */
+// ===== Helpers =====
 function safeNum(x, fallback = 0) {
-  const n = typeof x === "number" ? x : Number(x);
+  const n = Number(x);
   return Number.isFinite(n) ? n : fallback;
 }
 
-// Prefer Adjusted PR if available (power_adj), else fallback to power, else power_raw.
-function getDisplayPower(r) {
-  const a = safeNum(r?.power_adj, NaN);
-  if (Number.isFinite(a)) return a;
-
-  const p = safeNum(r?.power, NaN);
-  if (Number.isFinite(p)) return p;
-
-  const raw = safeNum(r?.power_raw, NaN);
-  if (Number.isFinite(raw)) return raw;
-
-  return 0;
-}
-
-function safeReadJSON(p) {
+function fileExists(p) {
   try {
-    if (!fs.existsSync(p)) return null;
-    return JSON.parse(fs.readFileSync(p, "utf8"));
+    fs.accessSync(p, fs.constants.F_OK);
+    return true;
   } catch {
-    return null;
+    return false;
   }
 }
 
-function parseStampFromFilename(file) {
-  const m = file.match(
-    /rankings_(\d{4}-\d{2}-\d{2})_(\d{2})-(\d{2})-(\d{2})-(\d{3})\.json$/
-  );
-  if (!m) return null;
-
-  const [_, ymd, hh, mm, ss, ms] = m;
-  // Filename is local-time-ish, but we only need ordering.
-  // Treat as UTC for stable parsing.
-  const iso = `${ymd}T${hh}:${mm}:${ss}.${ms}Z`;
-  const d = new Date(iso);
-
-  return Number.isFinite(d.getTime()) ? d : null;
+function readText(p) {
+  return fs.readFileSync(p, "utf8");
 }
 
-function makeIdFromFile(file) {
-  return file.replace(/^rankings_/, "").replace(/\.json$/, "");
+function readJSON(p) {
+  return JSON.parse(fs.readFileSync(p, "utf8"));
+}
+
+function writeJSON(p, obj) {
+  fs.writeFileSync(p, JSON.stringify(obj, null, 2), "utf8");
+}
+
+function pad3(n) {
+  return String(n).padStart(3, "0");
+}
+
+// CSV: skip blank rows like "\ufeff,,,,,"
+function isMeaningfulCsvLine(line) {
+  if (line == null) return false;
+  const s = line.replace(/^\uFEFF/, "").trim();
+  if (!s) return false;
+  const noCommas = s.replace(/,/g, "").trim();
+  return noCommas.length > 0;
+}
+
+function parseDuelsMaxEpisodeID(csvPath) {
+  if (!fileExists(csvPath)) {
+    throw new Error(`duels.csv not found at: ${csvPath}`);
+  }
+
+  const raw = readText(csvPath);
+  const lines = raw.split(/\r?\n/).filter((ln) => ln != null);
+
+  const headerIndex = lines.findIndex(isMeaningfulCsvLine);
+  if (headerIndex === -1) throw new Error("duels.csv has no header row");
+
+  const headerLine = lines[headerIndex].replace(/^\uFEFF/, "");
+  const headers = headerLine.split(",").map((h) => h.trim());
+  const epCol = headers.findIndex((h) => h === "EpisodeID");
+
+  if (epCol === -1) {
+    throw new Error(
+      `EpisodeID column not found in duels.csv headers. Found: ${headers.join(", ")}`
+    );
+  }
+
+  let maxEp = 0;
+  for (let i = headerIndex + 1; i < lines.length; i++) {
+    const line = lines[i];
+    if (!isMeaningfulCsvLine(line)) continue;
+
+    const cols = line.split(",");
+    const ep = safeNum(cols[epCol], 0);
+    if (ep > maxEp) maxEp = ep;
+  }
+
+  return maxEp;
+}
+
+function parseCSVRowsSkipEmpty(csvPath) {
+  const raw = readText(csvPath);
+  const lines = raw.split(/\r?\n/);
+
+  const idx = lines.findIndex(isMeaningfulCsvLine);
+  if (idx === -1) return { headers: [], rows: [] };
+
+  const headerLine = lines[idx].replace(/^\uFEFF/, "");
+  const headers = headerLine.split(",").map((h) => h.trim());
+
+  const rows = [];
+  for (let i = idx + 1; i < lines.length; i++) {
+    const ln = lines[i];
+    if (!isMeaningfulCsvLine(ln)) continue;
+    const cols = ln.split(",");
+    const obj = {};
+    headers.forEach((h, c) => (obj[h] = (cols[c] ?? "").trim()));
+    rows.push(obj);
+  }
+  return { headers, rows };
+}
+
+/* =========================
+   Episode labeling
+========================= */
+function getEpisodeLabel(episodeNum) {
+  return `Episode ${episodeNum}`;
 }
 
 /* =========================
@@ -72,316 +123,256 @@ function computeDiff(prevRows, currRows) {
   for (const c of currRows || []) {
     if (!c || c.id == null) continue;
 
-    const prev = prevMap.get(String(c.id));
-    const currPower = getDisplayPower(c);
-    const prevPower = prev ? getDisplayPower(prev) : null;
+    const id = String(c.id);
+    const prev = prevMap.get(id);
+
+    const prevPower =
+      prev && prev.power != null && Number.isFinite(Number(prev.power))
+        ? Number(prev.power)
+        : null;
+
+    const currPower =
+      c && c.power != null && Number.isFinite(Number(c.power))
+        ? Number(c.power)
+        : null;
 
     const delta =
-      prevPower == null || !Number.isFinite(prevPower)
-        ? null
-        : Number((currPower - prevPower).toFixed(2));
+      prevPower != null && currPower != null ? currPower - prevPower : null;
 
     diffs.push({
-      id: String(c.id),
-      name: String(c.name ?? "").trim(),
-      team: String(c.team ?? "").trim(),
-      currPower: Number(currPower.toFixed(2)),
-      prevPower:
-        prevPower == null || !Number.isFinite(prevPower)
-          ? null
-          : Number(prevPower.toFixed(2)),
+      id,
+      name: c.name ?? "",
+      team: c.team ?? "",
+      prevPower,
+      currPower,
       delta,
     });
   }
 
-  return diffs;
-}
+  const withDelta = diffs.filter((d) => d.delta != null);
+  const sortedUp = [...withDelta].sort((a, b) => (b.delta ?? 0) - (a.delta ?? 0));
+  const sortedDown = [...withDelta].sort((a, b) => (a.delta ?? 0) - (b.delta ?? 0));
 
-function topMovers(diffs, dir, n = 5) {
-  const arr = diffs
-    .filter((d) => d.delta != null && Number.isFinite(d.delta))
-    .slice()
-    .sort((a, b) => (dir === "up" ? b.delta - a.delta : a.delta - b.delta));
-  return arr.slice(0, n);
-}
+  function asMover(d) {
+    return {
+      id: d.id,
+      name: d.name,
+      team: d.team,
+      currPower: d.currPower ?? 0,
+      prevPower: d.prevPower,
+      delta: d.delta,
+    };
+  }
 
-function byTeam(diffs, team) {
-  return diffs.filter(
-    (d) =>
-      String(d.team).trim().toLowerCase() === String(team).trim().toLowerCase()
-  );
-}
+  function topN(arr, n) {
+    return arr.slice(0, n).map(asMover);
+  }
 
-function computeTeamSwing(diffs) {
-  const sum = (arr) =>
-    arr.reduce(
-      (acc, d) =>
-        acc + (d.delta != null && Number.isFinite(d.delta) ? d.delta : 0),
-      0
-    );
+  // group by team for per-team movers
+  const byTeam = {};
+  for (const d of withDelta) {
+    const t = d.team || "Unknown";
+    if (!byTeam[t]) byTeam[t] = [];
+    byTeam[t].push(d);
+  }
 
-  const athArr = byTeam(diffs, "Athinaioi");
-  const epaArr = byTeam(diffs, "Eparxiotes");
+  const moversByTeam = {};
+  const biggestRiseByTeam = {};
+  const biggestFallByTeam = {};
 
-  const athSum = Number(sum(athArr).toFixed(2));
-  const epaSum = Number(sum(epaArr).toFixed(2));
+  for (const [team, teamRows] of Object.entries(byTeam)) {
+    const ups = [...teamRows].sort((a, b) => (b.delta ?? 0) - (a.delta ?? 0));
+    const downs = [...teamRows].sort((a, b) => (a.delta ?? 0) - (b.delta ?? 0));
 
-  const athN = athArr.length;
-  const epaN = epaArr.length;
+    moversByTeam[team] = {
+      up: topN(ups, 5),
+      down: topN(downs, 5),
+    };
 
-  const athAvg = athN > 0 ? athSum / athN : 0;
-  const epaAvg = epaN > 0 ? epaSum / epaN : 0;
-
-  let winner = "Draw";
-  if (athSum > epaSum) winner = "Athinaioi";
-  else if (epaSum > athSum) winner = "Eparxiotes";
+    biggestRiseByTeam[team] = ups.length ? asMover(ups[0]) : null;
+    biggestFallByTeam[team] = downs.length ? asMover(downs[0]) : null;
+  }
 
   return {
-    teams: {
-      Athinaioi: { sum: athSum, avg: athAvg, n: athN },
-      Eparxiotes: { sum: epaSum, avg: epaAvg, n: epaN },
+    comparedPlayers: diffs.length,
+    biggestRise: sortedUp.length ? topN(sortedUp, 1)[0] : null,
+    biggestFall: sortedDown.length ? topN(sortedDown, 1)[0] : null,
+
+    // ✅ NEW: what your Episode page expects
+    biggestRiseByTeam,
+    biggestFallByTeam,
+
+    movers: {
+      up: topN(sortedUp, 10),
+      down: topN(sortedDown, 10),
+      byTeam: moversByTeam,
     },
-    winner,
-    margin: Number(Math.abs(athSum - epaSum).toFixed(2)),
   };
 }
 
 /* =========================
-   Episode labeling / mapping (STRAIGHTFORWARD)
-   - One episodes.json entry per snapshot transition (i = 1..N-1)
-   - Episode number == TV EpisodeID in duels.csv
+   Snapshot loading (EP-driven)
 ========================= */
-function getEpisodeLabel(episodeNum) {
-  return `Episode ${episodeNum}`;
+function loadEpSnapshot(ep) {
+  const file = path.join(archiveDir, `rankings_ep_${pad3(ep)}.json`);
+  if (!fileExists(file)) return null;
+  return { file, data: readJSON(file) };
 }
 
-function getTvEpisodesForEntry(entryEpisodeNum) {
-  // 1:1 mapping
-  return [entryEpisodeNum];
+function requireSnapshotsUpTo(maxEpisode) {
+  const missing = [];
+  const snaps = [];
+
+  for (let ep = 0; ep <= maxEpisode; ep++) {
+    const s = loadEpSnapshot(ep);
+    if (!s) missing.push(ep);
+    snaps.push(s);
+  }
+
+  if (missing.length) {
+    const preview = missing.slice(0, 30).map((x) => `EP${x}`).join(", ");
+    throw new Error(
+      `Missing EP snapshots in src/data/archive. Need rankings_ep_000..rankings_ep_${pad3(
+        maxEpisode
+      )}. Missing: ${preview}${missing.length > 30 ? " ..." : ""}`
+    );
+  }
+
+  return snaps;
 }
 
 /* =========================
-   Delimited parsing (TSV/CSV/;), skip blank first row
+   Team result from duels.csv
+   (1 episode = 1 match; score from RedWon/BlueWon)
 ========================= */
-const norm = (s) =>
-  String(s ?? "")
-    .replace(/^\uFEFF/, "")
-    .trim()
-    .toLowerCase();
+function computeTeamScoresByEpisode(duelsCsvPath) {
+  if (!fileExists(duelsCsvPath)) return new Map();
 
-function decodeTextSmart(filePath) {
-  // keep it simple: read utf8 + strip BOM
-  return fs.readFileSync(filePath, "utf8").replace(/^\uFEFF/, "");
-}
+  const { rows } = parseCSVRowsSkipEmpty(duelsCsvPath);
 
-function pickDelimiterFromHeaderLine(line) {
-  // prefer tab if present
-  if (line.includes("\t")) return "\t";
-  if (line.includes(";")) return ";";
-  return ",";
-}
+  // episode -> matchId -> accumulator
+  const map = new Map();
 
-function parseSimpleDelimited(text, delim) {
-  return text.split(/\r?\n/).map((l) => l.split(delim));
-}
+  for (const r of rows) {
+    const ep = String(r.EpisodeID ?? "").trim();
+    if (!ep) continue;
 
-function rowIsEffectivelyEmpty(row) {
-  return (row || []).every((c) => norm(c) === "");
-}
+    const matchId = String(r.TeamMatchID ?? "").trim() || "unknown";
+    const gameType = String(r.GameType ?? "").trim() || null;
 
-/* =========================
-   TEAM SCORE (SUM RedWon/BlueWon)
-   EpisodeID -> { Athinaioi, Eparxiotes }
-========================= */
-function buildTeamScoresFromDuels_SUM(filePath) {
-  if (!fs.existsSync(filePath)) {
-    console.log(`ℹ️ duels.csv not found at: ${filePath}`);
-    return new Map();
+    const redWon = safeNum(r.RedWon ?? 0, 0);
+    const blueWon = safeNum(r.BlueWon ?? 0, 0);
+
+    if (!map.has(ep)) map.set(ep, new Map());
+    const m = map.get(ep);
+
+    if (!m.has(matchId)) {
+      m.set(matchId, {
+        matchId,
+        gameType,
+        redScore: 0,
+        blueScore: 0,
+      });
+    }
+
+    const acc = m.get(matchId);
+    acc.redScore += redWon;
+    acc.blueScore += blueWon;
+    if (!acc.gameType && gameType) acc.gameType = gameType;
   }
 
-  const text = decodeTextSmart(filePath);
-  const lines = text.split(/\r?\n/);
+  // pick best match per episode (most points)
+  const bestByEp = new Map();
 
-  // IMPORTANT: choose delimiter from the first meaningful header line,
-  // not the weird first blank comma-only line.
-  const headerLine =
-    lines.find((l) => /DuelID|ChallengeID|EpisodeID/i.test(l)) ??
-    lines.find((l) => /episodeid/i.test(l)) ??
-    (lines[0] ?? "");
+  for (const [ep, matches] of map.entries()) {
+    let best = null;
+    for (const acc of matches.values()) {
+      const points = acc.redScore + acc.blueScore;
+      if (!best || points > best.redScore + best.blueScore) best = acc;
+    }
 
-  const delim = pickDelimiterFromHeaderLine(headerLine);
+    if (!best) continue;
 
-  let rows = parseSimpleDelimited(text, delim);
+    const winner =
+      best.redScore > best.blueScore
+        ? "Athinaioi"
+        : best.blueScore > best.redScore
+        ? "Eparxiotes"
+        : "Draw";
 
-  // Skip leading empty rows like: ﻿,,,,,,,,
-  while (rows.length && rowIsEffectivelyEmpty(rows[0])) rows.shift();
-  if (rows.length < 2) return new Map();
-
-  const header = rows[0].map(norm);
-  const idx = (name) => header.findIndex((h) => h === norm(name));
-
-  const epIdx = idx("episodeid");
-  const redWonIdx = idx("redwon");
-  const blueWonIdx = idx("bluewon");
-
-  if (epIdx === -1 || redWonIdx === -1 || blueWonIdx === -1) {
-    console.log("⚠️ Missing required columns for score SUM(RedWon/BlueWon).");
-    console.log("   Delimiter detected:", JSON.stringify(delim));
-    console.log("   Header columns:", header.slice(0, 40));
-    return new Map();
+    bestByEp.set(ep, {
+      matchId: best.matchId,
+      gameType: best.gameType,
+      score: {
+        Athinaioi: best.redScore,
+        Eparxiotes: best.blueScore,
+      },
+      winner,
+      margin: Math.abs(best.redScore - best.blueScore),
+    });
   }
 
-  const scores = new Map(); // EpisodeID -> { Athinaioi, Eparxiotes }
-
-  for (let r = 1; r < rows.length; r++) {
-    const line = rows[r];
-    if (!line || rowIsEffectivelyEmpty(line)) continue;
-
-    const rawEpisode = String(line[epIdx] ?? "").trim();
-    const episodeId = (rawEpisode.match(/\d+/)?.[0] ?? "").trim();
-    if (!episodeId) continue;
-
-    const red = Number(String(line[redWonIdx] ?? "0").trim() || "0");
-    const blue = Number(String(line[blueWonIdx] ?? "0").trim() || "0");
-
-    if (!scores.has(episodeId)) scores.set(episodeId, { Athinaioi: 0, Eparxiotes: 0 });
-
-    const agg = scores.get(episodeId);
-    // Red = Athinaioi, Blue = Eparxiotes
-    agg.Athinaioi += Number.isFinite(red) ? red : 0;
-    agg.Eparxiotes += Number.isFinite(blue) ? blue : 0;
-  }
-
-  return scores;
-}
-
-function computeTeamResultForEntry(teamScoresByTvEpisode, entryEpisodeNum) {
-  const tvEps = getTvEpisodesForEntry(entryEpisodeNum);
-
-  let ath = 0;
-  let epa = 0;
-  let foundAny = false;
-
-  for (const tv of tvEps) {
-    const sc = teamScoresByTvEpisode.get(String(tv));
-    if (!sc) continue;
-    foundAny = true;
-    ath += Number(sc.Athinaioi ?? 0);
-    epa += Number(sc.Eparxiotes ?? 0);
-  }
-
-  if (!foundAny) return null;
-
-  let winner = "Draw";
-  if (ath > epa) winner = "Athinaioi";
-  else if (epa > ath) winner = "Eparxiotes";
-
-  return {
-    score: { Athinaioi: ath, Eparxiotes: epa },
-    winner,
-    method: "sum_redwon_bluewon",
-  };
+  return bestByEp;
 }
 
 /* =========================
    MAIN
 ========================= */
 if (!fs.existsSync(archiveDir)) {
-  console.error(`Missing archive folder: ${archiveDir}`);
-  process.exit(1);
+  fs.mkdirSync(archiveDir, { recursive: true });
 }
 
-const teamScoresByTvEpisode = buildTeamScoresFromDuels_SUM(duelsPath);
-console.log(
-  "ℹ️ Duel-score EpisodeIDs found:",
-  Array.from(teamScoresByTvEpisode.keys()).slice(0, 30).join(", ")
-);
+const maxEpisode = parseDuelsMaxEpisodeID(duelsPath);
 
-const files = fs
-  .readdirSync(archiveDir)
-  .filter((f) =>
-    /^rankings_\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}-\d{3}\.json$/.test(f)
-  )
-  .map((f) => ({ f, date: parseStampFromFilename(f) }))
-  .filter((x) => x.date != null)
-  .sort((a, b) => a.date.getTime() - b.date.getTime()); // oldest -> newest
-
-if (files.length < 2) {
-  console.log("ℹ️ Not enough snapshots to build episodes (need at least 2).");
-  fs.writeFileSync(outPath, JSON.stringify([], null, 2), "utf8");
+if (maxEpisode <= 0) {
+  console.log("ℹ️ duels.csv has no EpisodeID > 0. Writing empty episodes.json.");
+  writeJSON(outPath, []);
   process.exit(0);
 }
 
+const snaps = requireSnapshotsUpTo(maxEpisode);
+const teamScoresByTvEpisode = computeTeamScoresByEpisode(duelsPath);
+
 const episodes = [];
 
-for (let i = 1; i < files.length; i++) {
-  const prev = files[i - 1];
-  const curr = files[i];
+for (let ep = 1; ep <= maxEpisode; ep++) {
+  const prev = snaps[ep - 1].data;
+  const curr = snaps[ep].data;
 
-  // 1 entry per snapshot transition
-  const episodeNum = i;
+  const prevRows = prev?.rankings ?? [];
+  const currRows = curr?.rankings ?? [];
 
-  const prevRows = safeReadJSON(path.join(archiveDir, prev.f)) || [];
-  const currRows = safeReadJSON(path.join(archiveDir, curr.f)) || [];
+  const diff = computeDiff(prevRows, currRows);
 
-  const diffs = computeDiff(prevRows, currRows);
+  // ✅ Use episode number as TV EpisodeID by default
+  // ✅ Fallback: if duels.csv starts at 2, allow ep+1
+  const tv = ep;
+  let teamResult = teamScoresByTvEpisode.get(String(tv)) ?? null;
+  if (!teamResult) teamResult = teamScoresByTvEpisode.get(String(tv + 1)) ?? null;
 
-  const up = topMovers(diffs, "up", 10);
-  const down = topMovers(diffs, "down", 10);
-
-  const teamSwing = computeTeamSwing(diffs);
-
-  const athDiffs = byTeam(diffs, "Athinaioi");
-  const epaDiffs = byTeam(diffs, "Eparxiotes");
-
-  const athUp = topMovers(athDiffs, "up", 5);
-  const athDown = topMovers(athDiffs, "down", 5);
-  const epaUp = topMovers(epaDiffs, "up", 5);
-  const epaDown = topMovers(epaDiffs, "down", 5);
-
-  const biggestRiseByTeam = {
-    Athinaioi: athUp[0] || null,
-    Eparxiotes: epaUp[0] || null,
-  };
-
-  const biggestFallByTeam = {
-    Athinaioi: athDown[0] || null,
-    Eparxiotes: epaDown[0] || null,
-  };
-
-  // ✅ REAL score from duels.csv sums (EpisodeID == episodeNum)
-  const teamResult = computeTeamResultForEntry(teamScoresByTvEpisode, episodeNum);
-
-  episodes.push({
-    id: makeIdFromFile(curr.f),
-    episode: episodeNum,
-    label: getEpisodeLabel(episodeNum),
-    dateISO: curr.date.toISOString(),
-    prevSnapshot: prev.f,
-    currSnapshot: curr.f,
+  const entry = {
+    id: String(ep),
+    label: getEpisodeLabel(ep),
+    dateISO: curr?.meta?.builtAtISO ?? null,
+    prevSnapshot: `ep_${pad3(ep - 1)}`,
+    currSnapshot: `ep_${pad3(ep)}`,
     summary: {
-      comparedPlayers: diffs.length,
-      biggestRise: up[0] || null,
-      biggestFall: down[0] || null,
-      teamSwing,
-      biggestRiseByTeam,
-      biggestFallByTeam,
+      comparedPlayers: diff.comparedPlayers,
+      biggestRise: diff.biggestRise,
+      biggestFall: diff.biggestFall,
+
+      // ✅ NEW: per-team boxes (your page.tsx already reads these)
+      biggestRiseByTeam: diff.biggestRiseByTeam,
+      biggestFallByTeam: diff.biggestFallByTeam,
+
+      // team score/winner
       teamResult,
     },
-    movers: {
-      up,
-      down,
-      byTeam: {
-        Athinaioi: { up: athUp, down: athDown },
-        Eparxiotes: { up: epaUp, down: epaDown },
-      },
-    },
-  });
+    movers: diff.movers,
+  };
+
+  episodes.push(entry);
 }
 
-// newest first (your UI expects this)
-episodes.reverse();
-
-fs.writeFileSync(outPath, JSON.stringify(episodes, null, 2), "utf8");
-console.log(`✅ Built ${episodes.length} episodes → ${outPath}`);
-console.log(`ℹ️ Team scores loaded from duels.csv: ${fs.existsSync(duelsPath) ? "YES" : "NO"}`);
+writeJSON(outPath, episodes);
+console.log(`✅ Wrote episodes.json with ${episodes.length} episodes (1..${maxEpisode}).`);

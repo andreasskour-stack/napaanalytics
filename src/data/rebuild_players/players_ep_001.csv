@@ -1,0 +1,43 @@
+﻿PlayerID,PlayerName,Team,TotalDuels,Wins,Win%,ArriveFirst%,FinalPtsPlayed,FinalPtsWon,TiebreakPlayed,TiebreakWon,NormNetMargin,Chokes_ArriveFirst_Losses,Win%_WhenNotArriveFirst,ClutchRating,ChokeRate_WhenArrivedFirst,Smoothed Clutch,Target Assassin Score,ArrivedFirst_Count,NotArrivedFirst_Count,Wins_WhenNotArriveFirst,ShrunkWin%_WhenNotArriveFirst,Losses_WhenArrivedFirst,ShrunkChokeRate_WhenArrivedFirst,Pressure-Weighted Avg Normalized Margin,Reliability,PowerRating,Adjusted PR, Opponent Difficulty,Norm Opp Diff,PressureAdjWin%,Column1,PressureWeightedOpponentDifficulty,EliminatedEpisode
+2,Dimitris Theodoropoulos,Athinaioi,2,1,50.00%,50.00%,0,0,0,0,0.00%,0,0.00%,0,0.00%,50.00%,2,1,1,0,33.33%,0,33.33%,0.00,0.2,9.667,100.00,90.34482759,1.511538462,0.549618321,1.25,90.34482759,
+14,Christos Milonas,Eparxiotes,2,1,50.00%,0.00%,0,0,0,0,5.00%,0,50.00%,0,Never arrived first,50.00%,3,0,2,1,50.00%,0,Never Arrived First,0.05,0.2,9.600,99.31,63.10344828,1.055769231,0.207650273,1.25,63.10344828,
+20,Ioanna Desylla,Eparxiotes,1,1,100.00%,100.00%,0,0,0,0,100.00%,0,Always Arrives First,0,0.00%,50.00%,10,1,0,0,Always arrives first,0,33.33%,1.00,0.1,8.667,89.66,35.17241379,0.588461538,1,1.25,35.17241379,
+18,Foteini Kalevra,Eparxiotes,1,1,100.00%,100.00%,1,1,0,0,40.00%,0,Always Arrives First,0,0.00%,56.67%,4,1,0,0,Always arrives first,0,33.33%,0.40,0.1,8.067,83.45,18.27586207,0.305769231,1,1.25,18.27586207,12
+17,Fani Pantelaki,Eparxiotes,1,1,100.00%,0.00%,0,0,0,0,70.00%,0,100.00%,0,Never arrived first,50.00%,7,0,1,1,66.67%,0,Never Arrived First,0.70,0.1,8.033,83.10,22.06896552,0.369230769,1,1.25,22.06896552,
+12,Vasiliki Mounti,Athinaioi,1,1,100.00%,100.00%,0,0,0,0,30.00%,0,Always Arrives First,0,0.00%,50.00%,3,1,0,0,Always arrives first,0,33.33%,0.30,0.1,7.967,82.41,37.24137931,0.623076923,1,1.25,37.24137931,
+22,Manos Malliaros,Eparxiotes,1,1,100.00%,100.00%,0,0,0,0,20.00%,0,Always Arrives First,0,0.00%,50.00%,2,1,0,0,Always arrives first,0,33.33%,0.20,0.1,7.867,81.38,20.34482759,0.340384615,1,1.25,20.34482759,
+19,Giorgos Polychros,Eparxiotes,1,1,100.00%,100.00%,0,0,0,0,20.00%,0,Always Arrives First,0,0.00%,50.00%,2,1,0,0,Always arrives first,0,33.33%,0.20,0.1,7.867,81.38,100,1.673076923,1,1.25,100,
+10,Mantisa Tsota,Athinaioi,1,1,100.00%,100.00%,0,0,0,0,10.00%,0,Always Arrives First,0,0.00%,50.00%,1,1,0,0,Always arrives first,0,33.33%,0.10,0.1,7.767,80.34,37.24137931,0.623076923,1,1.25,37.24137931,
+24,Stauros Floros,Eparxiotes,1,1,100.00%,100.00%,0,0,0,0,10.00%,0,Always Arrives First,0,0.00%,50.00%,1,1,0,0,Always arrives first,0,33.33%,0.10,0.1,7.767,80.34,21.37931034,0.357692308,1,1.25,21.37931034,
+13,Anastasia Stergiou,Eparxiotes,1,1,100.00%,0.00%,0,0,0,0,30.00%,0,100.00%,0,Never arrived first,50.00%,3,0,1,1,66.67%,0,Never Arrived First,0.30,0.1,7.633,78.97,26.20689655,0.438461538,1,1.25,26.20689655,
+1,Alexandros Kourtovik,Athinaioi,1,1,100.00%,0.00%,0,0,0,0,20.00%,0,100.00%,0,Never arrived first,50.00%,2,0,1,1,66.67%,0,Never Arrived First,0.20,0.1,7.533,77.93,27.24137931,0.455769231,1,1.25,27.24137931,
+23,Michalis Sifakis,Eparxiotes,1,1,100.00%,0.00%,0,0,0,0,10.00%,0,100.00%,0,Never arrived first,50.00%,1,0,1,1,66.67%,0,Never Arrived First,0.10,0.1,7.433,76.90,28.27586207,0.473076923,1,1.25,28.27586207,
+15,Dimitra Liaga,Eparxiotes,1,1,100.00%,0.00%,0,0,0,0,10.00%,0,100.00%,0,Never arrived first,50.00%,1,0,1,1,66.67%,0,Never Arrived First,0.10,0.1,7.433,76.90,35.17241379,0.588461538,1,1.25,35.17241379,
+16,Eleni Zaraga,Eparxiotes,2,0,0.00%,0.00%,0,0,0,0,-20.00%,0,0.00%,0,Never arrived first,50.00%,0,0,2,0,25.00%,0,Never Arrived First,-0.20,0.2,3.600,37.24,81.37931034,1.361538462,0,1.25,81.37931034,8
+3,Elisavet Sekertzi,Athinaioi,2,0,0.00%,50.00%,0,0,0,0,-55.00%,1,0.00%,0,100.00%,50.00%,0,1,1,0,33.33%,1,66.67%,-0.55,0.2,3.400,35.17,83.27586207,1.393269231,0,1.25,83.27586207,1
+7,Giorgos Karaisalidis,Athinaioi,1,0,0.00%,100.00%,0,0,0,0,-10.00%,1,Always Arrives First,0,100.00%,50.00%,0,1,0,0,Always arrives first,1,66.67%,-0.10,0.1,2.733,28.28,76.89655172,1.286538462,0,1.25,76.89655172,
+21,Ioannis Revis,Eparxiotes,1,0,0.00%,100.00%,0,0,0,0,-20.00%,1,Always Arrives First,0,100.00%,50.00%,0,1,0,0,Always arrives first,1,66.67%,-0.20,0.1,2.633,27.24,77.93103448,1.303846154,0,1.25,77.93103448,
+5,Giannis Stinis,Athinaioi,1,0,0.00%,100.00%,0,0,0,0,-30.00%,1,Always Arrives First,0,100.00%,50.00%,0,1,0,0,Always arrives first,1,66.67%,-0.30,0.1,2.533,26.21,99.31034483,1.661538462,0,1.25,99.31034483,11
+9,Kelly Bofiliou,Athinaioi,1,0,0.00%,100.00%,0,0,0,0,-30.00%,1,Always Arrives First,0,100.00%,50.00%,0,1,0,0,Always arrives first,1,66.67%,-0.30,0.1,2.533,26.21,78.96551724,1.321153846,0,1.25,78.96551724,
+4,Evelina Lykoudi,Athinaioi,1,0,0.00%,100.00%,0,0,0,0,-70.00%,1,Always Arrives First,0,100.00%,50.00%,0,1,0,0,Always arrives first,1,66.67%,-0.70,0.1,2.133,22.07,83.10344828,1.390384615,0,1.25,83.10344828,14
+6,Gio Karantonis,Athinaioi,1,0,0.00%,0.00%,0,0,0,0,-10.00%,0,0.00%,0,Never arrived first,50.00%,0,0,1,0,33.33%,0,Never Arrived First,-0.10,0.1,2.067,21.38,80.34482759,1.344230769,0,1.25,80.34482759,13
+8,Giorgos Tsoukalas,Athinaioi,1,0,0.00%,0.00%,0,0,0,0,-20.00%,0,0.00%,0,Never arrived first,50.00%,0,0,1,0,33.33%,0,Never Arrived First,-0.20,0.1,1.967,20.34,81.37931034,1.361538462,0,1.25,81.37931034,
+11,Stauroula Potiri,Athinaioi,1,0,0.00%,0.00%,1,0,0,0,-40.00%,0,0.00%,0,Never arrived first,43.33%,0,0,1,0,33.33%,0,Never Arrived First,-0.40,0.1,1.767,18.28,83.44827586,1.396153846,0,1.25,83.44827586,4
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,league average power,59.77011494,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,Define shrinkage constants (one-time),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,Meaning,Value,,,,,,Components of POWER,,,,,,,,,,,,,,,,,,,,,,,,,
+,Alpha (prior wins),1,,,,,,wWin,0.45,,,,,,,,,,,,,,,,,,,,,,,,
+,Beta (prior losses),1,,,,,,wSpeed,0.05,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,wFinishBehind,0.2,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,wCloseAhead,0.1,,,,,,,,,,,,,,,,,,,,,,,,
+,Define pressure weights (parameters),,,,0.4,Dominant + clutch,,wPressureMargin,0.2,,,,,,,,,,,,,,,,,,,,,,,,
+,Name,Value,,,0.2,Solid performer,,ReliabilityMinDuels,10,,,,,,,,,,,,,,,,,,,,,,,,
+,NormalWeight,1,,,0,Neutral,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,FinalPointWeight,1.5,,,−0.20,Weak under pressure,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,TiebreakWeight,2,,,0.4,Consistent liability,,,,,,,,,,,,,,,,,,,,,,,,,,,
