@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "generatedAtISO": "2026-02-07T13:54:17.628Z",
+  "rowCount": 486,
+  "values": {
+    "propType": [
+      "BALL_L",
+      "BALL_S",
+      "DISC",
+      "HOOP",
+      "NONE",
+      "POLE",
+      "Sand_bags",
+      "STICK"
+    ],
+    "targetType": [
+      "HOOK",
+      "KNOCK_DOWN",
+      "LAND_IN",
+      "NONE",
+      "PLACE_IN_SLOT"
+    ],
+    "gamePrice": [
+      "Food",
+      "Immunity"
+    ],
+    "week": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "airDate": [
+      "2026-01-11",
+      "2026-01-12",
+      "2026-01-13",
+      "2026-01-14",
+      "2026-01-18",
+      "2026-01-19",
+      "2026-01-20",
+      "2026-01-21",
+      "2026-01-25",
+      "2026-01-26",
+      "2026-01-27",
+      "2026-01-28",
+      "2026-02-01",
+      "2026-02-02",
+      "2026-02-03"
+    ],
+    "puzzle": [
+      "ALL",
+      "ONLY",
+      "EXCLUDE"
+    ]
+  },
+  "ranges": {
+    "week": {
+      "min": 1,
+      "max": 4
+    },
+    "airDate": {
+      "min": "2026-01-11",
+      "max": "2026-02-03"
+    }
+  }
+}

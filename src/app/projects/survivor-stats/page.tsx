@@ -1,3 +1,4 @@
+import type React from "react";
 import fs from "fs";
 import path from "path";
 import Link from "next/link";
@@ -271,7 +272,7 @@ export default function SurvivorStatsHome() {
   const hottest3 = [...momentum].sort((a, b) => (b.delta3 ?? 0) - (a.delta3 ?? 0)).slice(0, 3);
   const coldest3 = [...momentum].sort((a, b) => (a.delta3 ?? 0) - (b.delta3 ?? 0)).slice(0, 3);
 
-  // 🎯 Reliability (lowest stdev across ep_1..ep_max)
+  // 🎯 Reliability (stdev across ep_1..ep_max)
   const powerSeries = new Map<string, { name: string; team: string; values: number[] }>();
 
   for (let ep = 1; ep <= maxEp; ep++) {
@@ -300,8 +301,10 @@ export default function SurvivorStatsHome() {
   const mostReliable =
     [...reliableCandidates].sort((a, b) => (a.stdev ?? 0) - (b.stdev ?? 0))[0] ?? null;
 
+  const mostUnreliable =
+    [...reliableCandidates].sort((a, b) => (b.stdev ?? 0) - (a.stdev ?? 0))[0] ?? null;
+
   // 🌪️ Chaos
-  // Define: Chaos(ep) = avg over players of |power(ep) - power(ep-1)|
   function meanAbsDelta(epA: number, epB: number) {
     const A = snap(epA)?.rankings ?? [];
     const B = snap(epB)?.rankings ?? [];
@@ -320,7 +323,6 @@ export default function SurvivorStatsHome() {
     return diffs.reduce((x, y) => x + y, 0) / diffs.length;
   }
 
-  // Build chaos series for episodes 2..maxEp (exclude EP0→EP1 baseline jump)
   const chaosSeries: { ep: number; val: number }[] = [];
   for (let ep = 2; ep <= maxEp; ep++) {
     const v = meanAbsDelta(ep - 1, ep);
@@ -330,16 +332,13 @@ export default function SurvivorStatsHome() {
   const chaosSeasonMin = chaosSeries.length ? Math.min(...chaosSeries.map((x) => x.val)) : null;
   const chaosSeasonMax = chaosSeries.length ? Math.max(...chaosSeries.map((x) => x.val)) : null;
 
-  // Latest single-episode chaos (recommended)
   const chaosLatest = chaosSeries.find((x) => x.ep === maxEp)?.val ?? null;
 
-  // Last 3 transitions average (context only)
   const last3 = chaosSeries
     .filter((x) => x.ep >= Math.max(2, maxEp - 2))
     .map((x) => x.val);
   const chaosLast3Avg = last3.length ? last3.reduce((a, b) => a + b, 0) / last3.length : null;
 
-  // Rank latest episode (1 = most chaotic)
   const chaosRank =
     chaosLatest != null
       ? 1 +
@@ -349,7 +348,6 @@ export default function SurvivorStatsHome() {
           .findIndex((x) => x.ep === maxEp)
       : null;
 
-  // LOW / MED / HIGH label based on season distribution (terciles)
   const chaosVals = chaosSeries.map((x) => x.val);
   const p33 = percentile(chaosVals, 0.33);
   const p66 = percentile(chaosVals, 0.66);
@@ -359,7 +357,6 @@ export default function SurvivorStatsHome() {
     chaosLabel = chaosLatest <= p33 ? "LOW" : chaosLatest >= p66 ? "HIGH" : "MED";
   }
 
-  // UI label
   const latestLabel = cleanLabel(latestEpisode?.label) || `Episode ${maxEp}`;
 
   return (
@@ -413,10 +410,11 @@ export default function SurvivorStatsHome() {
             }
             sub={
               <div className="text-sm text-gray-300">
-                <div className="text-xs text-gray-400">Avg |Δ power| from EP {maxEp - 1} → EP {maxEp}</div>
+                <div className="text-xs text-gray-400">
+                  Avg |Δ power| from EP {maxEp - 1} → EP {maxEp}
+                </div>
                 <div>
-                  Season range:{" "}
-                  <span className="text-gray-100">{fmtNum2(chaosSeasonMin)}</span> –{" "}
+                  Season range: <span className="text-gray-100">{fmtNum2(chaosSeasonMin)}</span> –{" "}
                   <span className="text-gray-100">{fmtNum2(chaosSeasonMax)}</span>
                 </div>
                 <div className="text-xs text-gray-400">
@@ -523,19 +521,43 @@ export default function SurvivorStatsHome() {
             </div>
           </div>
 
+          {/* ✅ UPDATED CARD: Reliable + Unreliable */}
           <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
-            <div className="text-lg font-semibold text-gray-100">🎯 Most reliable</div>
-            <div className="mt-1 text-xs text-gray-400">Lowest stdev of power</div>
-            <div className="mt-4">
-              {mostReliable ? (
-                <MiniRow
-                  name={mostReliable.name}
-                  team={mostReliable.team}
-                  right={(mostReliable.stdev ?? 0).toFixed(2)}
-                />
-              ) : (
-                <div className="text-sm text-gray-400">—</div>
-              )}
+            <div className="text-lg font-semibold text-gray-100">🎯 Reliability</div>
+            <div className="mt-1 text-xs text-gray-400">Stdev of power (lower = steadier)</div>
+
+            <div className="mt-4 space-y-4">
+              <div>
+                <div className="text-xs uppercase tracking-wide text-gray-400">Most reliable</div>
+                <div className="mt-2">
+                  {mostReliable ? (
+                    <MiniRow
+                      name={mostReliable.name}
+                      team={mostReliable.team}
+                      right={(mostReliable.stdev ?? 0).toFixed(2)}
+                      rightClass="text-green-300"
+                    />
+                  ) : (
+                    <div className="text-sm text-gray-400">—</div>
+                  )}
+                </div>
+              </div>
+
+              <div>
+                <div className="text-xs uppercase tracking-wide text-gray-400">Most unreliable</div>
+                <div className="mt-2">
+                  {mostUnreliable ? (
+                    <MiniRow
+                      name={mostUnreliable.name}
+                      team={mostUnreliable.team}
+                      right={(mostUnreliable.stdev ?? 0).toFixed(2)}
+                      rightClass="text-red-300"
+                    />
+                  ) : (
+                    <div className="text-sm text-gray-400">—</div>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </div>

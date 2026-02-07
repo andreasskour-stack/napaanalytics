@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "build:explorer": "node scripts/build_explorer_duels.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -12,7 +13,8 @@
     "episodes:build": "node scripts/build_episodes.mjs",
     "h2h:build": "node scripts/csv_to_h2h_json.mjs",
     "update": "npm run rankings:build && npm run players:build && npm run h2h:build && npm run episodes:build && npm run history:build",
-    "history:build": "node scripts/build_power_history.mjs"
+    "history:build": "node scripts/build_power_history.mjs",
+    "prebuild": "npm run build:explorer"
   },
   "dependencies": {
     "@capacitor/android": "^8.0.2",
