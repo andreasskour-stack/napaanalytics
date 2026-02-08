@@ -206,6 +206,8 @@ export default function PlayersExplorerClient({
           </div>
 
           {/* ✅ Mini charts (NEW) */}
+          <div className="text-xs text-white/60">DEPLOY CHECK ✅ (charts should be below)</div>
+
           <MiniCharts filteredRows={filteredRows} playersSorted={sortedAgg} />
 
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
