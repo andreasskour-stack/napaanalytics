@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import type { DuelRow, Meta, SortDir, SortKey } from "@/lib/explorer/types";
 import FiltersPanel from "@/components/explorer/FiltersPanel";
@@ -40,13 +40,15 @@ function ShareIcon({ className = "h-4 w-4" }: { className?: string }) {
 export default function PlayersExplorerClient({
   duels,
   meta,
+  initialQueryString = "",
 }: {
   duels: DuelRow[];
   meta: Meta;
+  /** Passed from the server page: e.g. "week=3&target=RINGS" (no leading "?") */
+  initialQueryString?: string;
 }) {
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   // Toast state
   const [toast, setToast] = useState<{ show: boolean; message: string }>(() => ({
@@ -55,10 +57,10 @@ export default function PlayersExplorerClient({
   }));
   const toastTimerRef = useRef<number | null>(null);
 
-  // Initialize from URL (if present), otherwise defaults.
+  // ✅ Build initial state from server-provided query string (no useSearchParams)
   const [filters, setFilters] = useState(() => {
     try {
-      const sp = new URLSearchParams(searchParams?.toString() ?? "");
+      const sp = new URLSearchParams(initialQueryString);
       return filtersFromSearchParams(meta, sp);
     } catch {
       return defaultFiltersFromMeta(meta);
@@ -66,17 +68,17 @@ export default function PlayersExplorerClient({
   });
 
   const [sortKey, setSortKey] = useState<SortKey>(() => {
-    const sp = new URLSearchParams(searchParams?.toString() ?? "");
+    const sp = new URLSearchParams(initialQueryString);
     return sortFromSearchParams(sp).sortKey;
   });
 
   const [sortDir, setSortDir] = useState<SortDir>(() => {
-    const sp = new URLSearchParams(searchParams?.toString() ?? "");
+    const sp = new URLSearchParams(initialQueryString);
     return sortFromSearchParams(sp).sortDir;
   });
 
   // Prevent loops when we update the URL ourselves
-  const lastWrittenQueryRef = useRef<string>("");
+  const lastWrittenQueryRef = useRef<string>(initialQueryString ? `?${initialQueryString}` : "");
   const syncingFromUrlRef = useRef<boolean>(false);
 
   function showToast(message: string) {
@@ -95,44 +97,47 @@ export default function PlayersExplorerClient({
     };
   }, []);
 
-  // 1) Sync state when user navigates back/forward or lands on a deep link
+  // ✅ Listen to browser back/forward and sync state from location.search
   useEffect(() => {
-    const qs = searchParams?.toString() ?? "";
-    if (`?${qs}` === lastWrittenQueryRef.current) return;
+    const onPopState = () => {
+      const qs = window.location.search; // includes leading "?" or ""
+      if (qs === lastWrittenQueryRef.current) return;
 
-    const sp = new URLSearchParams(qs);
-    const nextFilters = filtersFromSearchParams(meta, sp);
-    const nextSort = sortFromSearchParams(sp);
+      const sp = new URLSearchParams(qs.startsWith("?") ? qs.slice(1) : qs);
+      const nextFilters = filtersFromSearchParams(meta, sp);
+      const nextSort = sortFromSearchParams(sp);
 
-    const needFilters = !stateEquals(filters, nextFilters);
-    const needSort = sortKey !== nextSort.sortKey || sortDir !== nextSort.sortDir;
+      const needFilters = !stateEquals(filters, nextFilters);
+      const needSort = sortKey !== nextSort.sortKey || sortDir !== nextSort.sortDir;
 
-    if (needFilters || needSort) {
-      syncingFromUrlRef.current = true;
+      if (needFilters || needSort) {
+        syncingFromUrlRef.current = true;
 
-      if (needFilters) setFilters(nextFilters);
-      if (needSort) {
-        setSortKey(nextSort.sortKey);
-        setSortDir(nextSort.sortDir);
+        if (needFilters) setFilters(nextFilters);
+        if (needSort) {
+          setSortKey(nextSort.sortKey);
+          setSortDir(nextSort.sortDir);
+        }
+
+        setTimeout(() => {
+          syncingFromUrlRef.current = false;
+        }, 0);
       }
+    };
 
-      setTimeout(() => {
-        syncingFromUrlRef.current = false;
-      }, 0);
-    }
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchParams, meta]);
+  }, [filters, sortKey, sortDir, meta]);
 
-  // 2) Write URL whenever filters/sort change (debounced) — with loop prevention
+  // Write URL whenever filters/sort change (debounced) — with loop prevention
   useEffect(() => {
     if (syncingFromUrlRef.current) return;
 
     const nextQuery = buildSearchParamsFromState(filters, sortKey, sortDir, meta);
+    const currentQuery = window.location.search || "";
 
-    const currentQs = searchParams?.toString() ?? "";
-    const currentQuery = currentQs ? `?${currentQs}` : "";
-
-    // If nothing changed, do nothing (prevents replace loops)
+    // If nothing changed, do nothing
     if (nextQuery === currentQuery) return;
 
     const t = window.setTimeout(() => {
@@ -141,7 +146,7 @@ export default function PlayersExplorerClient({
     }, 250);
 
     return () => window.clearTimeout(t);
-  }, [filters, sortKey, sortDir, meta, router, pathname, searchParams]);
+  }, [filters, sortKey, sortDir, meta, router, pathname]);
 
   const filteredRows = useMemo(() => filterRows(duels, filters), [duels, filters]);
   const playerAgg = useMemo(() => aggregatePlayers(filteredRows), [filteredRows]);
@@ -204,9 +209,6 @@ export default function PlayersExplorerClient({
               Share
             </button>
           </div>
-
-          {/* ✅ Mini charts (NEW) */}
-          <div className="text-xs text-white/60">DEPLOY CHECK ✅ (charts should be below)</div>
 
           <MiniCharts filteredRows={filteredRows} playersSorted={sortedAgg} />
 
