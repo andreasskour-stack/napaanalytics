@@ -11,13 +11,7 @@ function safeNum(x: number | null | undefined) {
   return typeof x === "number" && Number.isFinite(x) ? x : null;
 }
 
-function MiniBar({
-  value,
-  max,
-}: {
-  value: number;
-  max: number;
-}) {
+function MiniBar({ value, max }: { value: number; max: number }) {
   const w = max > 0 ? Math.max(0, Math.min(1, value / max)) : 0;
   return (
     <div className="h-2 w-full overflow-hidden rounded-full bg-white/10">
@@ -49,10 +43,11 @@ export default function MiniCharts({
   playersSorted: PlayerAgg[];
 }) {
   const teamStats = useMemo(() => {
-    const teams = {
+    // ✅ mutable (no "as const")
+    const teams: Record<"Red" | "Blue", { rows: number; wins: number }> = {
       Red: { rows: 0, wins: 0 },
       Blue: { rows: 0, wins: 0 },
-    } as const;
+    };
 
     for (const r of filteredRows) {
       if (r.teamColor === "Red") {
@@ -75,19 +70,18 @@ export default function MiniCharts({
   }, [filteredRows]);
 
   const topDominance = useMemo(() => {
-    // Use current sort (playersSorted) but take top by Dominance specifically:
     const ranked = [...playersSorted]
       .filter((p) => safeNum(p.normMargin) !== null)
       .sort((a, b) => (safeNum(b.normMargin)! - safeNum(a.normMargin)!))
       .slice(0, 10);
 
     const max = ranked.reduce((m, p) => Math.max(m, safeNum(p.normMargin) ?? 0), 0);
-
     return { ranked, max };
   }, [playersSorted]);
 
   const winsByWeek = useMemo(() => {
     const map = new Map<number, { wins: number; rows: number }>();
+
     for (const r of filteredRows) {
       const w = r.week;
       if (w === null || w === undefined) continue;
@@ -106,7 +100,6 @@ export default function MiniCharts({
       }));
 
     const maxRows = weeks.reduce((m, x) => Math.max(m, x.rows), 0);
-
     return { weeks, maxRows };
   }, [filteredRows]);
 
