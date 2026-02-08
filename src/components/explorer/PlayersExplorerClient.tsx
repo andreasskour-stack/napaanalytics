@@ -97,6 +97,30 @@ export default function PlayersExplorerClient({
     };
   }, []);
 
+  // ✅ IMPORTANT FIX:
+  // On first mount, apply filters/sort from the actual URL (refresh/new tab/pasted deep link).
+  useEffect(() => {
+    const qs = window.location.search; // "?week=3&target=RINGS" or ""
+    if (!qs) return;
+
+    const sp = new URLSearchParams(qs.startsWith("?") ? qs.slice(1) : qs);
+    const nextFilters = filtersFromSearchParams(meta, sp);
+    const nextSort = sortFromSearchParams(sp);
+
+    syncingFromUrlRef.current = true;
+    setFilters(nextFilters);
+    setSortKey(nextSort.sortKey);
+    setSortDir(nextSort.sortDir);
+
+    // Keep our internal "last written" query aligned so we don't immediately overwrite the URL
+    lastWrittenQueryRef.current = qs;
+
+    setTimeout(() => {
+      syncingFromUrlRef.current = false;
+    }, 0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [meta]);
+
   // ✅ Listen to browser back/forward and sync state from location.search
   useEffect(() => {
     const onPopState = () => {
@@ -118,6 +142,8 @@ export default function PlayersExplorerClient({
           setSortKey(nextSort.sortKey);
           setSortDir(nextSort.sortDir);
         }
+
+        lastWrittenQueryRef.current = qs;
 
         setTimeout(() => {
           syncingFromUrlRef.current = false;
