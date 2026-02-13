@@ -30,7 +30,30 @@ function normalizeTrend(x: unknown): Trend {
 }
 
 // ✅ Normalize dataset once (so the rest of the UI can trust r.trend)
-const DATA: Row[] = (rankingsRaw as any[]).map((r) => ({
+function asArrayRankings(input: any): any[] {
+  if (!input) return [];
+  if (Array.isArray(input)) return input;
+
+  const candidates = [
+    input.rows,
+    input.data,
+    input.rankings,
+    input.items,
+    input.latest,
+    input.current,
+    input.values,
+  ];
+  for (const c of candidates) if (Array.isArray(c)) return c;
+
+  if (typeof input === "object") {
+    const vals = Object.values(input);
+    if (vals.every((v) => v && typeof v === "object")) return vals as any[];
+  }
+  return [];
+}
+
+const DATA: Row[] = asArrayRankings(rankingsRaw).map((r: any) => ({
+
   ...r,
   trend: normalizeTrend(r?.trend),
 }));

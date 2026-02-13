@@ -13,16 +13,22 @@ type Trend = "up" | "down" | "flat";
 type PlayerRow = {
   id: string;
   name: string;
-  team: string;
-  wins: number;
-  duels: number;
-  winPct: number | null;
-  clutch: number | null;
-  choke: number | null;
-  reliability: number | null;
-  power: number | null;
 
-  // ✅ from players.json (generated)
+  // Most important
+  team?: string | null;
+
+  // season stats
+  wins?: number;
+  duels?: number;
+  winPct?: number | null;
+  clutch?: number | null;
+  choke?: number | null;
+  reliability?: number | null;
+
+  // power fields (your players.json has these)
+  power?: number | null;
+  power_adj?: number | null;
+
   eliminatedEpisode?: number | null;
   isEliminated?: boolean;
 };
@@ -30,11 +36,9 @@ type PlayerRow = {
 type RankingRow = {
   id: string;
   name: string;
-  team: string;
-  power: number;
+  team?: string;
+  power: number; // we now build this from Adjusted PR
   trend: Trend;
-
-  // (optional) some of your ranking jsons include these too
   eliminatedEpisode?: number | null;
   isEliminated?: boolean;
 };
@@ -47,26 +51,44 @@ type EnrichedPlayer = PlayerRow & {
 
 type TeamRow = {
   team: string;
-  players: EnrichedPlayer[]; // all players (for roster display / counts)
+  players: EnrichedPlayer[];
   activePlayers: EnrichedPlayer[];
 
-  // ✅ NEW DEFINITIONS
   teamPower: number; // avg active power
   depth: number; // sum active power
 
-  reliabilityAvg: number | null; // avg active reliability (display-only)
-  winPctWeighted: number | null; // keep as season performance (all players)
+  reliabilityAvg: number | null;
+  winPctWeighted: number | null;
+
   mvp: EnrichedPlayer | null;
   riser: EnrichedPlayer | null;
   faller: EnrichedPlayer | null;
-  teamTrend: Trend;
 
+  teamTrend: Trend;
   totalCount: number;
   activeCount: number;
 };
 
-const PLAYERS: PlayerRow[] = playersRaw as PlayerRow[];
-const RANKINGS: RankingRow[] = rankingsRaw as RankingRow[];
+function asArray(input: any): any[] {
+  if (!input) return [];
+  if (Array.isArray(input)) return input;
+
+  const candidates = [input.rows, input.data, input.players, input.rankings, input.items, input.values];
+  for (const c of candidates) if (Array.isArray(c)) return c;
+
+  if (typeof input === "object") {
+    const vals = Object.values(input);
+    if (vals.every((v) => v && typeof v === "object")) return vals as any[];
+  }
+  return [];
+}
+
+function normalizeTrend(t: any): Trend {
+  const s = String(t ?? "").toLowerCase();
+  if (s === "up") return "up";
+  if (s === "down") return "down";
+  return "flat";
+}
 
 function TrendIcon({ t }: { t: Trend }) {
   if (t === "up") return <span className="text-green-400">▲</span>;
@@ -157,33 +179,53 @@ export default function TeamsPage() {
     resetGlowDefault();
   }, []);
 
+  // ✅ Robust imports
+  const PLAYERS: PlayerRow[] = useMemo(() => asArray(playersRaw) as PlayerRow[], []);
+  const RANKINGS: RankingRow[] = useMemo(() => {
+    const arr = asArray(rankingsRaw) as any[];
+    return arr.map((r) => ({ ...r, trend: normalizeTrend(r?.trend) })) as RankingRow[];
+  }, []);
+
   const rankById = useMemo(() => {
     const map = new Map<string, RankingRow>();
     for (const r of RANKINGS) map.set(String(r.id), r);
     return map;
-  }, []);
+  }, [RANKINGS]);
 
   const teamRows: TeamRow[] = useMemo(() => {
+    // Group players by team (fallback to ranking team if player team missing)
     const groups = new Map<string, PlayerRow[]>();
+
     for (const p of PLAYERS) {
-      const key = (p.team ?? "").trim();
-      if (!key) continue;
-      if (!groups.has(key)) groups.set(key, []);
-      groups.get(key)!.push(p);
+      const rid = String(p.id ?? "");
+      const r = rankById.get(rid);
+
+      const team = String((p.team ?? r?.team ?? "")).trim();
+      if (!team) continue;
+
+      if (!groups.has(team)) groups.set(team, []);
+      groups.get(team)!.push(p);
     }
 
     const rows = Array.from(groups.entries()).map(([team, ps]) => {
       const enriched: EnrichedPlayer[] = ps.map((p) => {
         const r = rankById.get(String(p.id));
-        const power = r?.power ?? p.power ?? 0;
-        const trend = (r?.trend ?? "flat") as Trend;
 
-        // Use player-file elimination fields primarily (most reliable)
+        // ✅ power priority:
+        // 1) rankings.json power (Adjusted PR)
+        // 2) players.json power_adj
+        // 3) players.json power
+        const power =
+          (typeof r?.power === "number" ? r.power : null) ??
+          (typeof (p as any).power_adj === "number" ? (p as any).power_adj : null) ??
+          (typeof p.power === "number" ? p.power : 0);
+
+        const trend: Trend = r?.trend ?? "flat";
+
         const out =
-          isOut(p) ||
-          isOut({ isEliminated: r?.isEliminated, eliminatedEpisode: r?.eliminatedEpisode });
+          isOut(p) || isOut({ isEliminated: r?.isEliminated, eliminatedEpisode: r?.eliminatedEpisode });
 
-        return { ...p, _power: power, _trend: trend, _isOut: out };
+        return { ...p, _power: Number(power) || 0, _trend: trend, _isOut: out };
       });
 
       const activePlayers = enriched.filter((p) => !p._isOut);
@@ -191,25 +233,21 @@ export default function TeamsPage() {
       const totalCount = enriched.length;
       const activeCount = activePlayers.length;
 
-      // ✅ DEPTH = sum(active power)
       const depth = activePlayers.reduce((s, p) => s + (p._power ?? 0), 0);
-
-      // ✅ TEAM POWER = avg(active power)
       const teamPower = activeCount > 0 ? depth / activeCount : 0;
 
-      // Win% weighted: keep season performance (all players)
+      // Weighted win% across ALL players (season performance)
       const duelSum = enriched.reduce((s, p) => s + (p.duels ?? 0), 0);
       const winSum = enriched.reduce((s, p) => s + (p.wins ?? 0), 0);
       const winPctWeighted = duelSum > 0 ? (winSum / duelSum) * 100 : null;
 
-      // Reliability avg: active only (display-only, not used as a multiplier)
+      // Reliability avg: active only (display)
       const relVals = activePlayers
         .map((p) => p.reliability)
         .filter((x): x is number => typeof x === "number" && Number.isFinite(x));
-      const reliabilityAvg =
-        relVals.length ? relVals.reduce((a, b) => a + b, 0) / relVals.length : null;
+      const reliabilityAvg = relVals.length ? relVals.reduce((a, b) => a + b, 0) / relVals.length : null;
 
-      // Team trend: active only if possible (fallback to all)
+      // Team trend: majority over active (fallback all)
       const trendPool = activePlayers.length ? activePlayers : enriched;
       const counts = { up: 0, down: 0, flat: 0 } as Record<Trend, number>;
       for (const p of trendPool) counts[p._trend] += 1;
@@ -222,7 +260,6 @@ export default function TeamsPage() {
 
       // MVP / movers: use active if possible (fallback to all)
       const pool = activePlayers.length ? activePlayers : enriched;
-
       const topByPower = pool.slice().sort((a, b) => (b._power ?? 0) - (a._power ?? 0));
       const mvp = topByPower[0] ?? null;
 
@@ -259,9 +296,8 @@ export default function TeamsPage() {
     return rows
       .filter((r) => (q ? r.team.toLowerCase().includes(q) : true))
       .sort((a, b) => b.teamPower - a.teamPower);
-  }, [query, rankById]);
+  }, [PLAYERS, rankById, query]);
 
-  // Head-to-head only for the two known teams
   const h2h = useMemo(() => {
     const a = teamRows.find((t) => t.team.toLowerCase() === "athinaioi");
     const e = teamRows.find((t) => t.team.toLowerCase() === "eparxiotes");
@@ -272,14 +308,7 @@ export default function TeamsPage() {
     const maxRel = Math.max(a.reliabilityAvg ?? 0, e.reliabilityAvg ?? 0, 1);
     const maxWin = Math.max(a.winPctWeighted ?? 0, e.winPctWeighted ?? 0, 1);
 
-    return {
-      a,
-      e,
-      maxTeamPower,
-      maxDepth,
-      maxRel,
-      maxWin,
-    };
+    return { a, e, maxTeamPower, maxDepth, maxRel, maxWin };
   }, [teamRows]);
 
   return (
@@ -297,18 +326,23 @@ export default function TeamsPage() {
         }
       />
 
+      {/* If empty, show a useful hint */}
+      {teamRows.length === 0 ? (
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-sm text-white/80">
+          No teams found. This usually means <code className="text-white">players.json</code> didn’t rebuild or
+          the <code className="text-white">team</code> field is missing.
+          <div className="mt-3 text-white/70">
+            Try: <code className="text-white">npm run players:build</code> then refresh.
+          </div>
+        </div>
+      ) : null}
+
       {/* Team cards */}
       <div className="grid gap-4 md:grid-cols-2">
         {teamRows.map((t) => (
-          <Link
-            key={t.team}
-            href={`${BASE}/teams/${encodeURIComponent(t.team)}`}
-            className="block"
-          >
+          <Link key={t.team} href={`${BASE}/teams/${encodeURIComponent(t.team)}`} className="block">
             <div
-              className={`rounded-2xl border p-5 ${teamCardStyle(
-                t.team
-              )} cursor-pointer transition hover:border-white/30`}
+              className={`rounded-2xl border p-5 ${teamCardStyle(t.team)} cursor-pointer transition hover:border-white/30`}
               onMouseEnter={() => applyTeamGlow(t.team)}
               onMouseLeave={() => resetGlowDefault()}
             >
@@ -334,22 +368,16 @@ export default function TeamsPage() {
                   </div>
                 </div>
 
-                {/* ✅ You asked to show DEPTH where Avg Power was */}
                 <div className="text-right">
                   <div className="text-xs uppercase tracking-wide text-gray-400">Depth</div>
-                  <div className="mt-1 text-2xl font-semibold text-gray-100">
-                    {fmtNum(t.depth, 0)}
-                  </div>
+                  <div className="mt-1 text-2xl font-semibold text-gray-100">{fmtNum(t.depth, 0)}</div>
                 </div>
               </div>
 
               <div className="mt-4 grid grid-cols-3 gap-3">
-                {/* ✅ You asked to show TEAM POWER (avg active) here */}
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
                   <div className="text-xs uppercase tracking-wide text-gray-400">Team Power</div>
-                  <div className="mt-1 text-lg font-semibold text-gray-100">
-                    {fmtNum(t.teamPower, 1)}
-                  </div>
+                  <div className="mt-1 text-lg font-semibold text-gray-100">{fmtNum(t.teamPower, 1)}</div>
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
@@ -367,9 +395,7 @@ export default function TeamsPage() {
                 <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
                   <div className="text-xs uppercase tracking-wide text-gray-400">MVP (Power)</div>
                   <div className="mt-2 font-semibold text-gray-100">{t.mvp?.name ?? "—"}</div>
-                  <div className="mt-1 text-xs text-gray-400">
-                    {t.mvp ? `Power ${fmtNum(t.mvp._power, 0)}` : ""}
-                  </div>
+                  <div className="mt-1 text-xs text-gray-400">{t.mvp ? `Power ${fmtNum(t.mvp._power, 0)}` : ""}</div>
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
@@ -399,134 +425,72 @@ export default function TeamsPage() {
       {h2h ? (
         <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-6">
           <div className="text-sm font-semibold text-gray-200">Head-to-head</div>
+
           <div className="mt-3 grid gap-4 md:grid-cols-2">
-            <div className={`rounded-2xl border p-5 ${teamCardStyle(h2h.a.team)}`}>
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <div className="text-lg font-semibold text-gray-100">{h2h.a.team}</div>
-                  <div className="mt-2 text-sm text-gray-300">Team Power</div>
-                  <div className="mt-1 text-2xl font-semibold text-gray-100">
-                    {fmtNum(h2h.a.teamPower, 1)}
+            {[h2h.a, h2h.e].map((t) => (
+              <div key={t.team} className={`rounded-2xl border p-5 ${teamCardStyle(t.team)}`}>
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <div className="text-lg font-semibold text-gray-100">{t.team}</div>
+                    <div className="mt-2 text-sm text-gray-300">Team Power</div>
+                    <div className="mt-1 text-2xl font-semibold text-gray-100">{fmtNum(t.teamPower, 1)}</div>
+                  </div>
+
+                  <div className="text-right">
+                    <div className="text-sm text-gray-300">Trend</div>
+                    <span
+                      className={`mt-2 inline-flex items-center rounded-xl border px-3 py-1 text-sm font-semibold ${powerBadgeStyle(
+                        t.teamTrend
+                      )}`}
+                    >
+                      <TrendIcon t={t.teamTrend} />
+                      <span className="ml-2 capitalize">{t.teamTrend}</span>
+                    </span>
                   </div>
                 </div>
-                <div className="text-right">
-                  <div className="text-sm text-gray-300">Trend</div>
-                  <span
-                    className={`mt-2 inline-flex items-center rounded-xl border px-3 py-1 text-sm font-semibold ${powerBadgeStyle(
-                      h2h.a.teamTrend
-                    )}`}
+
+                <div className="mt-4 space-y-3 text-sm text-gray-200">
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span>Team Power (Avg Active)</span>
+                      <span className="font-semibold">{fmtNum(t.teamPower, 1)}</span>
+                    </div>
+                    <Bar value={t.teamPower} max={h2h.maxTeamPower} />
+                  </div>
+
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span>Depth (Sum Active)</span>
+                      <span className="font-semibold">{fmtNum(t.depth, 0)}</span>
+                    </div>
+                    <Bar value={t.depth} max={h2h.maxDepth} />
+                  </div>
+
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span>Reliability (Avg)</span>
+                      <span className="font-semibold">{fmtNum(t.reliabilityAvg, 2)}</span>
+                    </div>
+                    <Bar value={t.reliabilityAvg ?? 0} max={h2h.maxRel} />
+                  </div>
+
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span>Win % (Weighted)</span>
+                      <span className="font-semibold">{fmtPct(t.winPctWeighted)}</span>
+                    </div>
+                    <Bar value={t.winPctWeighted ?? 0} max={h2h.maxWin} />
+                  </div>
+
+                  <Link
+                    href={`${BASE}/teams/${encodeURIComponent(t.team)}`}
+                    className="inline-block rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-100 hover:bg-white/10"
                   >
-                    <TrendIcon t={h2h.a.teamTrend} />{" "}
-                    <span className="ml-2 capitalize">{h2h.a.teamTrend}</span>
-                  </span>
+                    Open team →
+                  </Link>
                 </div>
               </div>
-
-              <div className="mt-4 space-y-3 text-sm text-gray-200">
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span>Team Power (Avg Active)</span>
-                    <span className="font-semibold">{fmtNum(h2h.a.teamPower, 1)}</span>
-                  </div>
-                  <Bar value={h2h.a.teamPower} max={h2h.maxTeamPower} />
-                </div>
-
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span>Depth (Sum Active)</span>
-                    <span className="font-semibold">{fmtNum(h2h.a.depth, 0)}</span>
-                  </div>
-                  <Bar value={h2h.a.depth} max={h2h.maxDepth} />
-                </div>
-
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span>Reliability (Avg)</span>
-                    <span className="font-semibold">{fmtNum(h2h.a.reliabilityAvg, 2)}</span>
-                  </div>
-                  <Bar value={h2h.a.reliabilityAvg ?? 0} max={h2h.maxRel} />
-                </div>
-
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span>Win % (Weighted)</span>
-                    <span className="font-semibold">{fmtPct(h2h.a.winPctWeighted)}</span>
-                  </div>
-                  <Bar value={h2h.a.winPctWeighted ?? 0} max={h2h.maxWin} />
-                </div>
-
-                <Link
-                  href={`${BASE}/teams/${encodeURIComponent(h2h.a.team)}`}
-                  className="inline-block rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-100 hover:bg-white/10"
-                >
-                  Open team →
-                </Link>
-              </div>
-            </div>
-
-            <div className={`rounded-2xl border p-5 ${teamCardStyle(h2h.e.team)}`}>
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <div className="text-lg font-semibold text-gray-100">{h2h.e.team}</div>
-                  <div className="mt-2 text-sm text-gray-300">Team Power</div>
-                  <div className="mt-1 text-2xl font-semibold text-gray-100">
-                    {fmtNum(h2h.e.teamPower, 1)}
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div className="text-sm text-gray-300">Trend</div>
-                  <span
-                    className={`mt-2 inline-flex items-center rounded-xl border px-3 py-1 text-sm font-semibold ${powerBadgeStyle(
-                      h2h.e.teamTrend
-                    )}`}
-                  >
-                    <TrendIcon t={h2h.e.teamTrend} />{" "}
-                    <span className="ml-2 capitalize">{h2h.e.teamTrend}</span>
-                  </span>
-                </div>
-              </div>
-
-              <div className="mt-4 space-y-3 text-sm text-gray-200">
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span>Team Power (Avg Active)</span>
-                    <span className="font-semibold">{fmtNum(h2h.e.teamPower, 1)}</span>
-                  </div>
-                  <Bar value={h2h.e.teamPower} max={h2h.maxTeamPower} />
-                </div>
-
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span>Depth (Sum Active)</span>
-                    <span className="font-semibold">{fmtNum(h2h.e.depth, 0)}</span>
-                  </div>
-                  <Bar value={h2h.e.depth} max={h2h.maxDepth} />
-                </div>
-
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span>Reliability (Avg)</span>
-                    <span className="font-semibold">{fmtNum(h2h.e.reliabilityAvg, 2)}</span>
-                  </div>
-                  <Bar value={h2h.e.reliabilityAvg ?? 0} max={h2h.maxRel} />
-                </div>
-
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span>Win % (Weighted)</span>
-                    <span className="font-semibold">{fmtPct(h2h.e.winPctWeighted)}</span>
-                  </div>
-                  <Bar value={h2h.e.winPctWeighted ?? 0} max={h2h.maxWin} />
-                </div>
-
-                <Link
-                  href={`${BASE}/teams/${encodeURIComponent(h2h.e.team)}`}
-                  className="inline-block rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-100 hover:bg-white/10"
-                >
-                  Open team →
-                </Link>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       ) : null}

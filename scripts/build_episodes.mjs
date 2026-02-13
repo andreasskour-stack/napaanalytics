@@ -46,6 +46,31 @@ function isMeaningfulCsvLine(line) {
   return noCommas.length > 0;
 }
 
+function parseCSVRowsSkipEmpty(csvPath) {
+  const raw = readText(csvPath);
+  const lines = raw.split(/\r?\n/).filter((ln) => ln != null);
+
+  const headerIndex = lines.findIndex(isMeaningfulCsvLine);
+  if (headerIndex === -1) return { headers: [], rows: [] };
+
+  const headerLine = lines[headerIndex].replace(/^\uFEFF/, "");
+  const headers = headerLine.split(",").map((h) => h.trim());
+
+  const rows = [];
+  for (let i = headerIndex + 1; i < lines.length; i++) {
+    const line = lines[i];
+    if (!isMeaningfulCsvLine(line)) continue;
+    const cols = line.split(",");
+    const obj = {};
+    headers.forEach((h, idx) => {
+      obj[h] = (cols[idx] ?? "").trim();
+    });
+    rows.push(obj);
+  }
+
+  return { headers, rows };
+}
+
 function parseDuelsMaxEpisodeID(csvPath) {
   if (!fileExists(csvPath)) {
     throw new Error(`duels.csv not found at: ${csvPath}`);
@@ -80,71 +105,60 @@ function parseDuelsMaxEpisodeID(csvPath) {
   return maxEp;
 }
 
-function parseCSVRowsSkipEmpty(csvPath) {
-  const raw = readText(csvPath);
-  const lines = raw.split(/\r?\n/);
-
-  const idx = lines.findIndex(isMeaningfulCsvLine);
-  if (idx === -1) return { headers: [], rows: [] };
-
-  const headerLine = lines[idx].replace(/^\uFEFF/, "");
-  const headers = headerLine.split(",").map((h) => h.trim());
-
-  const rows = [];
-  for (let i = idx + 1; i < lines.length; i++) {
-    const ln = lines[i];
-    if (!isMeaningfulCsvLine(ln)) continue;
-    const cols = ln.split(",");
-    const obj = {};
-    headers.forEach((h, c) => (obj[h] = (cols[c] ?? "").trim()));
-    rows.push(obj);
-  }
-  return { headers, rows };
-}
-
 /* =========================
-   Episode labeling
+   Snapshot normalization
+   Accepts BOTH:
+   - { meta: {...}, rankings: [...] }
+   - [...]  (array snapshot)
 ========================= */
-function getEpisodeLabel(episodeNum) {
-  return `Episode ${episodeNum}`;
+function normalizeSnapshotData(data) {
+  // Newer / expected format
+  if (data && typeof data === "object" && !Array.isArray(data)) {
+    const rankings = Array.isArray(data.rankings) ? data.rankings : [];
+    const meta = data.meta && typeof data.meta === "object" ? data.meta : {};
+    return { rankings, meta };
+  }
+
+  // Backfilled / legacy format: plain array
+  if (Array.isArray(data)) {
+    return { rankings: data, meta: {} };
+  }
+
+  return { rankings: [], meta: {} };
 }
 
 /* =========================
-   Movers / diffs
+   Labels
+========================= */
+function getEpisodeLabel(ep) {
+  return `Episode ${ep}`;
+}
+
+/* =========================
+   Diff between two snapshots
 ========================= */
 function computeDiff(prevRows, currRows) {
-  const prevMap = new Map();
-  for (const p of prevRows || []) {
-    if (!p || p.id == null) continue;
-    prevMap.set(String(p.id), p);
+  const prevById = new Map();
+  for (const r of prevRows || []) {
+    prevById.set(String(r.id), r);
   }
 
   const diffs = [];
-  for (const c of currRows || []) {
-    if (!c || c.id == null) continue;
+  for (const r of currRows || []) {
+    const id = String(r.id);
+    const prev = prevById.get(id) || null;
 
-    const id = String(c.id);
-    const prev = prevMap.get(id);
+    const currPower = safeNum(r.power, 0);
+    const prevPower = prev ? safeNum(prev.power, 0) : null;
 
-    const prevPower =
-      prev && prev.power != null && Number.isFinite(Number(prev.power))
-        ? Number(prev.power)
-        : null;
-
-    const currPower =
-      c && c.power != null && Number.isFinite(Number(c.power))
-        ? Number(c.power)
-        : null;
-
-    const delta =
-      prevPower != null && currPower != null ? currPower - prevPower : null;
+    const delta = prevPower == null ? null : currPower - prevPower;
 
     diffs.push({
       id,
-      name: c.name ?? "",
-      team: c.team ?? "",
-      prevPower,
+      name: r.name,
+      team: r.team,
       currPower,
+      prevPower,
       delta,
     });
   }
@@ -155,9 +169,9 @@ function computeDiff(prevRows, currRows) {
 
   function asMover(d) {
     return {
-      id: d.id,
-      name: d.name,
-      team: d.team,
+      id: String(d.id),
+      name: String(d.name ?? ""),
+      team: String(d.team ?? ""),
       currPower: d.currPower ?? 0,
       prevPower: d.prevPower,
       delta: d.delta,
@@ -197,11 +211,8 @@ function computeDiff(prevRows, currRows) {
     comparedPlayers: diffs.length,
     biggestRise: sortedUp.length ? topN(sortedUp, 1)[0] : null,
     biggestFall: sortedDown.length ? topN(sortedDown, 1)[0] : null,
-
-    // ✅ NEW: what your Episode page expects
     biggestRiseByTeam,
     biggestFallByTeam,
-
     movers: {
       up: topN(sortedUp, 10),
       down: topN(sortedDown, 10),
@@ -260,37 +271,30 @@ function computeTeamScoresByEpisode(duelsCsvPath) {
     const matchId = String(r.TeamMatchID ?? "").trim() || "unknown";
     const gameType = String(r.GameType ?? "").trim() || null;
 
-    const redWon = safeNum(r.RedWon ?? 0, 0);
-    const blueWon = safeNum(r.BlueWon ?? 0, 0);
+    const redWon = safeNum(r.RedWon, 0);
+    const blueWon = safeNum(r.BlueWon, 0);
 
-    if (!map.has(ep)) map.set(ep, new Map());
-    const m = map.get(ep);
-
-    if (!m.has(matchId)) {
-      m.set(matchId, {
-        matchId,
-        gameType,
-        redScore: 0,
-        blueScore: 0,
-      });
+    const key = `${ep}__${matchId}`;
+    if (!map.has(key)) {
+      map.set(key, { ep, matchId, gameType, redScore: 0, blueScore: 0 });
     }
-
-    const acc = m.get(matchId);
+    const acc = map.get(key);
     acc.redScore += redWon;
     acc.blueScore += blueWon;
-    if (!acc.gameType && gameType) acc.gameType = gameType;
   }
 
-  // pick best match per episode (most points)
+  // pick best match per episode (highest total rounds)
   const bestByEp = new Map();
 
-  for (const [ep, matches] of map.entries()) {
-    let best = null;
-    for (const acc of matches.values()) {
-      const points = acc.redScore + acc.blueScore;
-      if (!best || points > best.redScore + best.blueScore) best = acc;
-    }
+  const grouped = new Map();
+  for (const v of map.values()) {
+    if (!grouped.has(v.ep)) grouped.set(v.ep, []);
+    grouped.get(v.ep).push(v);
+  }
 
+  for (const [ep, matches] of grouped.entries()) {
+    matches.sort((a, b) => (b.redScore + b.blueScore) - (a.redScore + a.blueScore));
+    const best = matches[0];
     if (!best) continue;
 
     const winner =
@@ -336,16 +340,15 @@ const teamScoresByTvEpisode = computeTeamScoresByEpisode(duelsPath);
 const episodes = [];
 
 for (let ep = 1; ep <= maxEpisode; ep++) {
-  const prev = snaps[ep - 1].data;
-  const curr = snaps[ep].data;
+  const prevNorm = normalizeSnapshotData(snaps[ep - 1].data);
+  const currNorm = normalizeSnapshotData(snaps[ep].data);
 
-  const prevRows = prev?.rankings ?? [];
-  const currRows = curr?.rankings ?? [];
+  const prevRows = prevNorm.rankings;
+  const currRows = currNorm.rankings;
 
   const diff = computeDiff(prevRows, currRows);
 
-  // ✅ Use episode number as TV EpisodeID by default
-  // ✅ Fallback: if duels.csv starts at 2, allow ep+1
+  // TV episode id defaults to ep, fallback ep+1
   const tv = ep;
   let teamResult = teamScoresByTvEpisode.get(String(tv)) ?? null;
   if (!teamResult) teamResult = teamScoresByTvEpisode.get(String(tv + 1)) ?? null;
@@ -353,19 +356,15 @@ for (let ep = 1; ep <= maxEpisode; ep++) {
   const entry = {
     id: String(ep),
     label: getEpisodeLabel(ep),
-    dateISO: curr?.meta?.builtAtISO ?? null,
+    dateISO: currNorm.meta?.builtAtISO ?? null,
     prevSnapshot: `ep_${pad3(ep - 1)}`,
     currSnapshot: `ep_${pad3(ep)}`,
     summary: {
       comparedPlayers: diff.comparedPlayers,
       biggestRise: diff.biggestRise,
       biggestFall: diff.biggestFall,
-
-      // ✅ NEW: per-team boxes (your page.tsx already reads these)
       biggestRiseByTeam: diff.biggestRiseByTeam,
       biggestFallByTeam: diff.biggestFallByTeam,
-
-      // team score/winner
       teamResult,
     },
     movers: diff.movers,

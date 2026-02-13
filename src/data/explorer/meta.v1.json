@@ -1,12 +1,14 @@
 {
   "version": 1,
-  "generatedAtISO": "2026-02-08T06:28:27.047Z",
-  "rowCount": 486,
+  "generatedAtISO": "2026-02-10T14:04:24.949Z",
+  "rowCount": 572,
   "values": {
     "propType": [
       "BALL_L",
+      "BALL_L_equiment",
       "BALL_S",
       "DISC",
+      "HAMMER",
       "HOOP",
       "NONE",
       "POLE",
@@ -14,6 +16,7 @@
       "STICK"
     ],
     "targetType": [
+      "BREAK",
       "HOOK",
       "KNOCK_DOWN",
       "LAND_IN",
@@ -28,7 +31,8 @@
       1,
       2,
       3,
-      4
+      4,
+      5
     ],
     "airDate": [
       "2026-01-11",
@@ -45,7 +49,10 @@
       "2026-01-28",
       "2026-02-01",
       "2026-02-02",
-      "2026-02-03"
+      "2026-02-03",
+      "2026-02-04",
+      "2026-02-08",
+      "2026-02-09"
     ],
     "puzzle": [
       "ALL",
@@ -56,11 +63,11 @@
   "ranges": {
     "week": {
       "min": 1,
-      "max": 4
+      "max": 5
     },
     "airDate": {
       "min": "2026-01-11",
-      "max": "2026-02-03"
+      "max": "2026-02-09"
     }
   }
 }

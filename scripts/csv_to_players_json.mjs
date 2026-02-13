@@ -2,36 +2,158 @@ import fs from "fs";
 import path from "path";
 
 const root = process.cwd();
-const inPath = path.join(root, "src", "data", "players.csv");
+
+const snapshotsDir = path.join(root, "src", "data", "rebuild_players");
+const fallbackInPath = path.join(root, "src", "data", "players.csv");
 const outPath = path.join(root, "src", "data", "players.json");
 
-// Used only to compute "current episode" (snapshot count)
-const archiveDir = path.join(root, "src", "data", "archive");
-
-console.log("Reading:", inPath);
-console.log("Writing:", outPath);
-
-function ensureDir(p) {
-  if (!fs.existsSync(p)) fs.mkdirSync(p, { recursive: true });
-}
-
-function listSnapshotFiles() {
+function listPlayerSnapshots() {
   try {
-    if (!fs.existsSync(archiveDir)) return [];
+    if (!fs.existsSync(snapshotsDir)) return [];
     return fs
-      .readdirSync(archiveDir)
-      .filter((f) => /^rankings_\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}-\d{3}\.json$/.test(f));
+      .readdirSync(snapshotsDir)
+      .filter((f) => /^players_ep_\d{3}\.csv$/i.test(f))
+      .sort();
   } catch {
     return [];
   }
 }
 
-// Episodes are built from *transitions* between snapshots.
-// When we are about to produce the next snapshot, the "current episode number" is:
-//   currentEpisode = existingSnapshotsCount
-function getCurrentEpisodeNumber() {
-  const snaps = listSnapshotFiles();
-  return snaps.length + 1; // ✅
+function pickLatestSnapshotPath() {
+  const files = listPlayerSnapshots();
+  if (!files.length) return null;
+
+  let best = { ep: -1, file: "" };
+  for (const f of files) {
+    const m = f.match(/^players_ep_(\d{3})\.csv$/i);
+    if (!m) continue;
+    const ep = Number(m[1]);
+    if (Number.isFinite(ep) && ep > best.ep) best = { ep, file: f };
+  }
+  if (best.ep < 0) return null;
+  return { ep: best.ep, path: path.join(snapshotsDir, best.file), file: best.file };
+}
+
+// ---------------- DELIMITER + CSV/TSV PARSER ----------------
+function detectDelimiter(headerLine) {
+  const counts = {
+    "\t": (headerLine.match(/\t/g) || []).length,
+    ",": (headerLine.match(/,/g) || []).length,
+    ";": (headerLine.match(/;/g) || []).length,
+  };
+
+  // Pick the delimiter with the highest count
+  let best = "\t";
+  for (const k of Object.keys(counts)) {
+    if (counts[k] > counts[best]) best = k;
+  }
+  return best;
+}
+
+function parseDelimited(text) {
+  const firstLine = text.split(/\r?\n/)[0] ?? "";
+  const delim = detectDelimiter(firstLine);
+
+  const rows = [];
+  let row = [];
+  let cur = "";
+  let inQuotes = false;
+
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    const next = text[i + 1];
+
+    // escaped quote inside quotes
+    if (ch === '"' && inQuotes && next === '"') {
+      cur += '"';
+      i++;
+      continue;
+    }
+
+    // toggle quotes
+    if (ch === '"') {
+      inQuotes = !inQuotes;
+      continue;
+    }
+
+    // delimiter
+    if (ch === delim && !inQuotes) {
+      row.push(cur);
+      cur = "";
+      continue;
+    }
+
+    // newline
+    if ((ch === "\n" || ch === "\r") && !inQuotes) {
+      if (ch === "\r" && next === "\n") i++;
+      row.push(cur);
+      cur = "";
+      if (row.some((c) => c.trim() !== "")) rows.push(row);
+      row = [];
+      continue;
+    }
+
+    cur += ch;
+  }
+
+  row.push(cur);
+  if (row.some((c) => c.trim() !== "")) rows.push(row);
+
+  return { rows, delim };
+}
+
+// ---------------- NORMALIZATION + PARSERS ----------------
+function normKey(h) {
+  // Keep underscores, normalize spaces, lowercase
+  // Strip % from header keys so "Win%" becomes "win"
+  return String(h ?? "")
+    .replace(/\u00a0/g, " ")
+    .trim()
+    .toLowerCase()
+    .replace(/%/g, "")
+    .replace(/\s+/g, " ")
+    .replace(/[()]/g, "")
+    .replace(/[^\w ]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function toNumber(x) {
+  if (x === null || x === undefined) return null;
+  const s = String(x)
+    .trim()
+    .replace(/\u00a0/g, " ")
+    .replace(/\s+/g, "")
+    .replace(/,/g, ".");
+  const n = Number(s);
+  return Number.isFinite(n) ? n : null;
+}
+
+// ✅ percent parser: "77.78%" -> 0.7778, "77.78" -> 0.7778, "0.77" -> 0.77
+function toPercent(x) {
+  if (x === null || x === undefined) return null;
+
+  const raw = String(x).trim().replace(/\u00a0/g, " ");
+  if (!raw) return null;
+
+  if (raw.includes("%")) {
+    const n = toNumber(raw.replace(/%/g, ""));
+    return n == null ? null : n / 100;
+  }
+
+  const n = toNumber(raw);
+  if (n == null) return null;
+
+  return n > 1 ? n / 100 : n;
+}
+
+function get(obj, keys) {
+  for (const k of keys) {
+    const kk = normKey(k);
+    const v = obj[kk];
+    if (v !== undefined && v !== null && String(v).trim() !== "") return v;
+  }
+  return undefined;
 }
 
 function safeReadJSON(p) {
@@ -43,218 +165,41 @@ function safeReadJSON(p) {
   }
 }
 
-// ---------------- CSV PARSER ----------------
-function parseCSV(text) {
-  const rows = [];
-  let row = [];
-  let cur = "";
-  let inQuotes = false;
+// ---------------- ROW MAPPER ----------------
+function buildRow(obj, currentEp) {
+  // Your exact headers:
+  // PlayerID	PlayerName	Team	TotalDuels	Wins	Win%	ArriveFirst%	FinalPtsPlayed	FinalPtsWon
+  // ... Reliability PowerRating Adjusted PR EliminatedEpisode
 
-  for (let i = 0; i < text.length; i++) {
-    const ch = text[i];
-    const next = text[i + 1];
-
-    if (ch === '"' && inQuotes && next === '"') {
-      cur += '"';
-      i++;
-      continue;
-    }
-    if (ch === '"') {
-      inQuotes = !inQuotes;
-      continue;
-    }
-    if ((ch === "," || ch === ";") && !inQuotes) {
-      row.push(cur);
-      cur = "";
-      continue;
-    }
-    if ((ch === "\n" || ch === "\r") && !inQuotes) {
-      if (ch === "\r" && next === "\n") i++;
-      row.push(cur);
-      cur = "";
-      if (row.some((c) => c.trim() !== "")) rows.push(row);
-      row = [];
-      continue;
-    }
-    cur += ch;
-  }
-  row.push(cur);
-  if (row.some((c) => c.trim() !== "")) rows.push(row);
-  return rows;
-}
-
-// Stronger normalization (matches rankings builder)
-function normalizeHeader(h) {
-  return h
-    .trim()
-    .toLowerCase()
-    .replace(/[%]/g, "pct")
-    .replace(/[^\w\s]/g, " ")
-    .replace(/\s+/g, "_")
-    .replace(/^_+|_+$/g, "");
-}
-
-function toNumber(x) {
-  if (x === undefined || x === null) return null;
-  const s = String(x)
-    .trim()
-    .replace(/\u00A0/g, " ")
-    .replace(/%/g, "")
-    .replace(/\s+/g, "")
-    .replace(/,/g, ".");
-  const n = Number(s);
-  return Number.isFinite(n) ? n : null;
-}
-
-function pick(obj, keys) {
-  for (const k of keys) {
-    if (obj[k] !== undefined && obj[k] !== "") return obj[k];
-  }
-  return undefined;
-}
-
-function numOrNull(x) {
-  const n = toNumber(x);
-  return n == null ? null : n;
-}
-
-function round2(n) {
-  return n == null ? null : Number(n.toFixed(2));
-}
-
-// Map a Player_Summary row -> players.json row
-function mapRow(obj, currentEpisode) {
-  const id = pick(obj, ["playerid", "id", "player_id"]);
-  const name = pick(obj, ["playername", "player_name", "name"]);
-  const team = pick(obj, ["team", "team_name"]);
+  const id = get(obj, ["PlayerID"]);
+  const name = get(obj, ["PlayerName"]);
+  const team = get(obj, ["Team"]);
 
   if (!id || !name || !team) return null;
 
-  const wins = toNumber(pick(obj, ["wins", "wins_total"])) ?? 0;
-  const duels = toNumber(pick(obj, ["totalduels", "duels", "total_duels"])) ?? 0;
+  const wins = toNumber(get(obj, ["Wins"])) ?? 0;
+  const duels = toNumber(get(obj, ["TotalDuels"])) ?? 0;
 
-  const winPct =
-    toNumber(pick(obj, ["winpct", "win", "win_percentage", "win_percent"])) ?? null;
+  // ✅ percent fields (stored like "77.78%")
+  const winPct = toPercent(get(obj, ["Win%"])) ?? null;
+  const arriveFirstPct = toPercent(get(obj, ["ArriveFirst%"])) ?? null;
 
-  const arriveFirstPct =
-    toNumber(pick(obj, ["arrivefirstpct", "arrive_first_pct", "arrive_first"])) ?? null;
+  const finalPtsPlayed = toNumber(get(obj, ["FinalPtsPlayed"])) ?? null;
+  const finalPtsWon = toNumber(get(obj, ["FinalPtsWon"])) ?? null;
 
-  const finalPtsPlayed =
-    toNumber(pick(obj, ["finalptsplayed", "final_pts_played", "final_points_played"])) ?? null;
+  const clutch = toNumber(get(obj, ["ClutchRating"])) ?? null;
 
-  const finalPtsWon =
-    toNumber(pick(obj, ["finalptswon", "final_pts_won", "final_points_won"])) ?? null;
+  // Some are percent fields, but you can keep them numeric.
+  // If you later display these as % in UI, swap to toPercent(...)
+  const choke = toPercent(get(obj, ["ChokeRate_WhenArrivedFirst"])) ?? null;
 
-  const tiebreakPlayed =
-    toNumber(pick(obj, ["tiebreakplayed", "tiebreak_played"])) ?? null;
+  const reliability = toNumber(get(obj, ["Reliability"])) ?? null;
 
-  const tiebreakWon =
-    toNumber(pick(obj, ["tiebreakwon", "tiebreak_won"])) ?? null;
+  // Power columns (important)
+  const power = toNumber(get(obj, ["PowerRating"])) ?? null;
+  const power_adj = toNumber(get(obj, ["Adjusted PR"])) ?? null; // ✅ keep as number
 
-  const tiebreakWinPct =
-    toNumber(pick(obj, ["tiebreakwinpct", "tiebreak_win_pct"])) ?? null;
-
-  const clutch =
-    toNumber(pick(obj, ["clutchrating", "clutch_rating", "smoothed_clutch"])) ?? null;
-
-  const choke =
-    toNumber(
-      pick(obj, [
-        "shrunkchokerate_whenarrivedfirst",
-        "chokerate_whenarrivedfirst",
-        "chokerate",
-        "choke_rate",
-        "choke",
-      ])
-    ) ?? null;
-
-  const reliability = toNumber(pick(obj, ["reliability"])) ?? null;
-
-  // ✅ UNIVERSAL DISPLAY POWER = Adjusted PR
-  const powerAdj =
-    toNumber(
-      pick(obj, ["adjusted_pr", "adjustedpr", "adjusted_power", "adjusted_rating"])
-    ) ?? null;
-
-  const powerRaw =
-    toNumber(pick(obj, ["powerrating", "power_rating", "power"])) ?? null;
-
-  const power = powerAdj != null ? powerAdj : powerRaw;
-
-  // -------- NEW (optional) stats (pass-through if present in CSV) --------
-  const sos =
-    toNumber(
-      pick(obj, [
-        "sos",
-        "strength_of_schedule",
-        "opponentdifficulty",
-        "opponent_difficulty",
-        "avg_opponent_power",
-        "avg_opponent_power_norm",
-        "norm_opp_diff",
-        "norm_oppdifficulty",
-      ])
-    ) ?? null;
-
-  const pressureWeightedSos =
-    toNumber(
-      pick(obj, [
-        "pressure_weighted_sos",
-        "pressureweightedsos",
-        "pressure_weighted_opponentdifficulty",
-        "pressure_weighted_opp_diff",
-      ])
-    ) ?? null;
-
-  const closeLossRate =
-    toNumber(pick(obj, ["closelossrate", "close_loss_rate"])) ?? null;
-
-  const pressureWinPct =
-    toNumber(
-      pick(obj, [
-        "pressurewinpct",
-        "pressure_win_pct",
-        "pressureadjwinpct",
-        "pressure_adj_winpct",
-        "pressureadjwin",
-      ])
-    ) ?? null;
-
-  const marginVolatility =
-    toNumber(
-      pick(obj, [
-        "marginvolatility",
-        "margin_volatility",
-        "std_norm_margin",
-        "stddev_norm_margin",
-        "volatility_of_performance",
-      ])
-    ) ?? null;
-
-  const rollingWinPct5 =
-    toNumber(pick(obj, ["rollingwinpct5", "rolling_win_pct_5", "last5winpct"])) ?? null;
-
-  const rollingWinPct8 =
-    toNumber(pick(obj, ["rollingwinpct8", "rolling_win_pct_8", "last8winpct"])) ?? null;
-
-  const pressureWeightedAvgNormMargin =
-    toNumber(
-      pick(obj, [
-        "pressure_weighted_avg_normalized_margin",
-        "pressure_weighted_avg_norm_margin",
-      ])
-    ) ?? null;
-
-  // -------- Elimination signal --------
-  const eliminatedEpisode =
-    toNumber(pick(obj, ["eliminatedepisode", "eliminated_episode", "eliminated_ep"])) ??
-    null;
-
-  // Consider eliminated as soon as currentEpisode >= eliminatedEpisode
-  const isEliminated =
-    eliminatedEpisode != null && Number.isFinite(eliminatedEpisode)
-      ? currentEpisode >= eliminatedEpisode
-      : false;
+  const eliminatedEpisode = toNumber(get(obj, ["EliminatedEpisode"])) ?? null;
 
   return {
     id: String(id).trim(),
@@ -263,103 +208,74 @@ function mapRow(obj, currentEpisode) {
 
     wins,
     duels,
-    winPct,
 
-    arriveFirstPct,
+    winPct, // fraction 0..1
+    arriveFirstPct, // fraction 0..1
+
     finalPtsPlayed,
     finalPtsWon,
-    tiebreakPlayed,
-    tiebreakWon,
-    tiebreakWinPct,
 
     clutch,
     choke,
+
     reliability,
 
-    // ✅ Universal power used across the site
-    power: power == null ? null : round2(power),
-
-    // Optional debugging / future analytics
-    power_adj: powerAdj == null ? null : round2(powerAdj),
-    power_raw: powerRaw == null ? null : round2(powerRaw),
-
-    // ✅ new optional stats
-    sos: sos == null ? null : round2(sos),
-    pressureWeightedSos: pressureWeightedSos == null ? null : round2(pressureWeightedSos),
-    closeLossRate: closeLossRate == null ? null : round2(closeLossRate),
-    pressureWinPct: pressureWinPct == null ? null : round2(pressureWinPct),
-    marginVolatility: marginVolatility == null ? null : round2(marginVolatility),
-    rollingWinPct5: rollingWinPct5 == null ? null : round2(rollingWinPct5),
-    rollingWinPct8: rollingWinPct8 == null ? null : round2(rollingWinPct8),
-    pressureWeightedAvgNormMargin:
-      pressureWeightedAvgNormMargin == null ? null : round2(pressureWeightedAvgNormMargin),
+    power,
+    power_adj,
 
     eliminatedEpisode: eliminatedEpisode == null ? null : Math.round(eliminatedEpisode),
-    isEliminated,
+    isEliminated: eliminatedEpisode != null ? currentEp >= eliminatedEpisode : false,
   };
 }
 
+// ---------------- RUN ----------------
+const snap = pickLatestSnapshotPath();
+
+let inPath = fallbackInPath;
+let currentEp = 0;
+
+if (snap) {
+  inPath = snap.path;
+  currentEp = snap.ep;
+  console.log(`Using snapshot: src/data/rebuild_players/${snap.file} (EP ${snap.ep})`);
+} else {
+  console.log(`No players_ep_### snapshots found. Falling back to: ${inPath}`);
+}
+
 if (!fs.existsSync(inPath)) {
-  console.error(`Missing file: ${inPath}`);
+  console.error("Input file not found:", inPath);
   process.exit(1);
 }
 
-const currentEpisode = getCurrentEpisodeNumber();
-console.log(`ℹ️ Current episode number (derived from snapshots): ${currentEpisode}`);
-
-const csvText = fs.readFileSync(inPath, "utf8");
-const rows = parseCSV(csvText);
+const text = fs.readFileSync(inPath, "utf8");
+const { rows, delim } = parseDelimited(text);
 
 if (rows.length < 2) {
-  console.error("CSV looks empty (need header + at least 1 row).");
+  console.error("Input looks empty (need header + at least 1 row). Not writing players.json.");
   process.exit(1);
 }
 
-const headers = rows[0].map(normalizeHeader);
+console.log(`Detected delimiter: ${delim === "\t" ? "TAB" : delim}`);
 
-// Load previous players.json to allow freezing eliminated players
-const prevData = safeReadJSON(outPath);
-const prevMap = new Map();
-if (Array.isArray(prevData)) {
-  for (const r of prevData) {
-    if (r?.id != null) prevMap.set(String(r.id), r);
-  }
-}
+const headers = rows[0].map(normKey);
 
-let data = rows
+const data = rows
   .slice(1)
   .map((r) => {
     const obj = {};
     headers.forEach((h, idx) => (obj[h] = (r[idx] ?? "").trim()));
-    return mapRow(obj, currentEpisode);
+    return buildRow(obj, currentEp);
   })
   .filter(Boolean);
 
-// ✅ Freeze eliminated players after their elimination episode
-// If eliminatedEpisode = 5, they still appear normally on episode 5,
-// and freeze from episode 6+ (currentEpisode > 5).
-data = data.map((r) => {
-  const elimEp = numOrNull(r?.eliminatedEpisode);
-  if (elimEp == null) return r;
-
-  if (currentEpisode > elimEp) {
-    const prev = prevMap.get(String(r.id));
-    if (prev) {
-      return {
-        ...prev,
-        eliminatedEpisode: Math.round(elimEp),
-        isEliminated: true,
-      };
-    }
-  }
-
-  // ensure flags exist
-  return {
-    ...r,
-    eliminatedEpisode: Math.round(elimEp),
-    isEliminated: currentEpisode >= elimEp,
-  };
-});
+// Safety: don't overwrite a good file with []
+if (!data.length) {
+  const prev = safeReadJSON(outPath);
+  console.error("❌ Parsed 0 players from snapshot. Keeping existing players.json.");
+  console.error("Headers (normalized):", headers.join(" | "));
+  if (Array.isArray(prev)) console.error(`Existing players.json has ${prev.length} rows (kept).`);
+  process.exit(1);
+}
 
 fs.writeFileSync(outPath, JSON.stringify(data, null, 2), "utf8");
-console.log(`✅ Wrote ${data.length} rows to ${outPath}`);
+console.log(`✅ Wrote ${data.length} rows to src/data/players.json`);
