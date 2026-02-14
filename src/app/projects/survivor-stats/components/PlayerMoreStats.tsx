@@ -1,21 +1,26 @@
 "use client";
 
+import type React from "react";
 import { useState } from "react";
 
 function toNum(v: any): number | null {
+  if (v === null || v === undefined) return null;
   const n = Number(v);
   return Number.isFinite(n) ? n : null;
 }
+
 function fmtInt(v: any): string {
   const n = toNum(v);
   if (n == null) return "—";
   return String(Math.round(n));
 }
+
 function fmtNum(v: any, digits = 2): string {
   const n = toNum(v);
   if (n == null) return "—";
   return n.toFixed(digits);
 }
+
 function fmtPct(v: any, digits = 1): string {
   const n = toNum(v);
   if (n == null) return "—";
@@ -129,10 +134,7 @@ export default function PlayerMoreStats({
           ) : null}
 
           {toNum(pressureWeightedSos) != null ? (
-            <StatCard
-              label="Pressure-weighted SoS"
-              value={fmtNum(pressureWeightedSos, 2)}
-            />
+            <StatCard label="Pressure-weighted SoS" value={fmtNum(pressureWeightedSos, 2)} />
           ) : null}
 
           {toNum(closeLossRate) != null ? (

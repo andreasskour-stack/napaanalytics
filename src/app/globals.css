@@ -188,3 +188,33 @@ a:hover {
   position: relative;
   z-index: 1;
 }
+.napa-active {
+  box-shadow: inset 0 -2px 0 rgba(64, 200, 220, 0.65);
+}
+/* Napa Analytics brand accent */
+:root {
+  --napa-accent: #3fb6c6;
+}
+
+/* Active nav underline */
+.napa-active {
+  box-shadow: inset 0 -2px 0 var(--napa-accent);
+}
+
+/* Optional: hover accent (subtle) */
+.napa-hover:hover {
+  box-shadow: inset 0 -2px 0 rgba(63, 182, 198, 0.35);
+}
+/* Standard Napa card */
+.napa-card {
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.03);
+  transition: background 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+  border-radius: 16px;
+}
+
+.napa-card:hover {
+  border-color: rgba(255,255,255,0.20);
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 0 0 1px rgba(63,182,198,0.25);
+}

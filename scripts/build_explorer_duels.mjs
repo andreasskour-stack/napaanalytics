@@ -31,8 +31,6 @@ function readText(p) {
 function parseCsv(text, headerHint = null) {
   const lines = text.split(/\r?\n/).filter((l) => l.trim().length > 0);
 
-  // If a file has a normal header row, this still works.
-  // For duels.csv, your true header line contains "DuelID,ChallengeID,EpisodeID,..."
   let headerIndex = 0;
   if (headerHint) {
     for (let i = 0; i < lines.length; i++) {
@@ -102,7 +100,6 @@ function normalizeAirDate(v) {
     return `${y}-${mm}-${dd}`;
   }
 
-  // Fallback Date parse
   const dt = new Date(s);
   if (!Number.isNaN(dt.getTime())) {
     const y = dt.getFullYear();
@@ -125,7 +122,6 @@ function main() {
   }
 
   const duelsRaw = parseCsv(readText(DUELS_CSV), "DuelID");
-
   const generalRows = exists(GENERAL_CSV) ? parseCsv(readText(GENERAL_CSV), "PlayerID") : [];
 
   // Build player lookup from general_stats.csv: PlayerID -> {name, tribe}
@@ -152,7 +148,6 @@ function main() {
     const key = cid ?? eid;
     if (!key) continue;
 
-    // only store if it looks like challenge meta exists on that row
     const week = toNumberOrNull(pick(r, ["Week"]));
     const airDate = normalizeAirDate(pick(r, ["AirDate"]));
     const propType = pick(r, ["PropType"]);
@@ -194,7 +189,6 @@ function main() {
     const key = challengeId ?? episodeId;
     const fallbackMeta = challengeById.get(key) ?? {};
 
-    // Slicers: prefer duels.csv, fallback to general_stats if needed
     const propType = String(pick(r, ["PropType"]) ?? fallbackMeta.PropType ?? "UNKNOWN").trim() || "UNKNOWN";
     const targetType = String(pick(r, ["TargetType"]) ?? fallbackMeta.TargetType ?? "UNKNOWN").trim() || "UNKNOWN";
     const gamePrice = String(pick(r, ["GamePrice", "GamePrize"]) ?? fallbackMeta.GamePrice ?? "UNKNOWN").trim() || "UNKNOWN";
@@ -208,36 +202,34 @@ function main() {
     const airDate = normalizeAirDate(pick(r, ["AirDate"]) ?? fallbackMeta.AirDate);
     const week = toNumberOrNull(pick(r, ["Week"]) ?? fallbackMeta.Week);
 
-    // Shared fields
     const isFinalPoint = (toNumberOrNull(pick(r, ["IsFinalPoint"])) ?? 0) ? 1 : 0;
 
-    // Red-side outcomes (from your columns)
     const wonRed = (toNumberOrNull(pick(r, ["Won", "RedWon"])) ?? 0) ? 1 : 0;
     const arrivedFirstRedRaw = toNumberOrNull(pick(r, ["ArrivedFirst"]));
     const arrivedFirstRed = (arrivedFirstRedRaw ?? 0) ? 1 : 0;
 
-    // Blue-side outcomes: prefer BlueWon, else infer from Won
     const blueWonRaw = toNumberOrNull(pick(r, ["BlueWon"]));
     const wonBlue = blueWonRaw !== null ? (blueWonRaw ? 1 : 0) : (wonRed ? 0 : 1);
 
-    // ArrivedFirst for blue: infer if it's binary
     const arrivedFirstBlue =
       arrivedFirstRedRaw !== null && (arrivedFirstRedRaw === 0 || arrivedFirstRedRaw === 1)
         ? (arrivedFirstRedRaw === 1 ? 0 : 1)
         : 0;
 
-    // Margins by side
     const normMarginRed = toNumberOrNull(pick(r, ["NormMargin_Red"]));
     const normMarginBlue = toNumberOrNull(pick(r, ["NormMargin_Blue"]));
 
-    // Names + tribe from general_stats
+    // ✅ Adjusted power from duels.csv
+    // Athinaioi side uses PlayerPower, Eparxiotes side uses OpponentPower (as you said)
+    const redAdjPower = toNumberOrNull(pick(r, ["PlayerPower"]));
+    const blueAdjPower = toNumberOrNull(pick(r, ["OpponentPower"]));
+
     const redInfo = playerById.get(redId);
     const blueInfo = playerById.get(blueId);
 
     const redName = redInfo?.name ?? `Player ${redId}`;
     const blueName = blueInfo?.name ?? `Player ${blueId}`;
 
-    // Optional: Tribe from general_stats (useful for a future team slicer)
     const redTribe = redInfo?.tribe ?? null;
     const blueTribe = blueInfo?.tribe ?? null;
 
@@ -252,7 +244,6 @@ function main() {
       playerName: redName,
       tribe: redTribe,
 
-      // slicers
       propType,
       targetType,
       gamePrice,
@@ -260,14 +251,15 @@ function main() {
       airDate,
       week,
 
-      // performance
       won: wonRed,
       arrivedFirst: arrivedFirstRed,
       isFinalPoint,
 
-      // team + metric
       teamColor: "Red",
       normMargin: normMarginRed,
+
+      // ✅ NEW
+      adjustedPower: redAdjPower,
     });
 
     // Emit BLUE row
@@ -281,7 +273,6 @@ function main() {
       playerName: blueName,
       tribe: blueTribe,
 
-      // slicers
       propType,
       targetType,
       gamePrice,
@@ -289,18 +280,18 @@ function main() {
       airDate,
       week,
 
-      // performance
       won: wonBlue,
       arrivedFirst: arrivedFirstBlue,
       isFinalPoint,
 
-      // team + metric
       teamColor: "Blue",
       normMargin: normMarginBlue,
+
+      // ✅ NEW
+      adjustedPower: blueAdjPower,
     });
   }
 
-  // meta for UI
   const meta = {
     version: 1,
     generatedAtISO: new Date().toISOString(),

@@ -3,12 +3,19 @@
 import React, { useMemo } from "react";
 import type { DuelRow, PlayerAgg } from "@/lib/explorer/types";
 
-function pct(x: number) {
-  return `${(x * 100).toFixed(1)}%`;
+type TeamKey = "Red" | "Blue";
+
+function isTeamKey(x: unknown): x is TeamKey {
+  return x === "Red" || x === "Blue";
 }
 
-function safeNum(x: number | null | undefined) {
-  return typeof x === "number" && Number.isFinite(x) ? x : null;
+function safeNum(x: unknown) {
+  const n = typeof x === "number" ? x : Number(x);
+  return Number.isFinite(n) ? n : null;
+}
+
+function pct(x: number) {
+  return `${(x * 100).toFixed(1)}%`;
 }
 
 function clamp01(x: number) {
@@ -30,8 +37,8 @@ function Bar({
     tone === "red"
       ? "bg-red-400/80"
       : tone === "blue"
-        ? "bg-blue-400/80"
-        : "bg-white/70";
+      ? "bg-blue-400/80"
+      : "bg-white/70";
 
   return (
     <div className="h-2 w-full overflow-hidden rounded-full bg-white/10">
@@ -39,7 +46,6 @@ function Bar({
         className={[
           "h-2 rounded-full",
           fill,
-          // ✅ animate widths when filters change
           "transition-[width] duration-300 ease-out",
         ].join(" ")}
         style={{ width: `${w * 100}%` }}
@@ -48,7 +54,15 @@ function Bar({
   );
 }
 
-function Card({ title, right, children }: { title: string; right?: React.ReactNode; children: React.ReactNode }) {
+function Card({
+  title,
+  right,
+  children,
+}: {
+  title: string;
+  right?: React.ReactNode;
+  children: React.ReactNode;
+}) {
   return (
     <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
       <div className="mb-3 flex items-center justify-between gap-3">
@@ -60,14 +74,20 @@ function Card({ title, right, children }: { title: string; right?: React.ReactNo
   );
 }
 
-function TeamLabel({ teamColor }: { teamColor: "Red" | "Blue" }) {
+function TeamLabel({ teamColor }: { teamColor: TeamKey }) {
   const name = teamColor === "Red" ? "Athinaioi" : "Eparxiotes";
   const cls = teamColor === "Red" ? "text-red-300" : "text-blue-300";
   return <span className={`font-semibold ${cls}`}>{name}</span>;
 }
 
-function ToneFromTeamColor(teamColor: "Red" | "Blue") {
-  return teamColor === "Red" ? "red" : "blue";
+function fmt3(n: number | null) {
+  if (n === null) return "—";
+  return n.toFixed(3);
+}
+
+function fmt2(n: number | null) {
+  if (n === null) return "—";
+  return n.toFixed(2);
 }
 
 export default function MiniCharts({
@@ -77,93 +97,142 @@ export default function MiniCharts({
   filteredRows: DuelRow[];
   playersSorted: PlayerAgg[];
 }) {
-  const teamStats = useMemo(() => {
-    const teams: Record<"Red" | "Blue", { rows: number; wins: number }> = {
-      Red: { rows: 0, wins: 0 },
-      Blue: { rows: 0, wins: 0 },
+  /**
+   * ✅ Team Win% + Dominance number (avg normMargin) from duel rows
+   * - Win% here is "participation win%" (because explorer duplicates each duel into 2 rows)
+   * - Dominance uses avg normMargin per team rows (skips nulls)
+   */
+  const teamWinAndDominance = useMemo(() => {
+    const acc: Record<
+      TeamKey,
+      { rows: number; wins: number; mSum: number; mN: number }
+    > = {
+      Red: { rows: 0, wins: 0, mSum: 0, mN: 0 },
+      Blue: { rows: 0, wins: 0, mSum: 0, mN: 0 },
     };
 
-    for (const r of filteredRows) {
-      if (r.teamColor === "Red") {
-        teams.Red.rows += 1;
-        teams.Red.wins += r.won ? 1 : 0;
-      } else if (r.teamColor === "Blue") {
-        teams.Blue.rows += 1;
-        teams.Blue.wins += r.won ? 1 : 0;
+    for (const rr of filteredRows) {
+      // rr.teamColor may not be typed as TeamKey in DuelRow, so treat as unknown and narrow
+      const t: unknown = (rr as any).teamColor;
+      if (!isTeamKey(t)) continue;
+
+      acc[t].rows += 1;
+      acc[t].wins += (rr as any).won ? 1 : 0;
+
+      const m = safeNum((rr as any).normMargin);
+      if (m !== null) {
+        acc[t].mSum += m;
+        acc[t].mN += 1;
       }
     }
 
-    const redWin = teams.Red.rows ? teams.Red.wins / teams.Red.rows : 0;
-    const blueWin = teams.Blue.rows ? teams.Blue.wins / teams.Blue.rows : 0;
+    const redWin = acc.Red.rows ? acc.Red.wins / acc.Red.rows : 0;
+    const blueWin = acc.Blue.rows ? acc.Blue.wins / acc.Blue.rows : 0;
+
+    const redDom = acc.Red.mN ? acc.Red.mSum / acc.Red.mN : null;
+    const blueDom = acc.Blue.mN ? acc.Blue.mSum / acc.Blue.mN : null;
 
     return {
-      red: { ...teams.Red, winPct: redWin },
-      blue: { ...teams.Blue, winPct: blueWin },
-      maxRows: Math.max(teams.Red.rows, teams.Blue.rows),
+      red: { ...acc.Red, winPct: redWin, dominance: redDom },
+      blue: { ...acc.Blue, winPct: blueWin, dominance: blueDom },
+      maxRows: Math.max(acc.Red.rows, acc.Blue.rows),
     };
   }, [filteredRows]);
 
+  /**
+   * ✅ Team Avg Adjusted Power from duel rows
+   * We read `adjustedPower` directly (added by build_explorer_duels).
+   */
+  const teamAdjPower = useMemo(() => {
+    const acc: Record<TeamKey, { sum: number; n: number }> = {
+      Red: { sum: 0, n: 0 },
+      Blue: { sum: 0, n: 0 },
+    };
+
+    for (const rr of filteredRows) {
+      const t: unknown = (rr as any).teamColor;
+      if (!isTeamKey(t)) continue;
+
+      const p = safeNum((rr as any).adjustedPower);
+      if (p === null) continue;
+
+      acc[t].sum += p;
+      acc[t].n += 1;
+    }
+
+    const redAvg = acc.Red.n ? acc.Red.sum / acc.Red.n : null;
+    const blueAvg = acc.Blue.n ? acc.Blue.sum / acc.Blue.n : null;
+
+    const max = Math.max(Math.abs(redAvg ?? 0), Math.abs(blueAvg ?? 0), 1e-9);
+
+    return {
+      redAvg,
+      blueAvg,
+      max,
+      redN: acc.Red.n,
+      blueN: acc.Blue.n,
+    };
+  }, [filteredRows]);
+
+  /**
+   * ✅ Top Dominance (Top 10 players) — keeps your existing logic
+   */
   const topDominance = useMemo(() => {
-    const ranked = [...playersSorted]
+    const ranked = [...(playersSorted as any[])]
       .filter((p) => safeNum(p.normMargin) !== null)
       .sort((a, b) => (safeNum(b.normMargin)! - safeNum(a.normMargin)!))
       .slice(0, 10);
 
-    const max = ranked.reduce((m, p) => Math.max(m, safeNum(p.normMargin) ?? 0), 0);
+    const max = ranked.reduce(
+      (m, p) => Math.max(m, safeNum(p.normMargin) ?? 0),
+      0
+    );
     return { ranked, max };
   }, [playersSorted]);
 
-  const winsByWeek = useMemo(() => {
-    const map = new Map<number, { wins: number; rows: number; redRows: number; blueRows: number }>();
-
-    for (const r of filteredRows) {
-      const w = r.week;
-      if (w === null || w === undefined) continue;
-
-      const cur = map.get(w) ?? { wins: 0, rows: 0, redRows: 0, blueRows: 0 };
-      cur.rows += 1;
-      cur.wins += r.won ? 1 : 0;
-      if (r.teamColor === "Red") cur.redRows += 1;
-      if (r.teamColor === "Blue") cur.blueRows += 1;
-      map.set(w, cur);
-    }
-
-    const weeks = Array.from(map.entries())
-      .sort((a, b) => a[0] - b[0])
-      .map(([week, v]) => ({
-        week,
-        winPct: v.rows ? v.wins / v.rows : 0,
-        rows: v.rows,
-        redRows: v.redRows,
-        blueRows: v.blueRows,
-      }));
-
-    const maxRows = weeks.reduce((m, x) => Math.max(m, x.rows), 0);
-
-    return { weeks, maxRows };
-  }, [filteredRows]);
-
   return (
     <div className="grid grid-cols-1 gap-3 lg:grid-cols-3">
-      {/* 1) Team Win% */}
-      <Card title="Team Win% (filtered)" right={<span>Bar = duel rows</span>}>
+      {/* 1) Team Win% + Dominance number */}
+      <Card title="Team Win% (filtered)" right={<span>Dominance shown as number</span>}>
         <div className="space-y-3">
           <div>
             <div className="mb-1 flex items-center justify-between text-sm">
               <TeamLabel teamColor="Red" />
-              <span className="text-white/90">{pct(teamStats.red.winPct)}</span>
+              <span className="text-white/90">{pct(teamWinAndDominance.red.winPct)}</span>
             </div>
-            <Bar value={teamStats.red.rows} max={teamStats.maxRows} tone="red" />
-            <div className="mt-1 text-xs text-white/60">{teamStats.red.rows} duel rows</div>
+            <Bar
+              value={teamWinAndDominance.red.rows}
+              max={teamWinAndDominance.maxRows || 1}
+              tone="red"
+            />
+            <div className="mt-1 text-xs text-white/60">
+              {teamWinAndDominance.red.wins} wins / {teamWinAndDominance.red.rows} participations
+              <span className="ml-2 text-white/50">
+                • Dominance: {fmt3(teamWinAndDominance.red.dominance)}
+              </span>
+            </div>
           </div>
 
           <div>
             <div className="mb-1 flex items-center justify-between text-sm">
               <TeamLabel teamColor="Blue" />
-              <span className="text-white/90">{pct(teamStats.blue.winPct)}</span>
+              <span className="text-white/90">{pct(teamWinAndDominance.blue.winPct)}</span>
             </div>
-            <Bar value={teamStats.blue.rows} max={teamStats.maxRows} tone="blue" />
-            <div className="mt-1 text-xs text-white/60">{teamStats.blue.rows} duel rows</div>
+            <Bar
+              value={teamWinAndDominance.blue.rows}
+              max={teamWinAndDominance.maxRows || 1}
+              tone="blue"
+            />
+            <div className="mt-1 text-xs text-white/60">
+              {teamWinAndDominance.blue.wins} wins / {teamWinAndDominance.blue.rows} participations
+              <span className="ml-2 text-white/50">
+                • Dominance: {fmt3(teamWinAndDominance.blue.dominance)}
+              </span>
+            </div>
+          </div>
+
+          <div className="mt-2 text-xs text-white/50">
+            Note: Explorer uses 2 rows per duel, so Win% is “participation win%”.
           </div>
         </div>
       </Card>
@@ -179,31 +248,23 @@ export default function MiniCharts({
       >
         <div className="space-y-2">
           {topDominance.ranked.length === 0 ? (
-            <div className="text-xs text-white/60">No dominance values in this filter context.</div>
+            <div className="text-xs text-white/60">
+              No dominance values in this filter context.
+            </div>
           ) : (
-            topDominance.ranked.map((p) => {
-              // Optional: use player.teamColor if your PlayerAgg includes it.
-              // Fallback to neutral if not available.
+            topDominance.ranked.map((p: any) => {
               const tone =
-                (p as any).teamColor === "Red"
-                  ? "red"
-                  : (p as any).teamColor === "Blue"
-                    ? "blue"
-                    : "neutral";
-
-              const tip = `Avg margin per duel: ${(p.normMargin ?? 0).toFixed(3)}`;
+                p.teamColor === "Red" ? "red" : p.teamColor === "Blue" ? "blue" : "neutral";
+              const v = safeNum(p.normMargin) ?? 0;
+              const tip = `Avg margin per duel: ${v.toFixed(3)}`;
 
               return (
-                <div
-                  key={p.playerId}
-                  className="space-y-1"
-                  title={tip} // ✅ native tooltip on hover
-                >
+                <div key={p.playerId} className="space-y-1" title={tip}>
                   <div className="flex items-center justify-between text-xs">
                     <span className="max-w-[75%] truncate text-white/90">{p.playerName}</span>
-                    <span className="text-white/70">{(p.normMargin ?? 0).toFixed(3)}</span>
+                    <span className="text-white/70">{v.toFixed(3)}</span>
                   </div>
-                  <Bar value={p.normMargin ?? 0} max={topDominance.max || 1} tone={tone as any} />
+                  <Bar value={v} max={topDominance.max || 1} tone={tone as any} />
                 </div>
               );
             })
@@ -211,33 +272,33 @@ export default function MiniCharts({
         </div>
       </Card>
 
-      {/* 3) Wins by Week */}
-      <Card title="Wins by Week (Win%)" right={<span>Bar = duel rows</span>}>
-        <div className="space-y-2">
-          {winsByWeek.weeks.length === 0 ? (
-            <div className="text-xs text-white/60">No week data in this filter context.</div>
-          ) : (
-            winsByWeek.weeks.map((w) => (
-              <div key={w.week} className="space-y-1">
-                <div className="flex items-center justify-between text-xs">
-                  <span className="text-white/90">Week {w.week}</span>
-                  <span className="text-white/70">{pct(w.winPct)}</span>
-                </div>
+      {/* 3) Team Avg Adjusted Power */}
+      <Card
+        title="Team Avg Adjusted Power"
+        right={<span>From duels.csv (PlayerPower/OpponentPower)</span>}
+      >
+        <div className="space-y-3">
+          <div>
+            <div className="mb-1 flex items-center justify-between text-sm">
+              <TeamLabel teamColor="Red" />
+              <span className="text-white/90">{fmt2(teamAdjPower.redAvg)}</span>
+            </div>
+            <Bar value={Math.abs(teamAdjPower.redAvg ?? 0)} max={teamAdjPower.max} tone="red" />
+            <div className="mt-1 text-xs text-white/60">{teamAdjPower.redN} duel rows w/ power</div>
+          </div>
 
-                {/* Two-tone stacked-ish look: show dominant team share as color:
-                   - if more red rows than blue -> red bar, else blue bar.
-                   (Keeps it simple while still “team colored”). */}
-                <Bar
-                  value={w.rows}
-                  max={winsByWeek.maxRows || 1}
-                  tone={w.redRows >= w.blueRows ? "red" : "blue"}
-                />
-              </div>
-            ))
-          )}
-        </div>
-        <div className="mt-2 text-xs text-white/50">
-          Tooltip: Dominance chart shows “Avg margin per duel”.
+          <div>
+            <div className="mb-1 flex items-center justify-between text-sm">
+              <TeamLabel teamColor="Blue" />
+              <span className="text-white/90">{fmt2(teamAdjPower.blueAvg)}</span>
+            </div>
+            <Bar value={Math.abs(teamAdjPower.blueAvg ?? 0)} max={teamAdjPower.max} tone="blue" />
+            <div className="mt-1 text-xs text-white/60">{teamAdjPower.blueN} duel rows w/ power</div>
+          </div>
+
+          <div className="mt-2 text-xs text-white/50">
+            If this shows “—”, rebuild explorer JSON and confirm duels.v1.json includes adjustedPower.
+          </div>
         </div>
       </Card>
     </div>

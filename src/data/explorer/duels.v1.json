@@ -17,7 +17,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.2
+    "normMargin": -0.2,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c1_d21_p19",
@@ -37,7 +38,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.2
+    "normMargin": 0.2,
+    "adjustedPower": 81.59622301
   },
   {
     "rowId": "c1_d22_p12",
@@ -57,7 +59,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.3
+    "normMargin": 0.3,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c1_d22_p16",
@@ -77,7 +80,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.3
+    "normMargin": -0.3,
+    "adjustedPower": 42.4424999
   },
   {
     "rowId": "c1_d23_p5",
@@ -97,7 +101,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.3
+    "normMargin": -0.3,
+    "adjustedPower": 51.81451409
   },
   {
     "rowId": "c1_d23_p14",
@@ -117,7 +122,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.3
+    "normMargin": 0.3,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c1_d24_p3",
@@ -137,7 +143,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.1
+    "normMargin": -0.1,
+    "adjustedPower": 30.65669119
   },
   {
     "rowId": "c1_d24_p15",
@@ -157,7 +164,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.1
+    "normMargin": 0.1,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c1_d25_p6",
@@ -177,7 +185,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.1
+    "normMargin": -0.1,
+    "adjustedPower": 28.33734107
   },
   {
     "rowId": "c1_d25_p24",
@@ -197,7 +206,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.1
+    "normMargin": 0.1,
+    "adjustedPower": 59.62467689
   },
   {
     "rowId": "c1_d26_p9",
@@ -217,7 +227,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.3
+    "normMargin": -0.3,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c1_d26_p13",
@@ -237,7 +248,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.3
+    "normMargin": 0.3,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c1_d27_p7",
@@ -257,7 +269,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.1
+    "normMargin": -0.1,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c1_d27_p23",
@@ -277,7 +290,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.1
+    "normMargin": 0.1,
+    "adjustedPower": 69.1633889
   },
   {
     "rowId": "c1_d28_p4",
@@ -297,7 +311,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.7
+    "normMargin": -0.7,
+    "adjustedPower": 72.43931619
   },
   {
     "rowId": "c1_d28_p17",
@@ -317,7 +332,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.7
+    "normMargin": 0.7,
+    "adjustedPower": 92.75702088
   },
   {
     "rowId": "c1_d29_p1",
@@ -337,7 +353,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.2
+    "normMargin": 0.2,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c1_d29_p21",
@@ -357,7 +374,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.2
+    "normMargin": -0.2,
+    "adjustedPower": 42.47833671
   },
   {
     "rowId": "c1_d30_p10",
@@ -377,7 +395,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.1
+    "normMargin": 0.1,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c1_d30_p16",
@@ -397,7 +416,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.1
+    "normMargin": -0.1,
+    "adjustedPower": 42.4424999
   },
   {
     "rowId": "c1_d31_p8",
@@ -417,7 +437,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.2
+    "normMargin": -0.2,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c1_d31_p22",
@@ -437,7 +458,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.2
+    "normMargin": 0.2,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c1_d32_p3",
@@ -457,7 +479,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 30.65669119
   },
   {
     "rowId": "c1_d32_p20",
@@ -477,7 +500,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 100
   },
   {
     "rowId": "c1_d33_p2",
@@ -497,7 +521,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.2
+    "normMargin": 0.2,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c1_d33_p14",
@@ -517,7 +542,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.2
+    "normMargin": -0.2,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c1_d34_p11",
@@ -537,7 +563,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 1,
     "teamColor": "Red",
-    "normMargin": -0.4
+    "normMargin": -0.4,
+    "adjustedPower": 19.88593237
   },
   {
     "rowId": "c1_d34_p18",
@@ -557,7 +584,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 1,
     "teamColor": "Blue",
-    "normMargin": 0.4
+    "normMargin": 0.4,
+    "adjustedPower": 39.12520054
   },
   {
     "rowId": "c2_d1_p8",
@@ -577,7 +605,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c2_d1_p22",
@@ -597,7 +626,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c2_d2_p10",
@@ -617,7 +647,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c2_d2_p16",
@@ -637,7 +668,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 42.4424999
   },
   {
     "rowId": "c2_d3_p6",
@@ -657,7 +689,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 28.33734107
   },
   {
     "rowId": "c2_d3_p14",
@@ -677,7 +710,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c2_d4_p3",
@@ -697,7 +731,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 30.65669119
   },
   {
     "rowId": "c2_d4_p15",
@@ -717,7 +752,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c2_d5_p7",
@@ -737,7 +773,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c2_d5_p21",
@@ -757,7 +794,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 42.47833671
   },
   {
     "rowId": "c2_d6_p11",
@@ -777,7 +815,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 19.88593237
   },
   {
     "rowId": "c2_d6_p17",
@@ -797,7 +836,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 92.75702088
   },
   {
     "rowId": "c2_d7_p5",
@@ -817,7 +857,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 51.81451409
   },
   {
     "rowId": "c2_d7_p23",
@@ -837,7 +878,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 69.1633889
   },
   {
     "rowId": "c2_d8_p4",
@@ -857,7 +899,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 72.43931619
   },
   {
     "rowId": "c2_d8_p20",
@@ -877,7 +920,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 100
   },
   {
     "rowId": "c2_d9_p1",
@@ -897,7 +941,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c2_d9_p24",
@@ -917,7 +962,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 59.62467689
   },
   {
     "rowId": "c2_d10_p11",
@@ -937,7 +983,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 19.88593237
   },
   {
     "rowId": "c2_d10_p20",
@@ -957,7 +1004,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 100
   },
   {
     "rowId": "c2_d11_p2",
@@ -977,7 +1025,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c2_d11_p14",
@@ -997,7 +1046,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c2_d12_p10",
@@ -1017,7 +1067,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c2_d12_p13",
@@ -1037,7 +1088,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c2_d13_p7",
@@ -1057,7 +1109,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c2_d13_p22",
@@ -1077,7 +1130,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c2_d14_p12",
@@ -1097,7 +1151,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c2_d14_p18",
@@ -1117,7 +1172,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 39.12520054
   },
   {
     "rowId": "c2_d15_p5",
@@ -1137,7 +1193,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 51.81451409
   },
   {
     "rowId": "c2_d15_p19",
@@ -1157,7 +1214,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 81.59622301
   },
   {
     "rowId": "c2_d16_p9",
@@ -1177,7 +1235,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c2_d16_p16",
@@ -1197,7 +1256,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 42.4424999
   },
   {
     "rowId": "c2_d17_p8",
@@ -1217,7 +1277,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c2_d17_p23",
@@ -1237,7 +1298,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 69.1633889
   },
   {
     "rowId": "c2_d18_p3",
@@ -1257,7 +1319,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 30.65669119
   },
   {
     "rowId": "c2_d18_p17",
@@ -1277,7 +1340,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 92.75702088
   },
   {
     "rowId": "c2_d19_p10",
@@ -1297,7 +1361,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 1,
     "teamColor": "Red",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c2_d19_p20",
@@ -1317,7 +1382,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 1,
     "teamColor": "Blue",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 100
   },
   {
     "rowId": "c2_d20_p1",
@@ -1337,7 +1403,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 1,
     "teamColor": "Red",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c2_d20_p22",
@@ -1357,7 +1424,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 1,
     "teamColor": "Blue",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c3_d35_p2",
@@ -1377,7 +1445,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c3_d35_p24",
@@ -1397,7 +1466,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 59.62467689
   },
   {
     "rowId": "c3_d36_p11",
@@ -1417,7 +1487,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.13
+    "normMargin": -0.13,
+    "adjustedPower": 19.88593237
   },
   {
     "rowId": "c3_d36_p16",
@@ -1437,7 +1508,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.125
+    "normMargin": 0.125,
+    "adjustedPower": 42.4424999
   },
   {
     "rowId": "c3_d37_p6",
@@ -1457,7 +1529,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.25
+    "normMargin": -0.25,
+    "adjustedPower": 28.33734107
   },
   {
     "rowId": "c3_d37_p21",
@@ -1477,7 +1550,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.25
+    "normMargin": 0.25,
+    "adjustedPower": 42.47833671
   },
   {
     "rowId": "c3_d38_p4",
@@ -1497,7 +1571,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.25
+    "normMargin": -0.25,
+    "adjustedPower": 72.43931619
   },
   {
     "rowId": "c3_d38_p18",
@@ -1517,7 +1592,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.25
+    "normMargin": 0.25,
+    "adjustedPower": 39.12520054
   },
   {
     "rowId": "c3_d39_p5",
@@ -1537,7 +1613,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.38
+    "normMargin": 0.38,
+    "adjustedPower": 51.81451409
   },
   {
     "rowId": "c3_d39_p19",
@@ -1557,7 +1634,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.375
+    "normMargin": -0.375,
+    "adjustedPower": 81.59622301
   },
   {
     "rowId": "c3_d40_p3",
@@ -1577,7 +1655,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.88
+    "normMargin": -0.88,
+    "adjustedPower": 30.65669119
   },
   {
     "rowId": "c3_d40_p13",
@@ -1597,7 +1676,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.875
+    "normMargin": 0.875,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c3_d41_p7",
@@ -1617,7 +1697,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.13
+    "normMargin": 0.13,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c3_d41_p22",
@@ -1637,7 +1718,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.125
+    "normMargin": -0.125,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c3_d42_p9",
@@ -1657,7 +1739,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.13
+    "normMargin": -0.13,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c3_d42_p20",
@@ -1677,7 +1760,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.125
+    "normMargin": 0.125,
+    "adjustedPower": 100
   },
   {
     "rowId": "c3_d43_p7",
@@ -1697,7 +1781,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.13
+    "normMargin": 0.13,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c3_d43_p14",
@@ -1717,7 +1802,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.125
+    "normMargin": -0.125,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c3_d44_p10",
@@ -1737,7 +1823,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.38
+    "normMargin": 0.38,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c3_d44_p17",
@@ -1757,7 +1844,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.375
+    "normMargin": -0.375,
+    "adjustedPower": 92.75702088
   },
   {
     "rowId": "c3_d45_p8",
@@ -1777,7 +1865,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.25
+    "normMargin": 0.25,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c3_d45_p21",
@@ -1797,7 +1886,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.25
+    "normMargin": -0.25,
+    "adjustedPower": 42.47833671
   },
   {
     "rowId": "c3_d46_p12",
@@ -1817,7 +1907,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.88
+    "normMargin": 0.88,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c3_d46_p16",
@@ -1837,7 +1928,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.875
+    "normMargin": -0.875,
+    "adjustedPower": 42.4424999
   },
   {
     "rowId": "c3_d47_p1",
@@ -1857,7 +1949,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.13
+    "normMargin": -0.13,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c3_d47_p23",
@@ -1877,7 +1970,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.125
+    "normMargin": 0.125,
+    "adjustedPower": 69.1633889
   },
   {
     "rowId": "c3_d48_p3",
@@ -1897,7 +1991,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 30.65669119
   },
   {
     "rowId": "c3_d48_p18",
@@ -1917,7 +2012,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 39.12520054
   },
   {
     "rowId": "c3_d49_p2",
@@ -1937,7 +2033,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.13
+    "normMargin": -0.13,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c3_d49_p19",
@@ -1957,7 +2054,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.125
+    "normMargin": 0.125,
+    "adjustedPower": 81.59622301
   },
   {
     "rowId": "c3_d50_p9",
@@ -1977,7 +2075,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.38
+    "normMargin": -0.38,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c3_d50_p13",
@@ -1997,7 +2096,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.375
+    "normMargin": 0.375,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c3_d51_p5",
@@ -2017,7 +2117,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 1,
     "teamColor": "Red",
-    "normMargin": -0.38
+    "normMargin": -0.38,
+    "adjustedPower": 51.81451409
   },
   {
     "rowId": "c3_d51_p24",
@@ -2037,7 +2138,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 1,
     "teamColor": "Blue",
-    "normMargin": 0.375
+    "normMargin": 0.375,
+    "adjustedPower": 59.62467689
   },
   {
     "rowId": "c4_d52_p7",
@@ -2057,7 +2159,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c4_d52_p21",
@@ -2077,7 +2180,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 42.47833671
   },
   {
     "rowId": "c4_d53_p10",
@@ -2097,7 +2201,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c4_d53_p16",
@@ -2117,7 +2222,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 42.4424999
   },
   {
     "rowId": "c4_d54_p2",
@@ -2137,7 +2243,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c4_d54_p14",
@@ -2157,7 +2264,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c4_d55_p9",
@@ -2177,7 +2285,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c4_d55_p18",
@@ -2197,7 +2306,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 39.12520054
   },
   {
     "rowId": "c4_d56_p5",
@@ -2217,7 +2327,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 51.81451409
   },
   {
     "rowId": "c4_d56_p19",
@@ -2237,7 +2348,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 81.59622301
   },
   {
     "rowId": "c4_d57_p4",
@@ -2257,7 +2369,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 72.43931619
   },
   {
     "rowId": "c4_d57_p13",
@@ -2277,7 +2390,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c4_d58_p1",
@@ -2297,7 +2411,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c4_d58_p22",
@@ -2317,7 +2432,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c4_d59_p12",
@@ -2337,7 +2453,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c4_d59_p20",
@@ -2357,7 +2474,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 100
   },
   {
     "rowId": "c4_d60_p2",
@@ -2377,7 +2495,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c4_d60_p24",
@@ -2397,7 +2516,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 59.62467689
   },
   {
     "rowId": "c4_d61_p3",
@@ -2417,7 +2537,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 30.65669119
   },
   {
     "rowId": "c4_d61_p16",
@@ -2437,7 +2558,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 42.4424999
   },
   {
     "rowId": "c4_d62_p1",
@@ -2457,7 +2579,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c4_d62_p21",
@@ -2477,7 +2600,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 42.47833671
   },
   {
     "rowId": "c4_d63_p11",
@@ -2497,7 +2621,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 19.88593237
   },
   {
     "rowId": "c4_d63_p15",
@@ -2517,7 +2642,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c4_d64_p6",
@@ -2537,7 +2663,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 28.33734107
   },
   {
     "rowId": "c4_d64_p23",
@@ -2557,7 +2684,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 69.1633889
   },
   {
     "rowId": "c4_d65_p9",
@@ -2577,7 +2705,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c4_d65_p17",
@@ -2597,7 +2726,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 92.75702088
   },
   {
     "rowId": "c4_d66_p8",
@@ -2617,7 +2747,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c4_d66_p19",
@@ -2637,7 +2768,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 81.59622301
   },
   {
     "rowId": "c4_d67_p12",
@@ -2657,7 +2789,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c4_d67_p13",
@@ -2677,7 +2810,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c4_d68_p5",
@@ -2697,7 +2831,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 51.81451409
   },
   {
     "rowId": "c4_d68_p14",
@@ -2717,7 +2852,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c4_d69_p4",
@@ -2737,7 +2873,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 1,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 72.43931619
   },
   {
     "rowId": "c4_d69_p20",
@@ -2757,7 +2894,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 1,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 100
   },
   {
     "rowId": "c5_d70_p5",
@@ -2777,7 +2915,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.14
+    "normMargin": 0.14,
+    "adjustedPower": 51.81451409
   },
   {
     "rowId": "c5_d70_p14",
@@ -2797,7 +2936,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.142857143
+    "normMargin": -0.142857143,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c5_d71_p10",
@@ -2817,7 +2957,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.43
+    "normMargin": 0.43,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c5_d71_p18",
@@ -2837,7 +2978,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.428571429
+    "normMargin": -0.428571429,
+    "adjustedPower": 39.12520054
   },
   {
     "rowId": "c5_d72_p7",
@@ -2857,7 +2999,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.71
+    "normMargin": 0.71,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c5_d72_p24",
@@ -2877,7 +3020,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.714285714
+    "normMargin": -0.714285714,
+    "adjustedPower": 59.62467689
   },
   {
     "rowId": "c5_d73_p12",
@@ -2897,7 +3041,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.57
+    "normMargin": -0.57,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c5_d73_p13",
@@ -2917,7 +3062,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.571428571
+    "normMargin": 0.571428571,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c5_d74_p1",
@@ -2937,7 +3083,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.29
+    "normMargin": 0.29,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c5_d74_p23",
@@ -2957,7 +3104,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.285714286
+    "normMargin": -0.285714286,
+    "adjustedPower": 69.1633889
   },
   {
     "rowId": "c5_d75_p9",
@@ -2977,7 +3125,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c5_d75_p20",
@@ -2997,7 +3146,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 100
   },
   {
     "rowId": "c5_d76_p8",
@@ -3017,7 +3167,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.57
+    "normMargin": -0.57,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c5_d76_p19",
@@ -3037,7 +3188,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.571428571
+    "normMargin": 0.571428571,
+    "adjustedPower": 81.59622301
   },
   {
     "rowId": "c5_d77_p4",
@@ -3057,7 +3209,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.14
+    "normMargin": -0.14,
+    "adjustedPower": 72.43931619
   },
   {
     "rowId": "c5_d77_p16",
@@ -3077,7 +3230,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.142857143
+    "normMargin": 0.142857143,
+    "adjustedPower": 42.4424999
   },
   {
     "rowId": "c5_d78_p1",
@@ -3097,7 +3251,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.14
+    "normMargin": 0.14,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c5_d78_p21",
@@ -3117,7 +3272,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.142857143
+    "normMargin": -0.142857143,
+    "adjustedPower": 42.47833671
   },
   {
     "rowId": "c5_d79_p10",
@@ -3137,7 +3293,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.57
+    "normMargin": 0.57,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c5_d79_p17",
@@ -3157,7 +3314,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.571428571
+    "normMargin": -0.571428571,
+    "adjustedPower": 92.75702088
   },
   {
     "rowId": "c5_d80_p2",
@@ -3177,7 +3335,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.14
+    "normMargin": -0.14,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c5_d80_p22",
@@ -3197,7 +3356,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.142857143
+    "normMargin": 0.142857143,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c5_d81_p12",
@@ -3217,7 +3377,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.57
+    "normMargin": 0.57,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c5_d81_p16",
@@ -3237,7 +3398,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.571428571
+    "normMargin": -0.571428571,
+    "adjustedPower": 42.4424999
   },
   {
     "rowId": "c5_d82_p5",
@@ -3257,7 +3419,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.86
+    "normMargin": -0.86,
+    "adjustedPower": 51.81451409
   },
   {
     "rowId": "c5_d82_p19",
@@ -3277,7 +3440,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.857142857
+    "normMargin": 0.857142857,
+    "adjustedPower": 81.59622301
   },
   {
     "rowId": "c5_d83_p4",
@@ -3297,7 +3461,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.14
+    "normMargin": 0.14,
+    "adjustedPower": 72.43931619
   },
   {
     "rowId": "c5_d83_p15",
@@ -3317,7 +3482,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.142857143
+    "normMargin": -0.142857143,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c5_d84_p1",
@@ -3337,7 +3503,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.86
+    "normMargin": 0.86,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c5_d84_p14",
@@ -3357,7 +3524,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.857142857
+    "normMargin": -0.857142857,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c5_d85_p9",
@@ -3377,7 +3545,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.86
+    "normMargin": -0.86,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c5_d85_p13",
@@ -3397,7 +3566,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.857142857
+    "normMargin": 0.857142857,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c5_d86_p5",
@@ -3417,7 +3587,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.71
+    "normMargin": -0.71,
+    "adjustedPower": 51.81451409
   },
   {
     "rowId": "c5_d86_p22",
@@ -3437,7 +3608,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.714285714
+    "normMargin": 0.714285714,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c5_d87_p10",
@@ -3457,7 +3629,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 1,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c5_d87_p16",
@@ -3477,7 +3650,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 1,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 42.4424999
   },
   {
     "rowId": "c6_d88_p7",
@@ -3497,7 +3671,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c6_d88_p21",
@@ -3517,7 +3692,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 42.47833671
   },
   {
     "rowId": "c6_d89_p12",
@@ -3537,7 +3713,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c6_d89_p17",
@@ -3557,7 +3734,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 92.75702088
   },
   {
     "rowId": "c6_d90_p2",
@@ -3577,7 +3755,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.33
+    "normMargin": 0.33,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c6_d90_p19",
@@ -3597,7 +3776,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.333333333
+    "normMargin": -0.333333333,
+    "adjustedPower": 81.59622301
   },
   {
     "rowId": "c6_d91_p10",
@@ -3617,7 +3797,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.67
+    "normMargin": -0.67,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c6_d91_p15",
@@ -3637,7 +3818,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.666666667
+    "normMargin": 0.666666667,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c6_d92_p5",
@@ -3657,7 +3839,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 51.81451409
   },
   {
     "rowId": "c6_d92_p23",
@@ -3677,7 +3860,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 69.1633889
   },
   {
     "rowId": "c6_d93_p9",
@@ -3697,7 +3881,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.33
+    "normMargin": -0.33,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c6_d93_p16",
@@ -3717,7 +3902,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.333333333
+    "normMargin": 0.333333333,
+    "adjustedPower": 42.4424999
   },
   {
     "rowId": "c6_d94_p1",
@@ -3737,7 +3923,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.67
+    "normMargin": -0.67,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c6_d94_p22",
@@ -3757,7 +3944,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.666666667
+    "normMargin": 0.666666667,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c6_d95_p4",
@@ -3777,7 +3965,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.67
+    "normMargin": -0.67,
+    "adjustedPower": 72.43931619
   },
   {
     "rowId": "c6_d95_p18",
@@ -3797,7 +3986,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.666666667
+    "normMargin": 0.666666667,
+    "adjustedPower": 39.12520054
   },
   {
     "rowId": "c6_d96_p8",
@@ -3817,7 +4007,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c6_d96_p24",
@@ -3837,7 +4028,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 59.62467689
   },
   {
     "rowId": "c6_d97_p9",
@@ -3857,7 +4049,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c6_d97_p18",
@@ -3877,7 +4070,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 39.12520054
   },
   {
     "rowId": "c6_d98_p5",
@@ -3897,7 +4091,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.33
+    "normMargin": -0.33,
+    "adjustedPower": 51.81451409
   },
   {
     "rowId": "c6_d98_p14",
@@ -3917,7 +4112,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.333333333
+    "normMargin": 0.333333333,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c6_d99_p4",
@@ -3937,7 +4133,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.67
+    "normMargin": 0.67,
+    "adjustedPower": 72.43931619
   },
   {
     "rowId": "c6_d99_p13",
@@ -3957,7 +4154,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.666666667
+    "normMargin": -0.666666667,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c6_d100_p2",
@@ -3977,7 +4175,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.33
+    "normMargin": -0.33,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c6_d100_p23",
@@ -3997,7 +4196,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.333333333
+    "normMargin": 0.333333333,
+    "adjustedPower": 69.1633889
   },
   {
     "rowId": "c6_d101_p10",
@@ -4017,7 +4217,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c6_d101_p16",
@@ -4037,7 +4238,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 42.4424999
   },
   {
     "rowId": "c6_d102_p7",
@@ -4057,7 +4259,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c6_d102_p22",
@@ -4077,7 +4280,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c6_d103_p9",
@@ -4097,7 +4301,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c6_d103_p15",
@@ -4117,7 +4322,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c6_d104_p5",
@@ -4137,7 +4343,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 51.81451409
   },
   {
     "rowId": "c6_d104_p21",
@@ -4157,7 +4364,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 42.47833671
   },
   {
     "rowId": "c6_d105_p12",
@@ -4177,7 +4385,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 1,
     "teamColor": "Red",
-    "normMargin": -0.33
+    "normMargin": -0.33,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c6_d105_p16",
@@ -4197,7 +4406,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 1,
     "teamColor": "Blue",
-    "normMargin": 0.333333333
+    "normMargin": 0.333333333,
+    "adjustedPower": 42.4424999
   },
   {
     "rowId": "c7_d106_p1",
@@ -4217,7 +4427,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.33
+    "normMargin": 0.33,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c7_d106_p24",
@@ -4237,7 +4448,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.333333333
+    "normMargin": -0.333333333,
+    "adjustedPower": 59.62467689
   },
   {
     "rowId": "c7_d107_p10",
@@ -4257,7 +4469,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.33
+    "normMargin": -0.33,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c7_d107_p13",
@@ -4277,7 +4490,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.333333333
+    "normMargin": 0.333333333,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c7_d108_p5",
@@ -4297,7 +4511,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 51.81451409
   },
   {
     "rowId": "c7_d108_p14",
@@ -4317,7 +4532,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c7_d109_p12",
@@ -4337,7 +4553,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.33
+    "normMargin": -0.33,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c7_d109_p15",
@@ -4357,7 +4574,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.333333333
+    "normMargin": 0.333333333,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c7_d110_p8",
@@ -4377,7 +4595,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.33
+    "normMargin": 0.33,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c7_d110_p21",
@@ -4397,7 +4616,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.333333333
+    "normMargin": -0.333333333,
+    "adjustedPower": 42.47833671
   },
   {
     "rowId": "c7_d111_p9",
@@ -4417,7 +4637,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.67
+    "normMargin": 0.67,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c7_d111_p16",
@@ -4437,7 +4658,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.666666667
+    "normMargin": -0.666666667,
+    "adjustedPower": 42.4424999
   },
   {
     "rowId": "c7_d112_p7",
@@ -4457,7 +4679,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.33
+    "normMargin": -0.33,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c7_d112_p22",
@@ -4477,7 +4700,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.333333333
+    "normMargin": 0.333333333,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c7_d113_p4",
@@ -4497,7 +4721,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.33
+    "normMargin": -0.33,
+    "adjustedPower": 72.43931619
   },
   {
     "rowId": "c7_d113_p17",
@@ -4517,7 +4742,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.333333333
+    "normMargin": 0.333333333,
+    "adjustedPower": 92.75702088
   },
   {
     "rowId": "c7_d114_p2",
@@ -4537,7 +4763,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.33
+    "normMargin": 0.33,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c7_d114_p19",
@@ -4557,7 +4784,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.333333333
+    "normMargin": -0.333333333,
+    "adjustedPower": 81.59622301
   },
   {
     "rowId": "c7_d115_p10",
@@ -4577,7 +4805,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.33
+    "normMargin": 0.33,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c7_d115_p20",
@@ -4597,7 +4826,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.333333333
+    "normMargin": -0.333333333,
+    "adjustedPower": 100
   },
   {
     "rowId": "c7_d116_p5",
@@ -4617,7 +4847,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.33
+    "normMargin": -0.33,
+    "adjustedPower": 51.81451409
   },
   {
     "rowId": "c7_d116_p23",
@@ -4637,7 +4868,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.333333333
+    "normMargin": 0.333333333,
+    "adjustedPower": 69.1633889
   },
   {
     "rowId": "c7_d117_p9",
@@ -4657,7 +4889,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.67
+    "normMargin": 0.67,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c7_d117_p18",
@@ -4677,7 +4910,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.666666667
+    "normMargin": -0.666666667,
+    "adjustedPower": 39.12520054
   },
   {
     "rowId": "c7_d118_p8",
@@ -4697,7 +4931,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.33
+    "normMargin": -0.33,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c7_d118_p22",
@@ -4717,7 +4952,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.333333333
+    "normMargin": 0.333333333,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c7_d119_p4",
@@ -4737,7 +4973,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 72.43931619
   },
   {
     "rowId": "c7_d119_p16",
@@ -4757,7 +4994,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 42.4424999
   },
   {
     "rowId": "c7_d120_p5",
@@ -4777,7 +5015,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.67
+    "normMargin": -0.67,
+    "adjustedPower": 51.81451409
   },
   {
     "rowId": "c7_d120_p22",
@@ -4797,7 +5036,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.666666667
+    "normMargin": 0.666666667,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c7_d121_p4",
@@ -4817,7 +5057,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.67
+    "normMargin": 0.67,
+    "adjustedPower": 72.43931619
   },
   {
     "rowId": "c7_d121_p16",
@@ -4837,7 +5078,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.666666667
+    "normMargin": -0.666666667,
+    "adjustedPower": 42.4424999
   },
   {
     "rowId": "c7_d122_p1",
@@ -4857,7 +5099,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 1,
     "teamColor": "Red",
-    "normMargin": 0.33
+    "normMargin": 0.33,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c7_d122_p14",
@@ -4877,7 +5120,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 1,
     "teamColor": "Blue",
-    "normMargin": -0.333333333
+    "normMargin": -0.333333333,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c8_d123_p5",
@@ -4897,7 +5141,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 51.81451409
   },
   {
     "rowId": "c8_d123_p22",
@@ -4917,7 +5162,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c8_d124_p12",
@@ -4937,7 +5183,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c8_d124_p18",
@@ -4957,7 +5204,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 39.12520054
   },
   {
     "rowId": "c8_d125_p1",
@@ -4977,7 +5225,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c8_d125_p21",
@@ -4997,7 +5246,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 42.47833671
   },
   {
     "rowId": "c8_d126_p4",
@@ -5017,7 +5267,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 72.43931619
   },
   {
     "rowId": "c8_d126_p16",
@@ -5037,7 +5288,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 42.4424999
   },
   {
     "rowId": "c8_d127_p7",
@@ -5057,7 +5309,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c8_d127_p23",
@@ -5077,7 +5330,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 69.1633889
   },
   {
     "rowId": "c8_d128_p10",
@@ -5097,7 +5351,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c8_d128_p13",
@@ -5117,7 +5372,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c8_d129_p2",
@@ -5137,7 +5393,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c8_d129_p19",
@@ -5157,7 +5414,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 81.59622301
   },
   {
     "rowId": "c8_d130_p9",
@@ -5177,7 +5435,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c8_d130_p15",
@@ -5197,7 +5456,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c8_d131_p8",
@@ -5217,7 +5477,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c8_d131_p14",
@@ -5237,7 +5498,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c8_d132_p4",
@@ -5257,7 +5519,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 1,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 72.43931619
   },
   {
     "rowId": "c8_d132_p20",
@@ -5277,7 +5540,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 1,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 100
   },
   {
     "rowId": "c9_d133_p5",
@@ -5297,7 +5561,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 51.81451409
   },
   {
     "rowId": "c9_d133_p14",
@@ -5317,7 +5582,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c9_d134_p10",
@@ -5337,7 +5603,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.17
+    "normMargin": 0.17,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c9_d134_p17",
@@ -5357,7 +5624,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.166666667
+    "normMargin": -0.166666667,
+    "adjustedPower": 92.75702088
   },
   {
     "rowId": "c9_d135_p7",
@@ -5377,7 +5645,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.17
+    "normMargin": 0.17,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c9_d135_p21",
@@ -5397,7 +5666,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.166666667
+    "normMargin": -0.166666667,
+    "adjustedPower": 42.47833671
   },
   {
     "rowId": "c9_d136_p9",
@@ -5417,7 +5687,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.17
+    "normMargin": -0.17,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c9_d136_p18",
@@ -5437,7 +5708,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.166666667
+    "normMargin": 0.166666667,
+    "adjustedPower": 39.12520054
   },
   {
     "rowId": "c9_d137_p8",
@@ -5457,7 +5729,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.33
+    "normMargin": -0.33,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c9_d137_p24",
@@ -5477,7 +5750,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.333333333
+    "normMargin": 0.333333333,
+    "adjustedPower": 59.62467689
   },
   {
     "rowId": "c9_d138_p4",
@@ -5497,7 +5771,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 72.43931619
   },
   {
     "rowId": "c9_d138_p15",
@@ -5517,7 +5792,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c9_d139_p2",
@@ -5537,7 +5813,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.33
+    "normMargin": -0.33,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c9_d139_p22",
@@ -5557,7 +5834,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.333333333
+    "normMargin": 0.333333333,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c9_d140_p12",
@@ -5577,7 +5855,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.33
+    "normMargin": 0.33,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c9_d140_p20",
@@ -5597,7 +5876,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.333333333
+    "normMargin": -0.333333333,
+    "adjustedPower": 100
   },
   {
     "rowId": "c9_d141_p1",
@@ -5617,7 +5897,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.33
+    "normMargin": 0.33,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c9_d141_p19",
@@ -5637,7 +5918,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.333333333
+    "normMargin": -0.333333333,
+    "adjustedPower": 81.59622301
   },
   {
     "rowId": "c9_d142_p10",
@@ -5657,7 +5939,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c9_d142_p18",
@@ -5677,7 +5960,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 39.12520054
   },
   {
     "rowId": "c9_d143_p8",
@@ -5697,7 +5981,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c9_d143_p23",
@@ -5717,7 +6002,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 69.1633889
   },
   {
     "rowId": "c9_d144_p12",
@@ -5737,7 +6023,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.17
+    "normMargin": 0.17,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c9_d144_p13",
@@ -5757,7 +6044,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.166666667
+    "normMargin": -0.166666667,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c9_d145_p7",
@@ -5777,7 +6065,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c9_d145_p14",
@@ -5797,7 +6086,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c9_d146_p9",
@@ -5817,7 +6107,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.17
+    "normMargin": -0.17,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c9_d146_p15",
@@ -5837,7 +6128,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.166666667
+    "normMargin": 0.166666667,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c9_d147_p1",
@@ -5857,7 +6149,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.17
+    "normMargin": 0.17,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c9_d147_p24",
@@ -5877,7 +6170,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.166666667
+    "normMargin": -0.166666667,
+    "adjustedPower": 59.62467689
   },
   {
     "rowId": "c9_d148_p12",
@@ -5897,7 +6191,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 1,
     "teamColor": "Red",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c9_d148_p18",
@@ -5917,7 +6212,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 1,
     "teamColor": "Blue",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 39.12520054
   },
   {
     "rowId": "c10_d149_p2",
@@ -5937,7 +6233,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.25
+    "normMargin": 0.25,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c10_d149_p19",
@@ -5957,7 +6254,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.25
+    "normMargin": -0.25,
+    "adjustedPower": 81.59622301
   },
   {
     "rowId": "c10_d150_p9",
@@ -5977,7 +6275,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.25
+    "normMargin": 0.25,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c10_d150_p18",
@@ -5997,7 +6296,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.25
+    "normMargin": -0.25,
+    "adjustedPower": 39.12520054
   },
   {
     "rowId": "c10_d151_p1",
@@ -6017,7 +6317,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.25
+    "normMargin": -0.25,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c10_d151_p22",
@@ -6037,7 +6338,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.25
+    "normMargin": 0.25,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c10_d152_p12",
@@ -6057,7 +6359,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.75
+    "normMargin": -0.75,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c10_d152_p20",
@@ -6077,7 +6380,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.75
+    "normMargin": 0.75,
+    "adjustedPower": 100
   },
   {
     "rowId": "c10_d153_p7",
@@ -6097,7 +6401,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.75
+    "normMargin": 0.75,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c10_d153_p23",
@@ -6117,7 +6422,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.75
+    "normMargin": -0.75,
+    "adjustedPower": 69.1633889
   },
   {
     "rowId": "c10_d154_p10",
@@ -6137,7 +6443,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.25
+    "normMargin": -0.25,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c10_d154_p17",
@@ -6157,7 +6464,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.25
+    "normMargin": 0.25,
+    "adjustedPower": 92.75702088
   },
   {
     "rowId": "c10_d155_p8",
@@ -6177,7 +6485,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c10_d155_p14",
@@ -6197,7 +6506,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c10_d156_p4",
@@ -6217,7 +6527,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 72.43931619
   },
   {
     "rowId": "c10_d156_p15",
@@ -6237,7 +6548,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c10_d157_p1",
@@ -6257,7 +6569,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c10_d157_p21",
@@ -6277,7 +6590,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 42.47833671
   },
   {
     "rowId": "c10_d158_p9",
@@ -6297,7 +6611,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.75
+    "normMargin": -0.75,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c10_d158_p13",
@@ -6317,7 +6632,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.75
+    "normMargin": 0.75,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c10_d159_p2",
@@ -6337,7 +6653,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c10_d159_p22",
@@ -6357,7 +6674,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c10_d160_p4",
@@ -6377,7 +6695,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 72.43931619
   },
   {
     "rowId": "c10_d160_p18",
@@ -6397,7 +6716,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 39.12520054
   },
   {
     "rowId": "c10_d161_p8",
@@ -6417,7 +6737,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.75
+    "normMargin": -0.75,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c10_d161_p24",
@@ -6437,7 +6758,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.75
+    "normMargin": 0.75,
+    "adjustedPower": 59.62467689
   },
   {
     "rowId": "c10_d162_p10",
@@ -6457,7 +6779,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c10_d162_p15",
@@ -6477,7 +6800,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c10_d163_p2",
@@ -6497,7 +6821,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 1,
     "teamColor": "Red",
-    "normMargin": 0.75
+    "normMargin": 0.75,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c10_d163_p14",
@@ -6517,7 +6842,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 1,
     "teamColor": "Blue",
-    "normMargin": -0.75
+    "normMargin": -0.75,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c11_d164_p1",
@@ -6537,7 +6863,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c11_d164_p23",
@@ -6557,7 +6884,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 69.1633889
   },
   {
     "rowId": "c11_d165_p12",
@@ -6577,7 +6905,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.67
+    "normMargin": -0.67,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c11_d165_p20",
@@ -6597,7 +6926,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.666666667
+    "normMargin": 0.666666667,
+    "adjustedPower": 100
   },
   {
     "rowId": "c11_d166_p7",
@@ -6617,7 +6947,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.33
+    "normMargin": 0.33,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c11_d166_p21",
@@ -6637,7 +6968,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.333333333
+    "normMargin": -0.333333333,
+    "adjustedPower": 42.47833671
   },
   {
     "rowId": "c11_d167_p4",
@@ -6657,7 +6989,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 72.43931619
   },
   {
     "rowId": "c11_d167_p18",
@@ -6677,7 +7010,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 39.12520054
   },
   {
     "rowId": "c11_d168_p2",
@@ -6697,7 +7031,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.67
+    "normMargin": 0.67,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c11_d168_p19",
@@ -6717,7 +7052,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.666666667
+    "normMargin": -0.666666667,
+    "adjustedPower": 81.59622301
   },
   {
     "rowId": "c11_d169_p10",
@@ -6737,7 +7073,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c11_d169_p13",
@@ -6757,7 +7094,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c11_d170_p8",
@@ -6777,7 +7115,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c11_d170_p14",
@@ -6797,7 +7136,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c11_d171_p5",
@@ -6817,7 +7157,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.33
+    "normMargin": -0.33,
+    "adjustedPower": 51.81451409
   },
   {
     "rowId": "c11_d171_p15",
@@ -6837,7 +7178,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.333333333
+    "normMargin": 0.333333333,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c11_d172_p1",
@@ -6857,7 +7199,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.33
+    "normMargin": 0.33,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c11_d172_p22",
@@ -6877,7 +7220,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.333333333
+    "normMargin": -0.333333333,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c11_d173_p4",
@@ -6897,7 +7241,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 72.43931619
   },
   {
     "rowId": "c11_d173_p17",
@@ -6917,7 +7262,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 92.75702088
   },
   {
     "rowId": "c11_d174_p8",
@@ -6937,7 +7283,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.67
+    "normMargin": 0.67,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c11_d174_p24",
@@ -6957,7 +7304,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.666666667
+    "normMargin": -0.666666667,
+    "adjustedPower": 59.62467689
   },
   {
     "rowId": "c11_d175_p10",
@@ -6977,7 +7325,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 1,
     "teamColor": "Red",
-    "normMargin": 0.33
+    "normMargin": 0.33,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c11_d175_p20",
@@ -6997,7 +7346,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 1,
     "teamColor": "Blue",
-    "normMargin": -0.333333333
+    "normMargin": -0.333333333,
+    "adjustedPower": 100
   },
   {
     "rowId": "c12_d176_p1",
@@ -7017,7 +7367,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c12_d176_p22",
@@ -7037,7 +7388,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c12_d177_p12",
@@ -7057,7 +7409,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c12_d177_p13",
@@ -7077,7 +7430,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c12_d178_p8",
@@ -7097,7 +7451,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c12_d178_p23",
@@ -7117,7 +7472,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 69.1633889
   },
   {
     "rowId": "c12_d179_p10",
@@ -7137,7 +7493,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c12_d179_p17",
@@ -7157,7 +7514,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 92.75702088
   },
   {
     "rowId": "c12_d180_p7",
@@ -7177,7 +7535,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c12_d180_p19",
@@ -7197,7 +7556,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 81.59622301
   },
   {
     "rowId": "c12_d181_p9",
@@ -7217,7 +7577,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c12_d181_p15",
@@ -7237,7 +7598,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c12_d182_p1",
@@ -7257,7 +7619,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c12_d182_p24",
@@ -7277,7 +7640,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 59.62467689
   },
   {
     "rowId": "c12_d183_p10",
@@ -7297,7 +7661,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c12_d183_p13",
@@ -7317,7 +7682,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c12_d184_p8",
@@ -7337,7 +7703,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c12_d184_p21",
@@ -7357,7 +7724,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 42.47833671
   },
   {
     "rowId": "c12_d185_p9",
@@ -7377,7 +7745,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c12_d185_p20",
@@ -7397,7 +7766,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 100
   },
   {
     "rowId": "c12_d186_p7",
@@ -7417,7 +7787,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c12_d186_p14",
@@ -7437,7 +7808,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c12_d187_p4",
@@ -7457,7 +7829,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 72.43931619
   },
   {
     "rowId": "c12_d187_p14",
@@ -7477,7 +7850,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c12_d188_p1",
@@ -7497,7 +7871,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c12_d188_p22",
@@ -7517,7 +7892,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c12_d189_p9",
@@ -7537,7 +7913,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c12_d189_p13",
@@ -7557,7 +7934,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c12_d190_p8",
@@ -7577,7 +7955,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c12_d190_p24",
@@ -7597,7 +7976,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 59.62467689
   },
   {
     "rowId": "c12_d191_p10",
@@ -7617,7 +7997,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 1,
     "teamColor": "Red",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c12_d191_p20",
@@ -7637,7 +8018,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 1,
     "teamColor": "Blue",
-    "normMargin": 0
+    "normMargin": 0,
+    "adjustedPower": 100
   },
   {
     "rowId": "c13_d192_p7",
@@ -7657,7 +8039,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.67
+    "normMargin": 0.67,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c13_d192_p23",
@@ -7677,7 +8060,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.666666667
+    "normMargin": -0.666666667,
+    "adjustedPower": 69.1633889
   },
   {
     "rowId": "c13_d193_p4",
@@ -7697,7 +8081,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 72.43931619
   },
   {
     "rowId": "c13_d193_p17",
@@ -7717,7 +8102,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 92.75702088
   },
   {
     "rowId": "c13_d194_p8",
@@ -7737,7 +8123,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.67
+    "normMargin": 0.67,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c13_d194_p19",
@@ -7757,7 +8144,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.666666667
+    "normMargin": -0.666666667,
+    "adjustedPower": 81.59622301
   },
   {
     "rowId": "c13_d195_p9",
@@ -7777,7 +8165,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c13_d195_p20",
@@ -7797,7 +8186,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 100
   },
   {
     "rowId": "c13_d196_p2",
@@ -7817,7 +8207,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.33
+    "normMargin": 0.33,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c13_d196_p24",
@@ -7837,7 +8228,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.333333333
+    "normMargin": -0.333333333,
+    "adjustedPower": 59.62467689
   },
   {
     "rowId": "c13_d197_p12",
@@ -7857,7 +8249,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.67
+    "normMargin": -0.67,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c13_d197_p13",
@@ -7877,7 +8270,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.666666667
+    "normMargin": 0.666666667,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c13_d198_p6",
@@ -7897,7 +8291,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 28.33734107
   },
   {
     "rowId": "c13_d198_p22",
@@ -7917,7 +8312,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c13_d199_p10",
@@ -7937,7 +8333,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.67
+    "normMargin": 0.67,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c13_d199_p15",
@@ -7957,7 +8354,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.666666667
+    "normMargin": -0.666666667,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c13_d200_p1",
@@ -7977,7 +8375,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c13_d200_p21",
@@ -7997,7 +8396,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 42.47833671
   },
   {
     "rowId": "c13_d201_p4",
@@ -8017,7 +8417,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.67
+    "normMargin": -0.67,
+    "adjustedPower": 72.43931619
   },
   {
     "rowId": "c13_d201_p20",
@@ -8037,7 +8438,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.666666667
+    "normMargin": 0.666666667,
+    "adjustedPower": 100
   },
   {
     "rowId": "c13_d202_p10",
@@ -8057,7 +8459,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.33
+    "normMargin": -0.33,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c13_d202_p17",
@@ -8077,7 +8480,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.333333333
+    "normMargin": 0.333333333,
+    "adjustedPower": 92.75702088
   },
   {
     "rowId": "c13_d203_p8",
@@ -8097,7 +8501,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.33
+    "normMargin": 0.33,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c13_d203_p22",
@@ -8117,7 +8522,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.333333333
+    "normMargin": -0.333333333,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c13_d204_p12",
@@ -8137,7 +8543,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.67
+    "normMargin": 0.67,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c13_d204_p15",
@@ -8157,7 +8564,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.666666667
+    "normMargin": -0.666666667,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c13_d205_p9",
@@ -8177,7 +8585,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c13_d205_p13",
@@ -8197,7 +8606,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c13_d206_p1",
@@ -8217,7 +8627,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.33
+    "normMargin": -0.33,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c13_d206_p24",
@@ -8237,7 +8648,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.333333333
+    "normMargin": 0.333333333,
+    "adjustedPower": 59.62467689
   },
   {
     "rowId": "c13_d207_p9",
@@ -8257,7 +8669,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c13_d207_p15",
@@ -8277,7 +8690,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c13_d208_p7",
@@ -8297,7 +8711,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 1,
     "teamColor": "Red",
-    "normMargin": -0.67
+    "normMargin": -0.67,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c13_d208_p22",
@@ -8317,7 +8732,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 1,
     "teamColor": "Blue",
-    "normMargin": 0.666666667
+    "normMargin": 0.666666667,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c14_d209_p8",
@@ -8337,7 +8753,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c14_d209_p19",
@@ -8357,7 +8774,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 81.59622301
   },
   {
     "rowId": "c14_d210_p12",
@@ -8377,7 +8795,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.25
+    "normMargin": -0.25,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c14_d210_p17",
@@ -8397,7 +8816,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.25
+    "normMargin": 0.25,
+    "adjustedPower": 92.75702088
   },
   {
     "rowId": "c14_d211_p7",
@@ -8417,7 +8837,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.75
+    "normMargin": 0.75,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c14_d211_p14",
@@ -8437,7 +8858,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.75
+    "normMargin": -0.75,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c14_d212_p10",
@@ -8457,7 +8879,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c14_d212_p20",
@@ -8477,7 +8900,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 100
   },
   {
     "rowId": "c14_d213_p2",
@@ -8497,7 +8921,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c14_d213_p23",
@@ -8517,7 +8942,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 69.1633889
   },
   {
     "rowId": "c14_d214_p9",
@@ -8537,7 +8963,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c14_d214_p15",
@@ -8557,7 +8984,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c14_d215_p1",
@@ -8577,7 +9005,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c14_d215_p22",
@@ -8597,7 +9026,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c14_d216_p2",
@@ -8617,7 +9047,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c14_d216_p24",
@@ -8637,7 +9068,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 59.62467689
   },
   {
     "rowId": "c14_d217_p10",
@@ -8657,7 +9089,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.25
+    "normMargin": -0.25,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c14_d217_p17",
@@ -8677,7 +9110,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.25
+    "normMargin": 0.25,
+    "adjustedPower": 92.75702088
   },
   {
     "rowId": "c14_d218_p1",
@@ -8697,7 +9131,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c14_d218_p21",
@@ -8717,7 +9152,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 42.47833671
   },
   {
     "rowId": "c14_d219_p9",
@@ -8737,7 +9173,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c14_d219_p13",
@@ -8757,7 +9194,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c14_d220_p8",
@@ -8777,7 +9215,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c14_d220_p14",
@@ -8797,7 +9236,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c14_d221_p12",
@@ -8817,7 +9257,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.75
+    "normMargin": 0.75,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c14_d221_p15",
@@ -8837,7 +9278,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.75
+    "normMargin": -0.75,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c14_d222_p7",
@@ -8857,7 +9299,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.75
+    "normMargin": -0.75,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c14_d222_p19",
@@ -8877,7 +9320,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.75
+    "normMargin": 0.75,
+    "adjustedPower": 81.59622301
   },
   {
     "rowId": "c14_d223_p2",
@@ -8897,7 +9341,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.75
+    "normMargin": 0.75,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c14_d223_p14",
@@ -8917,7 +9362,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.75
+    "normMargin": -0.75,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c14_d224_p9",
@@ -8937,7 +9383,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c14_d224_p20",
@@ -8957,7 +9404,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 100
   },
   {
     "rowId": "c14_d225_p7",
@@ -8977,7 +9425,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.75
+    "normMargin": -0.75,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c14_d225_p19",
@@ -8997,7 +9446,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.75
+    "normMargin": 0.75,
+    "adjustedPower": 81.59622301
   },
   {
     "rowId": "c14_d226_p12",
@@ -9017,7 +9467,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 1,
     "teamColor": "Red",
-    "normMargin": 0.25
+    "normMargin": 0.25,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c14_d226_p15",
@@ -9037,7 +9488,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 1,
     "teamColor": "Blue",
-    "normMargin": -0.25
+    "normMargin": -0.25,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c15_d227_p8",
@@ -9057,7 +9509,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c15_d227_p23",
@@ -9077,7 +9530,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 69.1633889
   },
   {
     "rowId": "c15_d228_p12",
@@ -9097,7 +9551,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.67
+    "normMargin": -0.67,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c15_d228_p13",
@@ -9117,7 +9572,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.666666667
+    "normMargin": 0.666666667,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c15_d229_p1",
@@ -9137,7 +9593,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.33
+    "normMargin": -0.33,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c15_d229_p21",
@@ -9157,7 +9614,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.333333333
+    "normMargin": 0.333333333,
+    "adjustedPower": 42.47833671
   },
   {
     "rowId": "c15_d230_p9",
@@ -9177,7 +9635,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.67
+    "normMargin": -0.67,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c15_d230_p20",
@@ -9197,7 +9656,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.666666667
+    "normMargin": 0.666666667,
+    "adjustedPower": 100
   },
   {
     "rowId": "c15_d231_p7",
@@ -9217,7 +9677,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c15_d231_p14",
@@ -9237,7 +9698,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c15_d232_p10",
@@ -9257,7 +9719,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.67
+    "normMargin": -0.67,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c15_d232_p17",
@@ -9277,7 +9740,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.666666667
+    "normMargin": 0.666666667,
+    "adjustedPower": 92.75702088
   },
   {
     "rowId": "c15_d233_p2",
@@ -9297,7 +9761,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.67
+    "normMargin": 0.67,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c15_d233_p19",
@@ -9317,7 +9782,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.666666667
+    "normMargin": -0.666666667,
+    "adjustedPower": 81.59622301
   },
   {
     "rowId": "c15_d234_p7",
@@ -9337,7 +9803,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.33
+    "normMargin": -0.33,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c15_d234_p24",
@@ -9357,7 +9824,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.333333333
+    "normMargin": 0.333333333,
+    "adjustedPower": 59.62467689
   },
   {
     "rowId": "c15_d235_p10",
@@ -9377,7 +9845,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.67
+    "normMargin": 0.67,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c15_d235_p13",
@@ -9397,7 +9866,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.666666667
+    "normMargin": -0.666666667,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c15_d236_p2",
@@ -9417,7 +9887,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.33
+    "normMargin": 0.33,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c15_d236_p22",
@@ -9437,7 +9908,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.333333333
+    "normMargin": -0.333333333,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c15_d237_p12",
@@ -9457,7 +9929,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.67
+    "normMargin": -0.67,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c15_d237_p20",
@@ -9477,7 +9950,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.666666667
+    "normMargin": 0.666666667,
+    "adjustedPower": 100
   },
   {
     "rowId": "c15_d238_p8",
@@ -9497,7 +9971,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c15_d238_p14",
@@ -9517,7 +9992,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c15_d239_p9",
@@ -9537,7 +10013,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c15_d239_p17",
@@ -9557,7 +10034,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 92.75702088
   },
   {
     "rowId": "c15_d240_p1",
@@ -9577,7 +10055,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.67
+    "normMargin": 0.67,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c15_d240_p23",
@@ -9597,7 +10076,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.666666667
+    "normMargin": -0.666666667,
+    "adjustedPower": 69.1633889
   },
   {
     "rowId": "c15_d241_p8",
@@ -9617,7 +10097,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.67
+    "normMargin": 0.67,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c15_d241_p24",
@@ -9637,7 +10118,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.666666667
+    "normMargin": -0.666666667,
+    "adjustedPower": 59.62467689
   },
   {
     "rowId": "c15_d242_p10",
@@ -9657,7 +10139,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.33
+    "normMargin": 0.33,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c15_d242_p17",
@@ -9677,7 +10160,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.333333333
+    "normMargin": -0.333333333,
+    "adjustedPower": 92.75702088
   },
   {
     "rowId": "c15_d243_p2",
@@ -9697,7 +10181,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 1,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c15_d243_p14",
@@ -9717,7 +10202,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 1,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c16_d244_p8",
@@ -9737,7 +10223,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 69.36039927
   },
   {
     "rowId": "c16_d244_p22",
@@ -9757,7 +10244,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c16_d245_p10",
@@ -9777,7 +10265,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c16_d245_p20",
@@ -9797,7 +10286,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 100
   },
   {
     "rowId": "c16_d246_p2",
@@ -9817,7 +10307,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c16_d246_p14",
@@ -9837,7 +10328,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 35.21633475
   },
   {
     "rowId": "c16_d247_p12",
@@ -9857,7 +10349,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c16_d247_p17",
@@ -9877,7 +10370,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 92.75702088
   },
   {
     "rowId": "c16_d248_p1",
@@ -9897,7 +10391,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c16_d248_p23",
@@ -9917,7 +10412,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 69.1633889
   },
   {
     "rowId": "c16_d249_p9",
@@ -9937,7 +10433,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c16_d249_p15",
@@ -9957,7 +10454,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c16_d250_p7",
@@ -9977,7 +10475,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.5
+    "normMargin": -0.5,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c16_d250_p24",
@@ -9997,7 +10496,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.5
+    "normMargin": 0.5,
+    "adjustedPower": 59.62467689
   },
   {
     "rowId": "c16_d251_p9",
@@ -10017,7 +10517,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c16_d251_p13",
@@ -10037,7 +10538,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c16_d252_p10",
@@ -10057,7 +10559,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c16_d252_p17",
@@ -10077,7 +10580,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 92.75702088
   },
   {
     "rowId": "c16_d253_p1",
@@ -10097,7 +10601,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 1,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c16_d253_p21",
@@ -10117,7 +10622,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 1,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 42.47833671
   },
   {
     "rowId": "c17_d254_p1",
@@ -10137,7 +10643,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.4
+    "normMargin": -0.4,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c17_d254_p21",
@@ -10157,7 +10664,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.4
+    "normMargin": 0.4,
+    "adjustedPower": 42.47833671
   },
   {
     "rowId": "c17_d255_p12",
@@ -10177,7 +10685,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.4
+    "normMargin": 0.4,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c17_d255_p20",
@@ -10197,7 +10706,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.4
+    "normMargin": -0.4,
+    "adjustedPower": 100
   },
   {
     "rowId": "c17_d256_p27",
@@ -10205,8 +10715,8 @@
     "challengeId": 17,
     "episodeId": 17,
     "playerId": 27,
-    "playerName": "Player 27",
-    "tribe": null,
+    "playerName": "Antonis Nikolopoulos",
+    "tribe": "Athinaioi",
     "propType": "HAMMER",
     "targetType": "BREAK",
     "gamePrice": "Immunity",
@@ -10217,7 +10727,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.4
+    "normMargin": -0.4,
+    "adjustedPower": 11.83281258
   },
   {
     "rowId": "c17_d256_p23",
@@ -10237,7 +10748,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.4
+    "normMargin": 0.4,
+    "adjustedPower": 69.1633889
   },
   {
     "rowId": "c17_d257_p9",
@@ -10257,7 +10769,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.2
+    "normMargin": 0.2,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c17_d257_p28",
@@ -10265,8 +10778,8 @@
     "challengeId": 17,
     "episodeId": 17,
     "playerId": 28,
-    "playerName": "Player 28",
-    "tribe": null,
+    "playerName": "Eftixia Kyrkosta",
+    "tribe": "Eparxiotes",
     "propType": "HAMMER",
     "targetType": "BREAK",
     "gamePrice": "Immunity",
@@ -10277,7 +10790,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.2
+    "normMargin": -0.2,
+    "adjustedPower": 8.735943664
   },
   {
     "rowId": "c17_d258_p2",
@@ -10297,7 +10811,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.6
+    "normMargin": -0.6,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c17_d258_p19",
@@ -10317,7 +10832,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.6
+    "normMargin": 0.6,
+    "adjustedPower": 81.59622301
   },
   {
     "rowId": "c17_d259_p25",
@@ -10325,8 +10841,8 @@
     "challengeId": 17,
     "episodeId": 17,
     "playerId": 25,
-    "playerName": "Player 25",
-    "tribe": null,
+    "playerName": "Ariadni Dimitrelou",
+    "tribe": "Athinaioi",
     "propType": "HAMMER",
     "targetType": "BREAK",
     "gamePrice": "Immunity",
@@ -10337,7 +10853,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.2
+    "normMargin": -0.2,
+    "adjustedPower": 32.73578889
   },
   {
     "rowId": "c17_d259_p15",
@@ -10357,7 +10874,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.2
+    "normMargin": 0.2,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c17_d260_p26",
@@ -10365,8 +10883,8 @@
     "challengeId": 17,
     "episodeId": 17,
     "playerId": 26,
-    "playerName": "Player 26",
-    "tribe": null,
+    "playerName": "Valantis Pakos",
+    "tribe": "Athinaioi",
     "propType": "HAMMER",
     "targetType": "BREAK",
     "gamePrice": "Immunity",
@@ -10377,7 +10895,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.6
+    "normMargin": -0.6,
+    "adjustedPower": 28.70711646
   },
   {
     "rowId": "c17_d260_p24",
@@ -10397,7 +10916,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.6
+    "normMargin": 0.6,
+    "adjustedPower": 59.62467689
   },
   {
     "rowId": "c17_d261_p10",
@@ -10417,7 +10937,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c17_d261_p17",
@@ -10437,7 +10958,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 92.75702088
   },
   {
     "rowId": "c17_d262_p29",
@@ -10445,8 +10967,8 @@
     "challengeId": 17,
     "episodeId": 17,
     "playerId": 29,
-    "playerName": "Player 29",
-    "tribe": null,
+    "playerName": "Alex Benzy Karantonis",
+    "tribe": "Athinaioi",
     "propType": "HAMMER",
     "targetType": "BREAK",
     "gamePrice": "Immunity",
@@ -10457,7 +10979,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.8
+    "normMargin": -0.8,
+    "adjustedPower": 25.93049945
   },
   {
     "rowId": "c17_d262_p22",
@@ -10477,7 +11000,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.8
+    "normMargin": 0.8,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c17_d263_p2",
@@ -10497,7 +11021,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.6
+    "normMargin": 0.6,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c17_d263_p21",
@@ -10517,7 +11042,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.6
+    "normMargin": -0.6,
+    "adjustedPower": 42.47833671
   },
   {
     "rowId": "c17_d264_p10",
@@ -10537,7 +11063,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.6
+    "normMargin": 0.6,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c17_d264_p28",
@@ -10545,8 +11072,8 @@
     "challengeId": 17,
     "episodeId": 17,
     "playerId": 28,
-    "playerName": "Player 28",
-    "tribe": null,
+    "playerName": "Eftixia Kyrkosta",
+    "tribe": "Eparxiotes",
     "propType": "HAMMER",
     "targetType": "BREAK",
     "gamePrice": "Immunity",
@@ -10557,7 +11084,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.6
+    "normMargin": -0.6,
+    "adjustedPower": 8.735943664
   },
   {
     "rowId": "c17_d265_p7",
@@ -10577,7 +11105,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.6
+    "normMargin": 0.6,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c17_d265_p23",
@@ -10597,7 +11126,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.6
+    "normMargin": -0.6,
+    "adjustedPower": 69.1633889
   },
   {
     "rowId": "c17_d266_p9",
@@ -10617,7 +11147,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.4
+    "normMargin": -0.4,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c17_d266_p15",
@@ -10637,7 +11168,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.4
+    "normMargin": 0.4,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c17_d267_p27",
@@ -10645,8 +11177,8 @@
     "challengeId": 17,
     "episodeId": 17,
     "playerId": 27,
-    "playerName": "Player 27",
-    "tribe": null,
+    "playerName": "Antonis Nikolopoulos",
+    "tribe": "Athinaioi",
     "propType": "HAMMER",
     "targetType": "BREAK",
     "gamePrice": "Immunity",
@@ -10657,7 +11189,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.4
+    "normMargin": -0.4,
+    "adjustedPower": 11.83281258
   },
   {
     "rowId": "c17_d267_p24",
@@ -10677,7 +11210,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.4
+    "normMargin": 0.4,
+    "adjustedPower": 59.62467689
   },
   {
     "rowId": "c17_d268_p25",
@@ -10685,8 +11219,8 @@
     "challengeId": 17,
     "episodeId": 17,
     "playerId": 25,
-    "playerName": "Player 25",
-    "tribe": null,
+    "playerName": "Ariadni Dimitrelou",
+    "tribe": "Athinaioi",
     "propType": "HAMMER",
     "targetType": "BREAK",
     "gamePrice": "Immunity",
@@ -10697,7 +11231,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 1,
     "teamColor": "Red",
-    "normMargin": -0.6
+    "normMargin": -0.6,
+    "adjustedPower": 32.73578889
   },
   {
     "rowId": "c17_d268_p13",
@@ -10717,7 +11252,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 1,
     "teamColor": "Blue",
-    "normMargin": 0.6
+    "normMargin": 0.6,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c18_d269_p7",
@@ -10737,7 +11273,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.67
+    "normMargin": -0.67,
+    "adjustedPower": 69.73399753
   },
   {
     "rowId": "c18_d269_p19",
@@ -10757,7 +11294,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.666666667
+    "normMargin": 0.666666667,
+    "adjustedPower": 81.59622301
   },
   {
     "rowId": "c18_d270_p10",
@@ -10777,7 +11315,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.67
+    "normMargin": -0.67,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c18_d270_p13",
@@ -10797,7 +11336,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.666666667
+    "normMargin": 0.666666667,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c18_d271_p2",
@@ -10817,7 +11357,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c18_d271_p24",
@@ -10837,7 +11378,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 59.62467689
   },
   {
     "rowId": "c18_d272_p25",
@@ -10845,8 +11387,8 @@
     "challengeId": 18,
     "episodeId": 18,
     "playerId": 25,
-    "playerName": "Player 25",
-    "tribe": null,
+    "playerName": "Ariadni Dimitrelou",
+    "tribe": "Athinaioi",
     "propType": "BALL_L_equiment",
     "targetType": "LAND_IN",
     "gamePrice": "Immunity",
@@ -10857,7 +11399,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 32.73578889
   },
   {
     "rowId": "c18_d272_p28",
@@ -10865,8 +11408,8 @@
     "challengeId": 18,
     "episodeId": 18,
     "playerId": 28,
-    "playerName": "Player 28",
-    "tribe": null,
+    "playerName": "Eftixia Kyrkosta",
+    "tribe": "Eparxiotes",
     "propType": "BALL_L_equiment",
     "targetType": "LAND_IN",
     "gamePrice": "Immunity",
@@ -10877,7 +11420,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 8.735943664
   },
   {
     "rowId": "c18_d273_p29",
@@ -10885,8 +11429,8 @@
     "challengeId": 18,
     "episodeId": 18,
     "playerId": 29,
-    "playerName": "Player 29",
-    "tribe": null,
+    "playerName": "Alex Benzy Karantonis",
+    "tribe": "Athinaioi",
     "propType": "BALL_L_equiment",
     "targetType": "LAND_IN",
     "gamePrice": "Immunity",
@@ -10897,7 +11441,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.67
+    "normMargin": 0.67,
+    "adjustedPower": 25.93049945
   },
   {
     "rowId": "c18_d273_p21",
@@ -10917,7 +11462,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.666666667
+    "normMargin": -0.666666667,
+    "adjustedPower": 42.47833671
   },
   {
     "rowId": "c18_d274_p12",
@@ -10937,7 +11483,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c18_d274_p17",
@@ -10957,7 +11504,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 92.75702088
   },
   {
     "rowId": "c18_d275_p27",
@@ -10965,8 +11513,8 @@
     "challengeId": 18,
     "episodeId": 18,
     "playerId": 27,
-    "playerName": "Player 27",
-    "tribe": null,
+    "playerName": "Antonis Nikolopoulos",
+    "tribe": "Athinaioi",
     "propType": "BALL_L_equiment",
     "targetType": "LAND_IN",
     "gamePrice": "Immunity",
@@ -10977,7 +11525,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.67
+    "normMargin": -0.67,
+    "adjustedPower": 11.83281258
   },
   {
     "rowId": "c18_d275_p22",
@@ -10997,7 +11546,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.666666667
+    "normMargin": 0.666666667,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c18_d276_p9",
@@ -11017,7 +11567,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.67
+    "normMargin": 0.67,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c18_d276_p20",
@@ -11037,7 +11588,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.666666667
+    "normMargin": -0.666666667,
+    "adjustedPower": 100
   },
   {
     "rowId": "c18_d277_p26",
@@ -11045,8 +11597,8 @@
     "challengeId": 18,
     "episodeId": 18,
     "playerId": 26,
-    "playerName": "Player 26",
-    "tribe": null,
+    "playerName": "Valantis Pakos",
+    "tribe": "Athinaioi",
     "propType": "BALL_L_equiment",
     "targetType": "LAND_IN",
     "gamePrice": "Immunity",
@@ -11057,7 +11609,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.67
+    "normMargin": -0.67,
+    "adjustedPower": 28.70711646
   },
   {
     "rowId": "c18_d277_p23",
@@ -11077,7 +11630,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.666666667
+    "normMargin": 0.666666667,
+    "adjustedPower": 69.1633889
   },
   {
     "rowId": "c18_d278_p2",
@@ -11097,7 +11651,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.67
+    "normMargin": 0.67,
+    "adjustedPower": 89.5302268
   },
   {
     "rowId": "c18_d278_p21",
@@ -11117,7 +11672,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.666666667
+    "normMargin": -0.666666667,
+    "adjustedPower": 42.47833671
   },
   {
     "rowId": "c18_d279_p12",
@@ -11137,7 +11693,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 60.22623339
   },
   {
     "rowId": "c18_d279_p15",
@@ -11157,7 +11714,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 54.85602461
   },
   {
     "rowId": "c18_d280_p1",
@@ -11177,7 +11735,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 81.83505894
   },
   {
     "rowId": "c18_d280_p22",
@@ -11197,7 +11756,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 91.24471223
   },
   {
     "rowId": "c18_d281_p10",
@@ -11217,7 +11777,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 1
+    "normMargin": 1,
+    "adjustedPower": 83.60304456
   },
   {
     "rowId": "c18_d281_p28",
@@ -11225,8 +11786,8 @@
     "challengeId": 18,
     "episodeId": 18,
     "playerId": 28,
-    "playerName": "Player 28",
-    "tribe": null,
+    "playerName": "Eftixia Kyrkosta",
+    "tribe": "Eparxiotes",
     "propType": "BALL_L_equiment",
     "targetType": "LAND_IN",
     "gamePrice": "Immunity",
@@ -11237,7 +11798,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -1
+    "normMargin": -1,
+    "adjustedPower": 8.735943664
   },
   {
     "rowId": "c18_d282_p27",
@@ -11245,8 +11807,8 @@
     "challengeId": 18,
     "episodeId": 18,
     "playerId": 27,
-    "playerName": "Player 27",
-    "tribe": null,
+    "playerName": "Antonis Nikolopoulos",
+    "tribe": "Athinaioi",
     "propType": "BALL_L_equiment",
     "targetType": "LAND_IN",
     "gamePrice": "Immunity",
@@ -11257,7 +11819,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.67
+    "normMargin": -0.67,
+    "adjustedPower": 11.83281258
   },
   {
     "rowId": "c18_d282_p19",
@@ -11277,7 +11840,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.666666667
+    "normMargin": 0.666666667,
+    "adjustedPower": 81.59622301
   },
   {
     "rowId": "c18_d283_p25",
@@ -11285,8 +11849,8 @@
     "challengeId": 18,
     "episodeId": 18,
     "playerId": 25,
-    "playerName": "Player 25",
-    "tribe": null,
+    "playerName": "Ariadni Dimitrelou",
+    "tribe": "Athinaioi",
     "propType": "BALL_L_equiment",
     "targetType": "LAND_IN",
     "gamePrice": "Immunity",
@@ -11297,7 +11861,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.67
+    "normMargin": -0.67,
+    "adjustedPower": 32.73578889
   },
   {
     "rowId": "c18_d283_p20",
@@ -11317,7 +11882,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.666666667
+    "normMargin": 0.666666667,
+    "adjustedPower": 100
   },
   {
     "rowId": "c18_d284_p29",
@@ -11325,8 +11891,8 @@
     "challengeId": 18,
     "episodeId": 18,
     "playerId": 29,
-    "playerName": "Player 29",
-    "tribe": null,
+    "playerName": "Alex Benzy Karantonis",
+    "tribe": "Athinaioi",
     "propType": "BALL_L_equiment",
     "targetType": "LAND_IN",
     "gamePrice": "Immunity",
@@ -11337,7 +11903,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": 0.67
+    "normMargin": 0.67,
+    "adjustedPower": 25.93049945
   },
   {
     "rowId": "c18_d284_p23",
@@ -11357,7 +11924,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": -0.666666667
+    "normMargin": -0.666666667,
+    "adjustedPower": 69.1633889
   },
   {
     "rowId": "c18_d285_p9",
@@ -11377,7 +11945,8 @@
     "arrivedFirst": 1,
     "isFinalPoint": 0,
     "teamColor": "Red",
-    "normMargin": -0.33
+    "normMargin": -0.33,
+    "adjustedPower": 56.56921049
   },
   {
     "rowId": "c18_d285_p13",
@@ -11397,7 +11966,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 0,
     "teamColor": "Blue",
-    "normMargin": 0.333333333
+    "normMargin": 0.333333333,
+    "adjustedPower": 91.3410094
   },
   {
     "rowId": "c18_d286_p26",
@@ -11405,8 +11975,8 @@
     "challengeId": 18,
     "episodeId": 18,
     "playerId": 26,
-    "playerName": "Player 26",
-    "tribe": null,
+    "playerName": "Valantis Pakos",
+    "tribe": "Athinaioi",
     "propType": "BALL_L_equiment",
     "targetType": "LAND_IN",
     "gamePrice": "Immunity",
@@ -11417,7 +11987,8 @@
     "arrivedFirst": 0,
     "isFinalPoint": 1,
     "teamColor": "Red",
-    "normMargin": -0.33
+    "normMargin": -0.33,
+    "adjustedPower": 28.70711646
   },
   {
     "rowId": "c18_d286_p24",
@@ -11437,6 +12008,679 @@
     "arrivedFirst": 1,
     "isFinalPoint": 1,
     "teamColor": "Blue",
-    "normMargin": 0.333333333
+    "normMargin": 0.333333333,
+    "adjustedPower": 59.62467689
+  },
+  {
+    "rowId": "c19_d287_p1",
+    "duelId": 287,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 1,
+    "playerName": "Alexandros Kourtovik",
+    "tribe": "Athinaioi",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 1,
+    "arrivedFirst": 1,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": 1,
+    "adjustedPower": 81.83505894
+  },
+  {
+    "rowId": "c19_d287_p25",
+    "duelId": 287,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 25,
+    "playerName": "Ariadni Dimitrelou",
+    "tribe": "Athinaioi",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 0,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": -1,
+    "adjustedPower": 32.73578889
+  },
+  {
+    "rowId": "c19_d288_p9",
+    "duelId": 288,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 9,
+    "playerName": "Kelly Bofiliou",
+    "tribe": "Athinaioi",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": 0.83,
+    "adjustedPower": 56.56921049
+  },
+  {
+    "rowId": "c19_d288_p12",
+    "duelId": 288,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 12,
+    "playerName": "Vasiliki Mounti",
+    "tribe": "Athinaioi",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 0,
+    "arrivedFirst": 1,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": -0.833333333,
+    "adjustedPower": 60.22623339
+  },
+  {
+    "rowId": "c19_d289_p2",
+    "duelId": 289,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 2,
+    "playerName": "Dimitris Theodoropoulos",
+    "tribe": "Athinaioi",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 0,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": -0.67,
+    "adjustedPower": 89.5302268
+  },
+  {
+    "rowId": "c19_d289_p22",
+    "duelId": 289,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 22,
+    "playerName": "Manos Malliaros",
+    "tribe": "Eparxiotes",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 1,
+    "arrivedFirst": 1,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": 0.666666667,
+    "adjustedPower": 91.24471223
+  },
+  {
+    "rowId": "c19_d290_p25",
+    "duelId": 290,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 25,
+    "playerName": "Ariadni Dimitrelou",
+    "tribe": "Athinaioi",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": 1,
+    "adjustedPower": 32.73578889
+  },
+  {
+    "rowId": "c19_d290_p28",
+    "duelId": 290,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 28,
+    "playerName": "Eftixia Kyrkosta",
+    "tribe": "Eparxiotes",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 0,
+    "arrivedFirst": 1,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": -1,
+    "adjustedPower": 8.735943664
+  },
+  {
+    "rowId": "c19_d291_p26",
+    "duelId": 291,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 26,
+    "playerName": "Valantis Pakos",
+    "tribe": "Athinaioi",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": 0.17,
+    "adjustedPower": 28.70711646
+  },
+  {
+    "rowId": "c19_d291_p21",
+    "duelId": 291,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 21,
+    "playerName": "Ioannis Revis",
+    "tribe": "Eparxiotes",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 0,
+    "arrivedFirst": 1,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": -0.166666667,
+    "adjustedPower": 42.47833671
+  },
+  {
+    "rowId": "c19_d292_p10",
+    "duelId": 292,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 10,
+    "playerName": "Mantisa Tsota",
+    "tribe": "Athinaioi",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": 0.5,
+    "adjustedPower": 83.60304456
+  },
+  {
+    "rowId": "c19_d292_p13",
+    "duelId": 292,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 13,
+    "playerName": "Anastasia Stergiou",
+    "tribe": "Eparxiotes",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 0,
+    "arrivedFirst": 1,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": -0.5,
+    "adjustedPower": 91.3410094
+  },
+  {
+    "rowId": "c19_d293_p29",
+    "duelId": 293,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 29,
+    "playerName": "Alex Benzy Karantonis",
+    "tribe": "Athinaioi",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 0,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": -0.83,
+    "adjustedPower": 25.93049945
+  },
+  {
+    "rowId": "c19_d293_p23",
+    "duelId": 293,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 23,
+    "playerName": "Michalis Sifakis",
+    "tribe": "Eparxiotes",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 1,
+    "arrivedFirst": 1,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": 0.833333333,
+    "adjustedPower": 69.1633889
+  },
+  {
+    "rowId": "c19_d294_p12",
+    "duelId": 294,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 12,
+    "playerName": "Vasiliki Mounti",
+    "tribe": "Athinaioi",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 0,
+    "arrivedFirst": 1,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": -0.67,
+    "adjustedPower": 60.22623339
+  },
+  {
+    "rowId": "c19_d294_p17",
+    "duelId": 294,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 17,
+    "playerName": "Fani Pantelaki",
+    "tribe": "Eparxiotes",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": 0.666666667,
+    "adjustedPower": 92.75702088
+  },
+  {
+    "rowId": "c19_d295_p7",
+    "duelId": 295,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 7,
+    "playerName": "Giorgos Karaisalidis",
+    "tribe": "Athinaioi",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 0,
+    "arrivedFirst": 1,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": -0.5,
+    "adjustedPower": 69.73399753
+  },
+  {
+    "rowId": "c19_d295_p19",
+    "duelId": 295,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 19,
+    "playerName": "Giorgos Polychros",
+    "tribe": "Eparxiotes",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": 0.5,
+    "adjustedPower": 81.59622301
+  },
+  {
+    "rowId": "c19_d296_p1",
+    "duelId": 296,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 1,
+    "playerName": "Alexandros Kourtovik",
+    "tribe": "Athinaioi",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 1,
+    "arrivedFirst": 1,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": 0.5,
+    "adjustedPower": 81.83505894
+  },
+  {
+    "rowId": "c19_d296_p21",
+    "duelId": 296,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 21,
+    "playerName": "Ioannis Revis",
+    "tribe": "Eparxiotes",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 0,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": -0.5,
+    "adjustedPower": 42.47833671
+  },
+  {
+    "rowId": "c19_d297_p12",
+    "duelId": 297,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 12,
+    "playerName": "Vasiliki Mounti",
+    "tribe": "Athinaioi",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": 0.33,
+    "adjustedPower": 60.22623339
+  },
+  {
+    "rowId": "c19_d297_p13",
+    "duelId": 297,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 13,
+    "playerName": "Anastasia Stergiou",
+    "tribe": "Eparxiotes",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 0,
+    "arrivedFirst": 1,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": -0.333333333,
+    "adjustedPower": 91.3410094
+  },
+  {
+    "rowId": "c19_d298_p27",
+    "duelId": 298,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 27,
+    "playerName": "Antonis Nikolopoulos",
+    "tribe": "Athinaioi",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 0,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": -0.5,
+    "adjustedPower": 11.83281258
+  },
+  {
+    "rowId": "c19_d298_p23",
+    "duelId": 298,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 23,
+    "playerName": "Michalis Sifakis",
+    "tribe": "Eparxiotes",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 1,
+    "arrivedFirst": 1,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": 0.5,
+    "adjustedPower": 69.1633889
+  },
+  {
+    "rowId": "c19_d299_p25",
+    "duelId": 299,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 25,
+    "playerName": "Ariadni Dimitrelou",
+    "tribe": "Athinaioi",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 0,
+    "arrivedFirst": 1,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": -0.33,
+    "adjustedPower": 32.73578889
+  },
+  {
+    "rowId": "c19_d299_p20",
+    "duelId": 299,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 20,
+    "playerName": "Ioanna Desylla",
+    "tribe": "Eparxiotes",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": 0.333333333,
+    "adjustedPower": 100
+  },
+  {
+    "rowId": "c19_d300_p2",
+    "duelId": 300,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 2,
+    "playerName": "Dimitris Theodoropoulos",
+    "tribe": "Athinaioi",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": 0.67,
+    "adjustedPower": 89.5302268
+  },
+  {
+    "rowId": "c19_d300_p19",
+    "duelId": 300,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 19,
+    "playerName": "Giorgos Polychros",
+    "tribe": "Eparxiotes",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 0,
+    "arrivedFirst": 1,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": -0.666666667,
+    "adjustedPower": 81.59622301
+  },
+  {
+    "rowId": "c19_d301_p9",
+    "duelId": 301,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 9,
+    "playerName": "Kelly Bofiliou",
+    "tribe": "Athinaioi",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 1,
+    "arrivedFirst": 1,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": 1,
+    "adjustedPower": 56.56921049
+  },
+  {
+    "rowId": "c19_d301_p28",
+    "duelId": 301,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 28,
+    "playerName": "Eftixia Kyrkosta",
+    "tribe": "Eparxiotes",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 0,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": -1,
+    "adjustedPower": 8.735943664
+  },
+  {
+    "rowId": "c19_d302_p26",
+    "duelId": 302,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 26,
+    "playerName": "Valantis Pakos",
+    "tribe": "Athinaioi",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 1,
+    "teamColor": "Red",
+    "normMargin": 1,
+    "adjustedPower": 28.70711646
+  },
+  {
+    "rowId": "c19_d302_p24",
+    "duelId": 302,
+    "challengeId": 19,
+    "episodeId": 19,
+    "playerId": 24,
+    "playerName": "Stauros Floros",
+    "tribe": "Eparxiotes",
+    "propType": "HOOP",
+    "targetType": "KNOCK_DOWN",
+    "gamePrice": "Immunity",
+    "puzzle": true,
+    "airDate": "2026-02-10",
+    "week": 5,
+    "won": 0,
+    "arrivedFirst": 1,
+    "isFinalPoint": 1,
+    "teamColor": "Blue",
+    "normMargin": -1,
+    "adjustedPower": 59.62467689
   }
 ]

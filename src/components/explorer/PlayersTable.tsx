@@ -4,10 +4,11 @@ import React from "react";
 import type { PlayerAgg, SortDir, SortKey } from "@/lib/explorer/types";
 
 function pct(x: number) {
+  if (typeof x !== "number" || !Number.isFinite(x)) return "—";
   return `${(x * 100).toFixed(1)}%`;
 }
 
-function num(x: number | null, digits = 3) {
+function num(x: number | null | undefined, digits = 3) {
   if (x === null || x === undefined) return "—";
   if (!Number.isFinite(x)) return "—";
   return x.toFixed(digits);
@@ -20,7 +21,6 @@ function teamLabel(team: PlayerAgg["teamColor"]) {
 }
 
 function teamClass(team: PlayerAgg["teamColor"]) {
-  // Adjust these class names if you already use custom team color classes elsewhere.
   if (team === "Red") return "text-red-300 font-semibold";
   if (team === "Blue") return "text-blue-300 font-semibold";
   return "text-white/70";
@@ -106,12 +106,12 @@ export default function PlayersTable({
         <tbody>
           {rows.map((r) => (
             <tr key={r.playerId} className="border-t border-white/10">
-              <td className="px-3 py-2 text-white/90">{r.playerId}</td>
-              <td className="px-3 py-2 text-white/90">{r.playerName}</td>
-              <td className="px-3 py-2 text-white/90">{pct(r.winPct)}</td>
-              <td className="px-3 py-2 text-white/90">{pct(r.arriveFirstPct)}</td>
-              <td className="px-3 py-2 text-white/90">{r.totalDuels}</td>
-              <td className="px-3 py-2 text-white/90">{r.finalPtsWon}</td>
+              <td className="px-3 py-2 text-white/90">{r.playerId ?? "—"}</td>
+              <td className="px-3 py-2 text-white/90">{r.playerName ?? "—"}</td>
+              <td className="px-3 py-2 text-white/90">{pct(r.winPct as any)}</td>
+              <td className="px-3 py-2 text-white/90">{pct(r.arriveFirstPct as any)}</td>
+              <td className="px-3 py-2 text-white/90">{r.totalDuels ?? "—"}</td>
+              <td className="px-3 py-2 text-white/90">{r.finalPtsWon ?? "—"}</td>
               <td className={["px-3 py-2", teamClass(r.teamColor)].join(" ")}>
                 {teamLabel(r.teamColor)}
               </td>

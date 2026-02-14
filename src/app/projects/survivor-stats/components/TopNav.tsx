@@ -7,7 +7,7 @@ import { useEffect, useMemo, useState } from "react";
 type NavItem = {
   href: string;
   label: string;
-  icon: string; // simple symbol icons
+  icon: string;
 };
 
 const BASE = "/projects/survivor-stats";
@@ -23,7 +23,6 @@ const NAV: NavItem[] = [
 ];
 
 function isActivePath(pathname: string, href: string) {
-  // exact match for project home
   if (href === BASE) return pathname === BASE;
   return pathname === href || pathname.startsWith(href + "/");
 }
@@ -65,8 +64,8 @@ export default function TopNav() {
               className={[
                 "rounded-xl px-3 py-2 transition",
                 active
-                  ? "bg-white/10 text-white"
-                  : "text-gray-300 hover:bg-white/5 hover:text-white",
+                 ? "bg-white/10 text-white napa-active"
+                 : "text-gray-300 hover:bg-white/5 hover:text-white napa-hover",
               ].join(" ")}
               aria-current={active ? "page" : undefined}
               title={item.label}
@@ -83,6 +82,7 @@ export default function TopNav() {
       {/* ✅ Mobile */}
       <div className="md:hidden">
         <div className="flex items-center gap-2">
+          {/* Active tab quick button */}
           <Link
             href={activeItem.href}
             className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-gray-100 hover:bg-white/10"
@@ -92,6 +92,7 @@ export default function TopNav() {
             <span className="font-medium">{activeItem.label}</span>
           </Link>
 
+          {/* Hamburger */}
           <button
             onClick={() => setOpen(true)}
             className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-gray-100 hover:bg-white/10"
@@ -101,14 +102,17 @@ export default function TopNav() {
           </button>
         </div>
 
+        {/* Drawer */}
         {open ? (
           <div className="fixed inset-0 z-50">
+            {/* Backdrop */}
             <button
               className="absolute inset-0 bg-black/60"
               onClick={() => setOpen(false)}
               aria-label="Close menu"
             />
 
+            {/* Panel */}
             <div className="absolute right-0 top-0 h-full w-[82%] max-w-xs border-l border-white/10 bg-black p-4">
               <div className="flex items-center justify-between">
                 <div className="text-sm font-semibold text-gray-100">Menu</div>
@@ -131,22 +135,20 @@ export default function TopNav() {
                       className={[
                         "flex items-center gap-3 rounded-2xl border px-4 py-3 text-sm transition",
                         active
-                          ? "border-white/20 bg-white/10 text-white"
-                          : "border-white/10 bg-white/5 text-gray-200 hover:bg-white/10",
+                        ? "border-white/20 bg-white/10 text-white napa-active"
+                        : "border-white/10 bg-white/5 text-gray-200 hover:bg-white/10 napa-hover",
+
                       ].join(" ")}
                       aria-current={active ? "page" : undefined}
                     >
                       <span className="text-lg">{item.icon}</span>
                       <span className="font-medium">{item.label}</span>
-                      {active ? (
-                        <span className="ml-auto text-xs text-gray-300">●</span>
-                      ) : null}
+                      {active ? <span className="ml-auto text-xs text-gray-300">●</span> : null}
                     </Link>
                   );
                 })}
               </div>
 
-              {/* Optional: back to Napa Analytics main site */}
               <div className="mt-6 border-t border-white/10 pt-4">
                 <Link
                   href="/"

@@ -7,7 +7,12 @@ import type { DuelRow, Meta, SortDir, SortKey } from "@/lib/explorer/types";
 import FiltersPanel from "@/components/explorer/FiltersPanel";
 import PlayersTable from "@/components/explorer/PlayersTable";
 import MiniCharts from "@/components/explorer/MiniCharts";
-import { aggregatePlayers, filterRows, sortPlayers, defaultFiltersFromMeta } from "@/lib/explorer/logic";
+import {
+  aggregatePlayers,
+  filterRows,
+  sortPlayers,
+  defaultFiltersFromMeta,
+} from "@/lib/explorer/logic";
 import {
   buildSearchParamsFromState,
   filtersFromSearchParams,
@@ -101,7 +106,13 @@ function pct(x: number) {
 }
 
 function safeNum(v: any): number | null {
-  return typeof v === "number" && Number.isFinite(v) ? v : null;
+  const n = typeof v === "number" ? v : Number(v);
+  return Number.isFinite(n) ? n : null;
+}
+
+function fmt3(n: number | null) {
+  if (n === null) return "—";
+  return n.toFixed(3);
 }
 
 function toCsvValue(v: any) {
@@ -111,6 +122,21 @@ function toCsvValue(v: any) {
     return `"${s.replace(/"/g, '""')}"`;
   }
   return s;
+}
+
+function distinctDuelCount(rows: DuelRow[]) {
+  const set = new Set<string>();
+  for (const r of rows as any[]) {
+    const key = r.duelKey ? String(r.duelKey) : `d${r.duelId}`;
+    set.add(key);
+  }
+  return set.size;
+}
+
+type TeamKey = "Red" | "Blue";
+
+function isTeamKey(x: unknown): x is TeamKey {
+  return x === "Red" || x === "Blue";
 }
 
 export default function PlayersExplorerClient({
@@ -126,7 +152,10 @@ export default function PlayersExplorerClient({
   const pathname = usePathname();
 
   // Toast
-  const [toast, setToast] = useState<{ show: boolean; message: string }>(() => ({ show: false, message: "" }));
+  const [toast, setToast] = useState<{ show: boolean; message: string }>(() => ({
+    show: false,
+    message: "",
+  }));
   const toastTimerRef = useRef<number | null>(null);
 
   // Compare teams toggle
@@ -249,34 +278,62 @@ export default function PlayersExplorerClient({
   // Data
   const filteredRows = useMemo(() => filterRows(duels, filters), [duels, filters]);
   const playerAgg = useMemo(() => aggregatePlayers(filteredRows), [filteredRows]);
-  const sortedAgg = useMemo(() => sortPlayers(playerAgg, sortKey, sortDir), [playerAgg, sortKey, sortDir]);
+  const sortedAgg = useMemo(
+    () => sortPlayers(playerAgg, sortKey, sortDir),
+    [playerAgg, sortKey, sortDir]
+  );
 
   const kpis = useMemo(() => {
-    const duelRows = filteredRows.length;
+    const matchedRows = filteredRows.length;
+    const actualDuels = distinctDuelCount(filteredRows);
     const players = playerAgg.length;
-    const wins = filteredRows.reduce((s, r) => s + (r.won ? 1 : 0), 0);
-    const winPct = duelRows > 0 ? wins / duelRows : 0;
-    return { duelRows, players, winPct };
+    return { matchedRows, actualDuels, players };
   }, [filteredRows, playerAgg]);
 
+  /**
+   * ✅ Compare teams cards:
+   * - Win%
+   * - Dominance (avg normMargin)
+   */
   const teamCompare = useMemo(() => {
-    const acc = { Red: { rows: 0, wins: 0 }, Blue: { rows: 0, wins: 0 } };
-    for (const r of filteredRows) {
-      if (r.teamColor === "Red") {
-        acc.Red.rows += 1;
-        acc.Red.wins += r.won ? 1 : 0;
-      } else if (r.teamColor === "Blue") {
-        acc.Blue.rows += 1;
-        acc.Blue.wins += r.won ? 1 : 0;
+    const acc = {
+      Red: { rows: 0, wins: 0, mSum: 0, mN: 0 },
+      Blue: { rows: 0, wins: 0, mSum: 0, mN: 0 },
+    };
+
+    for (const rr of filteredRows) {
+
+  const t: unknown = (rr as any).teamColor;
+
+  if (!isTeamKey(t)) continue;
+
+  acc[t].rows += 1;
+  acc[t].wins += (rr as any).won ? 1 : 0;
+
+  const m = safeNum((rr as any).normMargin);
+
+      if (m !== null) {
+        acc[t].mSum += m;
+        acc[t].mN += 1;
       }
     }
+
     return {
-      red: { ...acc.Red, winPct: acc.Red.rows ? acc.Red.wins / acc.Red.rows : 0 },
-      blue: { ...acc.Blue, winPct: acc.Blue.rows ? acc.Blue.wins / acc.Blue.rows : 0 },
+      red: {
+        rows: acc.Red.rows,
+        wins: acc.Red.wins,
+        winPct: acc.Red.rows ? acc.Red.wins / acc.Red.rows : 0,
+        dominance: acc.Red.mN ? acc.Red.mSum / acc.Red.mN : null,
+      },
+      blue: {
+        rows: acc.Blue.rows,
+        wins: acc.Blue.wins,
+        winPct: acc.Blue.rows ? acc.Blue.wins / acc.Blue.rows : 0,
+        dominance: acc.Blue.mN ? acc.Blue.mSum / acc.Blue.mN : null,
+      },
     };
   }, [filteredRows]);
 
-  // Actions
   const resetAll = () => {
     setFilters(defaultFiltersFromMeta(meta));
     setSortKey("winPct");
@@ -307,25 +364,28 @@ export default function PlayersExplorerClient({
   }
 
   function pickHighPriceFromMeta(): string[] {
-    // Your Meta shape (from build_explorer) likely has meta.values.price OR meta.values.gamePrices.
     const values: string[] =
-      Array.isArray((meta as any)?.values?.price) ? (meta as any).values.price :
-      Array.isArray((meta as any)?.values?.gamePrices) ? (meta as any).values.gamePrices :
-      Array.isArray((meta as any)?.gamePrices) ? (meta as any).gamePrices :
-      [];
+      Array.isArray((meta as any)?.values?.gamePrice)
+        ? (meta as any).values.gamePrice
+        : Array.isArray((meta as any)?.values?.price)
+          ? (meta as any).values.price
+          : Array.isArray((meta as any)?.values?.gamePrices)
+            ? (meta as any).values.gamePrices
+            : Array.isArray((meta as any)?.gamePrices)
+              ? (meta as any).gamePrices
+              : [];
 
-    if (!values.length) return ["HIGH"]; // fallback
+    if (!values.length) return ["HIGH"];
     const sorted = [...values].map(String).sort((a, b) => a.localeCompare(b));
-    // choose top 1 (you can change to top 2 if you want)
     return [sorted[sorted.length - 1]];
   }
 
-  // ✅ Presets: set the EXACT params your parser understands.
   function applyPreset(preset: PresetKey) {
-    const sp = new URLSearchParams(window.location.search.startsWith("?") ? window.location.search.slice(1) : "");
+    const sp = new URLSearchParams(
+      window.location.search.startsWith("?") ? window.location.search.slice(1) : ""
+    );
 
     if (preset === "puzzle") {
-      // parsePuzzleMode expects: only|exclude|all (anything else => ALL)
       sp.set("puzzle", "only");
       showToast("Preset: Puzzle only");
     }
@@ -335,7 +395,7 @@ export default function PlayersExplorerClient({
       const fullMax = Number.isFinite(meta?.ranges?.week?.max) ? meta.ranges.week.max : null;
 
       if (fullMin !== null && fullMax !== null) {
-        const start = Math.max(fullMin, fullMax - 2); // last 3 weeks as a RANGE
+        const start = Math.max(fullMin, fullMax - 2);
         sp.set("week", start === fullMax ? String(fullMax) : `${start}-${fullMax}`);
         showToast(`Preset: Final weeks (${start}-${fullMax})`);
       } else {
@@ -345,13 +405,11 @@ export default function PlayersExplorerClient({
     }
 
     if (preset === "high_stakes") {
-      // filtersFromSearchParams reads sp.get("price")
       const pick = pickHighPriceFromMeta();
-      sp.set("price", pick.join(",")); // multi allowed
+      sp.set("price", pick.join(","));
       showToast(`Preset: High stakes (${pick.join(", ")})`);
     }
 
-    // ✅ Apply state from sp immediately, then write URL
     syncStateFromSearchParams(sp, true);
     const qs = sp.toString();
     const nextUrl = `${pathname}${qs ? `?${qs}` : ""}`;
@@ -372,7 +430,7 @@ export default function PlayersExplorerClient({
         r.team ??
         (r.teamColor ? (r.teamColor === "Red" ? "Athinaioi" : "Eparxiotes") : "");
 
-      const winPct = safeNum(r.winPct) ?? safeNum(r.winPercent);
+      const winPctVal = safeNum(r.winPct) ?? safeNum(r.winPercent);
       const arriveFirst = safeNum(r.arriveFirstPct) ?? safeNum(r.arriveFirst);
 
       const totalDuels = safeNum(r.totalDuels) ?? safeNum(r.duels);
@@ -384,7 +442,7 @@ export default function PlayersExplorerClient({
         playerId,
         name,
         team,
-        winPct == null ? "" : (winPct * 100).toFixed(1),
+        winPctVal == null ? "" : (winPctVal * 100).toFixed(1),
         arriveFirst == null ? "" : (arriveFirst * 100).toFixed(1),
         totalDuels ?? "",
         finalPtsWon ?? "",
@@ -460,41 +518,58 @@ export default function PlayersExplorerClient({
             </div>
           </div>
 
+          {/* ✅ Compare Teams cards (THIS is where dominance should live) */}
           {compareTeams && (
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
                 <div className="mb-1 text-sm font-semibold text-red-300">{teamLabel("Red")}</div>
+
                 <div className="text-xs text-white/60">Win%</div>
                 <div className="text-2xl font-bold">{pct(teamCompare.red.winPct)}</div>
-                <div className="mt-1 text-xs text-white/50">
-                  {teamCompare.red.wins} wins / {teamCompare.red.rows} duels
+
+                <div className="mt-2 text-xs text-white/60">Dominance (avg margin)</div>
+                <div className="text-lg font-semibold text-white/90">{fmt3(teamCompare.red.dominance)}</div>
+
+                <div className="mt-2 text-xs text-white/50">
+                  {teamCompare.red.wins} wins / {teamCompare.red.rows} participations
                 </div>
               </div>
+
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
                 <div className="mb-1 text-sm font-semibold text-blue-300">{teamLabel("Blue")}</div>
+
                 <div className="text-xs text-white/60">Win%</div>
                 <div className="text-2xl font-bold">{pct(teamCompare.blue.winPct)}</div>
-                <div className="mt-1 text-xs text-white/50">
-                  {teamCompare.blue.wins} wins / {teamCompare.blue.rows} duels
+
+                <div className="mt-2 text-xs text-white/60">Dominance (avg margin)</div>
+                <div className="text-lg font-semibold text-white/90">{fmt3(teamCompare.blue.dominance)}</div>
+
+                <div className="mt-2 text-xs text-white/50">
+                  {teamCompare.blue.wins} wins / {teamCompare.blue.rows} participations
                 </div>
               </div>
             </div>
           )}
 
+          {/* MiniCharts stays clean */}
           <MiniCharts filteredRows={filteredRows} playersSorted={sortedAgg} />
 
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
             <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-              <div className="text-xs text-white/60">Matched duel rows</div>
-              <div className="text-2xl font-bold">{kpis.duelRows}</div>
+              <div className="text-xs text-white/60">Actual duels</div>
+              <div className="text-2xl font-bold">{kpis.actualDuels}</div>
+              <div className="mt-1 text-xs text-white/50">Distinct duels</div>
             </div>
+
             <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
               <div className="text-xs text-white/60">Players</div>
               <div className="text-2xl font-bold">{kpis.players}</div>
             </div>
+
             <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-              <div className="text-xs text-white/60">Win% (filtered)</div>
-              <div className="text-2xl font-bold">{(kpis.winPct * 100).toFixed(1)}%</div>
+              <div className="text-xs text-white/60">Matched duel rows</div>
+              <div className="text-2xl font-bold">{kpis.matchedRows}</div>
+              <div className="mt-1 text-xs text-white/50">2 rows per duel (by design)</div>
             </div>
           </div>
 
