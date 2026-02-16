@@ -2,7 +2,7 @@
   "kind": "metric_value",
   "schema_version": 1,
   "run_id": "latest",
-  "generated_at": "2026-02-15T13:57:28.813Z",
+  "generated_at": "2026-02-16T07:54:38.559Z",
   "source_csv": "Portfolio_Risk_Summary.csv",
   "metrics": {
     "expected_cagr": 0.385233678,
