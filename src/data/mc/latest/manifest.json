@@ -1,0 +1,9 @@
+{
+  "run_id": "2026-02-15_run_001",
+  "timestamp": "2026-02-15T21:30:00Z",
+  "universe_size": 60,
+  "simulations": 10000,
+  "horizon_years": 1,
+  "step": "weekly",
+  "confidence": 0.95
+}
