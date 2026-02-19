@@ -8238,5 +8238,829 @@
         }
       }
     }
+  },
+  {
+    "id": "21",
+    "label": "Episode 21",
+    "dateISO": "2026-02-18T07:24:09.639Z",
+    "prevSnapshot": "ep_020",
+    "currSnapshot": "ep_021",
+    "summary": {
+      "comparedPlayers": 29,
+      "biggestRise": {
+        "id": "25",
+        "name": "Ariadni Dimitrelou",
+        "team": "Athinaioi",
+        "currPower": 71.26,
+        "prevPower": 45.97,
+        "delta": 25.290000000000006
+      },
+      "biggestFall": {
+        "id": "1",
+        "name": "Alexandros Kourtovik",
+        "team": "Athinaioi",
+        "currPower": 75.49,
+        "prevPower": 77.6,
+        "delta": -2.1099999999999994
+      },
+      "biggestRiseByTeam": {
+        "Eparxiotes": {
+          "id": "28",
+          "name": "Eftixia Kyrkosta",
+          "team": "Eparxiotes",
+          "currPower": 25.4,
+          "prevPower": 11.38,
+          "delta": 14.019999999999998
+        },
+        "Athinaioi": {
+          "id": "25",
+          "name": "Ariadni Dimitrelou",
+          "team": "Athinaioi",
+          "currPower": 71.26,
+          "prevPower": 45.97,
+          "delta": 25.290000000000006
+        }
+      },
+      "biggestFallByTeam": {
+        "Eparxiotes": {
+          "id": "23",
+          "name": "Michalis Sifakis",
+          "team": "Eparxiotes",
+          "currPower": 61.43,
+          "prevPower": 63.49,
+          "delta": -2.0600000000000023
+        },
+        "Athinaioi": {
+          "id": "1",
+          "name": "Alexandros Kourtovik",
+          "team": "Athinaioi",
+          "currPower": 75.49,
+          "prevPower": 77.6,
+          "delta": -2.1099999999999994
+        }
+      },
+      "teamResult": {
+        "matchId": "21-Immunity-21",
+        "gameType": null,
+        "score": {
+          "Athinaioi": 9,
+          "Eparxiotes": 10
+        },
+        "winner": "Eparxiotes",
+        "margin": 1
+      }
+    },
+    "movers": {
+      "up": [
+        {
+          "id": "25",
+          "name": "Ariadni Dimitrelou",
+          "team": "Athinaioi",
+          "currPower": 71.26,
+          "prevPower": 45.97,
+          "delta": 25.290000000000006
+        },
+        {
+          "id": "29",
+          "name": "Alex Benzy Karantonis",
+          "team": "Athinaioi",
+          "currPower": 53.59,
+          "prevPower": 38.62,
+          "delta": 14.970000000000006
+        },
+        {
+          "id": "28",
+          "name": "Eftixia Kyrkosta",
+          "team": "Eparxiotes",
+          "currPower": 25.4,
+          "prevPower": 11.38,
+          "delta": 14.019999999999998
+        },
+        {
+          "id": "26",
+          "name": "Valantis Pakos",
+          "team": "Athinaioi",
+          "currPower": 45.36,
+          "prevPower": 31.63,
+          "delta": 13.73
+        },
+        {
+          "id": "27",
+          "name": "Antonis Nikolopoulos",
+          "team": "Athinaioi",
+          "currPower": 44.96,
+          "prevPower": 33.42,
+          "delta": 11.54
+        },
+        {
+          "id": "15",
+          "name": "Dimitra Liaga",
+          "team": "Eparxiotes",
+          "currPower": 62.31,
+          "prevPower": 56.28,
+          "delta": 6.030000000000001
+        },
+        {
+          "id": "19",
+          "name": "Giorgos Polychros",
+          "team": "Eparxiotes",
+          "currPower": 88.1,
+          "prevPower": 83.11,
+          "delta": 4.989999999999995
+        },
+        {
+          "id": "17",
+          "name": "Fani Pantelaki",
+          "team": "Eparxiotes",
+          "currPower": 96.7,
+          "prevPower": 91.83,
+          "delta": 4.8700000000000045
+        },
+        {
+          "id": "2",
+          "name": "Dimitris Theodoropoulos",
+          "team": "Athinaioi",
+          "currPower": 89.8,
+          "prevPower": 86.42,
+          "delta": 3.3799999999999955
+        },
+        {
+          "id": "7",
+          "name": "Giorgos Karaisalidis",
+          "team": "Athinaioi",
+          "currPower": 73.28,
+          "prevPower": 70.29,
+          "delta": 2.989999999999995
+        }
+      ],
+      "down": [
+        {
+          "id": "1",
+          "name": "Alexandros Kourtovik",
+          "team": "Athinaioi",
+          "currPower": 75.49,
+          "prevPower": 77.6,
+          "delta": -2.1099999999999994
+        },
+        {
+          "id": "23",
+          "name": "Michalis Sifakis",
+          "team": "Eparxiotes",
+          "currPower": 61.43,
+          "prevPower": 63.49,
+          "delta": -2.0600000000000023
+        },
+        {
+          "id": "24",
+          "name": "Stauros Floros",
+          "team": "Eparxiotes",
+          "currPower": 56.71,
+          "prevPower": 58.28,
+          "delta": -1.5700000000000003
+        },
+        {
+          "id": "12",
+          "name": "Vasiliki Mounti",
+          "team": "Athinaioi",
+          "currPower": 54.75,
+          "prevPower": 56.1,
+          "delta": -1.3500000000000014
+        },
+        {
+          "id": "9",
+          "name": "Kelly Bofiliou",
+          "team": "Athinaioi",
+          "currPower": 54.67,
+          "prevPower": 55.86,
+          "delta": -1.1899999999999977
+        },
+        {
+          "id": "20",
+          "name": "Ioanna Desylla",
+          "team": "Eparxiotes",
+          "currPower": 100,
+          "prevPower": 100,
+          "delta": 0
+        },
+        {
+          "id": "11",
+          "name": "Stauroula Potiri",
+          "team": "Athinaioi",
+          "currPower": 19.9,
+          "prevPower": 19.43,
+          "delta": 0.46999999999999886
+        },
+        {
+          "id": "6",
+          "name": "Gio Karantonis",
+          "team": "Athinaioi",
+          "currPower": 28.36,
+          "prevPower": 27.69,
+          "delta": 0.6699999999999982
+        },
+        {
+          "id": "13",
+          "name": "Anastasia Stergiou",
+          "team": "Eparxiotes",
+          "currPower": 88.41,
+          "prevPower": 87.7,
+          "delta": 0.7099999999999937
+        },
+        {
+          "id": "3",
+          "name": "Elisavet Sekertzi",
+          "team": "Athinaioi",
+          "currPower": 30.68,
+          "prevPower": 29.96,
+          "delta": 0.7199999999999989
+        }
+      ],
+      "byTeam": {
+        "Eparxiotes": {
+          "up": [
+            {
+              "id": "28",
+              "name": "Eftixia Kyrkosta",
+              "team": "Eparxiotes",
+              "currPower": 25.4,
+              "prevPower": 11.38,
+              "delta": 14.019999999999998
+            },
+            {
+              "id": "15",
+              "name": "Dimitra Liaga",
+              "team": "Eparxiotes",
+              "currPower": 62.31,
+              "prevPower": 56.28,
+              "delta": 6.030000000000001
+            },
+            {
+              "id": "19",
+              "name": "Giorgos Polychros",
+              "team": "Eparxiotes",
+              "currPower": 88.1,
+              "prevPower": 83.11,
+              "delta": 4.989999999999995
+            },
+            {
+              "id": "17",
+              "name": "Fani Pantelaki",
+              "team": "Eparxiotes",
+              "currPower": 96.7,
+              "prevPower": 91.83,
+              "delta": 4.8700000000000045
+            },
+            {
+              "id": "21",
+              "name": "Ioannis Revis",
+              "team": "Eparxiotes",
+              "currPower": 46.11,
+              "prevPower": 43.48,
+              "delta": 2.6300000000000026
+            }
+          ],
+          "down": [
+            {
+              "id": "23",
+              "name": "Michalis Sifakis",
+              "team": "Eparxiotes",
+              "currPower": 61.43,
+              "prevPower": 63.49,
+              "delta": -2.0600000000000023
+            },
+            {
+              "id": "24",
+              "name": "Stauros Floros",
+              "team": "Eparxiotes",
+              "currPower": 56.71,
+              "prevPower": 58.28,
+              "delta": -1.5700000000000003
+            },
+            {
+              "id": "20",
+              "name": "Ioanna Desylla",
+              "team": "Eparxiotes",
+              "currPower": 100,
+              "prevPower": 100,
+              "delta": 0
+            },
+            {
+              "id": "13",
+              "name": "Anastasia Stergiou",
+              "team": "Eparxiotes",
+              "currPower": 88.41,
+              "prevPower": 87.7,
+              "delta": 0.7099999999999937
+            },
+            {
+              "id": "14",
+              "name": "Christos Milonas",
+              "team": "Eparxiotes",
+              "currPower": 35.24,
+              "prevPower": 34.42,
+              "delta": 0.8200000000000003
+            }
+          ]
+        },
+        "Athinaioi": {
+          "up": [
+            {
+              "id": "25",
+              "name": "Ariadni Dimitrelou",
+              "team": "Athinaioi",
+              "currPower": 71.26,
+              "prevPower": 45.97,
+              "delta": 25.290000000000006
+            },
+            {
+              "id": "29",
+              "name": "Alex Benzy Karantonis",
+              "team": "Athinaioi",
+              "currPower": 53.59,
+              "prevPower": 38.62,
+              "delta": 14.970000000000006
+            },
+            {
+              "id": "26",
+              "name": "Valantis Pakos",
+              "team": "Athinaioi",
+              "currPower": 45.36,
+              "prevPower": 31.63,
+              "delta": 13.73
+            },
+            {
+              "id": "27",
+              "name": "Antonis Nikolopoulos",
+              "team": "Athinaioi",
+              "currPower": 44.96,
+              "prevPower": 33.42,
+              "delta": 11.54
+            },
+            {
+              "id": "2",
+              "name": "Dimitris Theodoropoulos",
+              "team": "Athinaioi",
+              "currPower": 89.8,
+              "prevPower": 86.42,
+              "delta": 3.3799999999999955
+            }
+          ],
+          "down": [
+            {
+              "id": "1",
+              "name": "Alexandros Kourtovik",
+              "team": "Athinaioi",
+              "currPower": 75.49,
+              "prevPower": 77.6,
+              "delta": -2.1099999999999994
+            },
+            {
+              "id": "12",
+              "name": "Vasiliki Mounti",
+              "team": "Athinaioi",
+              "currPower": 54.75,
+              "prevPower": 56.1,
+              "delta": -1.3500000000000014
+            },
+            {
+              "id": "9",
+              "name": "Kelly Bofiliou",
+              "team": "Athinaioi",
+              "currPower": 54.67,
+              "prevPower": 55.86,
+              "delta": -1.1899999999999977
+            },
+            {
+              "id": "11",
+              "name": "Stauroula Potiri",
+              "team": "Athinaioi",
+              "currPower": 19.9,
+              "prevPower": 19.43,
+              "delta": 0.46999999999999886
+            },
+            {
+              "id": "6",
+              "name": "Gio Karantonis",
+              "team": "Athinaioi",
+              "currPower": 28.36,
+              "prevPower": 27.69,
+              "delta": 0.6699999999999982
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "22",
+    "label": "Episode 22",
+    "dateISO": "2026-02-18T08:54:55.916Z",
+    "prevSnapshot": "ep_021",
+    "currSnapshot": "ep_022",
+    "summary": {
+      "comparedPlayers": 29,
+      "biggestRise": {
+        "id": "29",
+        "name": "Alex Benzy Karantonis",
+        "team": "Athinaioi",
+        "currPower": 79.86,
+        "prevPower": 53.59,
+        "delta": 26.269999999999996
+      },
+      "biggestFall": {
+        "id": "17",
+        "name": "Fani Pantelaki",
+        "team": "Eparxiotes",
+        "currPower": 92.73,
+        "prevPower": 96.7,
+        "delta": -3.969999999999999
+      },
+      "biggestRiseByTeam": {
+        "Eparxiotes": {
+          "id": "28",
+          "name": "Eftixia Kyrkosta",
+          "team": "Eparxiotes",
+          "currPower": 40.26,
+          "prevPower": 25.4,
+          "delta": 14.86
+        },
+        "Athinaioi": {
+          "id": "29",
+          "name": "Alex Benzy Karantonis",
+          "team": "Athinaioi",
+          "currPower": 79.86,
+          "prevPower": 53.59,
+          "delta": 26.269999999999996
+        }
+      },
+      "biggestFallByTeam": {
+        "Eparxiotes": {
+          "id": "17",
+          "name": "Fani Pantelaki",
+          "team": "Eparxiotes",
+          "currPower": 92.73,
+          "prevPower": 96.7,
+          "delta": -3.969999999999999
+        },
+        "Athinaioi": {
+          "id": "12",
+          "name": "Vasiliki Mounti",
+          "team": "Athinaioi",
+          "currPower": 53.14,
+          "prevPower": 54.75,
+          "delta": -1.6099999999999994
+        }
+      },
+      "teamResult": {
+        "matchId": "22-Immunity-22",
+        "gameType": null,
+        "score": {
+          "Athinaioi": 10,
+          "Eparxiotes": 7
+        },
+        "winner": "Athinaioi",
+        "margin": 3
+      }
+    },
+    "movers": {
+      "up": [
+        {
+          "id": "29",
+          "name": "Alex Benzy Karantonis",
+          "team": "Athinaioi",
+          "currPower": 79.86,
+          "prevPower": 53.59,
+          "delta": 26.269999999999996
+        },
+        {
+          "id": "26",
+          "name": "Valantis Pakos",
+          "team": "Athinaioi",
+          "currPower": 63.37,
+          "prevPower": 45.36,
+          "delta": 18.009999999999998
+        },
+        {
+          "id": "28",
+          "name": "Eftixia Kyrkosta",
+          "team": "Eparxiotes",
+          "currPower": 40.26,
+          "prevPower": 25.4,
+          "delta": 14.86
+        },
+        {
+          "id": "27",
+          "name": "Antonis Nikolopoulos",
+          "team": "Athinaioi",
+          "currPower": 56.87,
+          "prevPower": 44.96,
+          "delta": 11.909999999999997
+        },
+        {
+          "id": "10",
+          "name": "Mantisa Tsota",
+          "team": "Athinaioi",
+          "currPower": 86.3,
+          "prevPower": 81.45,
+          "delta": 4.849999999999994
+        },
+        {
+          "id": "2",
+          "name": "Dimitris Theodoropoulos",
+          "team": "Athinaioi",
+          "currPower": 93.38,
+          "prevPower": 89.8,
+          "delta": 3.5799999999999983
+        },
+        {
+          "id": "15",
+          "name": "Dimitra Liaga",
+          "team": "Eparxiotes",
+          "currPower": 65.59,
+          "prevPower": 62.31,
+          "delta": 3.280000000000001
+        },
+        {
+          "id": "13",
+          "name": "Anastasia Stergiou",
+          "team": "Eparxiotes",
+          "currPower": 91.26,
+          "prevPower": 88.41,
+          "delta": 2.8500000000000085
+        },
+        {
+          "id": "21",
+          "name": "Ioannis Revis",
+          "team": "Eparxiotes",
+          "currPower": 48.75,
+          "prevPower": 46.11,
+          "delta": 2.6400000000000006
+        },
+        {
+          "id": "4",
+          "name": "Evelina Lykoudi",
+          "team": "Athinaioi",
+          "currPower": 73.64,
+          "prevPower": 72.49,
+          "delta": 1.1500000000000057
+        }
+      ],
+      "down": [
+        {
+          "id": "17",
+          "name": "Fani Pantelaki",
+          "team": "Eparxiotes",
+          "currPower": 92.73,
+          "prevPower": 96.7,
+          "delta": -3.969999999999999
+        },
+        {
+          "id": "23",
+          "name": "Michalis Sifakis",
+          "team": "Eparxiotes",
+          "currPower": 58.79,
+          "prevPower": 61.43,
+          "delta": -2.6400000000000006
+        },
+        {
+          "id": "24",
+          "name": "Stauros Floros",
+          "team": "Eparxiotes",
+          "currPower": 54.62,
+          "prevPower": 56.71,
+          "delta": -2.0900000000000034
+        },
+        {
+          "id": "12",
+          "name": "Vasiliki Mounti",
+          "team": "Athinaioi",
+          "currPower": 53.14,
+          "prevPower": 54.75,
+          "delta": -1.6099999999999994
+        },
+        {
+          "id": "9",
+          "name": "Kelly Bofiliou",
+          "team": "Athinaioi",
+          "currPower": 53.28,
+          "prevPower": 54.67,
+          "delta": -1.3900000000000006
+        },
+        {
+          "id": "7",
+          "name": "Giorgos Karaisalidis",
+          "team": "Athinaioi",
+          "currPower": 72.37,
+          "prevPower": 73.28,
+          "delta": -0.9099999999999966
+        },
+        {
+          "id": "1",
+          "name": "Alexandros Kourtovik",
+          "team": "Athinaioi",
+          "currPower": 74.94,
+          "prevPower": 75.49,
+          "delta": -0.5499999999999972
+        },
+        {
+          "id": "19",
+          "name": "Giorgos Polychros",
+          "team": "Eparxiotes",
+          "currPower": 87.7,
+          "prevPower": 88.1,
+          "delta": -0.3999999999999915
+        },
+        {
+          "id": "20",
+          "name": "Ioanna Desylla",
+          "team": "Eparxiotes",
+          "currPower": 100,
+          "prevPower": 100,
+          "delta": 0
+        },
+        {
+          "id": "25",
+          "name": "Ariadni Dimitrelou",
+          "team": "Athinaioi",
+          "currPower": 71.54,
+          "prevPower": 71.26,
+          "delta": 0.28000000000000114
+        }
+      ],
+      "byTeam": {
+        "Eparxiotes": {
+          "up": [
+            {
+              "id": "28",
+              "name": "Eftixia Kyrkosta",
+              "team": "Eparxiotes",
+              "currPower": 40.26,
+              "prevPower": 25.4,
+              "delta": 14.86
+            },
+            {
+              "id": "15",
+              "name": "Dimitra Liaga",
+              "team": "Eparxiotes",
+              "currPower": 65.59,
+              "prevPower": 62.31,
+              "delta": 3.280000000000001
+            },
+            {
+              "id": "13",
+              "name": "Anastasia Stergiou",
+              "team": "Eparxiotes",
+              "currPower": 91.26,
+              "prevPower": 88.41,
+              "delta": 2.8500000000000085
+            },
+            {
+              "id": "21",
+              "name": "Ioannis Revis",
+              "team": "Eparxiotes",
+              "currPower": 48.75,
+              "prevPower": 46.11,
+              "delta": 2.6400000000000006
+            },
+            {
+              "id": "16",
+              "name": "Eleni Zaraga",
+              "team": "Eparxiotes",
+              "currPower": 43.15,
+              "prevPower": 42.47,
+              "delta": 0.6799999999999997
+            }
+          ],
+          "down": [
+            {
+              "id": "17",
+              "name": "Fani Pantelaki",
+              "team": "Eparxiotes",
+              "currPower": 92.73,
+              "prevPower": 96.7,
+              "delta": -3.969999999999999
+            },
+            {
+              "id": "23",
+              "name": "Michalis Sifakis",
+              "team": "Eparxiotes",
+              "currPower": 58.79,
+              "prevPower": 61.43,
+              "delta": -2.6400000000000006
+            },
+            {
+              "id": "24",
+              "name": "Stauros Floros",
+              "team": "Eparxiotes",
+              "currPower": 54.62,
+              "prevPower": 56.71,
+              "delta": -2.0900000000000034
+            },
+            {
+              "id": "19",
+              "name": "Giorgos Polychros",
+              "team": "Eparxiotes",
+              "currPower": 87.7,
+              "prevPower": 88.1,
+              "delta": -0.3999999999999915
+            },
+            {
+              "id": "20",
+              "name": "Ioanna Desylla",
+              "team": "Eparxiotes",
+              "currPower": 100,
+              "prevPower": 100,
+              "delta": 0
+            }
+          ]
+        },
+        "Athinaioi": {
+          "up": [
+            {
+              "id": "29",
+              "name": "Alex Benzy Karantonis",
+              "team": "Athinaioi",
+              "currPower": 79.86,
+              "prevPower": 53.59,
+              "delta": 26.269999999999996
+            },
+            {
+              "id": "26",
+              "name": "Valantis Pakos",
+              "team": "Athinaioi",
+              "currPower": 63.37,
+              "prevPower": 45.36,
+              "delta": 18.009999999999998
+            },
+            {
+              "id": "27",
+              "name": "Antonis Nikolopoulos",
+              "team": "Athinaioi",
+              "currPower": 56.87,
+              "prevPower": 44.96,
+              "delta": 11.909999999999997
+            },
+            {
+              "id": "10",
+              "name": "Mantisa Tsota",
+              "team": "Athinaioi",
+              "currPower": 86.3,
+              "prevPower": 81.45,
+              "delta": 4.849999999999994
+            },
+            {
+              "id": "2",
+              "name": "Dimitris Theodoropoulos",
+              "team": "Athinaioi",
+              "currPower": 93.38,
+              "prevPower": 89.8,
+              "delta": 3.5799999999999983
+            }
+          ],
+          "down": [
+            {
+              "id": "12",
+              "name": "Vasiliki Mounti",
+              "team": "Athinaioi",
+              "currPower": 53.14,
+              "prevPower": 54.75,
+              "delta": -1.6099999999999994
+            },
+            {
+              "id": "9",
+              "name": "Kelly Bofiliou",
+              "team": "Athinaioi",
+              "currPower": 53.28,
+              "prevPower": 54.67,
+              "delta": -1.3900000000000006
+            },
+            {
+              "id": "7",
+              "name": "Giorgos Karaisalidis",
+              "team": "Athinaioi",
+              "currPower": 72.37,
+              "prevPower": 73.28,
+              "delta": -0.9099999999999966
+            },
+            {
+              "id": "1",
+              "name": "Alexandros Kourtovik",
+              "team": "Athinaioi",
+              "currPower": 74.94,
+              "prevPower": 75.49,
+              "delta": -0.5499999999999972
+            },
+            {
+              "id": "25",
+              "name": "Ariadni Dimitrelou",
+              "team": "Athinaioi",
+              "currPower": 71.54,
+              "prevPower": 71.26,
+              "delta": 0.28000000000000114
+            }
+          ]
+        }
+      }
+    }
   }
 ]

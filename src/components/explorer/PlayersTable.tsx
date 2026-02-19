@@ -1,7 +1,10 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import type { PlayerAgg, SortDir, SortKey } from "@/lib/explorer/types";
+
+const BASE = "/projects/survivor-stats";
 
 function pct(x: number) {
   if (typeof x !== "number" || !Number.isFinite(x)) return "—";
@@ -41,6 +44,7 @@ function SortHeader({
 }) {
   const active = sortKey === col;
   const arrow = !active ? "" : sortDir === "asc" ? " ▲" : " ▼";
+
   return (
     <button
       onClick={() => onSort(col)}
@@ -74,51 +78,97 @@ export default function PlayersTable({
   return (
     <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/5">
       <table className="min-w-[900px] w-full text-sm">
+
         <thead className="bg-black/20">
           <tr className="text-white/80">
+
             <th className="px-3 py-2">
               <SortHeader label="PlayerID" col="playerId" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
             </th>
+
             <th className="px-3 py-2">
               <SortHeader label="Name" col="playerName" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
             </th>
+
             <th className="px-3 py-2">
               <SortHeader label="Win%" col="winPct" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
             </th>
+
             <th className="px-3 py-2">
               <SortHeader label="ArriveFirst%" col="arriveFirstPct" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
             </th>
+
             <th className="px-3 py-2">
               <SortHeader label="TotalDuels" col="totalDuels" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
             </th>
+
             <th className="px-3 py-2">
               <SortHeader label="FinalPtsWon" col="finalPtsWon" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
             </th>
+
             <th className="px-3 py-2">
               <SortHeader label="Team" col="teamColor" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
             </th>
+
             <th className="px-3 py-2">
               <SortHeader label="Dominance" col="normMargin" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
             </th>
+
           </tr>
         </thead>
 
         <tbody>
+
           {rows.map((r) => (
+
             <tr key={r.playerId} className="border-t border-white/10">
-              <td className="px-3 py-2 text-white/90">{r.playerId ?? "—"}</td>
-              <td className="px-3 py-2 text-white/90">{r.playerName ?? "—"}</td>
-              <td className="px-3 py-2 text-white/90">{pct(r.winPct as any)}</td>
-              <td className="px-3 py-2 text-white/90">{pct(r.arriveFirstPct as any)}</td>
-              <td className="px-3 py-2 text-white/90">{r.totalDuels ?? "—"}</td>
-              <td className="px-3 py-2 text-white/90">{r.finalPtsWon ?? "—"}</td>
+
+              <td className="px-3 py-2 text-white/90">
+                {r.playerId ?? "—"}
+              </td>
+
+              {/* ✅ CLICKABLE NAME */}
+              <td className="px-3 py-2">
+
+                <Link
+                  href={`${BASE}/players/${encodeURIComponent(String(r.playerId))}`}
+                  className="text-teal-300 hover:underline font-semibold"
+                >
+                  {r.playerName ?? "—"}
+                </Link>
+
+              </td>
+
+              <td className="px-3 py-2 text-white/90">
+                {pct(r.winPct as any)}
+              </td>
+
+              <td className="px-3 py-2 text-white/90">
+                {pct(r.arriveFirstPct as any)}
+              </td>
+
+              <td className="px-3 py-2 text-white/90">
+                {r.totalDuels ?? "—"}
+              </td>
+
+              <td className="px-3 py-2 text-white/90">
+                {r.finalPtsWon ?? "—"}
+              </td>
+
               <td className={["px-3 py-2", teamClass(r.teamColor)].join(" ")}>
                 {teamLabel(r.teamColor)}
               </td>
-              <td className="px-3 py-2 text-white/90">{num(r.normMargin, 3)}</td>
+
+              <td className="px-3 py-2 text-white/90">
+                {num(r.normMargin, 3)}
+              </td>
+
             </tr>
+
           ))}
+
         </tbody>
+
       </table>
     </div>
   );

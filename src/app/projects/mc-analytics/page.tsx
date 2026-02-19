@@ -5,6 +5,7 @@ import fs from "fs";
 import path from "path";
 import Link from "next/link";
 import RunPickerClient, { type RunManifestLite } from "./RunPickerClient";
+import RiskTableClient from "./RiskTableClient";
 
 type Manifest = {
   run_id: string;
@@ -69,6 +70,7 @@ function listRunsFromArchive(): Manifest[] {
     if (m?.run_id && m?.timestamp) manifests.push(m);
   }
 
+  // newest first (timestamp is ISO)
   manifests.sort((a, b) => (a.timestamp < b.timestamp ? 1 : a.timestamp > b.timestamp ? -1 : 0));
   return manifests;
 }
@@ -91,11 +93,6 @@ function formatCurrency(x: unknown): string {
     currency: "USD",
     maximumFractionDigits: 0,
   });
-}
-
-function formatNumber(x: unknown, maxDigits = 2): string {
-  if (typeof x !== "number" || !Number.isFinite(x)) return "—";
-  return x.toLocaleString(undefined, { maximumFractionDigits: maxDigits });
 }
 
 // Parse numeric value that may be number or numeric string
@@ -343,29 +340,50 @@ export default async function MCAnalyticsPage({
   const prB = resolveDataPath(root, selectedRunId, "Portfolio_Risk_Summary.json");
   const portfolioRiskSummary =
     readJsonIfExists<MetricValueJson>(prA.path) ?? readJsonIfExists<MetricValueJson>(prB.path) ?? null;
+
   const portfolioSource = portfolioRiskSummary
     ? readJsonIfExists<MetricValueJson>(prA.path)
       ? prA.source
       : prB.source
     : "latest";
+
   const metrics = portfolioRiskSummary?.metrics ?? undefined;
 
-  const expectedCagr = pickMetricNumber(metrics, { exact: ["expected_cagr"], includesAny: ["expected_cagr", "cagr"] });
+  const expectedCagr = pickMetricNumber(metrics, {
+    exact: ["expected_cagr"],
+    includesAny: ["expected_cagr", "cagr"],
+  });
+
   const downsideProb = pickMetricNumber(metrics, {
     exact: ["downside_probability"],
     includesAny: ["downside_probability", "downside_prob"],
   });
-  const median = pickMetricNumber(metrics, { exact: ["median_terminal", "portfolio_median"], includesAny: ["median"] });
-  const p5 = pickMetricNumber(metrics, { exact: ["p5_terminal", "portfolio_p5"], includesAny: ["p5"] });
-  const p95 = pickMetricNumber(metrics, { exact: ["p95_terminal", "portfolio_p95"], includesAny: ["p95"] });
+
+  const median = pickMetricNumber(metrics, {
+    exact: ["median_terminal", "portfolio_median"],
+    includesAny: ["median"],
+  });
+
+  const p5 = pickMetricNumber(metrics, {
+    exact: ["p5_terminal", "portfolio_p5"],
+    includesAny: ["p5"],
+  });
+
+  const p95 = pickMetricNumber(metrics, {
+    exact: ["p95_terminal", "portfolio_p95"],
+    includesAny: ["p95"],
+  });
+
   const lastValue = pickMetricNumber(metrics, {
     exact: ["portfolio_last_value"],
     includesAny: ["portfolio_last_value", "current_value", "last_value"],
   });
+
   const downsideVsCurrent = pickMetricNumber(metrics, {
     exact: ["downside_vs_current"],
     includesAny: ["downside_vs_current", "p5_vs_current"],
   });
+
   const upsideVsCurrent = pickMetricNumber(metrics, {
     exact: ["upside_vs_current"],
     includesAny: ["upside_vs_current", "p95_vs_current"],
@@ -374,22 +392,22 @@ export default async function MCAnalyticsPage({
   // -------- risk metrics (asset table) --------
   const rmA = resolveDataPath(root, selectedRunId, "risk_metrics.json");
   const rmB = resolveDataPath(root, selectedRunId, "Risk_Metrics.json");
+
   const riskMetrics = readJsonIfExists<TableJson>(rmA.path) ?? readJsonIfExists<TableJson>(rmB.path) ?? null;
+
   const riskSource = riskMetrics ? (readJsonIfExists<TableJson>(rmA.path) ? rmA.source : rmB.source) : "latest";
 
   const riskRows = Array.isArray(riskMetrics?.rows) ? (riskMetrics!.rows as Array<Record<string, any>>) : [];
 
   const assets = riskRows
     .map((r, idx) => {
-      // Your JSON uses StockName + StockID exactly.
+      // JSON uses StockName + StockID
       const display = pickRowField(r, ["stockname"]) ?? pickRowField(r, ["stockid"]) ?? "—";
       const stockId = pickRowField(r, ["stockid"]);
 
       const riskScore = parseNum(pickRowField(r, ["risk_score"]));
 
-      // ✅ ONLY look for the real numeric downside column: "Downside Prob"
-      // After you rename the other column to "Downside Prob Explanation",
-      // it will no longer normalize to "downside_prob".
+      // ✅ ONLY look for real numeric downside column: "Downside Prob" (normalized to downside_prob)
       const downside = parsePct01(pickRowField(r, ["downside_prob"]));
 
       const expectedLossRaw = pickRowField(r, ["expected_loss"]);
@@ -406,15 +424,14 @@ export default async function MCAnalyticsPage({
         riskScore,
         downside,
         expectedLoss,
+        last,
         p5: p5a,
         median: med,
-        last,
       };
     })
     .filter((a) => a.display !== "—");
 
   const assetsSorted = assets.slice().sort((a, b) => (b.riskScore ?? -Infinity) - (a.riskScore ?? -Infinity));
-  const topAssets = assetsSorted.slice(0, 20);
 
   const pickerRuns: RunManifestLite[] = runs.map((m) => ({ run_id: m.run_id, timestamp: m.timestamp }));
 
@@ -494,47 +511,14 @@ export default async function MCAnalyticsPage({
           <MiniFrontier />
         </Card>
 
-        {/* Risk table */}
+        {/* Risk table (SORTABLE + CLICKABLE) */}
         <Card
           title="Asset risk metrics"
-          subtitle="Top 20 by Risk Score (bad-tail focus)"
+          subtitle="Sortable • Click a stock to open its dedicated asset page"
           className="lg:col-span-2"
-          right={<Pill>{assets.length ? `${assets.length} assets` : "No data"}</Pill>}
+          right={<Pill>{assetsSorted.length ? `${assetsSorted.length} assets` : "No data"}</Pill>}
         >
-          {topAssets.length ? (
-            <div className="overflow-x-auto rounded-2xl border border-white/10">
-              <table className="min-w-full text-left text-sm">
-                <thead className="bg-white/[0.04]">
-                  <tr>
-                    <th className="px-4 py-3 text-xs font-semibold uppercase tracking-wide text-gray-300">Stock</th>
-                    <th className="px-4 py-3 text-xs font-semibold uppercase tracking-wide text-gray-300">Risk score</th>
-                    <th className="px-4 py-3 text-xs font-semibold uppercase tracking-wide text-gray-300">Downside Prob</th>
-                    <th className="px-4 py-3 text-xs font-semibold uppercase tracking-wide text-gray-300">Expected loss</th>
-                    <th className="px-4 py-3 text-xs font-semibold uppercase tracking-wide text-gray-300">Last</th>
-                    <th className="px-4 py-3 text-xs font-semibold uppercase tracking-wide text-gray-300">P5</th>
-                    <th className="px-4 py-3 text-xs font-semibold uppercase tracking-wide text-gray-300">Median</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {topAssets.map((a) => (
-                    <tr key={a.rowKey} className="border-t border-white/10">
-                      <td className="px-4 py-3 font-semibold text-white">{a.display}</td>
-                      <td className="px-4 py-3 text-gray-200">{a.riskScore != null ? formatNumber(a.riskScore, 3) : "—"}</td>
-                      <td className="px-4 py-3 text-gray-200">{a.downside != null ? formatPct01(a.downside) : "—"}</td>
-                      <td className="px-4 py-3 text-gray-200">{a.expectedLoss != null ? formatPct01(a.expectedLoss) : "—"}</td>
-                      <td className="px-4 py-3 text-gray-200">{a.last != null ? formatCurrency(a.last) : "—"}</td>
-                      <td className="px-4 py-3 text-gray-200">{a.p5 != null ? formatCurrency(a.p5) : "—"}</td>
-                      <td className="px-4 py-3 text-gray-200">{a.median != null ? formatCurrency(a.median) : "—"}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          ) : (
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-sm text-gray-300">
-              No risk metrics parsed from JSON.
-            </div>
-          )}
+          <RiskTableClient rows={assetsSorted} runId={selectedRunId} />
         </Card>
 
         <Card title="Equity curve (simulated path)" subtitle="Preview style only (placeholder)" className="lg:col-span-2">

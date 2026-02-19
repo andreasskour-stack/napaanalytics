@@ -3,18 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build:explorer": "node scripts/build_explorer_duels.mjs",
     "dev": "next dev",
+    "dev:webpack": "next dev --webpack",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+
+    "build:explorer": "node scripts/build_explorer_duels.mjs",
+
     "rankings:build": "node scripts/csv_to_rankings_json.mjs",
     "players:build": "node scripts/csv_to_players_json.mjs",
     "episodes:build": "node scripts/build_episodes.mjs",
     "h2h:build": "node scripts/csv_to_h2h_json.mjs",
-    "mc:build": "node scripts/build_mc_json.mjs",
-    "update": "npm run rankings:build && npm run players:build && npm run h2h:build && npm run episodes:build && npm run history:build",
     "history:build": "node scripts/build_power_history.mjs",
+
+    "mc:build": "node scripts/build_mc_json.mjs",
+
+    "update:survivor": "npm run rankings:build && npm run players:build && npm run build:explorer && npm run h2h:build && npm run episodes:build && npm run history:build",
+    "update:mc": "npm run mc:build",
+
+    "update": "npm run update:survivor && npm run update:mc",
+
     "prebuild": "npm run build:explorer"
   },
   "dependencies": {

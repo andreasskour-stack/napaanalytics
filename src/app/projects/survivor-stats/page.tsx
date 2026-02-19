@@ -16,11 +16,20 @@ type RankRow = {
   power: number;
   active?: boolean;
   isEliminated?: boolean;
+  eliminatedEpisode?: number | null;
 };
 
 type Snapshot = {
   meta?: { builtAtISO?: string; episode?: number };
-  rankings?: RankRow[];
+  rankings?: AnyRow[];
+};
+
+type PlayerRow = {
+  id: string;
+  name?: string;
+  team?: string;
+  isEliminated?: boolean;
+  eliminatedEpisode?: number | null;
 };
 
 // ---------- Helpers ----------
@@ -150,11 +159,81 @@ function percentile(values: number[], p: number) {
   return arr[lo] * (1 - w) + arr[hi] * w;
 }
 
+// Prefer adjusted power if present; fallback to power.
+function pickPower(rr: any): number {
+  const a = typeof rr?.power_adj === "number" ? rr.power_adj : Number(rr?.power_adj);
+  if (Number.isFinite(a)) return a;
+
+  const p = typeof rr?.power === "number" ? rr.power : Number(rr?.power);
+  return Number.isFinite(p) ? p : 0;
+}
+
+function fmtSlope(n: number | null | undefined) {
+  if (n == null || !Number.isFinite(n)) return "—";
+  const sign = n > 0 ? "+" : "";
+  return `${sign}${n.toFixed(3)}/ep`;
+}
+
+// tiny sparkline for a numeric series
+function Sparkline({ values, width = 120, height = 28 }: { values: number[]; width?: number; height?: number }) {
+  const pad = 2;
+  const w = width;
+  const h = height;
+  const n = values.length;
+
+  if (!n) {
+    return <div className="h-[28px] w-[120px] rounded-md border border-white/10 bg-white/5" />;
+  }
+
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const span = max - min || 1;
+
+  const xOf = (i: number) => pad + (i * (w - pad * 2)) / Math.max(1, n - 1);
+  const yOf = (v: number) => pad + (h - pad * 2) * (1 - (v - min) / span);
+
+  let d = "";
+  for (let i = 0; i < n; i++) {
+    const x = xOf(i);
+    const y = yOf(values[i]);
+    d += i === 0 ? `M ${x} ${y}` : ` L ${x} ${y}`;
+  }
+
+  return (
+    <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} className="text-white/70">
+      <path d={d} fill="none" stroke="currentColor" strokeWidth="2" opacity="0.85" />
+    </svg>
+  );
+}
+
 // ---------- Main ----------
 export default function SurvivorStatsHome() {
   const root = process.cwd();
   const episodesPath = path.join(root, "src", "data", "episodes.json");
   const archiveDir = path.join(root, "src", "data", "archive");
+
+  // players.json used for elimination truth
+  const playersPath = path.join(root, "src", "data", "players.json");
+  const playersJson: PlayerRow[] = (safeReadJSON(playersPath) ?? []) as PlayerRow[];
+
+  const elimById = new Map<string, { isEliminated: boolean; eliminatedEpisode: number | null }>();
+  for (const p of playersJson) {
+    const id = String((p as any)?.id ?? "").trim();
+    if (!id) continue;
+
+    const isEliminated = Boolean((p as any)?.isEliminated);
+    const eliminatedEpisodeRaw = (p as any)?.eliminatedEpisode;
+    const eliminatedEpisode =
+      typeof eliminatedEpisodeRaw === "number" && Number.isFinite(eliminatedEpisodeRaw)
+        ? eliminatedEpisodeRaw
+        : eliminatedEpisodeRaw == null
+        ? null
+        : Number.isFinite(Number(eliminatedEpisodeRaw))
+        ? Number(eliminatedEpisodeRaw)
+        : null;
+
+    elimById.set(id, { isEliminated, eliminatedEpisode });
+  }
 
   const EPISODES: AnyRow[] = safeReadJSON(episodesPath) ?? [];
   const episodesSorted = sortByEpisodeDesc(EPISODES);
@@ -182,14 +261,31 @@ export default function SurvivorStatsHome() {
   const sNow = snap(maxEp);
   const s3 = snap(Math.max(0, maxEp - 3));
 
-  const nowRows: RankRow[] = (sNow?.rankings ?? []).map((r: any) => ({
-    id: String(r.id),
-    name: String(r.name ?? ""),
-    team: String(r.team ?? ""),
-    power: Number(r.power ?? 0),
-    active: r.active ?? (r.isEliminated != null ? !r.isEliminated : undefined),
-    isEliminated: r.isEliminated,
-  }));
+  // Enrich snapshot rows with elimination data from players.json
+  const nowRows: RankRow[] = (sNow?.rankings ?? []).map((r: any) => {
+    const id = String(r.id);
+    const fromPlayers = elimById.get(id);
+
+    const elimEp = fromPlayers?.eliminatedEpisode ?? null;
+    const isEliminated =
+      typeof fromPlayers?.isEliminated === "boolean"
+        ? fromPlayers.isEliminated
+        : elimEp != null
+        ? elimEp <= maxEp
+        : false;
+
+    const active = !isEliminated;
+
+    return {
+      id,
+      name: String(r.name ?? ""),
+      team: String(r.team ?? ""),
+      power: Number(r.power ?? 0),
+      active,
+      isEliminated,
+      eliminatedEpisode: elimEp,
+    };
+  });
 
   const prevRows: RankRow[] = (sPrev?.rankings ?? []).map((r: any) => ({
     id: String(r.id),
@@ -206,12 +302,8 @@ export default function SurvivorStatsHome() {
 
   const prevMap = mapById(prevRows);
 
-  // Active logic
-  const activeRows = nowRows.filter((r) => {
-    if (typeof r.active === "boolean") return r.active;
-    if (typeof r.isEliminated === "boolean") return !r.isEliminated;
-    return true;
-  });
+  // Active logic (guaranteed correct)
+  const activeRows = nowRows.filter((r) => r.active === true);
 
   // Season at a glance
   const episodesPlayed = maxEp;
@@ -230,7 +322,7 @@ export default function SurvivorStatsHome() {
       return { ...r, deltaLast: d };
     });
 
-  // 📈/📉 Gain/loss since Episode 1
+  // 📈/📉 Gain/loss since Episode 1 (kept here even if not used in UI anymore)
   const ep1Rows: RankRow[] = (s1?.rankings ?? []).map((r: any) => ({
     id: String(r.id),
     name: String(r.name ?? ""),
@@ -245,12 +337,12 @@ export default function SurvivorStatsHome() {
       const delta = base ? r.power - base.power : null;
       return { ...r, deltaSince1: delta };
     })
-    .filter((r) => r.deltaSince1 != null);
+    .filter((r: any) => r.deltaSince1 != null);
 
   const biggestGain =
-    [...gains].sort((a, b) => (b.deltaSince1 ?? 0) - (a.deltaSince1 ?? 0))[0] ?? null;
+    [...gains].sort((a: any, b: any) => (b.deltaSince1 ?? 0) - (a.deltaSince1 ?? 0))[0] ?? null;
   const biggestLoss =
-    [...gains].sort((a, b) => (a.deltaSince1 ?? 0) - (b.deltaSince1 ?? 0))[0] ?? null;
+    [...gains].sort((a: any, b: any) => (a.deltaSince1 ?? 0) - (b.deltaSince1 ?? 0))[0] ?? null;
 
   // 🔥/❄️ Momentum last 3 (net change ep_(max-3) -> ep_max)
   const s3Rows: RankRow[] = (s3?.rankings ?? []).map((r: any) => ({
@@ -267,12 +359,13 @@ export default function SurvivorStatsHome() {
       const delta3 = base ? r.power - base.power : null;
       return { ...r, delta3 };
     })
-    .filter((r) => r.delta3 != null);
+    .filter((r: any) => r.delta3 != null);
 
-  const hottest3 = [...momentum].sort((a, b) => (b.delta3 ?? 0) - (a.delta3 ?? 0)).slice(0, 3);
-  const coldest3 = [...momentum].sort((a, b) => (a.delta3 ?? 0) - (b.delta3 ?? 0)).slice(0, 3);
+  const hottest3 = [...momentum].sort((a: any, b: any) => (b.delta3 ?? 0) - (a.delta3 ?? 0)).slice(0, 3);
+  const coldest3 = [...momentum].sort((a: any, b: any) => (a.delta3 ?? 0) - (b.delta3 ?? 0)).slice(0, 3);
 
-  // 🎯 Reliability (stdev across ep_1..ep_max)
+  // 🎯 Reliability + Trend use SERIES across ep_1..ep_max
+  // IMPORTANT: series uses adjusted power if snapshots provide it (power_adj), else power
   const powerSeries = new Map<string, { name: string; team: string; values: number[] }>();
 
   for (let ep = 1; ep <= maxEp; ep++) {
@@ -282,10 +375,10 @@ export default function SurvivorStatsHome() {
       const id = String(rr.id);
       const name = String(rr.name ?? "");
       const team = String(rr.team ?? "");
-      const power = Number(rr.power ?? 0);
+      const val = pickPower(rr);
 
       if (!powerSeries.has(id)) powerSeries.set(id, { name, team, values: [] });
-      powerSeries.get(id)!.values.push(power);
+      powerSeries.get(id)!.values.push(val);
     }
   }
 
@@ -296,25 +389,75 @@ export default function SurvivorStatsHome() {
       const sd = values.length >= 2 ? stdevSample(values) : null;
       return { ...r, stdev: sd, n: values.length };
     })
-    .filter((r) => r.stdev != null && (r.n ?? 0) >= Math.min(5, maxEp));
+    .filter((r: any) => r.stdev != null && (r.n ?? 0) >= Math.min(5, maxEp));
 
   const mostReliable =
-    [...reliableCandidates].sort((a, b) => (a.stdev ?? 0) - (b.stdev ?? 0))[0] ?? null;
+    [...reliableCandidates].sort((a: any, b: any) => (a.stdev ?? 0) - (b.stdev ?? 0))[0] ?? null;
 
   const mostUnreliable =
-    [...reliableCandidates].sort((a, b) => (b.stdev ?? 0) - (a.stdev ?? 0))[0] ?? null;
+    [...reliableCandidates].sort((a: any, b: any) => (b.stdev ?? 0) - (a.stdev ?? 0))[0] ?? null;
+
+  // 📈📉 TREND (Adjusted power slope)
+  type TrendRow = RankRow & { slope: number | null; series: number[] };
+
+  function calcSlope(values: number[]): number | null {
+    const n = values.length;
+    if (n < 5) return null; // require enough points to mean anything
+
+    let sumX = 0;
+    let sumY = 0;
+    let sumXY = 0;
+    let sumXX = 0;
+
+    for (let i = 0; i < n; i++) {
+      const x = i + 1;
+      const y = values[i];
+      sumX += x;
+      sumY += y;
+      sumXY += x * y;
+      sumXX += x * x;
+    }
+
+    const denom = n * sumXX - sumX * sumX;
+    if (denom === 0) return null;
+
+    return (n * sumXY - sumX * sumY) / denom;
+  }
+
+  const trendCandidates: TrendRow[] = activeRows
+    .map((r) => {
+      const seriesObj = powerSeries.get(r.id);
+      const series = seriesObj?.values ?? [];
+      const slope = calcSlope(series);
+      return { ...r, slope, series };
+    })
+    .filter((r) => r.slope != null);
+
+  const mostImprovedTrend =
+    trendCandidates.length > 0
+      ? trendCandidates.reduce((best, r) =>
+          (r.slope ?? -Infinity) > (best.slope ?? -Infinity) ? r : best
+        )
+      : null;
+
+  const mostFallenTrend =
+    trendCandidates.length > 0
+      ? trendCandidates.reduce((worst, r) =>
+          (r.slope ?? Infinity) < (worst.slope ?? Infinity) ? r : worst
+        )
+      : null;
 
   // 🌪️ Chaos
   function meanAbsDelta(epA: number, epB: number) {
     const A = snap(epA)?.rankings ?? [];
     const B = snap(epB)?.rankings ?? [];
     const aMap = new Map<string, number>();
-    for (const r of A) aMap.set(String(r.id), Number(r.power ?? 0));
+    for (const r of A) aMap.set(String((r as any).id), pickPower(r));
 
     const diffs: number[] = [];
     for (const r of B) {
-      const id = String(r.id);
-      const pB = Number(r.power ?? 0);
+      const id = String((r as any).id);
+      const pB = pickPower(r);
       const pA = aMap.get(id);
       if (pA == null) continue;
       diffs.push(Math.abs(pB - pA));
@@ -410,9 +553,7 @@ export default function SurvivorStatsHome() {
             }
             sub={
               <div className="text-sm text-gray-300">
-                <div className="text-xs text-gray-400">
-                  Avg |Δ power| from EP {maxEp - 1} → EP {maxEp}
-                </div>
+                <div className="text-xs text-gray-400">Avg |Δ power| from EP {maxEp - 1} → EP {maxEp}</div>
                 <div>
                   Season range: <span className="text-gray-100">{fmtNum2(chaosSeasonMin)}</span> –{" "}
                   <span className="text-gray-100">{fmtNum2(chaosSeasonMax)}</span>
@@ -450,7 +591,7 @@ export default function SurvivorStatsHome() {
             </div>
             <div className="mt-4 space-y-3">
               {hottest3.length ? (
-                hottest3.map((p) => (
+                hottest3.map((p: any) => (
                   <MiniRow
                     key={p.id}
                     name={p.name}
@@ -472,7 +613,7 @@ export default function SurvivorStatsHome() {
             </div>
             <div className="mt-4 space-y-3">
               {coldest3.length ? (
-                coldest3.map((p) => (
+                coldest3.map((p: any) => (
                   <MiniRow
                     key={p.id}
                     name={p.name}
@@ -489,39 +630,57 @@ export default function SurvivorStatsHome() {
         </div>
 
         <div className="grid gap-3 md:grid-cols-3">
+          {/* ✅ REPLACED CARD 1 */}
           <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
-            <div className="text-lg font-semibold text-gray-100">📈 Biggest gain since EP1</div>
+            <div className="text-lg font-semibold text-gray-100">📈 Most Improved (Trend)</div>
+            <div className="mt-1 text-xs text-gray-400">Highest adjusted-power slope (linear fit)</div>
+
             <div className="mt-4">
-              {biggestGain ? (
-                <MiniRow
-                  name={biggestGain.name}
-                  team={biggestGain.team}
-                  right={fmtDelta(asNum(biggestGain.deltaSince1))}
-                  rightClass="text-green-300"
-                />
+              {mostImprovedTrend ? (
+                <>
+                  <MiniRow
+                    name={mostImprovedTrend.name}
+                    team={mostImprovedTrend.team}
+                    right={fmtSlope(mostImprovedTrend.slope)}
+                    rightClass="text-green-300"
+                  />
+                  <div className="mt-3 flex items-center justify-between gap-3">
+                    <div className="text-xs text-gray-400">EP1 → EP{maxEp}</div>
+                    <Sparkline values={mostImprovedTrend.series} />
+                  </div>
+                </>
               ) : (
                 <div className="text-sm text-gray-400">—</div>
               )}
             </div>
           </div>
 
+          {/* ✅ REPLACED CARD 2 */}
           <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
-            <div className="text-lg font-semibold text-gray-100">📉 Biggest loss since EP1</div>
+            <div className="text-lg font-semibold text-gray-100">📉 Most Fallen (Trend)</div>
+            <div className="mt-1 text-xs text-gray-400">Lowest adjusted-power slope (linear fit)</div>
+
             <div className="mt-4">
-              {biggestLoss ? (
-                <MiniRow
-                  name={biggestLoss.name}
-                  team={biggestLoss.team}
-                  right={fmtDelta(asNum(biggestLoss.deltaSince1))}
-                  rightClass="text-red-300"
-                />
+              {mostFallenTrend ? (
+                <>
+                  <MiniRow
+                    name={mostFallenTrend.name}
+                    team={mostFallenTrend.team}
+                    right={fmtSlope(mostFallenTrend.slope)}
+                    rightClass="text-red-300"
+                  />
+                  <div className="mt-3 flex items-center justify-between gap-3">
+                    <div className="text-xs text-gray-400">EP1 → EP{maxEp}</div>
+                    <Sparkline values={mostFallenTrend.series} />
+                  </div>
+                </>
               ) : (
                 <div className="text-sm text-gray-400">—</div>
               )}
             </div>
           </div>
 
-          {/* ✅ UPDATED CARD: Reliable + Unreliable */}
+          {/* ✅ KEEP Reliability card */}
           <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
             <div className="text-lg font-semibold text-gray-100">🎯 Reliability</div>
             <div className="mt-1 text-xs text-gray-400">Stdev of power (lower = steadier)</div>
@@ -534,7 +693,7 @@ export default function SurvivorStatsHome() {
                     <MiniRow
                       name={mostReliable.name}
                       team={mostReliable.team}
-                      right={(mostReliable.stdev ?? 0).toFixed(2)}
+                      right={((mostReliable as any).stdev ?? 0).toFixed(2)}
                       rightClass="text-green-300"
                     />
                   ) : (
@@ -550,7 +709,7 @@ export default function SurvivorStatsHome() {
                     <MiniRow
                       name={mostUnreliable.name}
                       team={mostUnreliable.team}
-                      right={(mostUnreliable.stdev ?? 0).toFixed(2)}
+                      right={((mostUnreliable as any).stdev ?? 0).toFixed(2)}
                       rightClass="text-red-300"
                     />
                   ) : (
@@ -562,6 +721,7 @@ export default function SurvivorStatsHome() {
           </div>
         </div>
 
+        {/* Danger zone */}
         <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
           <div className="flex items-center justify-between gap-3">
             <div className="text-lg font-semibold text-gray-100">⚠️ Danger zone</div>
@@ -570,7 +730,7 @@ export default function SurvivorStatsHome() {
 
           <div className="mt-4 grid gap-3 md:grid-cols-3">
             {danger.length ? (
-              danger.map((p) => (
+              danger.map((p: any) => (
                 <div key={p.id} className="rounded-2xl border border-white/10 bg-black/30 p-4">
                   <div className="flex items-start justify-between gap-3">
                     <div className="min-w-0">

@@ -28,6 +28,9 @@ function isDir(p) {
     return false;
   }
 }
+function ensureDir(p) {
+  fs.mkdirSync(p, { recursive: true });
+}
 function readText(p) {
   return fs.readFileSync(p, "utf8");
 }
@@ -145,7 +148,6 @@ function rowsToObjects(rows) {
 // metric-value converters
 // -----------------------------
 
-// Classic 2-column Metric/Value
 function metricValueTwoColToJson(rows) {
   const nonBlank = rows.filter((r) => !isBlankRow(r));
   const header = nonBlank[0].map((h) => String(h ?? "").trim());
@@ -172,7 +174,6 @@ function metricValueTwoColToJson(rows) {
   return { metrics, labels };
 }
 
-// Wide format: Row1 = metric names, Row2 = values
 function metricValueWideToJson(rows) {
   const nonBlank = rows.filter((r) => !isBlankRow(r));
   const header = nonBlank[0].map((h) => String(h ?? "").trim());
@@ -204,13 +205,8 @@ function isTwoColMetricValue(rows) {
 function isWideMetricValue(rows) {
   const nonBlank = rows.filter((r) => !isBlankRow(r));
   if (nonBlank.length < 2) return false;
-
-  // Wide: many columns, only one value row (your new format)
-  // We treat as wide if:
-  // - first row has >= 3 columns
-  // - second row exists
-  // - and there are no additional nonblank rows beyond row2 (or they’re empty)
   if (nonBlank[0].length < 3) return false;
+
   const extraRows = nonBlank.slice(2);
   const hasExtraData = extraRows.some((r) => !isBlankRow(r));
   return !hasExtraData;
@@ -218,7 +214,20 @@ function isWideMetricValue(rows) {
 
 function detectIdColumn(headers) {
   const norm = headers.map(normalizeKey);
-  const candidates = ["ticker", "symbol", "stock", "stock_name", "asset", "name", "security"];
+
+  // ✅ include stockid first so it wins
+  const candidates = [
+    "stockid",
+    "stock_id",
+    "ticker",
+    "symbol",
+    "stock",
+    "stock_name",
+    "asset",
+    "name",
+    "security",
+  ];
+
   for (const c of candidates) {
     const idx = norm.indexOf(c);
     if (idx !== -1) return headers[idx];
@@ -309,14 +318,52 @@ function getArchiveRunDirs() {
     .sort();
 }
 
+function readLatestRunIdFromManifest() {
+  const manifestPath = path.join(LATEST_DIR, "manifest.json");
+  if (!exists(manifestPath)) return null;
+  try {
+    const m = JSON.parse(readText(manifestPath));
+    const runId = String(m?.run_id ?? "").trim();
+    if (!runId || runId === "latest") return null;
+    return runId;
+  } catch {
+    return null;
+  }
+}
+
+// ✅ optional: copy all latest JSON (not CSV) into archive/<run_id>
+function snapshotLatestJsonToArchive(runId) {
+  if (!runId) return;
+  ensureDir(path.join(ARCHIVE_DIR, runId));
+
+  const files = fs.readdirSync(LATEST_DIR, { withFileTypes: true });
+  const jsonFiles = files
+    .filter((d) => d.isFile() && d.name.toLowerCase().endsWith(".json"))
+    .map((d) => d.name);
+
+  for (const name of jsonFiles) {
+    const src = path.join(LATEST_DIR, name);
+    const dst = path.join(ARCHIVE_DIR, runId, name);
+    fs.copyFileSync(src, dst);
+  }
+
+  console.log(`[mc:build] Snapshot latest/*.json -> archive/${runId}/`);
+}
+
 function main() {
   if (!exists(MC_ROOT)) {
     console.log(`[mc:build] No folder found: ${path.relative(root, MC_ROOT)}`);
     process.exit(0);
   }
 
+  // Build latest JSON from latest CSV
   buildFolder(LATEST_DIR, "latest");
 
+  // ✅ if latest/manifest.json has a real run_id (e.g. 2026-02-15_run_001), snapshot jsons
+  const runId = readLatestRunIdFromManifest();
+  if (runId) snapshotLatestJsonToArchive(runId);
+
+  // Build any archive folders that contain CSVs
   for (const runFolderName of getArchiveRunDirs()) {
     buildFolder(path.join(ARCHIVE_DIR, runFolderName), runFolderName);
   }
