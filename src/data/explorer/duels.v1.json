@@ -18,7 +18,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.2,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c1_d21_p19",
@@ -39,7 +39,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.2,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c1_d22_p12",
@@ -60,7 +60,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.3,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c1_d22_p16",
@@ -81,7 +81,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.3,
-    "adjustedPower": 43.14543585
+    "adjustedPower": 43.05846757
   },
   {
     "rowId": "c1_d23_p5",
@@ -102,7 +102,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.3,
-    "adjustedPower": 52.67267006
+    "adjustedPower": 52.56649774
   },
   {
     "rowId": "c1_d23_p14",
@@ -123,7 +123,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.3,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c1_d24_p3",
@@ -144,7 +144,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.1,
-    "adjustedPower": 31.16442967
+    "adjustedPower": 31.10161152
   },
   {
     "rowId": "c1_d24_p15",
@@ -165,7 +165,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.1,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c1_d25_p6",
@@ -186,7 +186,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.1,
-    "adjustedPower": 28.80666629
+    "adjustedPower": 28.74860068
   },
   {
     "rowId": "c1_d25_p24",
@@ -207,7 +207,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.1,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c1_d26_p9",
@@ -228,7 +228,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.3,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c1_d26_p13",
@@ -249,7 +249,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.3,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c1_d27_p7",
@@ -270,7 +270,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.1,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c1_d27_p23",
@@ -291,7 +291,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.1,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c1_d28_p4",
@@ -312,7 +312,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.7,
-    "adjustedPower": 73.63906172
+    "adjustedPower": 73.49062744
   },
   {
     "rowId": "c1_d28_p17",
@@ -333,7 +333,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.7,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c1_d29_p1",
@@ -354,7 +354,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.2,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c1_d29_p21",
@@ -375,7 +375,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.2,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c1_d30_p10",
@@ -396,7 +396,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.1,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c1_d30_p16",
@@ -417,7 +417,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.1,
-    "adjustedPower": 43.14543585
+    "adjustedPower": 43.05846757
   },
   {
     "rowId": "c1_d31_p8",
@@ -438,7 +438,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.2,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c1_d31_p22",
@@ -459,7 +459,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.2,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c1_d32_p3",
@@ -480,7 +480,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 31.16442967
+    "adjustedPower": 31.10161152
   },
   {
     "rowId": "c1_d32_p20",
@@ -522,7 +522,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.2,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c1_d33_p14",
@@ -543,7 +543,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.2,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c1_d34_p11",
@@ -564,7 +564,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": -0.4,
-    "adjustedPower": 20.21528471
+    "adjustedPower": 20.17453675
   },
   {
     "rowId": "c1_d34_p18",
@@ -585,7 +585,7 @@
     "isFinalPoint": 1,
     "teamColor": "Blue",
     "normMargin": 0.4,
-    "adjustedPower": 39.77319512
+    "adjustedPower": 39.69302427
   },
   {
     "rowId": "c2_d1_p8",
@@ -606,7 +606,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.5,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c2_d1_p22",
@@ -627,7 +627,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.5,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c2_d2_p10",
@@ -648,7 +648,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.5,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c2_d2_p16",
@@ -669,7 +669,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.5,
-    "adjustedPower": 43.14543585
+    "adjustedPower": 43.05846757
   },
   {
     "rowId": "c2_d3_p6",
@@ -690,7 +690,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.5,
-    "adjustedPower": 28.80666629
+    "adjustedPower": 28.74860068
   },
   {
     "rowId": "c2_d3_p14",
@@ -711,7 +711,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.5,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c2_d4_p3",
@@ -732,7 +732,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.5,
-    "adjustedPower": 31.16442967
+    "adjustedPower": 31.10161152
   },
   {
     "rowId": "c2_d4_p15",
@@ -753,7 +753,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.5,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c2_d5_p7",
@@ -774,7 +774,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.5,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c2_d5_p21",
@@ -795,7 +795,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.5,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c2_d6_p11",
@@ -816,7 +816,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.5,
-    "adjustedPower": 20.21528471
+    "adjustedPower": 20.17453675
   },
   {
     "rowId": "c2_d6_p17",
@@ -837,7 +837,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.5,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c2_d7_p5",
@@ -858,7 +858,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.5,
-    "adjustedPower": 52.67267006
+    "adjustedPower": 52.56649774
   },
   {
     "rowId": "c2_d7_p23",
@@ -879,7 +879,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.5,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c2_d8_p4",
@@ -900,7 +900,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.5,
-    "adjustedPower": 73.63906172
+    "adjustedPower": 73.49062744
   },
   {
     "rowId": "c2_d8_p20",
@@ -942,7 +942,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.5,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c2_d9_p24",
@@ -963,7 +963,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.5,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c2_d10_p11",
@@ -984,7 +984,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.5,
-    "adjustedPower": 20.21528471
+    "adjustedPower": 20.17453675
   },
   {
     "rowId": "c2_d10_p20",
@@ -1026,7 +1026,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.5,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c2_d11_p14",
@@ -1047,7 +1047,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.5,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c2_d12_p10",
@@ -1068,7 +1068,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c2_d12_p13",
@@ -1089,7 +1089,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c2_d13_p7",
@@ -1110,7 +1110,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c2_d13_p22",
@@ -1131,7 +1131,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c2_d14_p12",
@@ -1152,7 +1152,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c2_d14_p18",
@@ -1173,7 +1173,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 39.77319512
+    "adjustedPower": 39.69302427
   },
   {
     "rowId": "c2_d15_p5",
@@ -1194,7 +1194,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.5,
-    "adjustedPower": 52.67267006
+    "adjustedPower": 52.56649774
   },
   {
     "rowId": "c2_d15_p19",
@@ -1215,7 +1215,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.5,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c2_d16_p9",
@@ -1236,7 +1236,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c2_d16_p16",
@@ -1257,7 +1257,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 43.14543585
+    "adjustedPower": 43.05846757
   },
   {
     "rowId": "c2_d17_p8",
@@ -1278,7 +1278,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.5,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c2_d17_p23",
@@ -1299,7 +1299,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.5,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c2_d18_p3",
@@ -1320,7 +1320,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.5,
-    "adjustedPower": 31.16442967
+    "adjustedPower": 31.10161152
   },
   {
     "rowId": "c2_d18_p17",
@@ -1341,7 +1341,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.5,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c2_d19_p10",
@@ -1362,7 +1362,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": -0.5,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c2_d19_p20",
@@ -1404,7 +1404,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": -0.5,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c2_d20_p22",
@@ -1425,7 +1425,7 @@
     "isFinalPoint": 1,
     "teamColor": "Blue",
     "normMargin": 0.5,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c3_d35_p2",
@@ -1446,7 +1446,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.5,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c3_d35_p24",
@@ -1467,7 +1467,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.5,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c3_d36_p11",
@@ -1488,7 +1488,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.13,
-    "adjustedPower": 20.21528471
+    "adjustedPower": 20.17453675
   },
   {
     "rowId": "c3_d36_p16",
@@ -1509,7 +1509,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.125,
-    "adjustedPower": 43.14543585
+    "adjustedPower": 43.05846757
   },
   {
     "rowId": "c3_d37_p6",
@@ -1530,7 +1530,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.25,
-    "adjustedPower": 28.80666629
+    "adjustedPower": 28.74860068
   },
   {
     "rowId": "c3_d37_p21",
@@ -1551,7 +1551,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.25,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c3_d38_p4",
@@ -1572,7 +1572,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.25,
-    "adjustedPower": 73.63906172
+    "adjustedPower": 73.49062744
   },
   {
     "rowId": "c3_d38_p18",
@@ -1593,7 +1593,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.25,
-    "adjustedPower": 39.77319512
+    "adjustedPower": 39.69302427
   },
   {
     "rowId": "c3_d39_p5",
@@ -1614,7 +1614,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.38,
-    "adjustedPower": 52.67267006
+    "adjustedPower": 52.56649774
   },
   {
     "rowId": "c3_d39_p19",
@@ -1635,7 +1635,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.375,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c3_d40_p3",
@@ -1656,7 +1656,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.88,
-    "adjustedPower": 31.16442967
+    "adjustedPower": 31.10161152
   },
   {
     "rowId": "c3_d40_p13",
@@ -1677,7 +1677,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.875,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c3_d41_p7",
@@ -1698,7 +1698,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.13,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c3_d41_p22",
@@ -1719,7 +1719,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.125,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c3_d42_p9",
@@ -1740,7 +1740,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.13,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c3_d42_p20",
@@ -1782,7 +1782,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.13,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c3_d43_p14",
@@ -1803,7 +1803,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.125,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c3_d44_p10",
@@ -1824,7 +1824,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.38,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c3_d44_p17",
@@ -1845,7 +1845,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.375,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c3_d45_p8",
@@ -1866,7 +1866,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.25,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c3_d45_p21",
@@ -1887,7 +1887,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.25,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c3_d46_p12",
@@ -1908,7 +1908,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.88,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c3_d46_p16",
@@ -1929,7 +1929,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.875,
-    "adjustedPower": 43.14543585
+    "adjustedPower": 43.05846757
   },
   {
     "rowId": "c3_d47_p1",
@@ -1950,7 +1950,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.13,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c3_d47_p23",
@@ -1971,7 +1971,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.125,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c3_d48_p3",
@@ -1992,7 +1992,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 31.16442967
+    "adjustedPower": 31.10161152
   },
   {
     "rowId": "c3_d48_p18",
@@ -2013,7 +2013,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 39.77319512
+    "adjustedPower": 39.69302427
   },
   {
     "rowId": "c3_d49_p2",
@@ -2034,7 +2034,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.13,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c3_d49_p19",
@@ -2055,7 +2055,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.125,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c3_d50_p9",
@@ -2076,7 +2076,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.38,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c3_d50_p13",
@@ -2097,7 +2097,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.375,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c3_d51_p5",
@@ -2118,7 +2118,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": -0.38,
-    "adjustedPower": 52.67267006
+    "adjustedPower": 52.56649774
   },
   {
     "rowId": "c3_d51_p24",
@@ -2139,7 +2139,7 @@
     "isFinalPoint": 1,
     "teamColor": "Blue",
     "normMargin": 0.375,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c4_d52_p7",
@@ -2160,7 +2160,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c4_d52_p21",
@@ -2181,7 +2181,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c4_d53_p10",
@@ -2202,7 +2202,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c4_d53_p16",
@@ -2223,7 +2223,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 43.14543585
+    "adjustedPower": 43.05846757
   },
   {
     "rowId": "c4_d54_p2",
@@ -2244,7 +2244,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c4_d54_p14",
@@ -2265,7 +2265,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c4_d55_p9",
@@ -2286,7 +2286,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.5,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c4_d55_p18",
@@ -2307,7 +2307,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.5,
-    "adjustedPower": 39.77319512
+    "adjustedPower": 39.69302427
   },
   {
     "rowId": "c4_d56_p5",
@@ -2328,7 +2328,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 52.67267006
+    "adjustedPower": 52.56649774
   },
   {
     "rowId": "c4_d56_p19",
@@ -2349,7 +2349,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c4_d57_p4",
@@ -2370,7 +2370,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 73.63906172
+    "adjustedPower": 73.49062744
   },
   {
     "rowId": "c4_d57_p13",
@@ -2391,7 +2391,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c4_d58_p1",
@@ -2412,7 +2412,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c4_d58_p22",
@@ -2433,7 +2433,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c4_d59_p12",
@@ -2454,7 +2454,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.5,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c4_d59_p20",
@@ -2496,7 +2496,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c4_d60_p24",
@@ -2517,7 +2517,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c4_d61_p3",
@@ -2538,7 +2538,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 31.16442967
+    "adjustedPower": 31.10161152
   },
   {
     "rowId": "c4_d61_p16",
@@ -2559,7 +2559,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 43.14543585
+    "adjustedPower": 43.05846757
   },
   {
     "rowId": "c4_d62_p1",
@@ -2580,7 +2580,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.5,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c4_d62_p21",
@@ -2601,7 +2601,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.5,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c4_d63_p11",
@@ -2622,7 +2622,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 20.21528471
+    "adjustedPower": 20.17453675
   },
   {
     "rowId": "c4_d63_p15",
@@ -2643,7 +2643,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c4_d64_p6",
@@ -2664,7 +2664,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.5,
-    "adjustedPower": 28.80666629
+    "adjustedPower": 28.74860068
   },
   {
     "rowId": "c4_d64_p23",
@@ -2685,7 +2685,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.5,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c4_d65_p9",
@@ -2706,7 +2706,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.5,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c4_d65_p17",
@@ -2727,7 +2727,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.5,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c4_d66_p8",
@@ -2748,7 +2748,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.5,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c4_d66_p19",
@@ -2769,7 +2769,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.5,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c4_d67_p12",
@@ -2790,7 +2790,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.5,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c4_d67_p13",
@@ -2811,7 +2811,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.5,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c4_d68_p5",
@@ -2832,7 +2832,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 52.67267006
+    "adjustedPower": 52.56649774
   },
   {
     "rowId": "c4_d68_p14",
@@ -2853,7 +2853,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c4_d69_p4",
@@ -2874,7 +2874,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 73.63906172
+    "adjustedPower": 73.49062744
   },
   {
     "rowId": "c4_d69_p20",
@@ -2916,7 +2916,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.14,
-    "adjustedPower": 52.67267006
+    "adjustedPower": 52.56649774
   },
   {
     "rowId": "c5_d70_p14",
@@ -2937,7 +2937,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.142857143,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c5_d71_p10",
@@ -2958,7 +2958,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.43,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c5_d71_p18",
@@ -2979,7 +2979,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.428571429,
-    "adjustedPower": 39.77319512
+    "adjustedPower": 39.69302427
   },
   {
     "rowId": "c5_d72_p7",
@@ -3000,7 +3000,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.71,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c5_d72_p24",
@@ -3021,7 +3021,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.714285714,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c5_d73_p12",
@@ -3042,7 +3042,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.57,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c5_d73_p13",
@@ -3063,7 +3063,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.571428571,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c5_d74_p1",
@@ -3084,7 +3084,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.29,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c5_d74_p23",
@@ -3105,7 +3105,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.285714286,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c5_d75_p9",
@@ -3126,7 +3126,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c5_d75_p20",
@@ -3168,7 +3168,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.57,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c5_d76_p19",
@@ -3189,7 +3189,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.571428571,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c5_d77_p4",
@@ -3210,7 +3210,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.14,
-    "adjustedPower": 73.63906172
+    "adjustedPower": 73.49062744
   },
   {
     "rowId": "c5_d77_p16",
@@ -3231,7 +3231,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.142857143,
-    "adjustedPower": 43.14543585
+    "adjustedPower": 43.05846757
   },
   {
     "rowId": "c5_d78_p1",
@@ -3252,7 +3252,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.14,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c5_d78_p21",
@@ -3273,7 +3273,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.142857143,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c5_d79_p10",
@@ -3294,7 +3294,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.57,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c5_d79_p17",
@@ -3315,7 +3315,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.571428571,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c5_d80_p2",
@@ -3336,7 +3336,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.14,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c5_d80_p22",
@@ -3357,7 +3357,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.142857143,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c5_d81_p12",
@@ -3378,7 +3378,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.57,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c5_d81_p16",
@@ -3399,7 +3399,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.571428571,
-    "adjustedPower": 43.14543585
+    "adjustedPower": 43.05846757
   },
   {
     "rowId": "c5_d82_p5",
@@ -3420,7 +3420,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.86,
-    "adjustedPower": 52.67267006
+    "adjustedPower": 52.56649774
   },
   {
     "rowId": "c5_d82_p19",
@@ -3441,7 +3441,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.857142857,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c5_d83_p4",
@@ -3462,7 +3462,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.14,
-    "adjustedPower": 73.63906172
+    "adjustedPower": 73.49062744
   },
   {
     "rowId": "c5_d83_p15",
@@ -3483,7 +3483,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.142857143,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c5_d84_p1",
@@ -3504,7 +3504,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.86,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c5_d84_p14",
@@ -3525,7 +3525,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.857142857,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c5_d85_p9",
@@ -3546,7 +3546,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.86,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c5_d85_p13",
@@ -3567,7 +3567,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.857142857,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c5_d86_p5",
@@ -3588,7 +3588,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.71,
-    "adjustedPower": 52.67267006
+    "adjustedPower": 52.56649774
   },
   {
     "rowId": "c5_d86_p22",
@@ -3609,7 +3609,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.714285714,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c5_d87_p10",
@@ -3630,7 +3630,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c5_d87_p16",
@@ -3651,7 +3651,7 @@
     "isFinalPoint": 1,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 43.14543585
+    "adjustedPower": 43.05846757
   },
   {
     "rowId": "c6_d88_p7",
@@ -3672,7 +3672,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c6_d88_p21",
@@ -3693,7 +3693,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c6_d89_p12",
@@ -3714,7 +3714,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c6_d89_p17",
@@ -3735,7 +3735,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c6_d90_p2",
@@ -3756,7 +3756,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.33,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c6_d90_p19",
@@ -3777,7 +3777,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.333333333,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c6_d91_p10",
@@ -3798,7 +3798,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c6_d91_p15",
@@ -3819,7 +3819,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.666666667,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c6_d92_p5",
@@ -3840,7 +3840,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 52.67267006
+    "adjustedPower": 52.56649774
   },
   {
     "rowId": "c6_d92_p23",
@@ -3861,7 +3861,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c6_d93_p9",
@@ -3882,7 +3882,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.33,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c6_d93_p16",
@@ -3903,7 +3903,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.333333333,
-    "adjustedPower": 43.14543585
+    "adjustedPower": 43.05846757
   },
   {
     "rowId": "c6_d94_p1",
@@ -3924,7 +3924,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c6_d94_p22",
@@ -3945,7 +3945,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.666666667,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c6_d95_p4",
@@ -3966,7 +3966,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 73.63906172
+    "adjustedPower": 73.49062744
   },
   {
     "rowId": "c6_d95_p18",
@@ -3987,7 +3987,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.666666667,
-    "adjustedPower": 39.77319512
+    "adjustedPower": 39.69302427
   },
   {
     "rowId": "c6_d96_p8",
@@ -4008,7 +4008,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c6_d96_p24",
@@ -4029,7 +4029,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c6_d97_p9",
@@ -4050,7 +4050,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c6_d97_p18",
@@ -4071,7 +4071,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 39.77319512
+    "adjustedPower": 39.69302427
   },
   {
     "rowId": "c6_d98_p5",
@@ -4092,7 +4092,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.33,
-    "adjustedPower": 52.67267006
+    "adjustedPower": 52.56649774
   },
   {
     "rowId": "c6_d98_p14",
@@ -4113,7 +4113,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.333333333,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c6_d99_p4",
@@ -4134,7 +4134,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 73.63906172
+    "adjustedPower": 73.49062744
   },
   {
     "rowId": "c6_d99_p13",
@@ -4155,7 +4155,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.666666667,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c6_d100_p2",
@@ -4176,7 +4176,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.33,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c6_d100_p23",
@@ -4197,7 +4197,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.333333333,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c6_d101_p10",
@@ -4218,7 +4218,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c6_d101_p16",
@@ -4239,7 +4239,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 43.14543585
+    "adjustedPower": 43.05846757
   },
   {
     "rowId": "c6_d102_p7",
@@ -4260,7 +4260,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c6_d102_p22",
@@ -4281,7 +4281,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c6_d103_p9",
@@ -4302,7 +4302,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c6_d103_p15",
@@ -4323,7 +4323,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c6_d104_p5",
@@ -4344,7 +4344,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 52.67267006
+    "adjustedPower": 52.56649774
   },
   {
     "rowId": "c6_d104_p21",
@@ -4365,7 +4365,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c6_d105_p12",
@@ -4386,7 +4386,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": -0.33,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c6_d105_p16",
@@ -4407,7 +4407,7 @@
     "isFinalPoint": 1,
     "teamColor": "Blue",
     "normMargin": 0.333333333,
-    "adjustedPower": 43.14543585
+    "adjustedPower": 43.05846757
   },
   {
     "rowId": "c7_d106_p1",
@@ -4428,7 +4428,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.33,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c7_d106_p24",
@@ -4449,7 +4449,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.333333333,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c7_d107_p10",
@@ -4470,7 +4470,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.33,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c7_d107_p13",
@@ -4491,7 +4491,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.333333333,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c7_d108_p5",
@@ -4512,7 +4512,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 52.67267006
+    "adjustedPower": 52.56649774
   },
   {
     "rowId": "c7_d108_p14",
@@ -4533,7 +4533,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c7_d109_p12",
@@ -4554,7 +4554,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.33,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c7_d109_p15",
@@ -4575,7 +4575,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.333333333,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c7_d110_p8",
@@ -4596,7 +4596,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.33,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c7_d110_p21",
@@ -4617,7 +4617,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.333333333,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c7_d111_p9",
@@ -4638,7 +4638,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c7_d111_p16",
@@ -4659,7 +4659,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.666666667,
-    "adjustedPower": 43.14543585
+    "adjustedPower": 43.05846757
   },
   {
     "rowId": "c7_d112_p7",
@@ -4680,7 +4680,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.33,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c7_d112_p22",
@@ -4701,7 +4701,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.333333333,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c7_d113_p4",
@@ -4722,7 +4722,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.33,
-    "adjustedPower": 73.63906172
+    "adjustedPower": 73.49062744
   },
   {
     "rowId": "c7_d113_p17",
@@ -4743,7 +4743,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.333333333,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c7_d114_p2",
@@ -4764,7 +4764,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.33,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c7_d114_p19",
@@ -4785,7 +4785,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.333333333,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c7_d115_p10",
@@ -4806,7 +4806,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.33,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c7_d115_p20",
@@ -4848,7 +4848,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.33,
-    "adjustedPower": 52.67267006
+    "adjustedPower": 52.56649774
   },
   {
     "rowId": "c7_d116_p23",
@@ -4869,7 +4869,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.333333333,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c7_d117_p9",
@@ -4890,7 +4890,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c7_d117_p18",
@@ -4911,7 +4911,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.666666667,
-    "adjustedPower": 39.77319512
+    "adjustedPower": 39.69302427
   },
   {
     "rowId": "c7_d118_p8",
@@ -4932,7 +4932,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.33,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c7_d118_p22",
@@ -4953,7 +4953,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.333333333,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c7_d119_p4",
@@ -4974,7 +4974,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 73.63906172
+    "adjustedPower": 73.49062744
   },
   {
     "rowId": "c7_d119_p16",
@@ -4995,7 +4995,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 43.14543585
+    "adjustedPower": 43.05846757
   },
   {
     "rowId": "c7_d120_p5",
@@ -5016,7 +5016,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 52.67267006
+    "adjustedPower": 52.56649774
   },
   {
     "rowId": "c7_d120_p22",
@@ -5037,7 +5037,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.666666667,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c7_d121_p4",
@@ -5058,7 +5058,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 73.63906172
+    "adjustedPower": 73.49062744
   },
   {
     "rowId": "c7_d121_p16",
@@ -5079,7 +5079,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.666666667,
-    "adjustedPower": 43.14543585
+    "adjustedPower": 43.05846757
   },
   {
     "rowId": "c7_d122_p1",
@@ -5100,7 +5100,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": 0.33,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c7_d122_p14",
@@ -5121,7 +5121,7 @@
     "isFinalPoint": 1,
     "teamColor": "Blue",
     "normMargin": -0.333333333,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c8_d123_p5",
@@ -5142,7 +5142,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 52.67267006
+    "adjustedPower": 52.56649774
   },
   {
     "rowId": "c8_d123_p22",
@@ -5163,7 +5163,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c8_d124_p12",
@@ -5184,7 +5184,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c8_d124_p18",
@@ -5205,7 +5205,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0,
-    "adjustedPower": 39.77319512
+    "adjustedPower": 39.69302427
   },
   {
     "rowId": "c8_d125_p1",
@@ -5226,7 +5226,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c8_d125_p21",
@@ -5247,7 +5247,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c8_d126_p4",
@@ -5268,7 +5268,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 73.63906172
+    "adjustedPower": 73.49062744
   },
   {
     "rowId": "c8_d126_p16",
@@ -5289,7 +5289,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0,
-    "adjustedPower": 43.14543585
+    "adjustedPower": 43.05846757
   },
   {
     "rowId": "c8_d127_p7",
@@ -5310,7 +5310,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c8_d127_p23",
@@ -5331,7 +5331,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c8_d128_p10",
@@ -5352,7 +5352,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c8_d128_p13",
@@ -5373,7 +5373,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c8_d129_p2",
@@ -5394,7 +5394,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c8_d129_p19",
@@ -5415,7 +5415,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c8_d130_p9",
@@ -5436,7 +5436,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c8_d130_p15",
@@ -5457,7 +5457,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c8_d131_p8",
@@ -5478,7 +5478,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c8_d131_p14",
@@ -5499,7 +5499,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c8_d132_p4",
@@ -5520,7 +5520,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 73.63906172
+    "adjustedPower": 73.49062744
   },
   {
     "rowId": "c8_d132_p20",
@@ -5562,7 +5562,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.5,
-    "adjustedPower": 52.67267006
+    "adjustedPower": 52.56649774
   },
   {
     "rowId": "c9_d133_p14",
@@ -5583,7 +5583,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.5,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c9_d134_p10",
@@ -5604,7 +5604,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.17,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c9_d134_p17",
@@ -5625,7 +5625,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.166666667,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c9_d135_p7",
@@ -5646,7 +5646,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.17,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c9_d135_p21",
@@ -5667,7 +5667,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.166666667,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c9_d136_p9",
@@ -5688,7 +5688,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.17,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c9_d136_p18",
@@ -5709,7 +5709,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.166666667,
-    "adjustedPower": 39.77319512
+    "adjustedPower": 39.69302427
   },
   {
     "rowId": "c9_d137_p8",
@@ -5730,7 +5730,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.33,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c9_d137_p24",
@@ -5751,7 +5751,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.333333333,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c9_d138_p4",
@@ -5772,7 +5772,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.5,
-    "adjustedPower": 73.63906172
+    "adjustedPower": 73.49062744
   },
   {
     "rowId": "c9_d138_p15",
@@ -5793,7 +5793,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.5,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c9_d139_p2",
@@ -5814,7 +5814,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.33,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c9_d139_p22",
@@ -5835,7 +5835,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.333333333,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c9_d140_p12",
@@ -5856,7 +5856,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.33,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c9_d140_p20",
@@ -5898,7 +5898,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.33,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c9_d141_p19",
@@ -5919,7 +5919,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.333333333,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c9_d142_p10",
@@ -5940,7 +5940,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c9_d142_p18",
@@ -5961,7 +5961,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 39.77319512
+    "adjustedPower": 39.69302427
   },
   {
     "rowId": "c9_d143_p8",
@@ -5982,7 +5982,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.5,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c9_d143_p23",
@@ -6003,7 +6003,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.5,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c9_d144_p12",
@@ -6024,7 +6024,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.17,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c9_d144_p13",
@@ -6045,7 +6045,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.166666667,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c9_d145_p7",
@@ -6066,7 +6066,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.5,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c9_d145_p14",
@@ -6087,7 +6087,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.5,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c9_d146_p9",
@@ -6108,7 +6108,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.17,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c9_d146_p15",
@@ -6129,7 +6129,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.166666667,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c9_d147_p1",
@@ -6150,7 +6150,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.17,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c9_d147_p24",
@@ -6171,7 +6171,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.166666667,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c9_d148_p12",
@@ -6192,7 +6192,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": 0.5,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c9_d148_p18",
@@ -6213,7 +6213,7 @@
     "isFinalPoint": 1,
     "teamColor": "Blue",
     "normMargin": -0.5,
-    "adjustedPower": 39.77319512
+    "adjustedPower": 39.69302427
   },
   {
     "rowId": "c10_d149_p2",
@@ -6234,7 +6234,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.25,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c10_d149_p19",
@@ -6255,7 +6255,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.25,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c10_d150_p9",
@@ -6276,7 +6276,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.25,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c10_d150_p18",
@@ -6297,7 +6297,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.25,
-    "adjustedPower": 39.77319512
+    "adjustedPower": 39.69302427
   },
   {
     "rowId": "c10_d151_p1",
@@ -6318,7 +6318,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.25,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c10_d151_p22",
@@ -6339,7 +6339,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.25,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c10_d152_p12",
@@ -6360,7 +6360,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.75,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c10_d152_p20",
@@ -6402,7 +6402,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.75,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c10_d153_p23",
@@ -6423,7 +6423,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.75,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c10_d154_p10",
@@ -6444,7 +6444,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.25,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c10_d154_p17",
@@ -6465,7 +6465,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.25,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c10_d155_p8",
@@ -6486,7 +6486,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c10_d155_p14",
@@ -6507,7 +6507,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c10_d156_p4",
@@ -6528,7 +6528,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.5,
-    "adjustedPower": 73.63906172
+    "adjustedPower": 73.49062744
   },
   {
     "rowId": "c10_d156_p15",
@@ -6549,7 +6549,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.5,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c10_d157_p1",
@@ -6570,7 +6570,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.5,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c10_d157_p21",
@@ -6591,7 +6591,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.5,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c10_d158_p9",
@@ -6612,7 +6612,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.75,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c10_d158_p13",
@@ -6633,7 +6633,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.75,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c10_d159_p2",
@@ -6654,7 +6654,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c10_d159_p22",
@@ -6675,7 +6675,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c10_d160_p4",
@@ -6696,7 +6696,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.5,
-    "adjustedPower": 73.63906172
+    "adjustedPower": 73.49062744
   },
   {
     "rowId": "c10_d160_p18",
@@ -6717,7 +6717,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.5,
-    "adjustedPower": 39.77319512
+    "adjustedPower": 39.69302427
   },
   {
     "rowId": "c10_d161_p8",
@@ -6738,7 +6738,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.75,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c10_d161_p24",
@@ -6759,7 +6759,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.75,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c10_d162_p10",
@@ -6780,7 +6780,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c10_d162_p15",
@@ -6801,7 +6801,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c10_d163_p2",
@@ -6822,7 +6822,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": 0.75,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c10_d163_p14",
@@ -6843,7 +6843,7 @@
     "isFinalPoint": 1,
     "teamColor": "Blue",
     "normMargin": -0.75,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c11_d164_p1",
@@ -6864,7 +6864,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c11_d164_p23",
@@ -6885,7 +6885,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c11_d165_p12",
@@ -6906,7 +6906,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c11_d165_p20",
@@ -6948,7 +6948,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.33,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c11_d166_p21",
@@ -6969,7 +6969,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.333333333,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c11_d167_p4",
@@ -6990,7 +6990,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 73.63906172
+    "adjustedPower": 73.49062744
   },
   {
     "rowId": "c11_d167_p18",
@@ -7011,7 +7011,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 39.77319512
+    "adjustedPower": 39.69302427
   },
   {
     "rowId": "c11_d168_p2",
@@ -7032,7 +7032,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c11_d168_p19",
@@ -7053,7 +7053,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.666666667,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c11_d169_p10",
@@ -7074,7 +7074,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c11_d169_p13",
@@ -7095,7 +7095,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c11_d170_p8",
@@ -7116,7 +7116,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c11_d170_p14",
@@ -7137,7 +7137,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c11_d171_p5",
@@ -7158,7 +7158,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.33,
-    "adjustedPower": 52.67267006
+    "adjustedPower": 52.56649774
   },
   {
     "rowId": "c11_d171_p15",
@@ -7179,7 +7179,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.333333333,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c11_d172_p1",
@@ -7200,7 +7200,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.33,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c11_d172_p22",
@@ -7221,7 +7221,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.333333333,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c11_d173_p4",
@@ -7242,7 +7242,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 73.63906172
+    "adjustedPower": 73.49062744
   },
   {
     "rowId": "c11_d173_p17",
@@ -7263,7 +7263,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c11_d174_p8",
@@ -7284,7 +7284,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c11_d174_p24",
@@ -7305,7 +7305,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.666666667,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c11_d175_p10",
@@ -7326,7 +7326,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": 0.33,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c11_d175_p20",
@@ -7368,7 +7368,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c12_d176_p22",
@@ -7389,7 +7389,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c12_d177_p12",
@@ -7410,7 +7410,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c12_d177_p13",
@@ -7431,7 +7431,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c12_d178_p8",
@@ -7452,7 +7452,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c12_d178_p23",
@@ -7473,7 +7473,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c12_d179_p10",
@@ -7494,7 +7494,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c12_d179_p17",
@@ -7515,7 +7515,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c12_d180_p7",
@@ -7536,7 +7536,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c12_d180_p19",
@@ -7557,7 +7557,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c12_d181_p9",
@@ -7578,7 +7578,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c12_d181_p15",
@@ -7599,7 +7599,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c12_d182_p1",
@@ -7620,7 +7620,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c12_d182_p24",
@@ -7641,7 +7641,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c12_d183_p10",
@@ -7662,7 +7662,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c12_d183_p13",
@@ -7683,7 +7683,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c12_d184_p8",
@@ -7704,7 +7704,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c12_d184_p21",
@@ -7725,7 +7725,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c12_d185_p9",
@@ -7746,7 +7746,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c12_d185_p20",
@@ -7788,7 +7788,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c12_d186_p14",
@@ -7809,7 +7809,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c12_d187_p4",
@@ -7830,7 +7830,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 73.63906172
+    "adjustedPower": 73.49062744
   },
   {
     "rowId": "c12_d187_p14",
@@ -7851,7 +7851,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c12_d188_p1",
@@ -7872,7 +7872,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c12_d188_p22",
@@ -7893,7 +7893,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c12_d189_p9",
@@ -7914,7 +7914,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c12_d189_p13",
@@ -7935,7 +7935,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c12_d190_p8",
@@ -7956,7 +7956,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c12_d190_p24",
@@ -7977,7 +7977,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c12_d191_p10",
@@ -7998,7 +7998,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": 0,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c12_d191_p20",
@@ -8040,7 +8040,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c13_d192_p23",
@@ -8061,7 +8061,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.666666667,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c13_d193_p4",
@@ -8082,7 +8082,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 73.63906172
+    "adjustedPower": 73.49062744
   },
   {
     "rowId": "c13_d193_p17",
@@ -8103,7 +8103,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c13_d194_p8",
@@ -8124,7 +8124,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c13_d194_p19",
@@ -8145,7 +8145,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.666666667,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c13_d195_p9",
@@ -8166,7 +8166,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c13_d195_p20",
@@ -8208,7 +8208,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.33,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c13_d196_p24",
@@ -8229,7 +8229,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.333333333,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c13_d197_p12",
@@ -8250,7 +8250,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c13_d197_p13",
@@ -8271,7 +8271,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.666666667,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c13_d198_p6",
@@ -8292,7 +8292,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 28.80666629
+    "adjustedPower": 28.74860068
   },
   {
     "rowId": "c13_d198_p22",
@@ -8313,7 +8313,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c13_d199_p10",
@@ -8334,7 +8334,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c13_d199_p15",
@@ -8355,7 +8355,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.666666667,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c13_d200_p1",
@@ -8376,7 +8376,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c13_d200_p21",
@@ -8397,7 +8397,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c13_d201_p4",
@@ -8418,7 +8418,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 73.63906172
+    "adjustedPower": 73.49062744
   },
   {
     "rowId": "c13_d201_p20",
@@ -8460,7 +8460,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.33,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c13_d202_p17",
@@ -8481,7 +8481,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.333333333,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c13_d203_p8",
@@ -8502,7 +8502,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.33,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c13_d203_p22",
@@ -8523,7 +8523,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.333333333,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c13_d204_p12",
@@ -8544,7 +8544,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c13_d204_p15",
@@ -8565,7 +8565,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.666666667,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c13_d205_p9",
@@ -8586,7 +8586,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c13_d205_p13",
@@ -8607,7 +8607,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c13_d206_p1",
@@ -8628,7 +8628,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.33,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c13_d206_p24",
@@ -8649,7 +8649,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.333333333,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c13_d207_p9",
@@ -8670,7 +8670,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c13_d207_p15",
@@ -8691,7 +8691,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c13_d208_p7",
@@ -8712,7 +8712,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c13_d208_p22",
@@ -8733,7 +8733,7 @@
     "isFinalPoint": 1,
     "teamColor": "Blue",
     "normMargin": 0.666666667,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c14_d209_p8",
@@ -8754,7 +8754,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.5,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c14_d209_p19",
@@ -8775,7 +8775,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.5,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c14_d210_p12",
@@ -8796,7 +8796,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.25,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c14_d210_p17",
@@ -8817,7 +8817,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.25,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c14_d211_p7",
@@ -8838,7 +8838,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.75,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c14_d211_p14",
@@ -8859,7 +8859,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.75,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c14_d212_p10",
@@ -8880,7 +8880,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c14_d212_p20",
@@ -8922,7 +8922,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.5,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c14_d213_p23",
@@ -8943,7 +8943,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.5,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c14_d214_p9",
@@ -8964,7 +8964,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.5,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c14_d214_p15",
@@ -8985,7 +8985,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.5,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c14_d215_p1",
@@ -9006,7 +9006,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c14_d215_p22",
@@ -9027,7 +9027,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c14_d216_p2",
@@ -9048,7 +9048,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.5,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c14_d216_p24",
@@ -9069,7 +9069,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.5,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c14_d217_p10",
@@ -9090,7 +9090,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.25,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c14_d217_p17",
@@ -9111,7 +9111,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.25,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c14_d218_p1",
@@ -9132,7 +9132,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c14_d218_p21",
@@ -9153,7 +9153,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c14_d219_p9",
@@ -9174,7 +9174,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.5,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c14_d219_p13",
@@ -9195,7 +9195,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.5,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c14_d220_p8",
@@ -9216,7 +9216,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c14_d220_p14",
@@ -9237,7 +9237,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c14_d221_p12",
@@ -9258,7 +9258,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.75,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c14_d221_p15",
@@ -9279,7 +9279,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.75,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c14_d222_p7",
@@ -9300,7 +9300,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.75,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c14_d222_p19",
@@ -9321,7 +9321,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.75,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c14_d223_p2",
@@ -9342,7 +9342,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.75,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c14_d223_p14",
@@ -9363,7 +9363,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.75,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c14_d224_p9",
@@ -9384,7 +9384,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c14_d224_p20",
@@ -9426,7 +9426,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.75,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c14_d225_p19",
@@ -9447,7 +9447,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.75,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c14_d226_p12",
@@ -9468,7 +9468,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": 0.25,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c14_d226_p15",
@@ -9489,7 +9489,7 @@
     "isFinalPoint": 1,
     "teamColor": "Blue",
     "normMargin": -0.25,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c15_d227_p8",
@@ -9510,7 +9510,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c15_d227_p23",
@@ -9531,7 +9531,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c15_d228_p12",
@@ -9552,7 +9552,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c15_d228_p13",
@@ -9573,7 +9573,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.666666667,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c15_d229_p1",
@@ -9594,7 +9594,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.33,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c15_d229_p21",
@@ -9615,7 +9615,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.333333333,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c15_d230_p9",
@@ -9636,7 +9636,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c15_d230_p20",
@@ -9678,7 +9678,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c15_d231_p14",
@@ -9699,7 +9699,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c15_d232_p10",
@@ -9720,7 +9720,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c15_d232_p17",
@@ -9741,7 +9741,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.666666667,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c15_d233_p2",
@@ -9762,7 +9762,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c15_d233_p19",
@@ -9783,7 +9783,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.666666667,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c15_d234_p7",
@@ -9804,7 +9804,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.33,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c15_d234_p24",
@@ -9825,7 +9825,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.333333333,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c15_d235_p10",
@@ -9846,7 +9846,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c15_d235_p13",
@@ -9867,7 +9867,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.666666667,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c15_d236_p2",
@@ -9888,7 +9888,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.33,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c15_d236_p22",
@@ -9909,7 +9909,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.333333333,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c15_d237_p12",
@@ -9930,7 +9930,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c15_d237_p20",
@@ -9972,7 +9972,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c15_d238_p14",
@@ -9993,7 +9993,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c15_d239_p9",
@@ -10014,7 +10014,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c15_d239_p17",
@@ -10035,7 +10035,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c15_d240_p1",
@@ -10056,7 +10056,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c15_d240_p23",
@@ -10077,7 +10077,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.666666667,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c15_d241_p8",
@@ -10098,7 +10098,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c15_d241_p24",
@@ -10119,7 +10119,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.666666667,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c15_d242_p10",
@@ -10140,7 +10140,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.33,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c15_d242_p17",
@@ -10161,7 +10161,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.333333333,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c15_d243_p2",
@@ -10182,7 +10182,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c15_d243_p14",
@@ -10203,7 +10203,7 @@
     "isFinalPoint": 1,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c16_d244_p8",
@@ -10224,7 +10224,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 70.50915154
+    "adjustedPower": 70.36702621
   },
   {
     "rowId": "c16_d244_p22",
@@ -10245,7 +10245,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c16_d245_p10",
@@ -10266,7 +10266,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c16_d245_p20",
@@ -10308,7 +10308,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c16_d246_p14",
@@ -10329,7 +10329,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 35.7995904
+    "adjustedPower": 35.72742915
   },
   {
     "rowId": "c16_d247_p12",
@@ -10350,7 +10350,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c16_d247_p17",
@@ -10371,7 +10371,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c16_d248_p1",
@@ -10392,7 +10392,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c16_d248_p23",
@@ -10413,7 +10413,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c16_d249_p9",
@@ -10434,7 +10434,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c16_d249_p15",
@@ -10455,7 +10455,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c16_d250_p7",
@@ -10476,7 +10476,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.5,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c16_d250_p24",
@@ -10497,7 +10497,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.5,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c16_d251_p9",
@@ -10518,7 +10518,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c16_d251_p13",
@@ -10539,7 +10539,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c16_d252_p10",
@@ -10560,7 +10560,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c16_d252_p17",
@@ -10581,7 +10581,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c16_d253_p1",
@@ -10602,7 +10602,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c16_d253_p21",
@@ -10623,7 +10623,7 @@
     "isFinalPoint": 1,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c17_d254_p1",
@@ -10644,7 +10644,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.4,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c17_d254_p21",
@@ -10665,7 +10665,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.4,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c17_d255_p12",
@@ -10686,7 +10686,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.4,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c17_d255_p20",
@@ -10728,7 +10728,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.4,
-    "adjustedPower": 56.86824579
+    "adjustedPower": 56.75361645
   },
   {
     "rowId": "c17_d256_p23",
@@ -10749,7 +10749,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.4,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c17_d257_p9",
@@ -10770,7 +10770,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.2,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c17_d257_p28",
@@ -10791,7 +10791,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.2,
-    "adjustedPower": 40.25818037
+    "adjustedPower": 40.17703194
   },
   {
     "rowId": "c17_d258_p2",
@@ -10812,7 +10812,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.6,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c17_d258_p19",
@@ -10833,7 +10833,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.6,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c17_d259_p25",
@@ -10854,7 +10854,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.2,
-    "adjustedPower": 71.54270344
+    "adjustedPower": 73.53020058
   },
   {
     "rowId": "c17_d259_p15",
@@ -10875,7 +10875,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.2,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c17_d260_p26",
@@ -10896,7 +10896,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.6,
-    "adjustedPower": 63.36537631
+    "adjustedPower": 66.60840208
   },
   {
     "rowId": "c17_d260_p24",
@@ -10917,7 +10917,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.6,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c17_d261_p10",
@@ -10938,7 +10938,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c17_d261_p17",
@@ -10959,7 +10959,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c17_d262_p29",
@@ -10980,7 +10980,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.8,
-    "adjustedPower": 79.86109352
+    "adjustedPower": 81.6826916
   },
   {
     "rowId": "c17_d262_p22",
@@ -11001,7 +11001,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.8,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c17_d263_p2",
@@ -11022,7 +11022,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.6,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c17_d263_p21",
@@ -11043,7 +11043,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.6,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c17_d264_p10",
@@ -11064,7 +11064,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.6,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c17_d264_p28",
@@ -11085,7 +11085,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.6,
-    "adjustedPower": 40.25818037
+    "adjustedPower": 40.17703194
   },
   {
     "rowId": "c17_d265_p7",
@@ -11106,7 +11106,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.6,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c17_d265_p23",
@@ -11127,7 +11127,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.6,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c17_d266_p9",
@@ -11148,7 +11148,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.4,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c17_d266_p15",
@@ -11169,7 +11169,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.4,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c17_d267_p27",
@@ -11190,7 +11190,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.4,
-    "adjustedPower": 56.86824579
+    "adjustedPower": 56.75361645
   },
   {
     "rowId": "c17_d267_p24",
@@ -11211,7 +11211,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.4,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c17_d268_p25",
@@ -11232,7 +11232,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": -0.6,
-    "adjustedPower": 71.54270344
+    "adjustedPower": 73.53020058
   },
   {
     "rowId": "c17_d268_p13",
@@ -11253,7 +11253,7 @@
     "isFinalPoint": 1,
     "teamColor": "Blue",
     "normMargin": 0.6,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c18_d269_p7",
@@ -11274,7 +11274,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c18_d269_p19",
@@ -11295,7 +11295,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.666666667,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c18_d270_p10",
@@ -11316,7 +11316,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c18_d270_p13",
@@ -11337,7 +11337,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.666666667,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c18_d271_p2",
@@ -11358,7 +11358,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c18_d271_p24",
@@ -11379,7 +11379,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c18_d272_p25",
@@ -11400,7 +11400,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 71.54270344
+    "adjustedPower": 73.53020058
   },
   {
     "rowId": "c18_d272_p28",
@@ -11421,7 +11421,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 40.25818037
+    "adjustedPower": 40.17703194
   },
   {
     "rowId": "c18_d273_p29",
@@ -11442,7 +11442,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 79.86109352
+    "adjustedPower": 81.6826916
   },
   {
     "rowId": "c18_d273_p21",
@@ -11463,7 +11463,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.666666667,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c18_d274_p12",
@@ -11484,7 +11484,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c18_d274_p17",
@@ -11505,7 +11505,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c18_d275_p27",
@@ -11526,7 +11526,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 56.86824579
+    "adjustedPower": 56.75361645
   },
   {
     "rowId": "c18_d275_p22",
@@ -11547,7 +11547,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.666666667,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c18_d276_p9",
@@ -11568,7 +11568,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c18_d276_p20",
@@ -11610,7 +11610,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 63.36537631
+    "adjustedPower": 66.60840208
   },
   {
     "rowId": "c18_d277_p23",
@@ -11631,7 +11631,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.666666667,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c18_d278_p2",
@@ -11652,7 +11652,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c18_d278_p21",
@@ -11673,7 +11673,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.666666667,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c18_d279_p12",
@@ -11694,7 +11694,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c18_d279_p15",
@@ -11715,7 +11715,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c18_d280_p1",
@@ -11736,7 +11736,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c18_d280_p22",
@@ -11757,7 +11757,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c18_d281_p10",
@@ -11778,7 +11778,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c18_d281_p28",
@@ -11799,7 +11799,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 40.25818037
+    "adjustedPower": 40.17703194
   },
   {
     "rowId": "c18_d282_p27",
@@ -11820,7 +11820,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 56.86824579
+    "adjustedPower": 56.75361645
   },
   {
     "rowId": "c18_d282_p19",
@@ -11841,7 +11841,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.666666667,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c18_d283_p25",
@@ -11862,7 +11862,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 71.54270344
+    "adjustedPower": 73.53020058
   },
   {
     "rowId": "c18_d283_p20",
@@ -11904,7 +11904,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 79.86109352
+    "adjustedPower": 81.6826916
   },
   {
     "rowId": "c18_d284_p23",
@@ -11925,7 +11925,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.666666667,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c18_d285_p9",
@@ -11946,7 +11946,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.33,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c18_d285_p13",
@@ -11967,7 +11967,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.333333333,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c18_d286_p26",
@@ -11988,7 +11988,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": -0.33,
-    "adjustedPower": 63.36537631
+    "adjustedPower": 66.60840208
   },
   {
     "rowId": "c18_d286_p24",
@@ -12009,7 +12009,7 @@
     "isFinalPoint": 1,
     "teamColor": "Blue",
     "normMargin": 0.333333333,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c19_d287_p1",
@@ -12030,7 +12030,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c19_d287_p25",
@@ -12051,7 +12051,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 71.54270344
+    "adjustedPower": 73.53020058
   },
   {
     "rowId": "c19_d288_p9",
@@ -12072,7 +12072,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.83,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c19_d288_p12",
@@ -12093,7 +12093,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.833333333,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c19_d289_p2",
@@ -12114,7 +12114,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c19_d289_p22",
@@ -12135,7 +12135,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.666666667,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c19_d290_p25",
@@ -12156,7 +12156,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 71.54270344
+    "adjustedPower": 73.53020058
   },
   {
     "rowId": "c19_d290_p28",
@@ -12177,7 +12177,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 40.25818037
+    "adjustedPower": 40.17703194
   },
   {
     "rowId": "c19_d291_p26",
@@ -12198,7 +12198,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.17,
-    "adjustedPower": 63.36537631
+    "adjustedPower": 66.60840208
   },
   {
     "rowId": "c19_d291_p21",
@@ -12219,7 +12219,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.166666667,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c19_d292_p10",
@@ -12240,7 +12240,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.5,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c19_d292_p13",
@@ -12261,7 +12261,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.5,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c19_d293_p29",
@@ -12282,7 +12282,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.83,
-    "adjustedPower": 79.86109352
+    "adjustedPower": 81.6826916
   },
   {
     "rowId": "c19_d293_p23",
@@ -12303,7 +12303,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.833333333,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c19_d294_p12",
@@ -12324,7 +12324,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c19_d294_p17",
@@ -12345,7 +12345,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.666666667,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c19_d295_p7",
@@ -12366,7 +12366,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.5,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c19_d295_p19",
@@ -12387,7 +12387,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.5,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c19_d296_p1",
@@ -12408,7 +12408,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.5,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c19_d296_p21",
@@ -12429,7 +12429,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.5,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c19_d297_p12",
@@ -12450,7 +12450,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.33,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c19_d297_p13",
@@ -12471,7 +12471,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.333333333,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c19_d298_p27",
@@ -12492,7 +12492,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.5,
-    "adjustedPower": 56.86824579
+    "adjustedPower": 56.75361645
   },
   {
     "rowId": "c19_d298_p23",
@@ -12513,7 +12513,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.5,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c19_d299_p25",
@@ -12534,7 +12534,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.33,
-    "adjustedPower": 71.54270344
+    "adjustedPower": 73.53020058
   },
   {
     "rowId": "c19_d299_p20",
@@ -12576,7 +12576,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c19_d300_p19",
@@ -12597,7 +12597,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.666666667,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c19_d301_p9",
@@ -12618,7 +12618,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c19_d301_p28",
@@ -12639,7 +12639,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 40.25818037
+    "adjustedPower": 40.17703194
   },
   {
     "rowId": "c19_d302_p26",
@@ -12660,7 +12660,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 63.36537631
+    "adjustedPower": 66.60840208
   },
   {
     "rowId": "c19_d302_p24",
@@ -12681,7 +12681,7 @@
     "isFinalPoint": 1,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c20_d303_p2",
@@ -12702,7 +12702,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.4,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c20_d303_p23",
@@ -12723,7 +12723,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.4,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c20_d304_p10",
@@ -12744,7 +12744,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.6,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c20_d304_p20",
@@ -12786,7 +12786,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.6,
-    "adjustedPower": 56.86824579
+    "adjustedPower": 56.75361645
   },
   {
     "rowId": "c20_d305_p24",
@@ -12807,7 +12807,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.6,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c20_d306_p12",
@@ -12828,7 +12828,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.2,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c20_d306_p13",
@@ -12849,7 +12849,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.2,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c20_d307_p26",
@@ -12870,7 +12870,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.6,
-    "adjustedPower": 63.36537631
+    "adjustedPower": 66.60840208
   },
   {
     "rowId": "c20_d307_p21",
@@ -12891,7 +12891,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.6,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c20_d308_p9",
@@ -12912,7 +12912,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.2,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c20_d308_p28",
@@ -12933,7 +12933,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.2,
-    "adjustedPower": 40.25818037
+    "adjustedPower": 40.17703194
   },
   {
     "rowId": "c20_d309_p1",
@@ -12954,7 +12954,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c20_d309_p19",
@@ -12975,7 +12975,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c20_d310_p25",
@@ -12996,7 +12996,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.4,
-    "adjustedPower": 71.54270344
+    "adjustedPower": 73.53020058
   },
   {
     "rowId": "c20_d310_p15",
@@ -13017,7 +13017,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.4,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c20_d311_p29",
@@ -13038,7 +13038,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.2,
-    "adjustedPower": 79.86109352
+    "adjustedPower": 81.6826916
   },
   {
     "rowId": "c20_d311_p22",
@@ -13059,7 +13059,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.2,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c20_d312_p7",
@@ -13080,7 +13080,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.2,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c20_d312_p21",
@@ -13101,7 +13101,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.2,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c20_d313_p12",
@@ -13122,7 +13122,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.8,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c20_d313_p20",
@@ -13164,7 +13164,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.2,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c20_d314_p24",
@@ -13185,7 +13185,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.2,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c20_d315_p9",
@@ -13206,7 +13206,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.4,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c20_d315_p17",
@@ -13227,7 +13227,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.4,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c20_d316_p27",
@@ -13248,7 +13248,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.4,
-    "adjustedPower": 56.86824579
+    "adjustedPower": 56.75361645
   },
   {
     "rowId": "c20_d316_p23",
@@ -13269,7 +13269,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.4,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c20_d317_p25",
@@ -13290,7 +13290,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.6,
-    "adjustedPower": 71.54270344
+    "adjustedPower": 73.53020058
   },
   {
     "rowId": "c20_d317_p28",
@@ -13311,7 +13311,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.6,
-    "adjustedPower": 40.25818037
+    "adjustedPower": 40.17703194
   },
   {
     "rowId": "c20_d318_p29",
@@ -13332,7 +13332,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.4,
-    "adjustedPower": 79.86109352
+    "adjustedPower": 81.6826916
   },
   {
     "rowId": "c20_d318_p19",
@@ -13353,7 +13353,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.4,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c20_d319_p10",
@@ -13374,7 +13374,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.2,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c20_d319_p13",
@@ -13395,7 +13395,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.2,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c20_d320_p26",
@@ -13416,7 +13416,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": -0.2,
-    "adjustedPower": 63.36537631
+    "adjustedPower": 66.60840208
   },
   {
     "rowId": "c20_d320_p22",
@@ -13437,7 +13437,7 @@
     "isFinalPoint": 1,
     "teamColor": "Blue",
     "normMargin": 0.2,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c21_d321_p1",
@@ -13458,7 +13458,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.29,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c21_d321_p19",
@@ -13479,7 +13479,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.285714286,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c21_d322_p9",
@@ -13500,7 +13500,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c21_d322_p28",
@@ -13521,7 +13521,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 40.25818037
+    "adjustedPower": 40.17703194
   },
   {
     "rowId": "c21_d323_p2",
@@ -13542,7 +13542,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.29,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c21_d323_p21",
@@ -13563,7 +13563,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.285714286,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c21_d324_p12",
@@ -13584,7 +13584,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.29,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c21_d324_p15",
@@ -13605,7 +13605,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.285714286,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c21_d325_p26",
@@ -13626,7 +13626,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.43,
-    "adjustedPower": 63.36537631
+    "adjustedPower": 66.60840208
   },
   {
     "rowId": "c21_d325_p24",
@@ -13647,7 +13647,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.428571429,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c21_d326_p10",
@@ -13668,7 +13668,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.57,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c21_d326_p13",
@@ -13689,7 +13689,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.571428571,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c21_d327_p29",
@@ -13710,7 +13710,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.14,
-    "adjustedPower": 79.86109352
+    "adjustedPower": 81.6826916
   },
   {
     "rowId": "c21_d327_p22",
@@ -13731,7 +13731,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.142857143,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c21_d328_p25",
@@ -13752,7 +13752,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.14,
-    "adjustedPower": 71.54270344
+    "adjustedPower": 73.53020058
   },
   {
     "rowId": "c21_d328_p20",
@@ -13794,7 +13794,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.57,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c21_d329_p23",
@@ -13815,7 +13815,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.571428571,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c21_d330_p1",
@@ -13836,7 +13836,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.71,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c21_d330_p22",
@@ -13857,7 +13857,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.714285714,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c21_d331_p12",
@@ -13878,7 +13878,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.57,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c21_d331_p17",
@@ -13899,7 +13899,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.571428571,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c21_d332_p26",
@@ -13920,7 +13920,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.43,
-    "adjustedPower": 63.36537631
+    "adjustedPower": 66.60840208
   },
   {
     "rowId": "c21_d332_p21",
@@ -13941,7 +13941,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.428571429,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c21_d333_p10",
@@ -13962,7 +13962,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.29,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c21_d333_p15",
@@ -13983,7 +13983,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.285714286,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c21_d334_p27",
@@ -14004,7 +14004,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.14,
-    "adjustedPower": 56.86824579
+    "adjustedPower": 56.75361645
   },
   {
     "rowId": "c21_d334_p23",
@@ -14025,7 +14025,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.142857143,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c21_d335_p25",
@@ -14046,7 +14046,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.43,
-    "adjustedPower": 71.54270344
+    "adjustedPower": 73.53020058
   },
   {
     "rowId": "c21_d335_p28",
@@ -14067,7 +14067,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.428571429,
-    "adjustedPower": 40.25818037
+    "adjustedPower": 40.17703194
   },
   {
     "rowId": "c21_d336_p7",
@@ -14088,7 +14088,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.29,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c21_d336_p24",
@@ -14109,7 +14109,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.285714286,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c21_d337_p9",
@@ -14130,7 +14130,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": -0.43,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c21_d337_p13",
@@ -14151,7 +14151,7 @@
     "isFinalPoint": 1,
     "teamColor": "Blue",
     "normMargin": 0.428571429,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c21_d338_p29",
@@ -14172,7 +14172,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": -0.14,
-    "adjustedPower": 79.86109352
+    "adjustedPower": 81.6826916
   },
   {
     "rowId": "c21_d338_p19",
@@ -14193,7 +14193,7 @@
     "isFinalPoint": 1,
     "teamColor": "Blue",
     "normMargin": 0.142857143,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c21_d339_p7",
@@ -14214,7 +14214,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": -0.86,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c21_d339_p17",
@@ -14235,7 +14235,7 @@
     "isFinalPoint": 1,
     "teamColor": "Blue",
     "normMargin": 0.857142857,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c22_d340_p7",
@@ -14256,7 +14256,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 72.37042324
+    "adjustedPower": 73.01891678
   },
   {
     "rowId": "c22_d340_p22",
@@ -14277,7 +14277,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.666666667,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c22_d341_p12",
@@ -14298,7 +14298,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c22_d341_p15",
@@ -14319,7 +14319,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.666666667,
-    "adjustedPower": 65.58526449
+    "adjustedPower": 63.41332435
   },
   {
     "rowId": "c22_d342_p27",
@@ -14340,7 +14340,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.33,
-    "adjustedPower": 56.86824579
+    "adjustedPower": 56.75361645
   },
   {
     "rowId": "c22_d342_p24",
@@ -14361,7 +14361,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.333333333,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c22_d343_p25",
@@ -14382,7 +14382,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 71.54270344
+    "adjustedPower": 73.53020058
   },
   {
     "rowId": "c22_d343_p28",
@@ -14403,7 +14403,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.666666667,
-    "adjustedPower": 40.25818037
+    "adjustedPower": 40.17703194
   },
   {
     "rowId": "c22_d344_p2",
@@ -14424,7 +14424,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.33,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c22_d344_p19",
@@ -14445,7 +14445,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.333333333,
-    "adjustedPower": 87.70450605
+    "adjustedPower": 86.08537337
   },
   {
     "rowId": "c22_d345_p10",
@@ -14466,7 +14466,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c22_d345_p17",
@@ -14487,7 +14487,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.666666667,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
   },
   {
     "rowId": "c22_d346_p29",
@@ -14508,7 +14508,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 79.86109352
+    "adjustedPower": 81.6826916
   },
   {
     "rowId": "c22_d346_p21",
@@ -14529,7 +14529,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c22_d347_p9",
@@ -14550,7 +14550,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c22_d347_p20",
@@ -14592,7 +14592,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 1,
-    "adjustedPower": 63.36537631
+    "adjustedPower": 66.60840208
   },
   {
     "rowId": "c22_d348_p23",
@@ -14613,7 +14613,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -1,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c22_d349_p1",
@@ -14634,7 +14634,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.67,
-    "adjustedPower": 74.94299645
+    "adjustedPower": 75.67768273
   },
   {
     "rowId": "c22_d349_p21",
@@ -14655,7 +14655,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.666666667,
-    "adjustedPower": 48.74661538
+    "adjustedPower": 49.93480316
   },
   {
     "rowId": "c22_d350_p12",
@@ -14676,7 +14676,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -1,
-    "adjustedPower": 53.1385606
+    "adjustedPower": 53.27417227
   },
   {
     "rowId": "c22_d350_p13",
@@ -14697,7 +14697,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 1,
-    "adjustedPower": 91.26119643
+    "adjustedPower": 91.885738
   },
   {
     "rowId": "c22_d351_p2",
@@ -14718,7 +14718,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 93.37637974
+    "adjustedPower": 91.77978253
   },
   {
     "rowId": "c22_d351_p23",
@@ -14739,7 +14739,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.666666667,
-    "adjustedPower": 58.78926402
+    "adjustedPower": 58.67076248
   },
   {
     "rowId": "c22_d352_p10",
@@ -14760,7 +14760,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 86.29687426
+    "adjustedPower": 83.71796198
   },
   {
     "rowId": "c22_d352_p20",
@@ -14802,7 +14802,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 79.86109352
+    "adjustedPower": 81.6826916
   },
   {
     "rowId": "c22_d353_p24",
@@ -14823,7 +14823,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.666666667,
-    "adjustedPower": 54.62065436
+    "adjustedPower": 52.4495009
   },
   {
     "rowId": "c22_d354_p9",
@@ -14844,7 +14844,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": -0.33,
-    "adjustedPower": 53.28148826
+    "adjustedPower": 52.64946139
   },
   {
     "rowId": "c22_d354_p28",
@@ -14865,7 +14865,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": 0.333333333,
-    "adjustedPower": 40.25818037
+    "adjustedPower": 40.17703194
   },
   {
     "rowId": "c22_d355_p26",
@@ -14886,7 +14886,7 @@
     "isFinalPoint": 0,
     "teamColor": "Red",
     "normMargin": 0.33,
-    "adjustedPower": 63.36537631
+    "adjustedPower": 66.60840208
   },
   {
     "rowId": "c22_d355_p22",
@@ -14907,7 +14907,7 @@
     "isFinalPoint": 0,
     "teamColor": "Blue",
     "normMargin": -0.333333333,
-    "adjustedPower": 89.48967641
+    "adjustedPower": 87.88216969
   },
   {
     "rowId": "c22_d356_p25",
@@ -14928,7 +14928,7 @@
     "isFinalPoint": 1,
     "teamColor": "Red",
     "normMargin": 0.67,
-    "adjustedPower": 71.54270344
+    "adjustedPower": 73.53020058
   },
   {
     "rowId": "c22_d356_p17",
@@ -14949,6 +14949,594 @@
     "isFinalPoint": 1,
     "teamColor": "Blue",
     "normMargin": -0.666666667,
-    "adjustedPower": 92.72716816
+    "adjustedPower": 93.33113978
+  },
+  {
+    "rowId": "c23_d357_p29",
+    "duelId": 357,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 29,
+    "playerName": "Alex Benzy Karantonis",
+    "tribe": "Athinaioi",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": 0,
+    "adjustedPower": 81.6826916
+  },
+  {
+    "rowId": "c23_d357_p19",
+    "duelId": 357,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 19,
+    "playerName": "Giorgos Polychros",
+    "tribe": "Eparxiotes",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 0,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": 0,
+    "adjustedPower": 86.08537337
+  },
+  {
+    "rowId": "c23_d358_p10",
+    "duelId": 358,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 10,
+    "playerName": "Mantisa Tsota",
+    "tribe": "Athinaioi",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 0,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": -1,
+    "adjustedPower": 83.71796198
+  },
+  {
+    "rowId": "c23_d358_p13",
+    "duelId": 358,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 13,
+    "playerName": "Anastasia Stergiou",
+    "tribe": "Eparxiotes",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": 1,
+    "adjustedPower": 91.885738
+  },
+  {
+    "rowId": "c23_d359_p26",
+    "duelId": 359,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 26,
+    "playerName": "Valantis Pakos",
+    "tribe": "Athinaioi",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": 0.5,
+    "adjustedPower": 66.60840208
+  },
+  {
+    "rowId": "c23_d359_p24",
+    "duelId": 359,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 24,
+    "playerName": "Stauros Floros",
+    "tribe": "Eparxiotes",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 0,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": -0.5,
+    "adjustedPower": 52.4495009
+  },
+  {
+    "rowId": "c23_d360_p25",
+    "duelId": 360,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 25,
+    "playerName": "Ariadni Dimitrelou",
+    "tribe": "Athinaioi",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": 0,
+    "adjustedPower": 73.53020058
+  },
+  {
+    "rowId": "c23_d360_p15",
+    "duelId": 360,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 15,
+    "playerName": "Dimitra Liaga",
+    "tribe": "Eparxiotes",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 0,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": 0,
+    "adjustedPower": 63.41332435
+  },
+  {
+    "rowId": "c23_d361_p7",
+    "duelId": 361,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 7,
+    "playerName": "Giorgos Karaisalidis",
+    "tribe": "Athinaioi",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": 0,
+    "adjustedPower": 73.01891678
+  },
+  {
+    "rowId": "c23_d361_p22",
+    "duelId": 361,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 22,
+    "playerName": "Manos Malliaros",
+    "tribe": "Eparxiotes",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 0,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": 0,
+    "adjustedPower": 87.88216969
+  },
+  {
+    "rowId": "c23_d362_p12",
+    "duelId": 362,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 12,
+    "playerName": "Vasiliki Mounti",
+    "tribe": "Athinaioi",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 0,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": 0,
+    "adjustedPower": 53.27417227
+  },
+  {
+    "rowId": "c23_d362_p17",
+    "duelId": 362,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 17,
+    "playerName": "Fani Pantelaki",
+    "tribe": "Eparxiotes",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": 0,
+    "adjustedPower": 93.33113978
+  },
+  {
+    "rowId": "c23_d363_p23",
+    "duelId": 363,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 23,
+    "playerName": "Michalis Sifakis",
+    "tribe": "Eparxiotes",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 0,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": 0,
+    "adjustedPower": 58.67076248
+  },
+  {
+    "rowId": "c23_d363_p27",
+    "duelId": 363,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 27,
+    "playerName": "Antonis Nikolopoulos",
+    "tribe": "Athinaioi",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": 0,
+    "adjustedPower": 56.75361645
+  },
+  {
+    "rowId": "c23_d364_p9",
+    "duelId": 364,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 9,
+    "playerName": "Kelly Bofiliou",
+    "tribe": "Athinaioi",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 0,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": 0,
+    "adjustedPower": 52.64946139
+  },
+  {
+    "rowId": "c23_d364_p20",
+    "duelId": 364,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 20,
+    "playerName": "Ioanna Desylla",
+    "tribe": "Eparxiotes",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": 0,
+    "adjustedPower": 100
+  },
+  {
+    "rowId": "c23_d365_p2",
+    "duelId": 365,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 2,
+    "playerName": "Dimitris Theodoropoulos",
+    "tribe": "Athinaioi",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 0,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": 0,
+    "adjustedPower": 91.77978253
+  },
+  {
+    "rowId": "c23_d365_p21",
+    "duelId": 365,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 21,
+    "playerName": "Ioannis Revis",
+    "tribe": "Eparxiotes",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": 0,
+    "adjustedPower": 49.93480316
+  },
+  {
+    "rowId": "c23_d366_p10",
+    "duelId": 366,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 10,
+    "playerName": "Mantisa Tsota",
+    "tribe": "Athinaioi",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 0,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": 0,
+    "adjustedPower": 83.71796198
+  },
+  {
+    "rowId": "c23_d366_p17",
+    "duelId": 366,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 17,
+    "playerName": "Fani Pantelaki",
+    "tribe": "Eparxiotes",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": 0,
+    "adjustedPower": 93.33113978
+  },
+  {
+    "rowId": "c23_d367_p1",
+    "duelId": 367,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 1,
+    "playerName": "Alexandros Kourtovik",
+    "tribe": "Athinaioi",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": 0.75,
+    "adjustedPower": 75.67768273
+  },
+  {
+    "rowId": "c23_d367_p24",
+    "duelId": 367,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 24,
+    "playerName": "Stauros Floros",
+    "tribe": "Eparxiotes",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 0,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": -0.75,
+    "adjustedPower": 52.4495009
+  },
+  {
+    "rowId": "c23_d368_p12",
+    "duelId": 368,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 12,
+    "playerName": "Vasiliki Mounti",
+    "tribe": "Athinaioi",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Red",
+    "normMargin": 0,
+    "adjustedPower": 53.27417227
+  },
+  {
+    "rowId": "c23_d368_p15",
+    "duelId": 368,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 15,
+    "playerName": "Dimitra Liaga",
+    "tribe": "Eparxiotes",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 0,
+    "arrivedFirst": 0,
+    "isFinalPoint": 0,
+    "teamColor": "Blue",
+    "normMargin": 0,
+    "adjustedPower": 63.41332435
+  },
+  {
+    "rowId": "c23_d369_p21",
+    "duelId": 369,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 21,
+    "playerName": "Ioannis Revis",
+    "tribe": "Eparxiotes",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 0,
+    "arrivedFirst": 0,
+    "isFinalPoint": 1,
+    "teamColor": "Red",
+    "normMargin": 0,
+    "adjustedPower": 49.93480316
+  },
+  {
+    "rowId": "c23_d369_p29",
+    "duelId": 369,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 29,
+    "playerName": "Alex Benzy Karantonis",
+    "tribe": "Athinaioi",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 1,
+    "teamColor": "Blue",
+    "normMargin": 0,
+    "adjustedPower": 81.6826916
+  },
+  {
+    "rowId": "c23_d370_p20",
+    "duelId": 370,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 20,
+    "playerName": "Ioanna Desylla",
+    "tribe": "Eparxiotes",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 0,
+    "arrivedFirst": 0,
+    "isFinalPoint": 1,
+    "teamColor": "Red",
+    "normMargin": 0,
+    "adjustedPower": 100
+  },
+  {
+    "rowId": "c23_d370_p25",
+    "duelId": 370,
+    "challengeId": 23,
+    "episodeId": 23,
+    "playerId": 25,
+    "playerName": "Ariadni Dimitrelou",
+    "tribe": "Athinaioi",
+    "propType": "NONE",
+    "targetType": "NONE",
+    "gamePrice": "Food",
+    "puzzle": false,
+    "airDate": "2026-02-19",
+    "week": 6,
+    "won": 1,
+    "arrivedFirst": 0,
+    "isFinalPoint": 1,
+    "teamColor": "Blue",
+    "normMargin": 0,
+    "adjustedPower": 73.53020058
   }
 ]
